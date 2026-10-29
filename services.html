@@ -176,140 +176,418 @@
       </div>
     </section>
 
-    <!-- Services Catalog Grid -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Services Catalog Grid with Interactive Category Filter -->
+    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="services-grid">
       
-      <div id="services-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Section Title & Filter Chips -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-50 dark:bg-teal-950/80 text-teal-800 dark:text-teal-300 border border-teal-200/80 dark:border-teal-800/60 mb-3">
+          Doctorate-Led Disciplines
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Evidence-Based Clinical Specialties
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2">
+          Filter by rehabilitation discipline to explore specific protocols, diagnostic equipment, and recovery milestones.
+        </p>
+
+        <!-- Interactive Filter Chips -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-6">
+          <button type="button" data-filter="all" class="service-filter-chip px-4 py-2 rounded-xl text-xs font-bold bg-teal-700 text-white shadow-md transition-all hover:scale-105">
+            All Disciplines (8)
+          </button>
+          <button type="button" data-filter="spine" class="service-filter-chip px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all hover:border-teal-400 hover:text-teal-700 dark:hover:text-teal-400">
+            Spine &amp; Discs
+          </button>
+          <button type="button" data-filter="sports" class="service-filter-chip px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all hover:border-teal-400 hover:text-teal-700 dark:hover:text-teal-400">
+            Sports Recovery
+          </button>
+          <button type="button" data-filter="postop" class="service-filter-chip px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all hover:border-teal-400 hover:text-teal-700 dark:hover:text-teal-400">
+            Post-Op Joints
+          </button>
+          <button type="button" data-filter="neuro" class="service-filter-chip px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all hover:border-teal-400 hover:text-teal-700 dark:hover:text-teal-400">
+            Neurological &amp; Balance
+          </button>
+          <button type="button" data-filter="chronic" class="service-filter-chip px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all hover:border-teal-400 hover:text-teal-700 dark:hover:text-teal-400">
+            Chronic Pain &amp; TMJ
+          </button>
+          <button type="button" data-filter="pediatric" class="service-filter-chip px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all hover:border-teal-400 hover:text-teal-700 dark:hover:text-teal-400">
+            Pediatric &amp; Scoliosis
+          </button>
+          <button type="button" data-filter="geriatric" class="service-filter-chip px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all hover:border-teal-400 hover:text-teal-700 dark:hover:text-teal-400">
+            Senior Mobility
+          </button>
+        </div>
+      </div>
+
+      <!-- Services Grid: 8 Cards -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        <!-- Card 1: Spine -->
-        <div data-category="spine" class="service-card-item bg-white dark:bg-slate-800/90 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between">
+        <!-- Card 1: Spine & Disc Decompression -->
+        <div data-category="spine" class="service-card-item bg-white dark:bg-slate-800/90 rounded-3xl p-6 sm:p-7 border border-slate-200 dark:border-slate-700/80 shadow-md hover-lift flex flex-col justify-between group transition-all">
           <div>
-            <div class="h-44 rounded-xl overflow-hidden mb-5">
-              <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80" alt="Spine therapy" class="w-full h-full object-cover">
+            <div class="h-48 rounded-2xl overflow-hidden mb-5 relative">
+              <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80" alt="Spine and disc rehabilitation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-slate-900/80 text-white backdrop-blur-sm border border-slate-700/60">
+                Spine Specialty
+              </span>
             </div>
-            <span class="text-[10px] font-bold text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950 px-2.5 py-1 rounded-full uppercase">Spine Specialty</span>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 mb-2">Spine, Disc & Posture Correction</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              Comprehensive non-surgical spinal decompression, thoracic ribcage mobilization, and McKenzie exercises for lumbar radiculopathy and posture restoration.
+            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
+              Spine, Disc &amp; Posture Correction
+            </h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-2 mb-4">
+              Computerized non-surgical spinal decompression, thoracic ribcage mobilization, and McKenzie MDT methods to relieve disc herniation, sciatica, and chronic cervical tension.
             </p>
-            <div class="space-y-1 text-xs text-slate-500 dark:text-slate-400 mb-6">
-              <p>⏱ <strong>Session Length:</strong> 60 Minutes (1:1 with DPT)</p>
-              <p>🎯 <strong>Ideal for:</strong> Herniated discs, sciatica, text-neck</p>
+            
+            <!-- Technique Tags -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">McKenzie MDT</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Spinal Traction</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Posture Ergonomics</span>
+            </div>
+
+            <!-- Clinical Metadata Box -->
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 text-[11px] space-y-1 text-slate-600 dark:text-slate-300 mb-5">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Session Protocol:</span>
+                <span class="font-bold text-slate-800 dark:text-slate-200">60 Min (1:1 with DPT)</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Recovery Milestone:</span>
+                <span class="font-semibold text-teal-700 dark:text-teal-400">75% relief in 4 weeks</span>
+              </div>
             </div>
           </div>
           <div class="pt-4 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
-            <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline">Full Protocol Guide →</a>
-            <button data-open-modal="appointment" data-service="Spine & Posture Rehab" class="px-4 py-2 rounded-xl bg-teal-700 text-white font-bold text-xs hover:bg-teal-800 transition">Book Now</button>
+            <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline flex items-center gap-1">
+              <span>Full Clinical Guide</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <button data-open-modal="appointment" data-service="Spine &amp; Posture Rehab" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 transition">
+              Book Protocol
+            </button>
           </div>
         </div>
 
-        <!-- Card 2: Sports -->
-        <div data-category="sports" class="service-card-item bg-white dark:bg-slate-800/90 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between">
+        <!-- Card 2: Sports Injury & Return-to-Play -->
+        <div data-category="sports" class="service-card-item bg-white dark:bg-slate-800/90 rounded-3xl p-6 sm:p-7 border border-slate-200 dark:border-slate-700/80 shadow-md hover-lift flex flex-col justify-between group transition-all">
           <div>
-            <div class="h-44 rounded-xl overflow-hidden mb-5">
-              <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=600&q=80" onerror="this.src='assets/images/sports-conditioning.jpg'" alt="Sports Injury & Return-to-Play Rehabilitation" class="w-full h-full object-cover">
+            <div class="h-48 rounded-2xl overflow-hidden mb-5 relative">
+              <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=600&q=80" alt="Sports Injury & Return-to-Play Rehabilitation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-slate-900/80 text-white backdrop-blur-sm border border-slate-700/60">
+                Athletic Performance
+              </span>
             </div>
-            <span class="text-[10px] font-bold text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950 px-2.5 py-1 rounded-full uppercase">Athletic Recovery</span>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 mb-2">Sports Injury & Return-to-Play</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              Biomechanical sprint/jump force plate diagnostics, eccentric loading for tendonitis, and sport-specific plyometric training.
+            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
+              Sports Injury &amp; Return-to-Play
+            </h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-2 mb-4">
+              High-frequency biomechanical force-plate diagnostics, eccentric tendon loading, and progressive agility drills designed to return athletes to full competition with zero recurrence.
             </p>
-            <div class="space-y-1 text-xs text-slate-500 dark:text-slate-400 mb-6">
-              <p>⏱ <strong>Session Length:</strong> 60 - 75 Minutes</p>
-              <p>🎯 <strong>Ideal for:</strong> ACL tears, ankle sprains, rotator cuff</p>
+            
+            <!-- Technique Tags -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Force Plates</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Eccentric Overload</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Plyometrics</span>
+            </div>
+
+            <!-- Clinical Metadata Box -->
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 text-[11px] space-y-1 text-slate-600 dark:text-slate-300 mb-5">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Session Protocol:</span>
+                <span class="font-bold text-slate-800 dark:text-slate-200">60 &ndash; 75 Min</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Target Conditions:</span>
+                <span class="font-semibold text-teal-700 dark:text-teal-400">ACL, rotator cuff, tendinopathy</span>
+              </div>
             </div>
           </div>
           <div class="pt-4 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
-            <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline">Full Protocol Guide →</a>
-            <button data-open-modal="appointment" data-service="Sports Rehabilitation" class="px-4 py-2 rounded-xl bg-teal-700 text-white font-bold text-xs hover:bg-teal-800 transition">Book Now</button>
+            <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline flex items-center gap-1">
+              <span>Full Clinical Guide</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <button data-open-modal="appointment" data-service="Sports Rehabilitation" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 transition">
+              Book Protocol
+            </button>
           </div>
         </div>
 
-        <!-- Card 3: Post-Op -->
-        <div data-category="postop" class="service-card-item bg-white dark:bg-slate-800/90 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between">
+        <!-- Card 3: Post-Surgical Joint Rehabilitation -->
+        <div data-category="postop" class="service-card-item bg-white dark:bg-slate-800/90 rounded-3xl p-6 sm:p-7 border border-slate-200 dark:border-slate-700/80 shadow-md hover-lift flex flex-col justify-between group transition-all">
           <div>
-            <div class="h-44 rounded-xl overflow-hidden mb-5">
-              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" onerror="this.src='assets/images/surgical-rehab.jpg'" alt="Post-Surgical Orthopedic Joint Rehabilitation" class="w-full h-full object-cover">
+            <div class="h-48 rounded-2xl overflow-hidden mb-5 relative">
+              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" alt="Post-Surgical Joint Rehabilitation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-slate-900/80 text-white backdrop-blur-sm border border-slate-700/60">
+                Surgeon-Aligned
+              </span>
             </div>
-            <span class="text-[10px] font-bold text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950 px-2.5 py-1 rounded-full uppercase">Surgeon Aligned</span>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 mb-2">Post-Surgical Joint Rehabilitation</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              Direct alignment with your orthopedic surgeon's postoperative timeline. Focused on scar management, edema reduction, and gentle ROM progression.
+            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
+              Post-Surgical Joint Rehabilitation
+            </h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-2 mb-4">
+              Direct protocol coordination with your orthopedic surgeon. Dedicated lymphatic drainage, scar tissue remodeling, and early unweighted locomotion via the AlterG Anti-Gravity system.
             </p>
-            <div class="space-y-1 text-xs text-slate-500 dark:text-slate-400 mb-6">
-              <p>⏱ <strong>Session Length:</strong> 60 Minutes</p>
-              <p>🎯 <strong>Ideal for:</strong> Total knee/hip, meniscus, shoulder repairs</p>
+            
+            <!-- Technique Tags -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">AlterG Unweighted</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Edema Protocol</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Gentle ROM</span>
+            </div>
+
+            <!-- Clinical Metadata Box -->
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 text-[11px] space-y-1 text-slate-600 dark:text-slate-300 mb-5">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Surgeon Collaboration:</span>
+                <span class="font-bold text-slate-800 dark:text-slate-200">Bi-Weekly Updates</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Key Focus:</span>
+                <span class="font-semibold text-teal-700 dark:text-teal-400">Total knee, hip, meniscus repair</span>
+              </div>
             </div>
           </div>
           <div class="pt-4 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
-            <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline">Full Protocol Guide →</a>
-            <button data-open-modal="appointment" data-service="Post-Op Joint Rehabilitation" class="px-4 py-2 rounded-xl bg-teal-700 text-white font-bold text-xs hover:bg-teal-800 transition">Book Now</button>
+            <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline flex items-center gap-1">
+              <span>Full Clinical Guide</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <button data-open-modal="appointment" data-service="Post-Op Joint Rehabilitation" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 transition">
+              Book Protocol
+            </button>
           </div>
         </div>
 
-        <!-- Card 4: Neuro -->
-        <div data-category="neuro" class="service-card-item bg-white dark:bg-slate-800/90 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between">
+        <!-- Card 4: Neurological & Balance Rehabilitation -->
+        <div data-category="neuro" class="service-card-item bg-white dark:bg-slate-800/90 rounded-3xl p-6 sm:p-7 border border-slate-200 dark:border-slate-700/80 shadow-md hover-lift flex flex-col justify-between group transition-all">
           <div>
-            <div class="h-44 rounded-xl overflow-hidden mb-5">
-              <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=600&q=80" alt="Neurological balance rehab" class="w-full h-full object-cover">
+            <div class="h-48 rounded-2xl overflow-hidden mb-5 relative">
+              <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=600&q=80" alt="Neurological balance and gait rehabilitation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-slate-900/80 text-white backdrop-blur-sm border border-slate-700/60">
+                Neuromotor &amp; Gait
+              </span>
             </div>
-            <span class="text-[10px] font-bold text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950 px-2.5 py-1 rounded-full uppercase">Neuromuscular</span>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 mb-2">Neurological & Balance Rehabilitation</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              Vestibular canal repositioning for vertigo, post-stroke motor relearning, and specialized Parkinson's BIG motion therapy to restore gait confidence.
+            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
+              Neurological &amp; Balance Rehabilitation
+            </h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-2 mb-4">
+              Vestibular canal repositioning for vertigo, post-stroke neuromuscular re-education, Parkinson's LSVT BIG amplitude therapies, and digital sway force analysis for fall prevention.
             </p>
-            <div class="space-y-1 text-xs text-slate-500 dark:text-slate-400 mb-6">
-              <p>⏱ <strong>Session Length:</strong> 60 Minutes</p>
-              <p>🎯 <strong>Ideal for:</strong> Vertigo (BPPV), stroke recovery, fall prevention</p>
+            
+            <!-- Technique Tags -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Vestibular Rehab</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">LSVT BIG</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Posturography</span>
+            </div>
+
+            <!-- Clinical Metadata Box -->
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 text-[11px] space-y-1 text-slate-600 dark:text-slate-300 mb-5">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Diagnostic Suite:</span>
+                <span class="font-bold text-slate-800 dark:text-slate-200">Digital Sway Plates</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Primary Goal:</span>
+                <span class="font-semibold text-teal-700 dark:text-teal-400">Restored balance &amp; gait confidence</span>
+              </div>
             </div>
           </div>
           <div class="pt-4 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
-            <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline">Full Protocol Guide →</a>
-            <button data-open-modal="appointment" data-service="Neurological Rehabilitation" class="px-4 py-2 rounded-xl bg-teal-700 text-white font-bold text-xs hover:bg-teal-800 transition">Book Now</button>
+            <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline flex items-center gap-1">
+              <span>Full Clinical Guide</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <button data-open-modal="appointment" data-service="Neurological Rehabilitation" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 transition">
+              Book Protocol
+            </button>
           </div>
         </div>
 
-        <!-- Card 5: Pediatric -->
-        <div data-category="pediatric" class="service-card-item bg-white dark:bg-slate-800/90 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between">
+        <!-- Card 5: Chronic Pain & Craniofacial / TMJ Release (NEW) -->
+        <div data-category="chronic" class="service-card-item bg-white dark:bg-slate-800/90 rounded-3xl p-6 sm:p-7 border border-slate-200 dark:border-slate-700/80 shadow-md hover-lift flex flex-col justify-between group transition-all">
           <div>
-            <div class="h-44 rounded-xl overflow-hidden mb-5">
-              <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600&q=80" alt="Pediatric physical therapy" class="w-full h-full object-cover">
+            <div class="h-48 rounded-2xl overflow-hidden mb-5 relative">
+              <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80" alt="Craniofacial and TMJ physical therapy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-slate-900/80 text-white backdrop-blur-sm border border-slate-700/60">
+                Craniofacial &amp; TMJ
+              </span>
             </div>
-            <span class="text-[10px] font-bold text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950 px-2.5 py-1 rounded-full uppercase">Pediatric & Youth</span>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 mb-2">Pediatric Orthopedics & Scoliosis</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              Schroth method scoliosis curve management, Sever's disease heel pain, Osgood-Schlatter knee care, and youth sports overuse injury prevention.
+            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
+              Myofascial Pain &amp; TMJ Release
+            </h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-2 mb-4">
+              Advanced intraoral pterygoid mobilization, targeted dry needling for cervicogenic headaches, and deep myofascial release for chronic jaw tension, clicking, and fibromyalgia.
             </p>
-            <div class="space-y-1 text-xs text-slate-500 dark:text-slate-400 mb-6">
-              <p>⏱ <strong>Session Length:</strong> 45 - 60 Minutes</p>
-              <p>🎯 <strong>Ideal for:</strong> Children & teens with spinal or growth pains</p>
+            
+            <!-- Technique Tags -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Intraoral Pterygoid</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Dry Needling</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Headache Protocol</span>
+            </div>
+
+            <!-- Clinical Metadata Box -->
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 text-[11px] space-y-1 text-slate-600 dark:text-slate-300 mb-5">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Therapist Cert:</span>
+                <span class="font-bold text-slate-800 dark:text-slate-200">Craniofacial Certified DPT</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Expected Outcome:</span>
+                <span class="font-semibold text-teal-700 dark:text-teal-400">Immediate jaw &amp; temple pressure drop</span>
+              </div>
             </div>
           </div>
           <div class="pt-4 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
-            <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline">Full Protocol Guide →</a>
-            <button data-open-modal="appointment" data-service="Pediatric Orthopedics" class="px-4 py-2 rounded-xl bg-teal-700 text-white font-bold text-xs hover:bg-teal-800 transition">Book Now</button>
+            <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline flex items-center gap-1">
+              <span>Full Clinical Guide</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <button data-open-modal="appointment" data-service="TMJ &amp; Chronic Pain" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 transition">
+              Book Protocol
+            </button>
           </div>
         </div>
 
-        <!-- Card 6: Geriatric / Chronic -->
-        <div data-category="spine" class="service-card-item bg-white dark:bg-slate-800/90 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between">
+        <!-- Card 6: Pediatric Orthopedics & Scoliosis -->
+        <div data-category="pediatric" class="service-card-item bg-white dark:bg-slate-800/90 rounded-3xl p-6 sm:p-7 border border-slate-200 dark:border-slate-700/80 shadow-md hover-lift flex flex-col justify-between group transition-all">
           <div>
-            <div class="h-44 rounded-xl overflow-hidden mb-5">
-              <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=600&q=80" alt="Senior mobility" class="w-full h-full object-cover">
+            <div class="h-48 rounded-2xl overflow-hidden mb-5 relative">
+              <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600&q=80" alt="Pediatric and youth orthopedic therapy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-slate-900/80 text-white backdrop-blur-sm border border-slate-700/60">
+                Youth &amp; Adolescent
+              </span>
             </div>
-            <span class="text-[10px] font-bold text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950 px-2.5 py-1 rounded-full uppercase">Healthy Aging</span>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 mb-2">Senior Mobility & Osteoarthritis</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              Low-impact hydrotherapy, gentle joint lubrication, bone density loading, and balance stability to preserve independent living.
+            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
+              Pediatric Orthopedics &amp; Scoliosis
+            </h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-2 mb-4">
+              Schroth-method scoliosis 3D rotational breathing exercises, Sever's disease calcaneal loading, Osgood-Schlatter knee care, and specialized youth athletic overuse injury prevention.
             </p>
-            <div class="space-y-1 text-xs text-slate-500 dark:text-slate-400 mb-6">
-              <p>⏱ <strong>Session Length:</strong> 45 Minutes</p>
-              <p>🎯 <strong>Ideal for:</strong> Osteoarthritis, spinal stenosis, hip stiffness</p>
+            
+            <!-- Technique Tags -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Schroth Method</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Growth Plate Safe</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Youth Conditioning</span>
+            </div>
+
+            <!-- Clinical Metadata Box -->
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 text-[11px] space-y-1 text-slate-600 dark:text-slate-300 mb-5">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Age Specialization:</span>
+                <span class="font-bold text-slate-800 dark:text-slate-200">Ages 7 to 18</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Treatment Approach:</span>
+                <span class="font-semibold text-teal-700 dark:text-teal-400">Playful, high-engagement rehab</span>
+              </div>
             </div>
           </div>
           <div class="pt-4 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
-            <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline">Full Protocol Guide →</a>
-            <button data-open-modal="appointment" data-service="Senior Mobility Care" class="px-4 py-2 rounded-xl bg-teal-700 text-white font-bold text-xs hover:bg-teal-800 transition">Book Now</button>
+            <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline flex items-center gap-1">
+              <span>Full Clinical Guide</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <button data-open-modal="appointment" data-service="Pediatric Orthopedics" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 transition">
+              Book Protocol
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 7: Senior Mobility & Osteoarthritis -->
+        <div data-category="geriatric" class="service-card-item bg-white dark:bg-slate-800/90 rounded-3xl p-6 sm:p-7 border border-slate-200 dark:border-slate-700/80 shadow-md hover-lift flex flex-col justify-between group transition-all">
+          <div>
+            <div class="h-48 rounded-2xl overflow-hidden mb-5 relative">
+              <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=600&q=80" alt="Senior mobility and joint longevity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-slate-900/80 text-white backdrop-blur-sm border border-slate-700/60">
+                Active Longevity
+              </span>
+            </div>
+            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
+              Senior Mobility &amp; Osteoarthritis
+            </h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-2 mb-4">
+              Gentle synovial joint lubrication techniques, low-impact bone density loading, AlterG unweighted gait conditioning, and stair-climbing confidence programs for lasting independence.
+            </p>
+            
+            <!-- Technique Tags -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Joint Sparing</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Osteo-Load</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Fall Prevention</span>
+            </div>
+
+            <!-- Clinical Metadata Box -->
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 text-[11px] space-y-1 text-slate-600 dark:text-slate-300 mb-5">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Key Focus:</span>
+                <span class="font-bold text-slate-800 dark:text-slate-200">Knee/hip arthritis, stenosis</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Primary Goal:</span>
+                <span class="font-semibold text-teal-700 dark:text-teal-400">Preserving active living without surgery</span>
+              </div>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
+            <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline flex items-center gap-1">
+              <span>Full Clinical Guide</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <button data-open-modal="appointment" data-service="Senior Mobility Care" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 transition">
+              Book Protocol
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 8: Pelvic Health & Core Kinematic Rehabilitation (NEW) -->
+        <div data-category="chronic" class="service-card-item bg-white dark:bg-slate-800/90 rounded-3xl p-6 sm:p-7 border border-slate-200 dark:border-slate-700/80 shadow-md hover-lift flex flex-col justify-between group transition-all">
+          <div>
+            <div class="h-48 rounded-2xl overflow-hidden mb-5 relative">
+              <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Pelvic health and core restoration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-slate-900/80 text-white backdrop-blur-sm border border-slate-700/60">
+                Core &amp; Pelvic
+              </span>
+            </div>
+            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
+              Pelvic Floor &amp; Core Restoration
+            </h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-2 mb-4">
+              High-resolution EMG biofeedback, diastasis recti core closure, postpartum athletic return, and specialized sacroiliac (SI) joint stability programs delivered in private suites.
+            </p>
+            
+            <!-- Technique Tags -->
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">EMG Biofeedback</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">Diastasis Closure</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 border border-teal-100 dark:border-teal-900/40">SI Joint Stability</span>
+            </div>
+
+            <!-- Clinical Metadata Box -->
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 text-[11px] space-y-1 text-slate-600 dark:text-slate-300 mb-5">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Privacy Guarantee:</span>
+                <span class="font-bold text-slate-800 dark:text-slate-200">100% Private Clinical Suite</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 dark:text-slate-500">Clinician:</span>
+                <span class="font-semibold text-teal-700 dark:text-teal-400">Board-Certified Pelvic DPT</span>
+              </div>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
+            <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline flex items-center gap-1">
+              <span>Full Clinical Guide</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <button data-open-modal="appointment" data-service="Pelvic Health" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 transition">
+              Book Protocol
+            </button>
           </div>
         </div>
 
@@ -317,7 +595,303 @@
 
     </section>
 
-  </main>
+    <!-- NEW SECTION 1: The Patient Experience & 4-Phase Recovery Protocol -->
+    <section class="py-20 bg-slate-100/70 dark:bg-slate-900/60 border-t border-slate-200/80 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-50 dark:bg-teal-950/80 text-teal-800 dark:text-teal-300 border border-teal-200/80 dark:border-teal-800/60 mb-3">
+            The Patient Experience
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            How Your Doctoral Rehabilitation Journey Works
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+            From Day 1 root-cause biomechanical scanning to permanent athletic resilience, our structured 4-phase pathway leaves zero room for recurring injuries.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Phase 1 -->
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 border border-slate-200/90 dark:border-slate-800 shadow-md relative group hover:border-teal-500/50 hover-lift transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/80 text-teal-700 dark:text-teal-400 font-black text-xl flex items-center justify-center border border-teal-200/80 dark:border-teal-800/60 mb-5">
+              01
+            </div>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-teal-700 dark:text-teal-400">Day 1 Intake</span>
+            <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mt-1 mb-2">Kinematic Root Scan</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              We do not just press where it hurts. We run high-speed motion capture, surface EMG, and joint load analysis to isolate the exact biomechanical origin of your pain.
+            </p>
+            <div class="pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] text-teal-800 dark:text-teal-300 font-semibold flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Personalized Kinematic Report</span>
+            </div>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 border border-slate-200/90 dark:border-slate-800 shadow-md relative group hover:border-teal-500/50 hover-lift transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/80 text-teal-700 dark:text-teal-400 font-black text-xl flex items-center justify-center border border-teal-200/80 dark:border-teal-800/60 mb-5">
+              02
+            </div>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-teal-700 dark:text-teal-400">Weeks 1 &ndash; 2</span>
+            <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mt-1 mb-2">Acute De-Escalation</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              Immediate symptom suppression utilizing radial acoustic shockwave, computer spinal decompression, and targeted manual release to turn off chronic nerve guard loops.
+            </p>
+            <div class="pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] text-teal-800 dark:text-teal-300 font-semibold flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Target: 70%+ Pain Drop</span>
+            </div>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 border border-slate-200/90 dark:border-slate-800 shadow-md relative group hover:border-teal-500/50 hover-lift transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/80 text-teal-700 dark:text-teal-400 font-black text-xl flex items-center justify-center border border-teal-200/80 dark:border-teal-800/60 mb-5">
+              03
+            </div>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-teal-700 dark:text-teal-400">Weeks 3 &ndash; 5</span>
+            <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mt-1 mb-2">Motor Re-Patterning</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              Restoring inhibited stabilizers via unweighted AlterG locomotion, eccentric muscle loading, and dynamic proprioceptive balance plates to correct muscle firing order.
+            </p>
+            <div class="pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] text-teal-800 dark:text-teal-300 font-semibold flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Symmetrical Joint Stability</span>
+            </div>
+          </div>
+
+          <!-- Phase 4 -->
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 border border-slate-200/90 dark:border-slate-800 shadow-md relative group hover:border-teal-500/50 hover-lift transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/80 text-teal-700 dark:text-teal-400 font-black text-xl flex items-center justify-center border border-teal-200/80 dark:border-teal-800/60 mb-5">
+              04
+            </div>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-teal-700 dark:text-teal-400">Weeks 6+</span>
+            <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mt-1 mb-2">Functional Hardening</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              Tissue tolerance must exceed daily life stress demands. We test power production on dual force plates and transition your exercise regime into our digital home portal.
+            </p>
+            <div class="pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] text-teal-800 dark:text-teal-300 font-semibold flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Permanent Zero Recurrence</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NEW SECTION 2: Medical Diagnostic Technology & Technology Labs -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-50 dark:bg-teal-950/80 text-teal-800 dark:text-teal-300 border border-teal-200/80 dark:border-teal-800/60 mb-2">
+            Clinical Infrastructure
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+            Medical Diagnostic Equipment &amp; Labs
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 max-w-2xl">
+            We invest in FDA-cleared rehabilitation technologies to objectively measure kinetic parameters that standard outpatient clinics only guess.
+          </p>
+        </div>
+        <a href="therapists.html" class="inline-flex items-center gap-2 text-sm font-bold text-teal-700 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300 transition">
+          <span>Meet our doctoral operators</span>
+          <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Tech 1: AlterG -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md group hover-lift transition-all">
+          <div class="h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="AlterG Anti-Gravity Treadmill" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-teal-900/90 text-teal-200 backdrop-blur-sm border border-teal-700/60">
+              NASA Technology
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-extrabold text-slate-900 dark:text-white text-base">AlterG® Anti-Gravity System</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1.5 leading-relaxed">
+              Differential Air Pressure unweights body mass down to 20%, allowing early walking and sprint mechanics without joint impact.
+            </p>
+            <div class="mt-3 text-[11px] font-bold text-teal-700 dark:text-teal-400">
+              Applications: Post-op ACL, Achilles, osteoarthritis
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech 2: Shockwave -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md group hover-lift transition-all">
+          <div class="h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80" alt="Radial Extracorporeal Shockwave Therapy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-teal-900/90 text-teal-200 backdrop-blur-sm border border-teal-700/60">
+              Regenerative Acoustic
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-extrabold text-slate-900 dark:text-white text-base">Radial Shockwave (ESWT)</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1.5 leading-relaxed">
+              High-energy ballistic pressure pulses dissolve calcific deposits and stimulate rapid biological tissue remodeling.
+            </p>
+            <div class="mt-3 text-[11px] font-bold text-teal-700 dark:text-teal-400">
+              Applications: Plantar fasciitis, tennis elbow, calcific tendinitis
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech 3: Force Plates -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md group hover-lift transition-all">
+          <div class="h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=600&q=80" alt="Force Plate Diagnostics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-teal-900/90 text-teal-200 backdrop-blur-sm border border-teal-700/60">
+              1000Hz Motion Lab
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-extrabold text-slate-900 dark:text-white text-base">Dual Biomechanical Force Plates</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1.5 leading-relaxed">
+              Measures bilateral limb symmetry, ground contact impulse, and jump deceleration to ensure athletic symmetry before discharge.
+            </p>
+            <div class="mt-3 text-[11px] font-bold text-teal-700 dark:text-teal-400">
+              Applications: Return-to-play testing, knee stability
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech 4: Ultrasound Guided Needling -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md group hover-lift transition-all">
+          <div class="h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" alt="Ultrasound Dry Needling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-teal-900/90 text-teal-200 backdrop-blur-sm border border-teal-700/60">
+              Precision Needling
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-extrabold text-slate-900 dark:text-white text-base">Ultrasound Dry Needling</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1.5 leading-relaxed">
+              Direct visualization of myofascial bands and spinal multifidus under ultrasound to release deep muscle spasms without surgery.
+            </p>
+            <div class="mt-3 text-[11px] font-bold text-teal-700 dark:text-teal-400">
+              Applications: Cervical spasms, gluteal tightness, sciatica
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- NEW SECTION 3: Standard Outpatient PT vs. The PhysioCare Difference -->
+    <section class="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-14">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-50 dark:bg-teal-950/80 text-teal-800 dark:text-teal-300 border border-teal-200/80 dark:border-teal-800/60 mb-2">
+            Clinical Integrity
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+            Why Discerning Patients Choose PhysioCare
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 max-w-xl mx-auto">
+            See the structural differences between traditional corporate outpatient clinics and our doctoral 1-on-1 model.
+          </p>
+        </div>
+
+        <!-- Comparison Table Container -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl">
+          <div class="grid grid-cols-12 bg-slate-100/80 dark:bg-slate-800/80 p-4 sm:p-5 text-xs font-extrabold text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-700/80">
+            <div class="col-span-5 sm:col-span-4 uppercase tracking-wider">Clinical Criteria</div>
+            <div class="col-span-3 sm:col-span-4 text-slate-400 dark:text-slate-500 font-semibold">Standard PT Clinic</div>
+            <div class="col-span-4 text-teal-700 dark:text-teal-400 font-black">PhysioCare Flagship</div>
+          </div>
+
+          <div class="divide-y divide-slate-100 dark:divide-slate-800 text-xs sm:text-sm">
+            
+            <div class="grid grid-cols-12 p-4 sm:p-5 items-center">
+              <div class="col-span-5 sm:col-span-4 font-bold text-slate-900 dark:text-white">Doctor Face Time</div>
+              <div class="col-span-3 sm:col-span-4 text-slate-500 dark:text-slate-400">10 &ndash; 15 mins (rushed)</div>
+              <div class="col-span-4 font-extrabold text-teal-700 dark:text-teal-300 flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <span>Full 60 Mins 1-on-1</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-12 p-4 sm:p-5 items-center bg-slate-50/50 dark:bg-slate-800/30">
+              <div class="col-span-5 sm:col-span-4 font-bold text-slate-900 dark:text-white">Treating Clinician</div>
+              <div class="col-span-3 sm:col-span-4 text-slate-500 dark:text-slate-400">Passed to aides / assistants</div>
+              <div class="col-span-4 font-extrabold text-teal-700 dark:text-teal-300 flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <span>Licensed DPT only</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-12 p-4 sm:p-5 items-center">
+              <div class="col-span-5 sm:col-span-4 font-bold text-slate-900 dark:text-white">Modalities Used</div>
+              <div class="col-span-3 sm:col-span-4 text-slate-500 dark:text-slate-400">Hot packs &amp; unsupervised stim</div>
+              <div class="col-span-4 font-extrabold text-teal-700 dark:text-teal-300 flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <span>AlterG, ESWT, Force Plates</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-12 p-4 sm:p-5 items-center bg-slate-50/50 dark:bg-slate-800/30">
+              <div class="col-span-5 sm:col-span-4 font-bold text-slate-900 dark:text-white">Patient Portal &amp; ROM</div>
+              <div class="col-span-3 sm:col-span-4 text-slate-500 dark:text-slate-400">Paper exercise printout</div>
+              <div class="col-span-4 font-extrabold text-teal-700 dark:text-teal-300 flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <span>Digital Portal &amp; Direct Chat</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-12 p-4 sm:p-5 items-center">
+              <div class="col-span-5 sm:col-span-4 font-bold text-slate-900 dark:text-white">Discharge Criteria</div>
+              <div class="col-span-3 sm:col-span-4 text-slate-500 dark:text-slate-400">Recurring open-ended bookings</div>
+              <div class="col-span-4 font-extrabold text-teal-700 dark:text-teal-300 flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <span>Clear Milestone Graduation</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NEW SECTION 4: Clinical Consultation & Direct Booking Strip -->
+    <section class="py-16 bg-gradient-to-r from-teal-900 via-slate-900 to-slate-950 text-white border-y border-teal-800/40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-8 space-y-3">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-widest bg-teal-800/60 text-teal-300 border border-teal-600/40">
+              Direct Access Available
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+              Ready to Resolve Your Pain at the Biomechanical Root?
+            </h2>
+            <p class="text-sm text-slate-200 leading-relaxed max-w-2xl">
+              No doctor referral needed. Schedule your uninterrupted 60-minute diagnostic intake with a Doctor of Physical Therapy today.
+            </p>
+          </div>
+
+          <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
+            <button data-open-modal="appointment" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 font-black text-sm text-center shadow-xl shadow-teal-500/25 transition">
+              Book Diagnostic Intake
+            </button>
+            <a href="therapists.html" class="w-full py-3.5 px-6 rounded-2xl border border-slate-700 hover:border-slate-500 text-slate-200 hover:text-white font-bold text-sm text-center transition">
+              Meet Our Clinical Specialists &rarr;
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+</main>
 
   <!-- Universal Clinic Footer -->
   <footer class="bg-[#edf8f6] dark:bg-slate-900 text-slate-600 dark:text-slate-400 pt-16 pb-12 border-t border-teal-200/70 dark:border-slate-800 text-sm transition-colors duration-200">

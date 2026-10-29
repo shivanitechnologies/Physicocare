@@ -251,6 +251,55 @@
       </div>
     </section>
 
+    <!-- Clinical Accreditations & Medical Trust Bar -->
+    <section class="py-8 bg-white dark:bg-slate-900 border-y border-slate-200/90 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center text-center">
+          
+          <div class="flex items-center justify-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/80 text-teal-700 dark:text-teal-400 flex items-center justify-center font-black text-sm border border-teal-200/60">
+              DPT
+            </div>
+            <div class="text-left">
+              <p class="text-xs font-bold text-slate-900 dark:text-white">100% Doctors of PT</p>
+              <p class="text-[10px] text-slate-500 dark:text-slate-400">Zero Unsupervised Aides</p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/80 text-teal-700 dark:text-teal-400 flex items-center justify-center font-black text-sm border border-teal-200/60">
+              OCS
+            </div>
+            <div class="text-left">
+              <p class="text-xs font-bold text-slate-900 dark:text-white">Board-Certified OCS</p>
+              <p class="text-[10px] text-slate-500 dark:text-slate-400">Orthopedic Specialist</p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/80 text-teal-700 dark:text-teal-400 flex items-center justify-center font-black text-sm border border-teal-200/60">
+              FAA
+            </div>
+            <div class="text-left">
+              <p class="text-xs font-bold text-slate-900 dark:text-white">FAAOMPT Fellow</p>
+              <p class="text-[10px] text-slate-500 dark:text-slate-400">Top 1% Manual Therapy</p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/80 text-teal-700 dark:text-teal-400 flex items-center justify-center font-black text-sm border border-teal-200/60">
+              MDT
+            </div>
+            <div class="text-left">
+              <p class="text-xs font-bold text-slate-900 dark:text-white">McKenzie Spine MDT</p>
+              <p class="text-[10px] text-slate-500 dark:text-slate-400">Mechanical Diagnosis</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- The 4-Stage Precision Healing Roadmap -->
     <section class="py-20 bg-slate-100/70 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -325,6 +374,391 @@
       </div>
     </section>
 
+    <!-- Interactive Clinical Pathway & Symptom Navigator (NEW) -->
+    <section id="symptom-navigator" class="py-20 bg-white dark:bg-slate-900 border-t border-slate-200/80 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-50 dark:bg-teal-950/80 text-teal-800 dark:text-teal-300 border border-teal-200/80 dark:border-teal-800/60 mb-3">
+            Interactive Clinical Triage
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Targeted Symptom-to-Recovery Navigator
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2">
+            Select your primary area of pain to inspect our proven diagnostic protocol, target recovery timeline, and assigned clinical director.
+          </p>
+
+          <!-- Pathway Selector Tabs -->
+          <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-8" id="pathway-tabs">
+            <button type="button" data-pathway="spine" class="pathway-tab-btn active px-4 py-2.5 rounded-xl text-xs font-bold bg-teal-700 text-white shadow-md transition-all">
+              ⚡ Spine &amp; Sciatica
+            </button>
+            <button type="button" data-pathway="knee" class="pathway-tab-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-teal-400 transition-all">
+              🦵 Knee &amp; ACL
+            </button>
+            <button type="button" data-pathway="shoulder" class="pathway-tab-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-teal-400 transition-all">
+              🎯 Shoulder &amp; Rotator Cuff
+            </button>
+            <button type="button" data-pathway="neck" class="pathway-tab-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-teal-400 transition-all">
+              💆 Neck &amp; Headaches
+            </button>
+            <button type="button" data-pathway="hip" class="pathway-tab-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-teal-400 transition-all">
+              🏃 Hip &amp; Pelvic Core
+            </button>
+            <button type="button" data-pathway="ankle" class="pathway-tab-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-teal-400 transition-all">
+              👟 Foot &amp; Achilles
+            </button>
+          </div>
+        </div>
+
+        <!-- Pathway Cards Container -->
+        <div id="pathway-panels">
+          
+          <!-- Panel 1: Spine (Default Active) -->
+          <div class="pathway-panel active bg-gradient-to-br from-slate-50 to-teal-50/40 dark:from-slate-800/90 dark:to-teal-950/30 rounded-3xl p-6 sm:p-10 border border-teal-200/80 dark:border-teal-900/60 shadow-xl transition-all">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+              
+              <div class="lg:col-span-7 space-y-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300">
+                  L4-L5 &amp; L5-S1 Radiculopathy Protocol
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+                  Non-Surgical Spinal Decompression &amp; McKenzie MDT
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Most disc bulges cause radiating nerve root irritation due to mechanical compression and protective muscle guarding. Our protocol gently decompresses the intervertebral disc spaces, drawing nutrient-rich fluid back into injured annular fibers.
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                  <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80">
+                    <p class="text-[11px] font-bold uppercase text-slate-400 dark:text-slate-500">Diagnostic Focus</p>
+                    <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Directional Preference &amp; Slump Test</p>
+                  </div>
+                  <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80">
+                    <p class="text-[11px] font-bold uppercase text-slate-400 dark:text-slate-500">Core Technologies</p>
+                    <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Traction Decompression + Surface EMG</p>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3 pt-3">
+                  <button data-open-modal="appointment" data-service="Spine Protocol" class="px-6 py-3 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 transition">
+                    Book Spine Evaluation
+                  </button>
+                  <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline">
+                    View Full Clinical Literature &rarr;
+                  </a>
+                </div>
+              </div>
+
+              <div class="lg:col-span-5 bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-md space-y-4">
+                <div class="flex items-center gap-3 pb-3 border-b border-slate-100 dark:border-slate-700">
+                  <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=200&q=80" alt="Dr. Marcus Chen" class="w-12 h-12 rounded-2xl object-cover border-2 border-teal-500">
+                  <div>
+                    <h4 class="font-extrabold text-sm text-slate-900 dark:text-white">Dr. Marcus Chen, DPT, OCS</h4>
+                    <p class="text-[11px] text-teal-700 dark:text-teal-400 font-semibold">Director of Spinal Biomechanics</p>
+                  </div>
+                </div>
+
+                <div class="space-y-2 text-xs">
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500 dark:text-slate-400">Avg. Recovery Milestone:</span>
+                    <span class="font-extrabold text-emerald-600 dark:text-emerald-400">80% relief in 28 days</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500 dark:text-slate-400">Surgery Avoidance Rate:</span>
+                    <span class="font-extrabold text-slate-900 dark:text-white">94.2% documented</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500 dark:text-slate-400">Appointment Duration:</span>
+                    <span class="font-extrabold text-slate-900 dark:text-white">60 Minutes uninterrupted</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Panel 2: Knee -->
+          <div class="pathway-panel hidden bg-gradient-to-br from-slate-50 to-teal-50/40 dark:from-slate-800/90 dark:to-teal-950/30 rounded-3xl p-6 sm:p-10 border border-teal-200/80 dark:border-teal-900/60 shadow-xl transition-all">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+              <div class="lg:col-span-7 space-y-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300">
+                  ACL, Meniscus &amp; Patellar Tendon Pathway
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+                  AlterG® Anti-Gravity &amp; Force Plate Jump Deceleration
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Post-operative knee rehabilitation requires progressive, controlled loading. We utilize the AlterG unweighted system to restore normal gait patterns weeks ahead of schedule without micro-damage to surgical grafts.
+                </p>
+                <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                  <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80">
+                    <p class="text-[11px] font-bold uppercase text-slate-400 dark:text-slate-500">Diagnostic Focus</p>
+                    <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Limb Symmetry Index (LSI) &gt;95%</p>
+                  </div>
+                  <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80">
+                    <p class="text-[11px] font-bold uppercase text-slate-400 dark:text-slate-500">Core Technologies</p>
+                    <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">AlterG Treadmill + Dual Force Plates</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 pt-3">
+                  <button data-open-modal="appointment" data-service="Knee Protocol" class="px-6 py-3 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 transition">
+                    Book Knee Evaluation
+                  </button>
+                  <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline">
+                    View Full Clinical Literature &rarr;
+                  </a>
+                </div>
+              </div>
+
+              <div class="lg:col-span-5 bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-md space-y-4">
+                <div class="flex items-center gap-3 pb-3 border-b border-slate-100 dark:border-slate-700">
+                  <img src="https://images.unsplash.com/photo-1594824813590-48227b686358?auto=format&fit=crop&w=200&q=80" alt="Dr. Sarah Jenkins" class="w-12 h-12 rounded-2xl object-cover border-2 border-teal-500">
+                  <div>
+                    <h4 class="font-extrabold text-sm text-slate-900 dark:text-white">Dr. Sarah Jenkins, DPT, SCS</h4>
+                    <p class="text-[11px] text-teal-700 dark:text-teal-400 font-semibold">Head of Sports Orthopedic Rehab</p>
+                  </div>
+                </div>
+                <div class="space-y-2 text-xs">
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500 dark:text-slate-400">Return-to-Run Timeline:</span>
+                    <span class="font-extrabold text-emerald-600 dark:text-emerald-400">Week 8 on AlterG (100% impact safe)</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500 dark:text-slate-400">Re-Tear Prevention Rate:</span>
+                    <span class="font-extrabold text-slate-900 dark:text-white">98.6% across 450+ athletes</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3: Shoulder -->
+          <div class="pathway-panel hidden bg-gradient-to-br from-slate-50 to-teal-50/40 dark:from-slate-800/90 dark:to-teal-950/30 rounded-3xl p-6 sm:p-10 border border-teal-200/80 dark:border-teal-900/60 shadow-xl transition-all">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+              <div class="lg:col-span-7 space-y-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300">
+                  Impingement &amp; Labrum Restoration
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+                  High-Grade Glenohumeral Joint Mobilization &amp; Rotator Cuff Loading
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Shoulder pain is frequently driven by scapular dyskinesis and posterior capsule tightness. We restore joint glide mechanics before progressively reloading the rotator cuff tendons through isometric holds.
+                </p>
+                <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                  <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80">
+                    <p class="text-[11px] font-bold uppercase text-slate-400 dark:text-slate-500">Diagnostic Focus</p>
+                    <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Scapular Rhythm &amp; Neer/Hawkins</p>
+                  </div>
+                  <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80">
+                    <p class="text-[11px] font-bold uppercase text-slate-400 dark:text-slate-500">Core Technologies</p>
+                    <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Manual Mobilization + Radial ESWT</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 pt-3">
+                  <button data-open-modal="appointment" data-service="Shoulder Protocol" class="px-6 py-3 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 transition">
+                    Book Shoulder Evaluation
+                  </button>
+                  <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline">
+                    View Full Clinical Literature &rarr;
+                  </a>
+                </div>
+              </div>
+
+              <div class="lg:col-span-5 bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-md space-y-4">
+                <div class="flex items-center gap-3 pb-3 border-b border-slate-100 dark:border-slate-700">
+                  <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=200&q=80" alt="Dr. Elena Rostova" class="w-12 h-12 rounded-2xl object-cover border-2 border-teal-500">
+                  <div>
+                    <h4 class="font-extrabold text-sm text-slate-900 dark:text-white">Dr. Elena Rostova, DPT, FAAOMPT</h4>
+                    <p class="text-[11px] text-teal-700 dark:text-teal-400 font-semibold">Senior Fellow in Manual Physical Therapy</p>
+                  </div>
+                </div>
+                <div class="space-y-2 text-xs">
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500 dark:text-slate-400">Flexion Restoration:</span>
+                    <span class="font-extrabold text-emerald-600 dark:text-emerald-400">85&deg; to 175&deg; average</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500 dark:text-slate-400">Night Sleep Improvement:</span>
+                    <span class="font-extrabold text-slate-900 dark:text-white">Zero waking within 14 days</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 4: Neck -->
+          <div class="pathway-panel hidden bg-gradient-to-br from-slate-50 to-teal-50/40 dark:from-slate-800/90 dark:to-teal-950/30 rounded-3xl p-6 sm:p-10 border border-teal-200/80 dark:border-teal-900/60 shadow-xl transition-all">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+              <div class="lg:col-span-7 space-y-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300">
+                  Cervicogenic Headache &amp; Forward Head Alignment
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+                  Suboccipital Decompression &amp; Deep Cervical Flexor Retraining
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Screen-induced forward head posture places up to 45 lbs of excess load on upper cervical facets C1-C3. We decompress the suboccipital nerve exits and reactivate deep neck flexor stabilizers.
+                </p>
+                <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                  <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80">
+                    <p class="text-[11px] font-bold uppercase text-slate-400 dark:text-slate-500">Diagnostic Focus</p>
+                    <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Cervical Range &amp; Cranio-Cervical Flexion</p>
+                  </div>
+                  <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80">
+                    <p class="text-[11px] font-bold uppercase text-slate-400 dark:text-slate-500">Core Technologies</p>
+                    <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Pressure Biofeedback + Dry Needling</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 pt-3">
+                  <button data-open-modal="appointment" data-service="Neck Protocol" class="px-6 py-3 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 transition">
+                    Book Neck Evaluation
+                  </button>
+                  <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline">
+                    View Full Clinical Literature &rarr;
+                  </a>
+                </div>
+              </div>
+
+              <div class="lg:col-span-5 bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-md space-y-4">
+                <div class="flex items-center gap-3 pb-3 border-b border-slate-100 dark:border-slate-700">
+                  <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=200&q=80" alt="Dr. Marcus Chen" class="w-12 h-12 rounded-2xl object-cover border-2 border-teal-500">
+                  <div>
+                    <h4 class="font-extrabold text-sm text-slate-900 dark:text-white">Dr. Marcus Chen, DPT, OCS</h4>
+                    <p class="text-[11px] text-teal-700 dark:text-teal-400 font-semibold">Cervicogenic Headache Lead</p>
+                  </div>
+                </div>
+                <div class="space-y-2 text-xs">
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500 dark:text-slate-400">Headache Frequency Drop:</span>
+                    <span class="font-extrabold text-emerald-600 dark:text-emerald-400">89% reduction in 3 weeks</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500 dark:text-slate-400">Posture Correction:</span>
+                    <span class="font-extrabold text-slate-900 dark:text-white">Eliminates 30+ lbs cervical load</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 5: Hip -->
+          <div class="pathway-panel hidden bg-gradient-to-br from-slate-50 to-teal-50/40 dark:from-slate-800/90 dark:to-teal-950/30 rounded-3xl p-6 sm:p-10 border border-teal-200/80 dark:border-teal-900/60 shadow-xl transition-all">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+              <div class="lg:col-span-7 space-y-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300">
+                  Femoroacetabular Impingement (FAI) &amp; Labrum
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+                  Hip Capsule Distraction &amp; Gluteal Vector Strengthening
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Chronic groin pinch and deep hip clicking stem from femoral head anterior glide. We restore posterior-inferior capsule clearance and strengthen the gluteus medius for zero pinch during deep squats.
+                </p>
+                <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                  <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80">
+                    <p class="text-[11px] font-bold uppercase text-slate-400 dark:text-slate-500">Diagnostic Focus</p>
+                    <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">FADIR &amp; FABER Pelvic Tests</p>
+                  </div>
+                  <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80">
+                    <p class="text-[11px] font-bold uppercase text-slate-400 dark:text-slate-500">Core Technologies</p>
+                    <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Belt Distraction + Kinematic Biofeedback</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 pt-3">
+                  <button data-open-modal="appointment" data-service="Hip Protocol" class="px-6 py-3 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 transition">
+                    Book Hip Evaluation
+                  </button>
+                  <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline">
+                    View Full Clinical Literature &rarr;
+                  </a>
+                </div>
+              </div>
+
+              <div class="lg:col-span-5 bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-md space-y-4">
+                <div class="flex items-center gap-3 pb-3 border-b border-slate-100 dark:border-slate-700">
+                  <img src="https://images.unsplash.com/photo-1594824813590-48227b686358?auto=format&fit=crop&w=200&q=80" alt="Dr. Sarah Jenkins" class="w-12 h-12 rounded-2xl object-cover border-2 border-teal-500">
+                  <div>
+                    <h4 class="font-extrabold text-sm text-slate-900 dark:text-white">Dr. Sarah Jenkins, DPT, SCS</h4>
+                    <p class="text-[11px] text-teal-700 dark:text-teal-400 font-semibold">Pelvic-Femoral Kinematics</p>
+                  </div>
+                </div>
+                <div class="space-y-2 text-xs">
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500 dark:text-slate-400">Deep Squat Pinch Free:</span>
+                    <span class="font-extrabold text-emerald-600 dark:text-emerald-400">92% success rate</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500 dark:text-slate-400">Typical Sessions:</span>
+                    <span class="font-extrabold text-slate-900 dark:text-white">6 to 8 visits</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 6: Ankle -->
+          <div class="pathway-panel hidden bg-gradient-to-br from-slate-50 to-teal-50/40 dark:from-slate-800/90 dark:to-teal-950/30 rounded-3xl p-6 sm:p-10 border border-teal-200/80 dark:border-teal-900/60 shadow-xl transition-all">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+              <div class="lg:col-span-7 space-y-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300">
+                  Plantar Fasciitis &amp; Achilles Tendinopathy
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+                  Radial Shockwave (ESWT) &amp; Eccentric Gastrocnemius Loading
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Chronic heel morning stiffness indicates degenerated collagen fibrils. High-energy acoustic shock pulses disintegrate stubborn scar plaques while heavy-slow resistance restores the spring capacity of the tendon.
+                </p>
+                <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                  <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80">
+                    <p class="text-[11px] font-bold uppercase text-slate-400 dark:text-slate-500">Diagnostic Focus</p>
+                    <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Ultrasound Tendon Thickness Scan</p>
+                  </div>
+                  <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80">
+                    <p class="text-[11px] font-bold uppercase text-slate-400 dark:text-slate-500">Core Technologies</p>
+                    <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Radial Shockwave + Force Plates</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 pt-3">
+                  <button data-open-modal="appointment" data-service="Foot &amp; Ankle Protocol" class="px-6 py-3 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 transition">
+                    Book Foot Evaluation
+                  </button>
+                  <a href="service-details.html" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline">
+                    View Full Clinical Literature &rarr;
+                  </a>
+                </div>
+              </div>
+
+              <div class="lg:col-span-5 bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-md space-y-4">
+                <div class="flex items-center gap-3 pb-3 border-b border-slate-100 dark:border-slate-700">
+                  <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=200&q=80" alt="Dr. Elena Rostova" class="w-12 h-12 rounded-2xl object-cover border-2 border-teal-500">
+                  <div>
+                    <h4 class="font-extrabold text-sm text-slate-900 dark:text-white">Dr. Elena Rostova, DPT</h4>
+                    <p class="text-[11px] text-teal-700 dark:text-teal-400 font-semibold">Tendon &amp; Gait Specialist</p>
+                  </div>
+                </div>
+                <div class="space-y-2 text-xs">
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500 dark:text-slate-400">Morning Pain Free:</span>
+                    <span class="font-extrabold text-emerald-600 dark:text-emerald-400">3 to 5 ESWT sessions</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500 dark:text-slate-400">Success Rate:</span>
+                    <span class="font-extrabold text-slate-900 dark:text-white">93% permanent resolution</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
     <!-- Cutting-Edge Medical Technology & Modalities -->
     <section id="modalities" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -343,47 +777,101 @@
         </a>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <div class="bg-white dark:bg-slate-800/80 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/80 hover-lift group shadow-sm">
-          <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80"
-            alt="Radial Shockwave"
-            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
-          <div class="p-6">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/70 border border-teal-100 dark:border-teal-800/50 px-2.5 py-1 rounded-full">Non-Invasive Acoustic Wave</span>
-            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-2 mb-2">Radial Extracorporeal Shockwave (ESWT)</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Stimulates neovascularization and micro-circulation to instantly dissolve chronic calcific tendinopathy,
-              plantar fasciitis, and stubborn tennis elbow.
-            </p>
+        <!-- Modality 1: ESWT -->
+        <div class="bg-white dark:bg-slate-800/80 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700/80 hover-lift group shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80"
+                alt="Radial Shockwave"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-teal-900/90 text-teal-200 backdrop-blur-sm border border-teal-700/60">
+                Acoustic Wave
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/70 border border-teal-100 dark:border-teal-800/50 px-2.5 py-1 rounded-full">Non-Invasive</span>
+              <h3 class="text-base font-extrabold text-slate-900 dark:text-white mt-2 mb-2">Radial Shockwave (ESWT)</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Stimulates neovascularization and micro-circulation to instantly dissolve chronic calcific tendinopathy, plantar fasciitis, and stubborn tennis elbow.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-700/60 text-[11px] font-bold text-teal-700 dark:text-teal-400">
+            FDA-Cleared &bull; 4.0 Bar Peak Impulse
           </div>
         </div>
 
-        <div class="bg-white dark:bg-slate-800/80 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/80 hover-lift group shadow-sm">
-          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80"
-            alt="Anti Gravity Treadmill"
-            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
-          <div class="p-6">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/70 border border-teal-100 dark:border-teal-800/50 px-2.5 py-1 rounded-full">NASA Differential Air Pressure</span>
-            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-2 mb-2">AlterG® Anti-Gravity Gait Systems</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Allows post-surgical knee, hip, and ankle patients to begin running and walking at up to 80% body weight
-              reduction with zero impact stress.
-            </p>
+        <!-- Modality 2: AlterG -->
+        <div class="bg-white dark:bg-slate-800/80 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700/80 hover-lift group shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80"
+                alt="Anti Gravity Treadmill"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-teal-900/90 text-teal-200 backdrop-blur-sm border border-teal-700/60">
+                NASA Differential Air
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/70 border border-teal-100 dark:border-teal-800/50 px-2.5 py-1 rounded-full">Zero Impact</span>
+              <h3 class="text-base font-extrabold text-slate-900 dark:text-white mt-2 mb-2">AlterG® Anti-Gravity Systems</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Allows post-surgical knee, hip, and ankle patients to begin running and walking at up to 80% body weight reduction with zero impact stress.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-700/60 text-[11px] font-bold text-teal-700 dark:text-teal-400">
+            Early Locomotion &bull; Patented Tech
           </div>
         </div>
 
-        <div class="bg-white dark:bg-slate-800/80 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/80 hover-lift group shadow-sm">
-          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80"
-            alt="Laser and Dry Needling"
-            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
-          <div class="p-6">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/70 border border-teal-100 dark:border-teal-800/50 px-2.5 py-1 rounded-full">Neuromuscular Release</span>
-            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-2 mb-2">Targeted Ultrasound-Guided Dry Needling</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Resets deep myotomal trigger points and spinal multifidus muscle spasms that manual hands cannot reach,
-              delivering rapid pain relief.
-            </p>
+        <!-- Modality 3: Dry Needling -->
+        <div class="bg-white dark:bg-slate-800/80 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700/80 hover-lift group shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80"
+                alt="Laser and Dry Needling"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-teal-900/90 text-teal-200 backdrop-blur-sm border border-teal-700/60">
+                Neuromuscular
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/70 border border-teal-100 dark:border-teal-800/50 px-2.5 py-1 rounded-full">Precision Guided</span>
+              <h3 class="text-base font-extrabold text-slate-900 dark:text-white mt-2 mb-2">Targeted Dry Needling</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Resets deep myotomal trigger points and spinal multifidus muscle spasms that manual hands cannot reach, delivering rapid pain relief.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-700/60 text-[11px] font-bold text-teal-700 dark:text-teal-400">
+            Ultrasound Verified &bull; Instant Release
+          </div>
+        </div>
+
+        <!-- Modality 4: Spinal Decompression (NEW) -->
+        <div class="bg-white dark:bg-slate-800/80 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700/80 hover-lift group shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80"
+                alt="Spinal Decompression Table"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-teal-900/90 text-teal-200 backdrop-blur-sm border border-teal-700/60">
+                Spine Biomechanics
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/70 border border-teal-100 dark:border-teal-800/50 px-2.5 py-1 rounded-full">Axial Traction</span>
+              <h3 class="text-base font-extrabold text-slate-900 dark:text-white mt-2 mb-2">Computerized Spinal Decompression</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Precision logarithmic distraction curves isolate herniated disc segments (L4-L5, C5-C6) to create negative intradiscal vacuum pressure.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-700/60 text-[11px] font-bold text-teal-700 dark:text-teal-400">
+            Sub-Millimeter Sensor Feedback
           </div>
         </div>
 
@@ -391,8 +879,176 @@
 
     </section>
 
-    <!-- Executive Care Membership Comparison Callout -->
-    
+    <!-- Verified Clinical Recovery Outcomes & Evidence (NEW) -->
+    <section id="clinical-outcomes" class="py-20 bg-slate-100/70 dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-50 dark:bg-teal-950/80 text-teal-800 dark:text-teal-300 border border-teal-200/80 dark:border-teal-800/60 mb-3">
+            Evidence-Based Proof
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Documented Clinical Recovery Outcomes
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2">
+            We quantify every degree of joint mobility, ground reaction impulse, and pain score with objective bio-sensors.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          
+          <!-- Case 1 -->
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-7 border border-slate-200 dark:border-slate-800 shadow-lg hover-lift transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+                <span class="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400">Case Study #481</span>
+                <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">100% Resolved</span>
+              </div>
+
+              <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mt-4">
+                Severe L5-S1 Disc Herniation
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 mb-5">
+                42-year-old executive unable to sit &gt;15 minutes without acute radiating sciatica down left calf.
+              </p>
+
+              <!-- Metric Gauges -->
+              <div class="space-y-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 text-xs">
+                <div>
+                  <div class="flex justify-between font-bold mb-1">
+                    <span class="text-slate-600 dark:text-slate-400">Pain Level (VAS):</span>
+                    <span class="text-teal-700 dark:text-teal-400">9/10 &rarr; 0/10 (Pain Free)</span>
+                  </div>
+                  <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                    <div class="h-full bg-emerald-500 rounded-full" style="width: 100%;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between font-bold mb-1">
+                    <span class="text-slate-600 dark:text-slate-400">Lumbar Flexion ROM:</span>
+                    <span class="text-slate-900 dark:text-white">42&deg; &rarr; 94&deg; (+123%)</span>
+                  </div>
+                  <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                    <div class="h-full bg-teal-600 rounded-full" style="width: 94%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-4 leading-relaxed">
+                <strong>Protocol:</strong> 12 sessions of computerized decompression, McKenzie extension, and deep transversus abdominis neuromuscular retraining.
+              </p>
+            </div>
+
+            <div class="pt-4 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+              <span class="text-slate-400">Discharge:</span>
+              <span class="font-bold text-slate-900 dark:text-white">Returned to 100% full work &amp; gym</span>
+            </div>
+          </div>
+
+          <!-- Case 2 -->
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-7 border border-slate-200 dark:border-slate-800 shadow-lg hover-lift transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+                <span class="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400">Case Study #619</span>
+                <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">Return to Sport</span>
+              </div>
+
+              <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mt-4">
+                Post-Op ACL Reconstruction
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 mb-5">
+                21-year-old collegiate soccer athlete post bone-patellar-tendon graft with severe quadriceps inhibition.
+              </p>
+
+              <!-- Metric Gauges -->
+              <div class="space-y-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 text-xs">
+                <div>
+                  <div class="flex justify-between font-bold mb-1">
+                    <span class="text-slate-600 dark:text-slate-400">Limb Symmetry Index:</span>
+                    <span class="text-teal-700 dark:text-teal-400">58% &rarr; 99% (Symmetric)</span>
+                  </div>
+                  <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                    <div class="h-full bg-emerald-500 rounded-full" style="width: 99%;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between font-bold mb-1">
+                    <span class="text-slate-600 dark:text-slate-400">Force Plate Jump Decel:</span>
+                    <span class="text-slate-900 dark:text-white">Zero Knee Valgus Shift</span>
+                  </div>
+                  <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                    <div class="h-full bg-teal-600 rounded-full" style="width: 98%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-4 leading-relaxed">
+                <strong>Protocol:</strong> AlterG early unweighted sprint conditioning, blood flow restriction (BFR), and dynamic dual force-plate deceleration.
+              </p>
+            </div>
+
+            <div class="pt-4 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+              <span class="text-slate-400">Discharge:</span>
+              <span class="font-bold text-slate-900 dark:text-white">Cleared for full competitive season</span>
+            </div>
+          </div>
+
+          <!-- Case 3 -->
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-7 border border-slate-200 dark:border-slate-800 shadow-lg hover-lift transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+                <span class="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400">Case Study #392</span>
+                <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">Full Mobility</span>
+              </div>
+
+              <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mt-4">
+                Adhesive Capsulitis (Frozen Shoulder)
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 mb-5">
+                55-year-old patient with 8 months of shoulder stiffness, unable to reach overhead or fasten seatbelt.
+              </p>
+
+              <!-- Metric Gauges -->
+              <div class="space-y-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 text-xs">
+                <div>
+                  <div class="flex justify-between font-bold mb-1">
+                    <span class="text-slate-600 dark:text-slate-400">Shoulder Abduction ROM:</span>
+                    <span class="text-teal-700 dark:text-teal-400">75&deg; &rarr; 175&deg; (+133%)</span>
+                  </div>
+                  <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                    <div class="h-full bg-emerald-500 rounded-full" style="width: 97%;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between font-bold mb-1">
+                    <span class="text-slate-600 dark:text-slate-400">Sleep Interruption:</span>
+                    <span class="text-slate-900 dark:text-white">Waking 5x/night &rarr; Zero</span>
+                  </div>
+                  <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                    <div class="h-full bg-teal-600 rounded-full" style="width: 100%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-4 leading-relaxed">
+                <strong>Protocol:</strong> Grade IV glenohumeral joint mobilization, radial shockwave to capsular adhesions, and ultrasound-guided dry needling.
+              </p>
+            </div>
+
+            <div class="pt-4 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+              <span class="text-slate-400">Discharge:</span>
+              <span class="font-bold text-slate-900 dark:text-white">Full painless 180&deg; overhead reach</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
     <!-- Frequently Asked Questions (FAQ) Section -->
     <section id="faq" class="py-14 lg:py-20 bg-slate-50/70 dark:bg-slate-900/60 border-t border-slate-200/80 dark:border-slate-800">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -654,6 +1310,38 @@
   </div>
 
   <script src="assets/js/site.js"></script>
+
+  <!-- Interactive Script for Home 2 Pathway Tabs -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const pathwayTabs = document.querySelectorAll('.pathway-tab-btn');
+      const pathwayPanels = document.querySelectorAll('.pathway-panel');
+
+      if (pathwayTabs.length && pathwayPanels.length) {
+        pathwayTabs.forEach((tab, index) => {
+          tab.addEventListener('click', () => {
+            pathwayTabs.forEach(t => {
+              t.classList.remove('bg-teal-700', 'text-white', 'shadow-md', 'active');
+              t.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-200');
+            });
+            tab.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-200');
+            tab.classList.add('bg-teal-700', 'text-white', 'shadow-md', 'active');
+
+            pathwayPanels.forEach((panel, pIdx) => {
+              if (pIdx === index) {
+                panel.classList.remove('hidden');
+                panel.classList.add('active');
+              } else {
+                panel.classList.add('hidden');
+                panel.classList.remove('active');
+              }
+            });
+          });
+        });
+      }
+    });
+  </script>
 </body>
+
 
 </html>
