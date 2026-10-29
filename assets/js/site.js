@@ -3,6 +3,15 @@
  * Interactive Functionality & Application Logic
  */
 
+// Immediate execution: Default to Light Mode for every new user; apply dark only if user explicitly saved 'dark'
+(function() {
+  if (localStorage.getItem('physiocare_theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initDirection();
@@ -20,13 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   1. Theme Management (Light / Dark Mode)
+   1. Theme Management (Light Mode is Default; User can toggle to Dark Mode)
    ========================================================================== */
 function initTheme() {
   const savedTheme = localStorage.getItem('physiocare_theme');
-  const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   
-  if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+  // Light Mode is default. Dark mode only activates if user explicitly chose it.
+  if (savedTheme === 'dark') {
     document.documentElement.classList.add('dark');
   } else {
     document.documentElement.classList.remove('dark');
