@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Board-Certified Physical Therapists — PhysioCare</title>
+  <meta name="description" content="Meet PhysioCare's team of board-certified Doctors of Physical Therapy specializing in orthopedic spine, sports medicine, joint replacement, and neuro recovery.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            teal: {
+              50: '#F0FDFA', 100: '#CCFBF1', 200: '#99F6E4', 300: '#5EEAD4',
+              400: '#2DD4BF', 500: '#14B8A6', 600: '#0D9488', 700: '#0F766E',
+              800: '#115E59', 900: '#134E4A', 950: '#042F2E',
+            },
+            slate: {
+              750: '#243044', 800: '#1E293B', 850: '#151F30', 900: '#0F172A', 950: '#090D16',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-mark.svg">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col font-sans antialiased">
+
+  <!-- Sticky Main Navigation Bar -->
+  <header class="sticky top-0 z-40 glass-nav transition-colors duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-teal-500 rounded-lg p-1">
+          <img src="assets/images/logo-v2.svg" alt="PhysioCare Clinic" class="h-10 w-auto block dark:hidden">
+          <img src="assets/images/logo-white-v2.svg" alt="PhysioCare Clinic" class="h-10 w-auto hidden dark:block">
+        </a>
+
+        <!-- Desktop Navigation Links (Dashboard as last link) -->
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-semibold text-slate-700 dark:text-slate-200" aria-label="Main Navigation">
+          <!-- Home Dropdown -->
+          <div class="relative group">
+            <button class="px-3.5 py-2 rounded-xl hover:text-teal-700 dark:hover:text-teal-400 transition flex items-center gap-1.5" aria-expanded="false">
+              <span>Home</span>
+              <svg class="w-3.5 h-3.5 transition group-hover:rotate-180 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="absolute left-0 mt-1.5 w-44 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 p-2 hidden group-hover:block transition-all duration-200 z-50">
+              <a href="index.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition group/item">
+                <svg class="w-4 h-4 shrink-0 text-slate-400 group-hover/item:text-teal-600 dark:group-hover/item:text-teal-400 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                <span>Home 1</span>
+              </a>
+              <a href="home-2.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition group/item">
+                <svg class="w-4 h-4 shrink-0 text-slate-400 group-hover/item:text-teal-600 dark:group-hover/item:text-teal-400 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                <span>Home 2</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="about.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">About Us</a>
+          <a href="services.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Services</a>
+          <a href="therapists.html" class="px-3 py-2 rounded-lg text-teal-700 dark:text-teal-400 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition">Therapists</a>
+          <a href="pricing.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Pricing</a>
+          <a href="contact.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Contact</a>
+          <a href="dashboard.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Dashboard</a>
+        </nav>
+
+        <!-- Right Quick Controls: RTL & Theme icons with identical sizes + Max 2 CTAs -->
+        <div class="hidden md:flex items-center gap-2.5">
+          <!-- RTL Icon (w-9 h-9) -->
+          <button type="button" class="rtl-toggle-btn w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center transition" title="Toggle RTL layout">
+            <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          </button>
+
+          <!-- Theme Icon (w-9 h-9) -->
+          <button type="button" class="theme-toggle-btn w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center transition" aria-label="Toggle theme">
+            <svg class="theme-icon-moon w-4 h-4 text-slate-700 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+            <svg class="theme-icon-sun w-4 h-4 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </button>
+
+          <!-- Login CTA -->
+          <a href="login.html" class="px-4 py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs sm:text-sm shadow-md shadow-teal-700/20 transition">
+            Login
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex items-center gap-2 md:hidden">
+          <button type="button" class="theme-toggle-btn w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center">
+            <svg class="theme-icon-moon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+            <svg class="theme-icon-sun w-4 h-4 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </button>
+          <button id="mobile-menu-toggle" type="button" class="p-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- Hero / Title with Full Height Background Image -->
+    <section class="hero-full-screen min-h-[calc(100vh-5rem)] relative overflow-hidden py-16 sm:py-24 bg-slate-900 border-b border-slate-200/80 dark:border-slate-800">
+      <!-- High-Clarity Background Image with Balanced Scrim -->
+      <div class="absolute inset-0 z-0 pointer-events-none">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1920&q=80" alt="Doctor-Led Clinical Care Team" class="w-full h-full object-cover object-center opacity-85 dark:opacity-75 filter saturate-110 contrast-105 hero-bg-animated">
+        <div class="absolute inset-0 bg-white/35 dark:bg-slate-950/50 backdrop-blur-[0.5px]"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-white/65 via-white/20 to-white/65 dark:from-slate-950/70 dark:via-slate-950/30 dark:to-slate-950/70"></div>
+      </div>
+      <!-- Ambient Medical Glows -->
+      <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-teal-200/30 dark:bg-teal-900/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-sky-200/30 dark:bg-sky-900/20 blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 dark:bg-slate-900/90 border border-teal-200 dark:border-teal-700/60 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider shadow-md backdrop-blur-md mb-4 animate-hero-badge">Doctor-Led Clinical Care</span>
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight font-heading drop-shadow-md animate-hero-title">
+          Meet Our Board-Certified Physical Therapists
+        </h1>
+        <p class="mt-4 text-base sm:text-lg text-slate-900 dark:text-slate-100 font-semibold leading-relaxed max-w-2xl mx-auto drop-shadow-sm animate-hero-desc">
+          Every session at PhysioCare is led 1-on-1 by licensed Doctors of Physical Therapy with advanced fellowship training in spine, sports orthopedics, and complex neurological rehabilitation.
+        </p>
+      </div>
+    </section>
+
+    <!-- Clinicians Grid (12 Doctors of Physical Therapy) -->
+    <section class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Clinician 1 -->
+        <article class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between group">
+          <div>
+            <div class="h-64 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80" alt="Dr. Marcus Chen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-4 left-4 bg-teal-700 text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full shadow">Spine & Disc Lead</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Dr. Marcus Chen, DPT, OCS</h3>
+              <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold mb-3">14 Yrs Experience • Stanford Fellow</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Specializes in non-surgical lumbar disc decompression, cervical spine stabilization, and chronic sciatica rehabilitation.
+              </p>
+              <div class="text-[11px] text-slate-500 space-y-1 pt-2 border-t border-slate-100 dark:border-slate-700">
+                <p>✓ McKenzie Certified (Cert. MDT)</p>
+                <p>✓ Dry Needling Specialist</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button data-open-modal="appointment" data-therapist="Dr. Marcus Chen" data-service="Spine Rehabilitation with Dr. Marcus Chen" class="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+              Book with Dr. Chen
+            </button>
+          </div>
+        </article>
+
+        <!-- Clinician 2 -->
+        <article class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between group">
+          <div>
+            <div class="h-64 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Dr. Elena Rostova" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-4 left-4 bg-teal-700 text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full shadow">Sports Medicine Lead</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Dr. Elena Rostova, DPT, SCS</h3>
+              <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold mb-3">11 Yrs Experience • Olympic PT Consultant</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Pioneers accelerated return-to-sport protocols for ACL reconstruction, shoulder labral tears, and running biomechanics.
+              </p>
+              <div class="text-[11px] text-slate-500 space-y-1 pt-2 border-t border-slate-100 dark:border-slate-700">
+                <p>✓ 3D Force Plate Biomechanist</p>
+                <p>✓ BFR Certified Practitioner</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button data-open-modal="appointment" data-therapist="Dr. Elena Rostova" data-service="Sports Performance with Dr. Elena Rostova" class="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+              Book with Dr. Rostova
+            </button>
+          </div>
+        </article>
+
+        <!-- Clinician 3 -->
+        <article class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between group">
+          <div>
+            <div class="h-64 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=600&q=80" alt="Dr. James Alvarez" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-4 left-4 bg-teal-700 text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full shadow">Post-Op Specialist</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Dr. James Alvarez, PT, DPT</h3>
+              <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold mb-3">9 Yrs Experience • Johns Hopkins Alum</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Specialized in surgeon-aligned recovery following total joint arthroplasty, rotator cuff repair, and spinal fusions.
+              </p>
+              <div class="text-[11px] text-slate-500 space-y-1 pt-2 border-t border-slate-100 dark:border-slate-700">
+                <p>✓ Soft Tissue Mobilization (IASTM)</p>
+                <p>✓ Hydrotherapy Certified</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button data-open-modal="appointment" data-therapist="Dr. James Alvarez" data-service="Post-Surgical Joint Care with Dr. James Alvarez" class="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+              Book with Dr. Alvarez
+            </button>
+          </div>
+        </article>
+
+        <!-- Clinician 4 -->
+        <article class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between group">
+          <div>
+            <div class="h-64 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80" alt="Dr. Priya Nair" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-4 left-4 bg-teal-700 text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full shadow">Neuro Rehab Lead</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Dr. Priya Nair, PT, DPT, NCS</h3>
+              <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold mb-3">12 Yrs Experience • Board Certified Neuro PT</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Dedicated to neurological gait restoration, vestibular balance therapy, and stroke/spinal cord neuroplasticity.
+              </p>
+              <div class="text-[11px] text-slate-500 space-y-1 pt-2 border-t border-slate-100 dark:border-slate-700">
+                <p>✓ Vestibular Ocular Reflex Training</p>
+                <p>✓ AlterG Gait Specialist</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button data-open-modal="appointment" data-therapist="Dr. Priya Nair" data-service="Neurological Rehabilitation with Dr. Priya Nair" class="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+              Book with Dr. Nair
+            </button>
+          </div>
+        </article>
+
+        <!-- Clinician 5 -->
+        <article class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between group">
+          <div>
+            <div class="h-64 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80" alt="Dr. Julian Morales" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-4 left-4 bg-teal-700 text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full shadow">Manual Therapy Lead</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Dr. Julian Morales, CMPT</h3>
+              <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold mb-3">10 Yrs Experience • Certified Manual PT</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Master clinician in high-velocity low-amplitude thrust techniques, myofascial trigger release, and thoracic mobility.
+              </p>
+              <div class="text-[11px] text-slate-500 space-y-1 pt-2 border-t border-slate-100 dark:border-slate-700">
+                <p>✓ Maitland Manual Therapy</p>
+                <p>✓ Mulligan Concept Practitioner</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button data-open-modal="appointment" data-therapist="Dr. Julian Morales" data-service="Manual Therapy with Dr. Julian Morales" class="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+              Book with Dr. Morales
+            </button>
+          </div>
+        </article>
+
+        <!-- Clinician 6 -->
+        <article class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between group">
+          <div>
+            <div class="h-64 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1758691462651-611d730c5272?auto=format&fit=crop&w=600&q=80" onerror="this.src='assets/images/sarah-preview.jpg'" alt="Dr. Sarah Reynolds" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-4 left-4 bg-teal-700 text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full shadow">Pediatric Orthopedics</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Dr. Sarah Reynolds, DPT, OCS</h3>
+              <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold mb-3">8 Yrs Experience • Harvard Children's Fellow</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Specializes in adolescent sports injury prevention, juvenile joint mobility, scoliosis curve management, and motor milestones.
+              </p>
+              <div class="text-[11px] text-slate-500 space-y-1 pt-2 border-t border-slate-100 dark:border-slate-700">
+                <p>✓ Schroth Scoliosis Certified</p>
+                <p>✓ Youth Movement Biomechanist</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button data-open-modal="appointment" data-therapist="Dr. Sarah Reynolds" data-service="Pediatric Physical Therapy with Dr. Sarah Reynolds" class="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+              Book with Dr. Reynolds
+            </button>
+          </div>
+        </article>
+
+        <!-- Clinician 7 -->
+        <article class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between group">
+          <div>
+            <div class="h-64 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80" onerror="this.src='assets/images/kimberly-preview.jpg'" alt="Dr. Kimberly Adams" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-4 left-4 bg-teal-700 text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full shadow">Pelvic Health & Core</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Dr. Kimberly Adams, DPT, WCS</h3>
+              <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold mb-3">13 Yrs Experience • Women's Health Specialist</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Expert in pre/post-partum core rehabilitation, pelvic floor dysfunction, diastasis recti repair, and chronic pelvic stability.
+              </p>
+              <div class="text-[11px] text-slate-500 space-y-1 pt-2 border-t border-slate-100 dark:border-slate-700">
+                <p>✓ Pelvic Rehabilitation Certified (PRPC)</p>
+                <p>✓ Real-Time Ultrasound Biofeedback</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button data-open-modal="appointment" data-therapist="Dr. Kimberly Adams" data-service="Pelvic Floor Care with Dr. Kimberly Adams" class="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+              Book with Dr. Adams
+            </button>
+          </div>
+        </article>
+
+        <!-- Clinician 8 -->
+        <article class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between group">
+          <div>
+            <div class="h-64 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=600&q=80" alt="Dr. David Vance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-4 left-4 bg-teal-700 text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full shadow">Fellowship Director</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Dr. David Vance, DPT, FAAOMPT</h3>
+              <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold mb-3">16 Yrs Experience • American Academy Fellow</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Diagnoses complex unresolved joint stiffness, thoracic outlet entrapments, chronic neck pain, and headache syndromes.
+              </p>
+              <div class="text-[11px] text-slate-500 space-y-1 pt-2 border-t border-slate-100 dark:border-slate-700">
+                <p>✓ Fellowship Trained Orthopedist</p>
+                <p>✓ Musculoskeletal Ultrasound</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button data-open-modal="appointment" data-therapist="Dr. David Vance" data-service="Fellowship Evaluation with Dr. David Vance" class="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+              Book with Dr. Vance
+            </button>
+          </div>
+        </article>
+
+        <!-- Clinician 9 -->
+        <article class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between group">
+          <div>
+            <div class="h-64 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1584467735815-f778f274e296?auto=format&fit=crop&w=600&q=80" alt="Dr. Maya Patel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-4 left-4 bg-teal-700 text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full shadow">Geriatric Mobility Lead</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Dr. Maya Patel, PT, DPT, GCS</h3>
+              <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold mb-3">11 Yrs Experience • Geriatric Clinical Specialist</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Focuses on progressive osteopenia/osteoporosis bone loading programs, independent fall prevention, and balance recalibration.
+              </p>
+              <div class="text-[11px] text-slate-500 space-y-1 pt-2 border-t border-slate-100 dark:border-slate-700">
+                <p>✓ Otago Fall Prevention Lead</p>
+                <p>✓ Senior Strength Conditioning</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button data-open-modal="appointment" data-therapist="Dr. Maya Patel" data-service="Geriatric Mobility with Dr. Maya Patel" class="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+              Book with Dr. Patel
+            </button>
+          </div>
+        </article>
+
+        <!-- Clinician 10 -->
+        <article class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between group">
+          <div>
+            <div class="h-64 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1622902046580-2b47f47f5471?auto=format&fit=crop&w=600&q=80" alt="Dr. Lucas Bennett" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-4 left-4 bg-teal-700 text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full shadow">Athletic Performance</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Dr. Lucas Bennett, PT, DPT, CSCS</h3>
+              <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold mb-3">7 Yrs Experience • Certified Strength Specialist</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Bridges clinical rehab and elite sports performance, specializing in kinetic chain overhead throwing mechanics and power transfer.
+              </p>
+              <div class="text-[11px] text-slate-500 space-y-1 pt-2 border-t border-slate-100 dark:border-slate-700">
+                <p>✓ Titleist Performance Institute (TPI)</p>
+                <p>✓ FMS Level 2 Certified</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button data-open-modal="appointment" data-therapist="Dr. Lucas Bennett" data-service="Athletic Performance with Dr. Lucas Bennett" class="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+              Book with Dr. Bennett
+            </button>
+          </div>
+        </article>
+
+        <!-- Clinician 11 -->
+        <article class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between group">
+          <div>
+            <div class="h-64 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&w=600&q=80" alt="Dr. Rachel Foster" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-4 left-4 bg-teal-700 text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full shadow">Hand & Upper Extremity</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Dr. Rachel Foster, DPT, CHT</h3>
+              <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold mb-3">10 Yrs Experience • Certified Hand Therapist</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Specializes in flexor tendon rehabilitation, carpal tunnel decompression recovery, wrist fractures, and custom orthotic splinting.
+              </p>
+              <div class="text-[11px] text-slate-500 space-y-1 pt-2 border-t border-slate-100 dark:border-slate-700">
+                <p>✓ Certified Hand Therapist (CHT)</p>
+                <p>✓ Custom Static & Dynamic Splinting</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button data-open-modal="appointment" data-therapist="Dr. Rachel Foster" data-service="Hand Rehabilitation with Dr. Rachel Foster" class="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+              Book with Dr. Foster
+            </button>
+          </div>
+        </article>
+
+        <!-- Clinician 12 -->
+        <article class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover-lift flex flex-col justify-between group">
+          <div>
+            <div class="h-64 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=600&q=80" alt="Dr. Tariq Al-Mansoor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-4 left-4 bg-teal-700 text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full shadow">Cardiopulmonary Rehab</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Dr. Tariq Al-Mansoor, DPT, CCS</h3>
+              <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold mb-3">12 Yrs Experience • Cardiopulmonary Specialist</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                Guides cardiovascular stamina conditioning, post-COVID dysautonomia rehabilitation, and progressive respiratory muscle training.
+              </p>
+              <div class="text-[11px] text-slate-500 space-y-1 pt-2 border-t border-slate-100 dark:border-slate-700">
+                <p>✓ ACSM Clinical Exercise Physiologist</p>
+                <p>✓ Inspiratory Muscle Trainer (IMT)</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button data-open-modal="appointment" data-therapist="Dr. Tariq Al-Mansoor" data-service="Cardiopulmonary Care with Dr. Tariq Al-Mansoor" class="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+              Book with Dr. Al-Mansoor
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Consultation Banner -->
+    <section class="py-16 bg-slate-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+        <h2 class="text-3xl font-extrabold">Need Guidance on Choosing the Right Specialist?</h2>
+        <p class="text-sm text-slate-400 max-w-xl mx-auto">
+          Our clinical triage team will match you with the physical therapist whose expertise precisely aligns with your condition.
+        </p>
+        <div class="pt-2 flex justify-center gap-4">
+          <button data-open-modal="appointment" class="px-6 py-3 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm shadow-lg transition">
+            Schedule Clinical Intake Consultation
+          </button>
+          <a href="contact.html" class="px-6 py-3 rounded-xl border border-slate-700 hover:border-teal-400 text-white font-bold text-sm transition">
+            Speak with Clinical Coordinator
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Universal Clinic Footer -->
+  <footer class="bg-slate-950 text-slate-300 pt-16 pb-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+        <div class="lg:col-span-2 space-y-4">
+          <img src="assets/images/logo-white-v2.svg" alt="PhysioCare" class="h-9 w-auto">
+          <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+            PhysioCare is an advanced physiotherapy and neurological rehabilitation center dedicated to restoring movement, eliminating acute pain, and empowering lifelong mobility.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="about.html" class="hover:text-teal-400 transition">About Clinic</a></li>
+            <li><a href="services.html" class="hover:text-teal-400 transition">Clinical Services</a></li>
+            <li><a href="therapists.html" class="hover:text-teal-400 transition">Our Therapists</a></li>
+            <li><a href="pricing.html" class="hover:text-teal-400 transition">Pricing Plans</a></li>
+            <li><a href="dashboard.html" class="hover:text-teal-400 transition">Patient Portal</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4">Specialties</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="service-details.html" class="hover:text-teal-400 transition">Spine & Posture Rehab</a></li>
+            <li><a href="services.html#sports" class="hover:text-teal-400 transition">Sports Injury Recovery</a></li>
+            <li><a href="services.html#postop" class="hover:text-teal-400 transition">Post-Op Orthopedics</a></li>
+            <li><a href="services.html#neuro" class="hover:text-teal-400 transition">Neuro Rehabilitation</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4">Patient Portal</h4>
+          <p class="text-xs text-slate-400 mb-3">Access daily exercise plans, history, and receipts.</p>
+          <a href="login.html" class="inline-block px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs transition">
+            Patient Portal Login →
+          </a>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>© 2026 PhysioCare Clinic. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="privacy.html" class="hover:text-slate-400 transition">HIPAA Privacy Notice</a>
+          <a href="terms.html" class="hover:text-slate-400 transition">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Universal Interactive Appointment Modal -->
+  <div id="appointment-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm hidden modal-overlay">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-100 dark:border-slate-800 relative max-h-[90vh] overflow-y-auto">
+      <button data-close-modal class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 dark:hover:text-white p-1">✕</button>
+      <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white mb-2">Book Clinical Appointment</h3>
+      <form id="appointment-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold mb-1">Target Specialty</label>
+          <input type="text" name="service" readonly value="Physical Therapy Consultation" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-sm font-semibold">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div><label class="block text-xs font-bold mb-1">Date</label><input type="date" required name="date" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"></div>
+          <div><label class="block text-xs font-bold mb-1">Time</label><select name="time" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"><option>Morning (09:00 AM)</option><option>Afternoon (02:00 PM)</option></select></div>
+        </div>
+        <div><label class="block text-xs font-bold mb-1">Your Full Name</label><input type="text" required name="patient_name" placeholder="John Doe" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"></div>
+        <div><label class="block text-xs font-bold mb-1">Phone Number</label><input type="tel" required name="phone" placeholder="+1 (555) 000-0000" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"></div>
+        <button type="submit" class="w-full py-3.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm shadow-md transition">Confirm Appointment</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
+

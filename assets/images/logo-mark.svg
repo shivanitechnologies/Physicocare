@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="markAccentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2DD4BF"/>
+      <stop offset="50%" stop-color="#0D9488"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+    <linearGradient id="markBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F766E"/>
+      <stop offset="100%" stop-color="#115E59"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#markBgGrad)"/>
+  <g transform="translate(8, 6)">
+    <path d="M14 44 C 14 34, 26 32, 28 24 C 30 16, 20 12, 26 6 C 30 0, 42 6, 40 16 C 38 26, 22 28, 22 38 C 22 44, 30 46, 36 46" 
+          stroke="#5EEAD4" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M26 16 C 34 16, 46 22, 44 36 C 43 42, 36 46, 28 46" 
+          stroke="#99F6E4" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.5 1" fill="none" opacity="0.8"/>
+    <circle cx="27" cy="6" r="4" fill="#FFFFFF" />
+    <circle cx="26" cy="19" r="2.5" fill="#5EEAD4" />
+    <circle cx="34" cy="30" r="2" fill="#38BDF8" />
+  </g>
+</svg>

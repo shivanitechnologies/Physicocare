@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spine, Disc & Posture Rehabilitation Protocol — PhysioCare</title>
+  <meta name="description" content="In-depth clinical guide to PhysioCare's non-surgical spinal decompression, disc recovery, and biomechanical posture correction protocol.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            teal: {
+              50: '#F0FDFA', 100: '#CCFBF1', 200: '#99F6E4', 300: '#5EEAD4',
+              400: '#2DD4BF', 500: '#14B8A6', 600: '#0D9488', 700: '#0F766E',
+              800: '#115E59', 900: '#134E4A', 950: '#042F2E',
+            },
+            slate: {
+              750: '#243044', 800: '#1E293B', 850: '#151F30', 900: '#0F172A', 950: '#090D16',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-mark.svg">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col font-sans antialiased">
+
+  <!-- Sticky Nav -->
+  <header class="sticky top-0 z-40 glass-nav transition-colors duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="assets/images/logo-v2.svg" alt="PhysioCare" class="h-10 w-auto block dark:hidden">
+          <img src="assets/images/logo-white-v2.svg" alt="PhysioCare" class="h-10 w-auto hidden dark:block">
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-semibold text-slate-700 dark:text-slate-200">
+          <!-- Home Dropdown -->
+          <div class="relative group">
+            <button class="px-3.5 py-2 rounded-xl hover:text-teal-700 dark:hover:text-teal-400 transition flex items-center gap-1.5" aria-expanded="false">
+              <span>Home</span>
+              <svg class="w-3.5 h-3.5 transition group-hover:rotate-180 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="absolute left-0 mt-1.5 w-44 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 p-2 hidden group-hover:block transition-all duration-200 z-50">
+              <a href="index.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition group/item">
+                <svg class="w-4 h-4 shrink-0 text-slate-400 group-hover/item:text-teal-600 dark:group-hover/item:text-teal-400 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                <span>Home 1</span>
+              </a>
+              <a href="home-2.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition group/item">
+                <svg class="w-4 h-4 shrink-0 text-slate-400 group-hover/item:text-teal-600 dark:group-hover/item:text-teal-400 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                <span>Home 2</span>
+              </a>
+            </div>
+          </div>
+          <a href="about.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400">About Us</a>
+          <a href="services.html" class="px-3 py-2 rounded-lg text-teal-700 dark:text-teal-400 font-bold bg-teal-50 dark:bg-teal-950/40">Services</a>
+          <a href="therapists.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Therapists</a>
+          <a href="pricing.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400">Pricing</a>
+          <a href="contact.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400">Contact</a>
+          <a href="dashboard.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Dashboard</a>
+        </nav>
+
+        <div class="hidden md:flex items-center gap-3">
+          <button type="button" class="rtl-toggle-btn w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center transition" title="Toggle RTL layout"><svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg></button>
+          <button type="button" class="theme-toggle-btn w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center transition" aria-label="Toggle theme">
+            <svg class="theme-icon-moon w-4 h-4 text-slate-700 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+            <svg class="theme-icon-sun w-4 h-4 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </button>
+          <a href="login.html" class="px-4 py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs sm:text-sm shadow-md shadow-teal-700/20 transition">Login</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <!-- Hero Header with Full Height Background Image -->
+    <section class="hero-full-screen min-h-[calc(100vh-5rem)] relative overflow-hidden py-16 sm:py-24 bg-slate-900 border-b border-slate-200/80 dark:border-slate-800 mb-12 flex flex-col justify-center">
+      <!-- High-Clarity Background Image with Balanced Scrim -->
+      <div class="absolute inset-0 z-0 pointer-events-none">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1920&q=80" alt="Spine & Posture Rehabilitation" class="w-full h-full object-cover object-center opacity-85 dark:opacity-75 filter saturate-110 contrast-105 hero-bg-animated">
+        <div class="absolute inset-0 bg-white/35 dark:bg-slate-950/50 backdrop-blur-[0.5px]"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-white/65 via-white/20 to-white/65 dark:from-slate-950/70 dark:via-slate-950/30 dark:to-slate-950/70"></div>
+      </div>
+      <!-- Ambient Medical Glows -->
+      <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-teal-200/30 dark:bg-teal-900/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-sky-200/30 dark:bg-sky-900/20 blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs text-slate-900 dark:text-slate-300 mb-6 font-semibold">
+          <a href="index.html" class="hover:text-teal-700 dark:hover:text-teal-400 transition">Home</a>
+          <span>/</span>
+          <a href="services.html" class="hover:text-teal-700 dark:hover:text-teal-400 transition">Services</a>
+          <span>/</span>
+          <span class="text-teal-800 dark:text-teal-400 font-bold">Spine & Posture Rehabilitation</span>
+        </nav>
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 dark:bg-slate-900/90 border border-teal-200 dark:border-teal-700/60 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider shadow-md backdrop-blur-md mb-4 animate-hero-badge">
+          Orthopedic Spine Protocol #SP-204
+        </div>
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight max-w-4xl tracking-tight drop-shadow-md font-heading animate-hero-title">
+          Advanced Spine, Disc Decompression & Posture Restoration
+        </h1>
+        <p class="text-base sm:text-lg text-slate-900 dark:text-slate-100 font-semibold mt-4 leading-relaxed max-w-3xl drop-shadow-sm animate-hero-desc">
+          Our clinical protocol for resolving chronic lower back discomfort, lumbar disc bulges, sciatica radiation, and degenerative spinal conditions without opioid dependency or invasive surgery.
+        </p>
+      </div>
+    </section>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="grid lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: Comprehensive Clinical Details (8 cols) -->
+        <div class="lg:col-span-8 space-y-10">
+          
+          <!-- Feature Image -->
+          <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 img-zoom-container img-sheen reveal-image is-visible">
+            <img src="assets/images/hero-physiotherapy.jpg" alt="Physiotherapist conducting rehabilitation session" class="w-full h-80 sm:h-96 object-cover">
+          </div>
+
+          <!-- Clinical Indications -->
+          <div class="bg-white dark:bg-slate-800/80 rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-700">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Conditions Effectively Treated</h3>
+            <div class="grid sm:grid-cols-2 gap-3 text-sm">
+              <div class="flex items-center gap-2 text-slate-700 dark:text-slate-200">
+                <span class="text-teal-600 font-bold">✓</span> Lumbar & Cervical Disc Herniations
+              </div>
+              <div class="flex items-center gap-2 text-slate-700 dark:text-slate-200">
+                <span class="text-teal-600 font-bold">✓</span> Sciatica & Radiating Nerve Pain
+              </div>
+              <div class="flex items-center gap-2 text-slate-700 dark:text-slate-200">
+                <span class="text-teal-600 font-bold">✓</span> Forward Head Posture & Hyperkyphosis
+              </div>
+              <div class="flex items-center gap-2 text-slate-700 dark:text-slate-200">
+                <span class="text-teal-600 font-bold">✓</span> Facet Joint Arthrosis & Lumbar Stiffness
+              </div>
+              <div class="flex items-center gap-2 text-slate-700 dark:text-slate-200">
+                <span class="text-teal-600 font-bold">✓</span> Sacroiliac (SI) Joint Dysfunction
+              </div>
+              <div class="flex items-center gap-2 text-slate-700 dark:text-slate-200">
+                <span class="text-teal-600 font-bold">✓</span> Post-Laminectomy & Fusion Rehab
+              </div>
+            </div>
+          </div>
+
+          <!-- 4-Phase Recovery Pathway -->
+          <div>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">The 4-Phase Spine Recovery Pathway</h3>
+            <div class="space-y-4">
+              
+              <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex gap-4">
+                <span class="w-8 h-8 rounded-full bg-teal-100 text-teal-800 font-bold flex items-center justify-center shrink-0 text-sm">1</span>
+                <div>
+                  <h4 class="font-bold text-slate-900 dark:text-white text-base">Mechanical Decompression & Centralization</h4>
+                  <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                    Utilizing computerized passive axial decompression and directional preference exercises to draw disc nucleus pulposus away from spinal nerve roots.
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex gap-4">
+                <span class="w-8 h-8 rounded-full bg-teal-100 text-teal-800 font-bold flex items-center justify-center shrink-0 text-sm">2</span>
+                <div>
+                  <h4 class="font-bold text-slate-900 dark:text-white text-base">Joint Mobilization & Segmental Freedom</h4>
+                  <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                    Gentle Grade III-IV manual thoracic and lumbar mobilizations to eliminate hypomobile compensation in adjacent vertebral segments.
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex gap-4">
+                <span class="w-8 h-8 rounded-full bg-teal-100 text-teal-800 font-bold flex items-center justify-center shrink-0 text-sm">3</span>
+                <div>
+                  <h4 class="font-bold text-slate-900 dark:text-white text-base">Deep Core & Multifidus Muscular Bracing</h4>
+                  <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                    Ultrasound biofeedback activation of the transversus abdominis and spinal rotatores, creating an internal hydraulic cylinder that shields your discs.
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex gap-4">
+                <span class="w-8 h-8 rounded-full bg-teal-100 text-teal-800 font-bold flex items-center justify-center shrink-0 text-sm">4</span>
+                <div>
+                  <h4 class="font-bold text-slate-900 dark:text-white text-base">Dynamic Loading & Ergonomic Hardening</h4>
+                  <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                    Hip-hinge retraining, deadlift patterning, and personalized workstation setup ensuring 0% pain recurrence during work and sports.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Interactive FAQ Accordion -->
+          <div data-accordion-group="single">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Frequently Asked Clinical Questions</h3>
+            <div class="space-y-3">
+              
+              <div class="accordion-item border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden bg-white dark:bg-slate-800">
+                <button type="button" class="accordion-trigger w-full px-6 py-4 text-left font-bold text-sm sm:text-base text-slate-900 dark:text-white flex items-center justify-between">
+                  <span>How many sessions are typically required for disc herniation?</span>
+                  <svg class="accordion-icon w-5 h-5 text-teal-600 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content px-6 pb-4 text-xs text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-700/60 pt-3">
+                  Most patients observe a 50%+ reduction in radiating sciatic pain within 4 to 6 sessions. A comprehensive stabilization protocol typically spans 8 to 12 weeks with 2 visits per week.
+                </div>
+              </div>
+
+              <div class="accordion-item border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden bg-white dark:bg-slate-800">
+                <button type="button" class="accordion-trigger w-full px-6 py-4 text-left font-bold text-sm sm:text-base text-slate-900 dark:text-white flex items-center justify-between">
+                  <span>Do I need an MRI scan before my initial assessment?</span>
+                  <svg class="accordion-icon w-5 h-5 text-teal-600 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content px-6 pb-4 text-xs text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-700/60 pt-3 hidden">
+                  No, an MRI is not mandatory. Our Doctors of Physical Therapy perform thorough neurological and orthopedic provocative testing. If red flag symptoms warrant imaging, we refer you directly for an expedited MRI.
+                </div>
+              </div>
+
+              <div class="accordion-item border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden bg-white dark:bg-slate-800">
+                <button type="button" class="accordion-trigger w-full px-6 py-4 text-left font-bold text-sm sm:text-base text-slate-900 dark:text-white flex items-center justify-between">
+                  <span>Does health insurance cover spinal rehabilitation?</span>
+                  <svg class="accordion-icon w-5 h-5 text-teal-600 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="accordion-content px-6 pb-4 text-xs text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-700/60 pt-3 hidden">
+                  Yes, physical therapy is covered by all major PPO insurance carriers, Medicare, and HSA/FSA accounts. We verify your insurance benefits free of charge prior to your first appointment.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Sticky Booking Widget (4 cols) -->
+        <aside class="lg:col-span-4 sticky top-28 space-y-6">
+          <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-700 shadow-xl">
+            <span class="text-[10px] font-bold text-teal-700 dark:text-teal-400 uppercase tracking-widest bg-teal-50 dark:bg-teal-950 px-2.5 py-1 rounded-full">Intake Available</span>
+            <div class="mt-4 mb-6">
+              <span class="text-3xl font-extrabold text-slate-900 dark:text-white">$95</span>
+              <span class="text-xs text-slate-400">/ Initial Evaluation</span>
+              <p class="text-[11px] text-teal-600 font-semibold mt-1">Or $0 with verified PPO insurance</p>
+            </div>
+
+            <div class="space-y-3 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <div class="flex items-center gap-2">
+                <span class="text-teal-600 font-bold">✓</span> 60-Minute 1-on-1 with Doctor of PT
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-teal-600 font-bold">✓</span> Dynamic Digital Spine Alignment Scan
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-teal-600 font-bold">✓</span> Hands-on Decompression & Relief
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-teal-600 font-bold">✓</span> Personalized Home Exercise Plan
+              </div>
+            </div>
+
+            <button data-open-modal="appointment" data-service="Spine & Disc Decompression" class="w-full py-3.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm shadow-lg shadow-teal-700/25 transition">
+              Book Spine Evaluation
+            </button>
+
+            <div class="mt-6 pt-6 border-t border-slate-100 dark:border-slate-700 flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=120&q=80" alt="Dr. Marcus Chen" class="w-12 h-12 rounded-full object-cover">
+              <div>
+                <h5 class="text-xs font-bold text-slate-900 dark:text-white">Dr. Marcus Chen, DPT</h5>
+                <p class="text-[11px] text-slate-400">Protocol Director</p>
+                <p class="text-[10px] text-teal-600 font-bold">Accepting New Patients</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Universal Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-12 text-center text-xs">
+    © 2026 PhysioCare Clinical Network.
+  </footer>
+
+  <!-- Appointment Modal -->
+  <div id="appointment-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm hidden modal-overlay">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-100 dark:border-slate-800 relative max-h-[90vh] overflow-y-auto">
+      <button data-close-modal class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-1">✕</button>
+      <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white mb-2">Book Spine Evaluation</h3>
+      <form id="appointment-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold mb-1">Service</label>
+          <input type="text" name="service" readonly value="Spine & Disc Decompression" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-sm font-semibold">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div><label class="block text-xs font-bold mb-1">Date</label><input type="date" required name="date" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"></div>
+          <div><label class="block text-xs font-bold mb-1">Time</label><select name="time" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"><option>Morning</option><option>Afternoon</option></select></div>
+        </div>
+        <div><label class="block text-xs font-bold mb-1">Name</label><input type="text" required name="patient_name" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"></div>
+        <div><label class="block text-xs font-bold mb-1">Phone</label><input type="tel" required name="phone" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"></div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-teal-700 text-white font-bold text-sm">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

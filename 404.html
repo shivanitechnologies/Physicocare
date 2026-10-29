@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — PhysioCare</title>
+  <meta name="description" content="Lost your balance? We couldn't find the page you were looking for.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            teal: {
+              50: '#F0FDFA', 100: '#CCFBF1', 200: '#99F6E4', 300: '#5EEAD4',
+              400: '#2DD4BF', 500: '#14B8A6', 600: '#0D9488', 700: '#0F766E',
+              800: '#115E59', 900: '#134E4A', 950: '#042F2E',
+            },
+            slate: {
+              750: '#243044', 800: '#1E293B', 850: '#151F30', 900: '#0F172A', 950: '#090D16',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-mark.svg">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col font-sans antialiased">
+
+  <!-- Minimal Nav -->
+  <header class="py-6 px-4 sm:px-8 border-b border-slate-200/80 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/images/logo-v2.svg" alt="PhysioCare" class="h-9 w-auto block dark:hidden">
+        <img src="assets/images/logo-white-v2.svg" alt="PhysioCare" class="h-9 w-auto hidden dark:block">
+      </a>
+      <div class="flex items-center gap-3">
+        <button type="button" class="theme-toggle-btn p-2 rounded-lg border border-slate-200 dark:border-slate-700">
+          <svg class="theme-icon-moon w-4 h-4 text-slate-700 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          <svg class="theme-icon-sun w-4 h-4 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </button>
+        <a href="index.html" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs transition">
+          Return Home
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow flex items-center justify-center p-4 py-16">
+    <div class="max-w-lg w-full text-center space-y-6 animate-hero-badge">
+      
+      <!-- Graphic -->
+      <div class="relative w-36 h-36 mx-auto flex items-center justify-center">
+        <div class="absolute inset-0 bg-teal-500/10 rounded-full animate-ping"></div>
+        <div class="w-32 h-32 rounded-3xl bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 flex items-center justify-center text-5xl font-extrabold shadow-inner">
+          404
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <span class="text-xs font-bold uppercase tracking-widest text-teal-700 dark:text-teal-400">Postural Misalignment Detected</span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+          Lost Your Balance?
+        </h1>
+        <p class="text-sm text-slate-600 dark:text-slate-400 max-w-sm mx-auto">
+          The page or medical record you requested could not be located. Let's get your navigation back on the right kinetic track.
+        </p>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex flex-wrap justify-center gap-3 pt-2">
+        <a href="index.html" class="px-6 py-3 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+          Back to Homepage
+        </a>
+        <a href="services.html" class="px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-teal-600 text-slate-700 dark:text-slate-200 font-bold text-xs transition">
+          Browse Therapy Services
+        </a>
+        <a href="contact.html" class="px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-teal-600 text-slate-700 dark:text-slate-200 font-bold text-xs transition">
+          Contact Clinic Support
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="py-6 text-center text-xs text-slate-500 border-t border-slate-200 dark:border-slate-800">
+    © 2026 PhysioCare Clinic. Move • Recover • Live Better.
+  </footer>
+
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

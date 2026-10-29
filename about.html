@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About PhysioCare — Clinical Mission, Team of Doctors & Accreditations</title>
+  <meta name="description" content="Discover our 14-year clinical journey, meet our doctorate-level physical therapists, and understand our evidence-based rehabilitation philosophy.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            teal: {
+              50: '#F0FDFA', 100: '#CCFBF1', 200: '#99F6E4', 300: '#5EEAD4',
+              400: '#2DD4BF', 500: '#14B8A6', 600: '#0D9488', 700: '#0F766E',
+              800: '#115E59', 900: '#134E4A', 950: '#042F2E',
+            },
+            slate: {
+              750: '#243044', 800: '#1E293B', 850: '#151F30', 900: '#0F172A', 950: '#090D16',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-mark.svg">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col font-sans antialiased">
+
+  <!-- Sticky Main Navigation Bar -->
+  <header class="sticky top-0 z-40 glass-nav transition-colors duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="assets/images/logo-v2.svg" alt="PhysioCare Clinic" class="h-10 w-auto block dark:hidden">
+          <img src="assets/images/logo-white-v2.svg" alt="PhysioCare Clinic" class="h-10 w-auto hidden dark:block">
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-semibold text-slate-700 dark:text-slate-200">
+          <!-- Home Dropdown -->
+          <div class="relative group">
+            <button class="px-3.5 py-2 rounded-xl hover:text-teal-700 dark:hover:text-teal-400 transition flex items-center gap-1.5" aria-expanded="false">
+              <span>Home</span>
+              <svg class="w-3.5 h-3.5 transition group-hover:rotate-180 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="absolute left-0 mt-1.5 w-44 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 p-2 hidden group-hover:block transition-all duration-200 z-50">
+              <a href="index.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition group/item">
+                <svg class="w-4 h-4 shrink-0 text-slate-400 group-hover/item:text-teal-600 dark:group-hover/item:text-teal-400 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                <span>Home 1</span>
+              </a>
+              <a href="home-2.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition group/item">
+                <svg class="w-4 h-4 shrink-0 text-slate-400 group-hover/item:text-teal-600 dark:group-hover/item:text-teal-400 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                <span>Home 2</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="about.html" class="px-3 py-2 rounded-lg text-teal-700 dark:text-teal-400 font-bold bg-teal-50 dark:bg-teal-950/40">About Us</a>
+          <a href="services.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 transition">Services</a>
+          <a href="therapists.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Therapists</a>
+          <a href="pricing.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 transition">Pricing</a>
+          <a href="contact.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 transition">Contact</a>
+          <a href="dashboard.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Dashboard</a>
+        </nav>
+
+        <div class="hidden md:flex items-center gap-3">
+          <button type="button" class="rtl-toggle-btn w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center transition" title="Toggle RTL layout"><svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg></button>
+          <button type="button" class="theme-toggle-btn w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center transition" aria-label="Toggle theme">
+            <svg class="theme-icon-moon w-4 h-4 text-slate-700 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+            <svg class="theme-icon-sun w-4 h-4 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </button>
+          <a href="login.html" class="px-4 py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs sm:text-sm shadow-md shadow-teal-700/20 transition">Login</a>
+          
+        </div>
+
+        <button id="mobile-menu-toggle" type="button" class="p-2 rounded-xl text-slate-700 dark:text-slate-200 md:hidden">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden"></div>
+  <div id="mobile-menu-drawer" class="fixed top-0 right-0 bottom-0 w-80 max-w-full bg-white dark:bg-slate-900 z-50 p-6 shadow-2xl flex flex-col justify-between translate-x-full transition-transform duration-300">
+    <div>
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+        <img src="assets/images/logo-v2.svg" alt="PhysioCare" class="h-8 w-auto dark:hidden">
+        <img src="assets/images/logo-white-v2.svg" alt="PhysioCare" class="h-8 w-auto hidden dark:block">
+        <button id="mobile-menu-close" class="p-2 text-slate-500 rounded-lg">✕</button>
+      </div>
+      <nav class="mt-6 flex flex-col space-y-2">
+        <a href="index.html" class="px-3 py-2 font-semibold">Home</a>
+        <a href="about.html" class="px-3 py-2 font-bold bg-teal-50 dark:bg-teal-950/50 text-teal-700 dark:text-teal-400 rounded-xl">About Us</a>
+        <a href="services.html" class="px-3 py-2 font-semibold">Services</a>
+        <a href="therapists.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Therapists</a>
+          <a href="pricing.html" class="px-3 py-2 font-semibold">Pricing</a>
+        <a href="contact.html" class="px-3 py-2 font-semibold">Contact</a>
+          <a href="dashboard.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Dashboard</a>
+        <a href="dashboard.html" class="px-3 py-2 font-semibold text-teal-700">Patient Dashboard</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="flex-grow">
+    
+    <!-- Hero Header with Full Height Background Image -->
+    <section class="hero-full-screen min-h-[calc(100vh-5rem)] relative overflow-hidden py-16 sm:py-24 bg-slate-900 border-b border-slate-200/80 dark:border-slate-800">
+      <!-- High-Clarity Background Image with Balanced Scrim -->
+      <div class="absolute inset-0 z-0 pointer-events-none">
+        <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1920&q=80" alt="PhysioCare Clinical Mission" class="w-full h-full object-cover object-center opacity-85 dark:opacity-75 filter saturate-110 contrast-105 hero-bg-animated">
+        <div class="absolute inset-0 bg-white/35 dark:bg-slate-950/50 backdrop-blur-[0.5px]"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-white/65 via-white/20 to-white/65 dark:from-slate-950/70 dark:via-slate-950/30 dark:to-slate-950/70"></div>
+      </div>
+      <!-- Ambient Medical Glows -->
+      <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-teal-200/30 dark:bg-teal-900/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-sky-200/30 dark:bg-sky-900/20 blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 dark:bg-slate-900/90 border border-teal-200 dark:border-teal-700/60 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-widest shadow-md backdrop-blur-md mb-4 animate-hero-badge">Our Clinical Mission</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white mt-1 mb-4 tracking-tight drop-shadow-md font-heading animate-hero-title">
+          Restoring Dignity, Strength & Freedom of Movement Since 2012
+        </h1>
+        <p class="text-base sm:text-lg text-slate-900 dark:text-slate-100 font-semibold leading-relaxed max-w-2xl mx-auto drop-shadow-sm animate-hero-desc">
+          Founded by physical therapy educators and orthopedic clinicians, PhysioCare was built on a single conviction: genuine rehabilitation requires deep clinical listening, hands-on doctoral care, and objective motion metrics.
+        </p>
+      </div>
+    </section>
+
+    <!-- Core Values & Pillars -->
+    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <div class="bg-white dark:bg-slate-800/90 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover-lift">
+          <div class="w-12 h-12 rounded-xl bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300 flex items-center justify-center font-bold text-xl mb-5">
+            01
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Evidence-Based Medicine</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Every stretch, joint mobilization, and loading protocol we prescribe is grounded in peer-reviewed clinical research and measurable range-of-motion outcomes.
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-slate-800/90 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover-lift">
+          <div class="w-12 h-12 rounded-xl bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300 flex items-center justify-center font-bold text-xl mb-5">
+            02
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Uninterrupted 1-on-1 Attention</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            We never double-book patients or pass your treatment to untrained aides. Your session is 100% focused time with your dedicated Doctor of Physical Therapy.
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-slate-800/90 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover-lift">
+          <div class="w-12 h-12 rounded-xl bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300 flex items-center justify-center font-bold text-xl mb-5">
+            03
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Holistic Kinetic Chain</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Knee pain often stems from hip instability. Neck tension frequently stems from thoracic restriction. We trace and resolve the entire biomechanical chain.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Clinic Journey Timeline -->
+    <section class="py-16 bg-slate-100/70 dark:bg-slate-900/60 border-y border-slate-200/80 dark:border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-teal-700 dark:text-teal-400">Our Milestones</span>
+          <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1">14 Years of Healing & Innovation</h2>
+        </div>
+
+        <div class="space-y-8 relative before:absolute before:inset-0 before:left-1/2 before:-translate-x-1/2 before:w-0.5 before:bg-teal-300 dark:before:bg-teal-800 hidden md:block">
+          
+          <!-- Milestone 1 -->
+          <div class="relative flex items-center justify-between">
+            <div class="w-5/12 text-right pr-8">
+              <span class="text-xs font-bold text-teal-700 dark:text-teal-400">2012</span>
+              <h4 class="font-bold text-slate-900 dark:text-white text-base">San Francisco Clinic Founded</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Started as a 3-therapist orthopedic specialty practice focused on spine surgery avoidance.</p>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-teal-700 border-4 border-white dark:border-slate-900 z-10 flex items-center justify-center text-white text-xs font-bold">✓</div>
+            <div class="w-5/12 pl-8"></div>
+          </div>
+
+          <!-- Milestone 2 -->
+          <div class="relative flex items-center justify-between">
+            <div class="w-5/12 pr-8"></div>
+            <div class="w-8 h-8 rounded-full bg-teal-700 border-4 border-white dark:border-slate-900 z-10 flex items-center justify-center text-white text-xs font-bold">✓</div>
+            <div class="w-5/12 pl-8 text-left">
+              <span class="text-xs font-bold text-teal-700 dark:text-teal-400">2016</span>
+              <h4 class="font-bold text-slate-900 dark:text-white text-base">Sports Science Lab Addition</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Integrated 3D motion analysis, high-speed force plates, and AlterG anti-gravity treadmills.</p>
+            </div>
+          </div>
+
+          <!-- Milestone 3 -->
+          <div class="relative flex items-center justify-between">
+            <div class="w-5/12 text-right pr-8">
+              <span class="text-xs font-bold text-teal-700 dark:text-teal-400">2021</span>
+              <h4 class="font-bold text-slate-900 dark:text-white text-base">10,000th Patient Restored</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Expanded to our second flagship campus in Manhattan, welcoming Olympic and collegiate athletes.</p>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-teal-700 border-4 border-white dark:border-slate-900 z-10 flex items-center justify-center text-white text-xs font-bold">✓</div>
+            <div class="w-5/12 pl-8"></div>
+          </div>
+
+          <!-- Milestone 4 -->
+          <div class="relative flex items-center justify-between">
+            <div class="w-5/12 pr-8"></div>
+            <div class="w-8 h-8 rounded-full bg-teal-700 border-4 border-white dark:border-slate-900 z-10 flex items-center justify-center text-white text-xs font-bold">✓</div>
+            <div class="w-5/12 pl-8 text-left">
+              <span class="text-xs font-bold text-teal-700 dark:text-teal-400">Today</span>
+              <h4 class="font-bold text-slate-900 dark:text-white text-base">Full Patient Portal & Tele-Rehab Launch</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Empowering patients with home exercise video libraries, digital progress tracking, and direct clinician chat.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Medical Advisory Board & Leadership -->
+    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-teal-700 dark:text-teal-400">Doctorate-Level Staff</span>
+        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1">Meet Our Clinical Leaders</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover-lift">
+          <img class="w-full h-64 object-cover object-top" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80" alt="Dr. Marcus Chen">
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Dr. Marcus Chen, DPT, FAAOMPT</h3>
+            <p class="text-xs font-bold text-teal-700 dark:text-teal-400 mt-1">Founder & Chief Medical Officer</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-3 leading-relaxed">
+              Fellow of the American Academy of Orthopaedic Manual Physical Therapists. Specializes in complex spinal kinematics, disc herniation non-operative care, and cervical ergonomics.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover-lift">
+          <img class="w-full h-64 object-cover object-top" src="https://images.unsplash.com/photo-1758691462651-611d730c5272?auto=format&fit=crop&w=600&q=80" onerror="this.src='assets/images/sarah-preview.jpg'" alt="Dr. Sarah Reynolds">
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Dr. Sarah Reynolds, DPT, OCS, CSCS</h3>
+            <p class="text-xs font-bold text-teal-700 dark:text-teal-400 mt-1">Director of Sports Physical Therapy</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-3 leading-relaxed">
+              Board Certified Orthopedic Specialist and Strength Coach. Consulted for USA Track & Field and premier marathon runners recovering from ligament and tendon trauma.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover-lift">
+          <img class="w-full h-64 object-cover object-top" src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80" alt="Dr. Julian Morales">
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Dr. Julian Morales, CMPT, Cert. DN</h3>
+            <p class="text-xs font-bold text-teal-700 dark:text-teal-400 mt-1">Master Manual Therapist</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-3 leading-relaxed">
+              Expert in certified intramuscular dry needling, joint arthrokinematics, and post-surgical scar tissue remodeling. Over 15 years of hands-on physical medicine experience.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Clinic Accreditations & Insurance Partners -->
+    <section class="py-12 bg-white dark:bg-slate-900 border-t border-slate-200/80 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Accredited by Leading Physical Medicine Boards</p>
+        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-75 grayscale hover:grayscale-0 transition-all">
+          <span class="text-sm font-bold text-slate-700 dark:text-slate-300">American Physical Therapy Association (APTA)</span>
+          <span class="text-sm font-bold text-slate-700 dark:text-slate-300">ABPTS Orthopaedic Certified</span>
+          <span class="text-sm font-bold text-slate-700 dark:text-slate-300">McKenzie Institute International</span>
+          <span class="text-sm font-bold text-slate-700 dark:text-slate-300">Titleist Performance Institute (TPI)</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Universal Footer -->
+  <footer class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
+        <div class="space-y-4">
+          <img src="assets/images/logo-white-v2.svg" alt="PhysioCare" class="h-9 w-auto">
+          <p class="text-xs text-slate-400">Evidence-based physiotherapy and orthopedic recovery.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Pages</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="hover:text-teal-400">Home</a></li>
+            <li><a href="about.html" class="text-teal-400 font-bold">About Us</a></li>
+            <li><a href="services.html" class="hover:text-teal-400">Services</a></li>
+            <li><a href="therapists.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Therapists</a>
+          <a href="pricing.html" class="hover:text-teal-400">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Patient Portal</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="dashboard.html" class="hover:text-teal-400">Dashboard Overview</a></li>
+            <li><a href="login.html" class="hover:text-teal-400">Patient Login</a></li>
+            <li><a href="register.html" class="hover:text-teal-400">Create Account</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Appointment</h4>
+          <button data-open-modal="appointment" class="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-600 text-white font-bold text-xs transition">
+            Book Clinical Session
+          </button>
+        </div>
+      </div>
+      <div class="pt-8 text-center text-xs text-slate-500">
+        © 2026 PhysioCare Clinic. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Appointment Modal -->
+  <div id="appointment-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm hidden modal-overlay">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-100 dark:border-slate-800 relative max-h-[90vh] overflow-y-auto">
+      <button data-close-modal class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-1">✕</button>
+      <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white mb-2">Book Clinical Intake</h3>
+      <form id="appointment-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Service</label>
+          <select name="service" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm">
+            <option>Comprehensive Movement Evaluation</option>
+            <option>Spine & Posture Rehab</option>
+            <option>Sports Injury Return-to-Play</option>
+          </select>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div><label class="block text-xs font-bold mb-1">Date</label><input type="date" required name="date" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"></div>
+          <div><label class="block text-xs font-bold mb-1">Time</label><select name="time" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"><option>Morning</option><option>Afternoon</option></select></div>
+        </div>
+        <div><label class="block text-xs font-bold mb-1">Full Name</label><input type="text" required name="patient_name" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"></div>
+        <div><label class="block text-xs font-bold mb-1">Phone</label><input type="tel" required name="phone" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"></div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-teal-700 text-white font-bold text-sm">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

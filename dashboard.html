@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Portal Dashboard — PhysioCare</title>
+  <meta name="description" content="Manage rehabilitation progress, check daily physical therapy exercises, communicate with your clinician, and review recovery milestones.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            teal: {
+              50: '#F0FDFA', 100: '#CCFBF1', 200: '#99F6E4', 300: '#5EEAD4',
+              400: '#2DD4BF', 500: '#14B8A6', 600: '#0D9488', 700: '#0F766E',
+              800: '#115E59', 900: '#134E4A', 950: '#042F2E',
+            },
+            slate: {
+              750: '#243044', 800: '#1E293B', 850: '#151F30', 900: '#0F172A', 950: '#090D16',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-mark.svg">
+</head>
+<body class="bg-slate-100 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans antialiased transition-colors duration-200">
+
+  <div class="flex-grow flex flex-col md:flex-row min-h-screen">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="w-full md:w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between shrink-0">
+      <div class="space-y-6">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="assets/images/logo-v2.svg" alt="PhysioCare" class="h-9 w-auto block dark:hidden">
+          <img src="assets/images/logo-white-v2.svg" alt="PhysioCare" class="h-9 w-auto hidden dark:block">
+        </a>
+
+        <!-- Patient Mini Badge -->
+        <div class="p-3.5 rounded-2xl bg-teal-50 dark:bg-teal-950/60 border border-teal-100 dark:border-teal-900 flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="Sarah Jenkins" class="w-10 h-10 rounded-full object-cover border-2 border-teal-600">
+          <div class="overflow-hidden">
+            <h4 class="text-xs font-bold text-slate-900 dark:text-white truncate">Sarah Jenkins</h4>
+            <p class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold truncate">Patient #PC-4029</p>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs List -->
+        <nav class="space-y-1.5" aria-label="Dashboard Navigation">
+          <button data-dashboard-tab="overview" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold bg-teal-700 text-white shadow-md transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            Overview
+          </button>
+
+          <button data-dashboard-tab="exercises" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            Assigned Exercise Plans
+          </button>
+
+          <button data-dashboard-tab="appointments" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Book Therapy Sessions
+          </button>
+
+          <button data-dashboard-tab="history" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Session History
+          </button>
+
+          <button data-dashboard-tab="payments" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg>
+            Payment Receipts & Billing
+          </button>
+
+          <button data-dashboard-tab="messages" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+            Therapist Messages
+            <span class="ml-auto w-2 h-2 rounded-full bg-teal-500"></span>
+          </button>
+
+          <button data-dashboard-tab="records" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Clinical Reports
+          </button>
+        </nav>
+      </div>
+
+      <!-- Bottom Quick Actions & Logout -->
+      <div class="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-3">
+        <a href="index.html" class="flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-teal-700 dark:hover:text-teal-400">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          Return to Clinic Site
+        </a>
+        <a href="login.html" onclick="showToast('Logged out successfully', 'info')" class="flex items-center gap-2 text-xs font-bold text-rose-600 hover:text-rose-700">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+          Log Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Dashboard Area -->
+    <main class="flex-grow flex flex-col p-4 sm:p-8 overflow-y-auto">
+      
+      <!-- Top Header Navigation inside Dashboard -->
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <div class="flex items-center gap-2 mb-1 animate-hero-badge">
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 uppercase tracking-wider">User Dashboard</span>
+            <span class="text-xs text-slate-400">•</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 font-semibold">Patient Portal</span>
+          </div>
+          <h1 class="text-2xl font-extrabold text-slate-900 dark:text-white animate-hero-title">Welcome back, Sarah Jenkins!</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400 animate-hero-desc">Diagnosis: L4-L5 Lumbar Disc Decompression Protocol • Week 4 of 8</p>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <!-- Notification Bell -->
+          <button onclick="showToast('You have 1 pending exercise update from Dr. Chen', 'info')" class="w-9 h-9 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center justify-center relative transition" aria-label="Notifications" title="Notifications">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+            <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-teal-500"></span>
+          </button>
+
+          <!-- Profile Icon -->
+          <button onclick="showToast('Profile: Sarah Jenkins (Patient #PC-4029)', 'info')" class="w-9 h-9 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center justify-center transition" aria-label="Patient Profile" title="Profile">
+            <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          </button>
+
+          <!-- RTL Switcher -->
+          <button type="button" class="rtl-toggle-btn w-9 h-9 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center justify-center transition" title="Toggle RTL layout">
+            <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          </button>
+
+          <!-- Theme Toggle -->
+          <button type="button" class="theme-toggle-btn w-9 h-9 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center justify-center transition" aria-label="Toggle theme">
+            <svg class="theme-icon-moon w-4 h-4 text-slate-700 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+            <svg class="theme-icon-sun w-4 h-4 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </button>
+
+          <!-- Book Session Modal -->
+          <button data-open-modal="appointment" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Schedule Next Visit
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab 1: OVERVIEW SECTION -->
+      <section id="tab-overview" class="dashboard-section space-y-8">
+        
+        <!-- 4 Metric KPI Cards -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <span class="text-xs font-bold text-slate-500 uppercase">Recovery Progress</span>
+            <div class="flex items-baseline gap-2 mt-2">
+              <span class="text-3xl font-extrabold text-teal-700 dark:text-teal-400">68%</span>
+              <span class="text-xs text-emerald-600 font-bold">+12% this week</span>
+            </div>
+            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full mt-4 overflow-hidden">
+              <div class="bg-teal-600 h-2 rounded-full" style="width: 68%"></div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <span class="text-xs font-bold text-slate-500 uppercase">Daily Exercises Prescribed</span>
+            <div class="flex items-baseline gap-2 mt-2">
+              <span class="text-3xl font-extrabold text-slate-900 dark:text-white" id="stat-completed-count">3 / 4</span>
+              <span class="text-xs text-slate-500">Completed today</span>
+            </div>
+            <p class="text-xs text-teal-600 mt-4 font-semibold">1 remaining exercise</p>
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <span class="text-xs font-bold text-slate-500 uppercase">Next In-Clinic Session</span>
+            <div class="mt-2">
+              <span class="text-lg font-bold text-slate-900 dark:text-white">Tomorrow</span>
+              <p class="text-xs text-slate-500">10:30 AM (60 Mins)</p>
+            </div>
+            <span class="inline-block mt-3 text-[10px] font-bold bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300 px-2 py-0.5 rounded-full">Session #8 of 12</span>
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <span class="text-xs font-bold text-slate-500 uppercase">Primary Therapist</span>
+            <div class="mt-2 flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=120&q=80" alt="Dr. Chen" class="w-9 h-9 rounded-full object-cover">
+              <div>
+                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Dr. Marcus Chen</h4>
+                <p class="text-[10px] text-teal-700 dark:text-teal-400">Board Certified Spine PT</p>
+              </div>
+            </div>
+            <button data-dashboard-tab="messages" class="text-xs text-teal-700 dark:text-teal-400 font-bold hover:underline mt-3 block">Open Chat →</button>
+          </div>
+        </div>
+
+        <!-- Today's Routine Checklist with dynamic progress bar -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white">Today's Prescribed Rehabilitation Routine</h2>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Check off your exercises to update your clinician's compliance monitoring dashboard</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Daily Compliance:</span>
+              <span id="daily-progress-badge" class="px-3 py-1 rounded-full text-xs font-extrabold bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-300">75% Complete</span>
+            </div>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="w-full bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
+            <div id="daily-progress-fill" class="bg-teal-600 h-2.5 rounded-full transition-all duration-500" style="width: 75%"></div>
+          </div>
+
+          <!-- Exercises Interactive List -->
+          <div class="space-y-3" id="exercise-checklist">
+            <label class="flex items-center justify-between p-4 rounded-2xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-850 cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" checked class="exercise-item-checkbox w-5 h-5 rounded-lg text-teal-600 focus:ring-teal-500 border-slate-300">
+                <div>
+                  <h4 class="font-bold text-sm text-slate-900 dark:text-white line-through opacity-75">Prone Lumbar Extensions (McKenzie)</h4>
+                  <p class="text-xs text-slate-400">3 sets of 10 repetitions • 2 sec hold at end range</p>
+                </div>
+              </div>
+              <span class="text-xs text-emerald-600 font-bold bg-emerald-50 dark:bg-emerald-950/50 px-2.5 py-1 rounded-full">Completed</span>
+            </label>
+
+            <label class="flex items-center justify-between p-4 rounded-2xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-850 cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" checked class="exercise-item-checkbox w-5 h-5 rounded-lg text-teal-600 focus:ring-teal-500 border-slate-300">
+                <div>
+                  <h4 class="font-bold text-sm text-slate-900 dark:text-white line-through opacity-75">Cat-Camel Spine Articulations</h4>
+                  <p class="text-xs text-slate-400">2 sets of 12 smooth slow cycles • focus on thoracic breathing</p>
+                </div>
+              </div>
+              <span class="text-xs text-emerald-600 font-bold bg-emerald-50 dark:bg-emerald-950/50 px-2.5 py-1 rounded-full">Completed</span>
+            </label>
+
+            <label class="flex items-center justify-between p-4 rounded-2xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-850 cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" checked class="exercise-item-checkbox w-5 h-5 rounded-lg text-teal-600 focus:ring-teal-500 border-slate-300">
+                <div>
+                  <h4 class="font-bold text-sm text-slate-900 dark:text-white line-through opacity-75">Gluteus Medius Side-Lying Clamshells</h4>
+                  <p class="text-xs text-slate-400">3 sets of 15 repetitions with yellow resistance loop</p>
+                </div>
+              </div>
+              <span class="text-xs text-emerald-600 font-bold bg-emerald-50 dark:bg-emerald-950/50 px-2.5 py-1 rounded-full">Completed</span>
+            </label>
+
+            <label class="flex items-center justify-between p-4 rounded-2xl border border-teal-500/40 bg-teal-50/40 dark:bg-teal-950/20 hover:bg-teal-50 dark:hover:bg-teal-950/40 cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" class="exercise-item-checkbox w-5 h-5 rounded-lg text-teal-600 focus:ring-teal-500 border-slate-300">
+                <div>
+                  <h4 class="font-bold text-sm text-slate-900 dark:text-white">Transverse Abdominis Supine Heel Slides</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">3 sets of 10 repetitions per leg • maintain neutral lumbar curve</p>
+                </div>
+              </div>
+              <span class="text-xs text-amber-600 font-bold bg-amber-50 dark:bg-amber-950/50 px-2.5 py-1 rounded-full">Pending</span>
+            </label>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Tab 2: ASSIGNED EXERCISES SECTION -->
+      <section id="tab-exercises" class="dashboard-section hidden space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white">Prescribed Exercise Plans</h2>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Assigned by Dr. Marcus Chen • Phase 2: Lumbar Mobilization & Pelvic Stability</p>
+            </div>
+            <button onclick="showToast('Downloading complete exercise guide PDF...', 'info')" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              Print Routine PDF
+            </button>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-850/50 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-2.5 py-0.5 rounded-full">Spinal Decompression</span>
+                <span class="text-xs text-slate-500">2x Daily</span>
+              </div>
+              <h3 class="font-bold text-base text-slate-900 dark:text-white">Prone Lumbar Press-Ups</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Lie on your stomach, place hands under shoulders, and press up while keeping your hips relaxed on the mat.
+              </p>
+              <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 pt-2 border-t border-slate-200/60 dark:border-slate-800">
+                <span>Sets: <strong>3</strong></span>
+                <span>Reps: <strong>10</strong></span>
+                <span>Hold: <strong>2s</strong></span>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-850/50 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-sky-700 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/60 px-2.5 py-0.5 rounded-full">Core Recruitment</span>
+                <span class="text-xs text-slate-500">Once Daily</span>
+              </div>
+              <h3 class="font-bold text-base text-slate-900 dark:text-white">Quadruped Bird-Dog Stabilization</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                On hands and knees, extend opposite arm and leg while maintaining a level spine. Engage transverse abdominis.
+              </p>
+              <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 pt-2 border-t border-slate-200/60 dark:border-slate-800">
+                <span>Sets: <strong>3</strong></span>
+                <span>Reps: <strong>10/side</strong></span>
+                <span>Hold: <strong>3s</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 3: BOOK & VIEW SESSIONS SECTION -->
+      <section id="tab-appointments" class="dashboard-section hidden space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white">Book & Manage Therapy Sessions</h2>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Schedule follow-up clinical visits or video telehealth check-ins</p>
+            </div>
+            <button data-open-modal="appointment" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              + Book New Therapy Session
+            </button>
+          </div>
+
+          <div class="space-y-4">
+            <div class="p-5 rounded-2xl border border-teal-500/40 bg-teal-50/50 dark:bg-teal-950/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-teal-700 text-white uppercase tracking-wider mb-1">Confirmed Upcoming</span>
+                <h4 class="font-bold text-base text-slate-900 dark:text-white">Tomorrow • 10:30 AM (60 Mins)</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-0.5">Session #8: Lumbar Spine Axial Traction & Manual Joint Release</p>
+                <p class="text-xs text-slate-500 mt-1">San Francisco Campus (Suite 800) • Clinician: Dr. Marcus Chen, DPT</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="showToast('Reschedule request sent to clinic coordinator', 'info')" class="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition">
+                  Reschedule
+                </button>
+                <button onclick="showToast('Appointment details copied to calendar', 'success')" class="px-4 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold text-teal-700 dark:text-teal-400 hover:bg-slate-50 transition">
+                  Add to Calendar
+                </button>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-850/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1">Upcoming</span>
+                <h4 class="font-bold text-base text-slate-900 dark:text-white">Friday, Nov 06, 2026 • 02:00 PM (60 Mins)</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-0.5">Session #9: Mid-Term Range-of-Motion & Strength Re-assessment</p>
+                <p class="text-xs text-slate-500 mt-1">San Francisco Campus • Clinician: Dr. Marcus Chen, DPT</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="showToast('Reschedule request sent to clinic coordinator', 'info')" class="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-800 transition">
+                  Reschedule
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 4: SESSION HISTORY SECTION -->
+      <section id="tab-history" class="dashboard-section hidden space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white">Clinical Session History</h2>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Chronological treatment log, doctor notes, and measurable recovery milestones</p>
+            </div>
+            <button onclick="showToast('Downloading complete clinical session history...', 'info')" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-teal-700 text-xs font-bold text-slate-700 dark:text-slate-200 transition">
+              <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Export Full History (PDF)
+            </button>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Log Entry 1 -->
+            <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-850/50 hover:border-teal-500/40 transition">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300">Session #7</span>
+                  <h4 class="font-bold text-sm text-slate-900 dark:text-white">Lumbar Traction & Trigger Point Dry Needling</h4>
+                </div>
+                <span class="text-xs text-slate-500 font-medium">Oct 26, 2026 • 60 Mins</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
+                <strong class="text-slate-800 dark:text-slate-200 font-semibold">Clinician Notes:</strong> Patient reported peripheral calf tingling has fully resolved. Performed 15 minutes of motorized lumbar axial decompression at 45 lbs tension, followed by dry needling of the right piriformis and gluteal fascial release.
+              </p>
+              <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500 pt-2 border-t border-slate-200/60 dark:border-slate-800">
+                <span>Therapist: <strong class="text-slate-700 dark:text-slate-300">Dr. Marcus Chen, DPT</strong></span>
+                <span>Pain Score: <strong class="text-emerald-600">2 / 10</strong> (Down from 6/10)</span>
+                <span>Mobility Status: <strong class="text-teal-600">Extension +15°</strong></span>
+              </div>
+            </div>
+
+            <!-- Log Entry 2 -->
+            <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-850/50 hover:border-teal-500/40 transition">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300">Session #6</span>
+                  <h4 class="font-bold text-sm text-slate-900 dark:text-white">McKenzie Extension Protocol & Core Recruitment</h4>
+                </div>
+                <span class="text-xs text-slate-500 font-medium">Oct 22, 2026 • 60 Mins</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
+                <strong class="text-slate-800 dark:text-slate-200 font-semibold">Clinician Notes:</strong> Centralization of symptoms confirmed. Introduced transverse abdominis bracing during quadruped bird-dogs. Patient tolerated 3 sets of 10 prone extensions with zero radiating discomfort.
+              </p>
+              <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500 pt-2 border-t border-slate-200/60 dark:border-slate-800">
+                <span>Therapist: <strong class="text-slate-700 dark:text-slate-300">Dr. Marcus Chen, DPT</strong></span>
+                <span>Pain Score: <strong class="text-emerald-600">3 / 10</strong></span>
+                <span>Mobility Status: <strong class="text-teal-600">Tolerated Full Prone Press-up</strong></span>
+              </div>
+            </div>
+
+            <!-- Log Entry 3 -->
+            <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-850/50 hover:border-teal-500/40 transition">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300">Session #1</span>
+                  <h4 class="font-bold text-sm text-slate-900 dark:text-white">Comprehensive Initial Evaluation & Diagnostic Ultrasound</h4>
+                </div>
+                <span class="text-xs text-slate-500 font-medium">Oct 02, 2026 • 75 Mins</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
+                <strong class="text-slate-800 dark:text-slate-200 font-semibold">Clinician Notes:</strong> Baseline evaluation established. High-resolution diagnostic ultrasound confirmed L4-L5 disc protrusion without structural sequestration. Established 8-week conservative rehabilitation plan with twice-weekly clinical appointments.
+              </p>
+              <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500 pt-2 border-t border-slate-200/60 dark:border-slate-800">
+                <span>Therapist: <strong class="text-slate-700 dark:text-slate-300">Dr. Marcus Chen, DPT</strong></span>
+                <span>Pain Score: <strong class="text-rose-600">6 / 10</strong> (Baseline)</span>
+                <span>Initial Roadmap: <strong class="text-teal-600">8-Week Protocol Initiated</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 5: PAYMENT RECEIPTS & BILLING SECTION -->
+      <section id="tab-payments" class="dashboard-section hidden space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white">Payment Receipts & Billing</h2>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Itemized statements, deductible progress, and HSA/FSA certified receipts</p>
+            </div>
+            <button onclick="showToast('Generating year-to-date HSA/FSA reimbursement receipt packet...', 'info')" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              Download All HSA/FSA Receipts (PDF)
+            </button>
+          </div>
+
+          <!-- Billing Metric Highlights -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800">
+              <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Patient Paid YTD</span>
+              <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">$680.00</h3>
+              <p class="text-[10px] text-teal-600 font-semibold mt-0.5">4 receipts issued</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800">
+              <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Insurance Reimbursed</span>
+              <h3 class="text-2xl font-extrabold text-teal-700 dark:text-teal-400 mt-1">$1,160.00</h3>
+              <p class="text-[10px] text-slate-500 mt-0.5">BlueCross PPO In-Network</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800">
+              <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Annual Deductible Met</span>
+              <h3 class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-1">85%</h3>
+              <p class="text-[10px] text-slate-500 mt-0.5">$1,700 of $2,000 threshold</p>
+            </div>
+          </div>
+
+          <!-- Receipts Table -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="text-slate-400 uppercase text-[10px] font-bold border-b border-slate-200 dark:border-slate-800">
+                <tr>
+                  <th class="pb-3">Receipt #</th>
+                  <th class="pb-3">Date</th>
+                  <th class="pb-3">Treatment / Service</th>
+                  <th class="pb-3">Payment Method</th>
+                  <th class="pb-3">Amount</th>
+                  <th class="pb-3">Status</th>
+                  <th class="pb-3 text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 dark:divide-slate-800 font-medium">
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
+                  <td class="py-3.5 font-bold text-teal-700 dark:text-teal-400">#RCP-2026-084</td>
+                  <td class="py-3.5 text-slate-600 dark:text-slate-300">Oct 26, 2026</td>
+                  <td class="py-3.5 text-slate-800 dark:text-slate-200">Session #7: Decompression & Needling</td>
+                  <td class="py-3.5 text-slate-500">Visa •••• 4242</td>
+                  <td class="py-3.5 font-bold text-slate-900 dark:text-white">$145.00</td>
+                  <td class="py-3.5"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Paid</span></td>
+                  <td class="py-3.5 text-right"><button onclick="showToast('Downloading Receipt #RCP-2026-084...', 'info')" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">Download PDF</button></td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
+                  <td class="py-3.5 font-bold text-teal-700 dark:text-teal-400">#RCP-2026-072</td>
+                  <td class="py-3.5 text-slate-600 dark:text-slate-300">Oct 22, 2026</td>
+                  <td class="py-3.5 text-slate-800 dark:text-slate-200">Session #6: McKenzie Extension Protocol</td>
+                  <td class="py-3.5 text-slate-500">HSA Card •••• 8819</td>
+                  <td class="py-3.5 font-bold text-slate-900 dark:text-white">$145.00</td>
+                  <td class="py-3.5"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Paid</span></td>
+                  <td class="py-3.5 text-right"><button onclick="showToast('Downloading Receipt #RCP-2026-072...', 'info')" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">Download PDF</button></td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
+                  <td class="py-3.5 font-bold text-teal-700 dark:text-teal-400">#RCP-2026-059</td>
+                  <td class="py-3.5 text-slate-600 dark:text-slate-300">Oct 18, 2026</td>
+                  <td class="py-3.5 text-slate-800 dark:text-slate-200">Session #5: Manual Mobilization</td>
+                  <td class="py-3.5 text-slate-500">Visa •••• 4242</td>
+                  <td class="py-3.5 font-bold text-slate-900 dark:text-white">$145.00</td>
+                  <td class="py-3.5"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Paid</span></td>
+                  <td class="py-3.5 text-right"><button onclick="showToast('Downloading Receipt #RCP-2026-059...', 'info')" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">Download PDF</button></td>
+                </tr>
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
+                  <td class="py-3.5 font-bold text-teal-700 dark:text-teal-400">#RCP-2026-011</td>
+                  <td class="py-3.5 text-slate-600 dark:text-slate-300">Oct 02, 2026</td>
+                  <td class="py-3.5 text-slate-800 dark:text-slate-200">Intake Evaluation & Ultrasound Scan</td>
+                  <td class="py-3.5 text-slate-500">HSA Card •••• 8819</td>
+                  <td class="py-3.5 font-bold text-slate-900 dark:text-white">$245.00</td>
+                  <td class="py-3.5"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Paid</span></td>
+                  <td class="py-3.5 text-right"><button onclick="showToast('Downloading Receipt #RCP-2026-011...', 'info')" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">Download PDF</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Tab 6: MESSAGES TAB (Interactive Chat Simulator) -->
+      <section id="tab-messages" class="dashboard-section hidden space-y-4">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col h-[520px]">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=120&q=80" alt="Dr. Chen" class="w-10 h-10 rounded-full object-cover">
+              <div>
+                <h3 class="font-bold text-sm text-slate-900 dark:text-white">Dr. Marcus Chen, DPT</h3>
+                <p class="text-[10px] text-teal-600 font-semibold flex items-center gap-1">
+                  <span class="w-2 h-2 rounded-full bg-teal-500"></span> Available for patient questions
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat Messages Container -->
+          <div id="dashboard-chat-messages" class="flex-grow overflow-y-auto p-4 space-y-3">
+            <div class="flex justify-start">
+              <div class="bg-slate-100 dark:bg-slate-800 rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-sm text-sm border border-slate-200 dark:border-slate-700">
+                <p class="font-bold text-xs text-teal-700 dark:text-teal-400 mb-1">Dr. Marcus Chen, DPT</p>
+                <p class="text-xs">Hi Sarah! How did your lower back feel after the lumbar traction yesterday? Any calf tingling?</p>
+                <span class="text-[10px] text-slate-400 block text-right mt-1">Yesterday 4:15 PM</span>
+              </div>
+            </div>
+
+            <div class="flex justify-end">
+              <div class="bg-teal-700 text-white rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-sm text-sm shadow-sm">
+                <p class="text-xs">Zero calf tingling! Just mild muscular tightness in the right glute during the prone extensions.</p>
+                <span class="text-[10px] text-teal-200 block text-right mt-1">Yesterday 5:20 PM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Send Message Form -->
+          <form id="dashboard-chat-form" class="pt-3 border-t border-slate-200 dark:border-slate-800 flex gap-2">
+            <input type="text" required placeholder="Type a message or ask a question to Dr. Chen..." class="flex-grow px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs focus:ring-2 focus:ring-teal-500 focus:outline-none">
+            <button type="submit" class="px-5 py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition">
+              Send
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Tab 7: RECORDS TAB -->
+      <section id="tab-records" class="dashboard-section hidden space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800">
+          <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Clinical Reports & Diagnostics</h2>
+          <div class="space-y-3 pt-2">
+            <div class="p-4 rounded-2xl border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+              <div>
+                <h4 class="font-bold text-sm">Initial Biomechanical Kinematic Evaluation</h4>
+                <p class="text-xs text-slate-400">PDF • 4.2 MB • Recorded Oct 02, 2026</p>
+              </div>
+              <button onclick="showToast('Downloading clinical PDF report...', 'info')" class="px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold hover:bg-teal-700 hover:text-white transition">Download PDF</button>
+            </div>
+            <div class="p-4 rounded-2xl border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+              <div>
+                <h4 class="font-bold text-sm">Week 4 Range-of-Motion Re-evaluation</h4>
+                <p class="text-xs text-slate-400">PDF • 2.1 MB • Recorded Oct 26, 2026</p>
+              </div>
+              <button onclick="showToast('Downloading clinical PDF report...', 'info')" class="px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold hover:bg-teal-700 hover:text-white transition">Download PDF</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Appointment Modal for Booking from Dashboard -->
+  <div id="appointment-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm hidden modal-overlay">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-100 dark:border-slate-800 relative max-h-[90vh] overflow-y-auto">
+      <button data-close-modal class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-1">✕</button>
+      <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white mb-2">Schedule Physical Therapy Session</h3>
+      <form id="appointment-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold mb-1">Session Specialty</label>
+          <input type="text" name="service" readonly value="L4-L5 Lumbar Decompression Follow-up" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-sm font-semibold">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div><label class="block text-xs font-bold mb-1">Date</label><input type="date" required name="date" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"></div>
+          <div><label class="block text-xs font-bold mb-1">Time</label><select name="time" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"><option>Morning (10:30 AM)</option><option>Afternoon (02:00 PM)</option></select></div>
+        </div>
+        <div><label class="block text-xs font-bold mb-1">Patient Name</label><input type="text" required name="patient_name" value="Sarah Jenkins" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm"></div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-teal-700 text-white font-bold text-sm">Confirm Session</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
