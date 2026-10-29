@@ -426,6 +426,7 @@ function initDashboard() {
   const exerciseCheckboxes = document.querySelectorAll('.dashboard-exercise-check');
   const exerciseCountEl = document.getElementById('dashboard-exercise-count');
   const exerciseProgressEl = document.getElementById('dashboard-exercise-progress-bar');
+  const statCompletedCount = document.getElementById('stat-completed-count');
 
   if (exerciseCheckboxes.length) {
     function updateProgress() {
@@ -443,6 +444,9 @@ function initDashboard() {
       if (exerciseCountEl) {
         exerciseCountEl.textContent = `${completed} of ${total} Completed`;
       }
+      if (statCompletedCount) {
+        statCompletedCount.textContent = `${completed} / ${total}`;
+      }
       if (exerciseProgressEl) {
         const pct = Math.round((completed / total) * 100);
         exerciseProgressEl.style.width = `${pct}%`;
@@ -459,6 +463,28 @@ function initDashboard() {
     });
     updateProgress();
   }
+
+  // Mobile Dashboard Sidebar Toggle
+  const sidebarOpenBtn = document.getElementById('dashboard-sidebar-open');
+  const sidebarCloseBtn = document.getElementById('dashboard-sidebar-close');
+  const sidebarEl = document.getElementById('dashboard-sidebar');
+  const sidebarBackdrop = document.getElementById('dashboard-sidebar-backdrop');
+
+  function openSidebar() {
+    sidebarEl?.classList.remove('-translate-x-full');
+    sidebarBackdrop?.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden', 'md:overflow-auto');
+  }
+
+  function closeSidebar() {
+    sidebarEl?.classList.add('-translate-x-full');
+    sidebarBackdrop?.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden', 'md:overflow-auto');
+  }
+
+  sidebarOpenBtn?.addEventListener('click', openSidebar);
+  sidebarCloseBtn?.addEventListener('click', closeSidebar);
+  sidebarBackdrop?.addEventListener('click', closeSidebar);
 
   // Dashboard Tab Switching (Overview, Appointments, Exercises, Messages, Profile)
   const tabButtons = document.querySelectorAll('[data-dashboard-tab]');
@@ -484,30 +510,63 @@ function initDashboard() {
             section.classList.add('hidden');
           }
         });
+
+        // Close mobile drawer on navigation
+        closeSidebar();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
   }
+
+  // Interactive Pain Scale Logger
+  const painButtons = document.querySelectorAll('[data-pain-score]');
+  const painBadge = document.getElementById('current-pain-badge');
+  const painBar = document.getElementById('current-pain-bar');
+
+  painButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const score = parseInt(btn.getAttribute('data-pain-score'), 10);
+      painButtons.forEach(b => {
+        b.classList.remove('ring-2', 'ring-teal-500', 'bg-teal-700', 'text-white', 'font-black');
+      });
+      btn.classList.add('ring-2', 'ring-teal-500', 'bg-teal-700', 'text-white', 'font-black');
+
+      let label = 'Mild';
+      let colorClass = 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-300';
+      if (score >= 4 && score <= 6) {
+        label = 'Moderate';
+        colorClass = 'bg-amber-100 text-amber-800 dark:bg-amber-950/70 dark:text-amber-300';
+      } else if (score >= 7) {
+        label = 'Intense';
+        colorClass = 'bg-rose-100 text-rose-800 dark:bg-rose-950/70 dark:text-rose-300';
+      }
+
+      if (painBadge) {
+        painBadge.className = `px-3 py-1 rounded-full text-xs font-bold ${colorClass}`;
+        painBadge.textContent = `Logged: ${score} / 10 (${label})`;
+      }
+      if (painBar) {
+        painBar.style.width = `${score * 10}%`;
+      }
+      showToast(`Pain score ${score}/10 (${label}) logged in clinical record!`, 'success');
+    });
+  });
 
   // Chat simulator in Messages tab
   const chatForm = document.getElementById('dashboard-chat-form');
   const chatMessages = document.getElementById('dashboard-chat-messages');
   if (chatForm && chatMessages) {
-    chatForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const input = chatForm.querySelector('input[type="text"]');
-      const val = input?.value.trim();
-      if (!val) return;
-
+    function sendMessage(text) {
+      if (!text) return;
       const userBubble = document.createElement('div');
       userBubble.className = 'flex justify-end mb-3';
       userBubble.innerHTML = `
         <div class="bg-teal-700 text-white rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-sm text-sm shadow-sm">
-          <p>${escapeHtml(val)}</p>
+          <p>${escapeHtml(text)}</p>
           <span class="text-[10px] text-teal-200 block text-right mt-1">Just now</span>
         </div>
       `;
       chatMessages.appendChild(userBubble);
-      input.value = '';
       chatMessages.scrollTop = chatMessages.scrollHeight;
 
       // Simulated therapist reply
@@ -517,16 +576,60 @@ function initDashboard() {
         replyBubble.innerHTML = `
           <div class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-sm text-sm shadow-sm border border-slate-200 dark:border-slate-700">
             <p class="font-bold text-xs text-teal-700 dark:text-teal-400 mb-1">Dr. Marcus Chen, DPT</p>
-            <p>Thank you for the update! Remember to maintain gentle breathing during the lumbar extensions. I will review your mobility logs tomorrow.</p>
+            <p>Thank you for logging this, Sarah! I have updated your therapy chart. Remember to maintain deep diaphragmatic breathing during the lumbar extensions.</p>
             <span class="text-[10px] text-slate-400 block text-right mt-1">Just now</span>
           </div>
         `;
         chatMessages.appendChild(replyBubble);
         chatMessages.scrollTop = chatMessages.scrollHeight;
       }, 1000);
+    }
+
+    chatForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = chatForm.querySelector('input[type="text"]');
+      const val = input?.value.trim();
+      if (!val) return;
+      sendMessage(val);
+      input.value = '';
+    });
+
+    // Quick Reply Chips
+    const quickChips = document.querySelectorAll('.dashboard-chat-chip');
+    quickChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const text = chip.textContent.trim();
+        sendMessage(text);
+      });
     });
   }
 }
+
+// Global Exercise Hold Timer
+window.startExerciseTimer = function(btn, duration) {
+  if (btn.dataset.timing === 'true') return;
+  btn.dataset.timing = 'true';
+  const originalHTML = btn.innerHTML;
+  let remaining = duration;
+  btn.classList.add('bg-teal-700', 'text-white', 'ring-2', 'ring-teal-400');
+
+  const interval = setInterval(() => {
+    remaining--;
+    btn.innerHTML = `⏱️ <span class="font-mono font-bold">${remaining}s remaining...</span>`;
+    if (remaining <= 0) {
+      clearInterval(interval);
+      btn.dataset.timing = 'false';
+      btn.innerHTML = `✅ <span>Hold Complete!</span>`;
+      btn.classList.remove('bg-teal-700', 'text-white', 'ring-2', 'ring-teal-400');
+      btn.classList.add('bg-emerald-100', 'text-emerald-800', 'dark:bg-emerald-950', 'dark:text-emerald-300');
+      showToast('30-second isometric hold completed! Superb stabilization.', 'success');
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.classList.remove('bg-emerald-100', 'text-emerald-800', 'dark:bg-emerald-950', 'dark:text-emerald-300');
+      }, 3500);
+    }
+  }, 1000);
+};
 
 /* ==========================================================================
    11. Coming Soon Countdown Timer

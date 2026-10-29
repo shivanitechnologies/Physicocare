@@ -26,11 +26,11 @@ html {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
   animation: pageFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
