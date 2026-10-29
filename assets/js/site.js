@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initCountdown();
   initScrollReveal();
   initStatCounters();
+  initHeaderScroll();
+  initBackToTop();
+  initSmoothAnchors();
 });
 
 /* ==========================================================================
@@ -117,6 +120,12 @@ function initMobileNav() {
   mobileToggle.addEventListener('click', openMenu);
   if (mobileClose) mobileClose.addEventListener('click', closeMenu);
   if (backdrop) backdrop.addEventListener('click', closeMenu);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full') && !mobileMenu.classList.contains('-translate-x-full')) {
+      closeMenu();
+    }
+  });
 
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', closeMenu);
@@ -749,4 +758,91 @@ function animateNumber(el) {
   }
 
   requestAnimationFrame(update);
+}
+
+/* ==========================================================================
+   13. Header Scroll Elevation & Visual Polish
+   ========================================================================== */
+function initHeaderScroll() {
+  const header = document.querySelector('header');
+  if (!header) return;
+
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        if (window.scrollY > 15) {
+          header.classList.add('nav-scrolled');
+        } else {
+          header.classList.remove('nav-scrolled');
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
+/* ==========================================================================
+   14. Back-to-Top Smooth Glide Action
+   ========================================================================== */
+function initBackToTop() {
+  let btn = document.getElementById('back-to-top-btn');
+  if (!btn) {
+    btn = document.createElement('button');
+    btn.id = 'back-to-top-btn';
+    btn.setAttribute('type', 'button');
+    btn.setAttribute('aria-label', 'Back to top');
+    btn.title = 'Back to top';
+    btn.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>`;
+    document.body.appendChild(btn);
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        if (window.scrollY > 350) {
+          btn.classList.add('is-visible');
+        } else {
+          btn.classList.remove('is-visible');
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
+/* ==========================================================================
+   15. Smooth Internal Anchor Scrolling
+   ========================================================================== */
+function initSmoothAnchors() {
+  document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        if (history.pushState) {
+          history.pushState(null, null, targetId);
+        }
+      }
+    });
+  });
 }
