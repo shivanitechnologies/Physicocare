@@ -799,65 +799,58 @@
   <!-- Universal Clinic Footer -->
   <footer class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800 text-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
         
         <!-- Clinic Info & Brand -->
-        <div class="lg:col-span-2 space-y-4">
-          <img src="assets/images/logo-white-v2.svg" alt="PhysioCare" class="h-9 w-auto">
-          <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
-            PhysioCare is an advanced physiotherapy and neurological rehabilitation center dedicated to restoring movement, eliminating acute pain, and empowering lifelong mobility through evidence-based medicine.
+        <div class="lg:col-span-6 space-y-4">
+          <a href="index.html" class="inline-block">
+            <img src="assets/images/logo-white-v2.svg" alt="PhysioCare" class="h-9 w-auto">
+          </a>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-lg">
+            PhysioCare is an advanced physical therapy and neurological rehabilitation center dedicated to restoring movement, eliminating acute pain, and empowering lifelong mobility through evidence-based doctoral care.
           </p>
-          <div class="text-xs space-y-1 text-slate-400 pt-1">
+          <div class="text-xs space-y-1.5 text-slate-400 pt-2">
             <p><strong class="text-white">HQ Clinic:</strong> 450 Sutter St, Suite 800, San Francisco, CA 94108</p>
             <p><strong class="text-white">Phone:</strong> +1 (800) 555-PHYS (7497)</p>
             <p><strong class="text-white">Email:</strong> care@physiocare-clinic.com</p>
+            <p><strong class="text-white">Clinical Hours:</strong> Mon – Fri: 7:00 AM – 7:00 PM | Sat: 8:00 AM – 2:00 PM</p>
           </div>
         </div>
 
         <!-- Quick Links -->
-        <div>
-          <h4 class="text-white font-bold text-sm mb-4">Clinic Navigation</h4>
-          <ul class="space-y-2 text-xs">
-            <li><a href="index.html" class="hover:text-teal-400 transition">Home (Classic)</a></li>
-            <li><a href="home-2.html" class="hover:text-teal-400 transition">Home 2 (Premium VIP)</a></li>
-            <li><a href="about.html" class="hover:text-teal-400 transition">About Our Clinic</a></li>
-            <li><a href="services.html" class="hover:text-teal-400 transition">Therapy Services</a></li>
-            <li><a href="pricing.html" class="hover:text-teal-400 transition">Treatment Pricing</a></li>
-            <li><a href="contact.html" class="hover:text-teal-400 transition">Contact & Branches</a></li>
+        <div class="lg:col-span-3">
+          <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider text-xs">Clinic Navigation</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm">
+            <li><a href="index.html" class="text-slate-400 hover:text-teal-400 transition">Home (Classic)</a></li>
+            <li><a href="home-2.html" class="text-slate-400 hover:text-teal-400 transition">Home 2 (Premium Care)</a></li>
+            <li><a href="about.html" class="text-slate-400 hover:text-teal-400 transition">About Our Clinic</a></li>
+            <li><a href="services.html" class="text-slate-400 hover:text-teal-400 transition">Rehabilitation Services</a></li>
+            <li><a href="therapists.html" class="text-slate-400 hover:text-teal-400 transition">Our Therapists</a></li>
+            <li><a href="pricing.html" class="text-slate-400 hover:text-teal-400 transition">Pricing & Packages</a></li>
+            <li><a href="contact.html" class="text-slate-400 hover:text-teal-400 transition">Contact & Locations</a></li>
           </ul>
         </div>
 
-        <!-- Specialty Treatments -->
-        <div>
-          <h4 class="text-white font-bold text-sm mb-4">Rehabilitation Areas</h4>
-          <ul class="space-y-2 text-xs">
-            <li><a href="service-details.html" class="hover:text-teal-400 transition">Spine & Disc Decompression</a></li>
-            <li><a href="services.html#sports" class="hover:text-teal-400 transition">Sports Injury Recovery</a></li>
-            <li><a href="services.html#postop" class="hover:text-teal-400 transition">Post-Surgical Orthopedics</a></li>
-            <li><a href="services.html#neuro" class="hover:text-teal-400 transition">Neurological & Gait Rehab</a></li>
-            <li><a href="services.html#posture" class="hover:text-teal-400 transition">Ergonomic Posture Care</a></li>
-            <li><a href="coming-soon.html" class="text-teal-400 hover:underline">Virtual Tele-Rehab (Soon)</a></li>
+        <!-- Patient Care & Access -->
+        <div class="lg:col-span-3 space-y-4">
+          <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider text-xs">Patient Access</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm">
+            <li>
+              <button data-open-modal="appointment" class="text-teal-400 hover:text-teal-300 font-bold transition flex items-center gap-1.5">
+                <span>Book Clinical Intake</span>
+                <svg class="w-3.5 h-3.5 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </li>
+            <li>
+              <a href="login.html" class="text-slate-400 hover:text-teal-400 transition flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
+                <span>Patient Portal Login</span>
+              </a>
+            </li>
+            <li><a href="dashboard.html" class="text-slate-400 hover:text-teal-400 transition">Patient Dashboard</a></li>
+            <li><a href="pricing.html" class="text-slate-400 hover:text-teal-400 transition">Insurance Verification</a></li>
+            <li><a href="contact.html" class="text-slate-400 hover:text-teal-400 transition">Emergency Clinic Support</a></li>
           </ul>
-        </div>
-
-        <!-- Newsletter & Patient Portal -->
-        <div class="space-y-4">
-          <h4 class="text-white font-bold text-sm">Stay Updated</h4>
-          <p class="text-xs text-slate-400">Receive doctor-approved posture tips, stretches, and clinic news.</p>
-          
-          <form class="newsletter-form space-y-2">
-            <input type="email" required placeholder="Enter your email" class="w-full px-3 py-2 text-xs rounded-lg bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-teal-500">
-            <button type="submit" class="w-full py-2 rounded-lg bg-teal-700 hover:bg-teal-600 text-white text-xs font-bold transition">
-              Subscribe Free
-            </button>
-          </form>
-
-          <div class="pt-2">
-            <a href="dashboard.html" class="inline-flex items-center gap-1.5 text-xs text-teal-400 font-bold hover:underline">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
-              Patient Portal Login
-            </a>
-          </div>
         </div>
 
       </div>
@@ -866,9 +859,9 @@
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
         <p>© 2026 PhysioCare Rehabilitation Group. All rights reserved.</p>
         <div class="flex items-center gap-4">
-          <a href="404.html" class="hover:text-slate-400">Privacy Policy</a>
-          <a href="404.html" class="hover:text-slate-400">Terms of Care</a>
-          <a href="404.html" class="hover:text-slate-400">HIPAA Compliance</a>
+          <a href="404.html" class="hover:text-slate-400 transition">Privacy Policy</a>
+          <a href="404.html" class="hover:text-slate-400 transition">Terms of Care</a>
+          <a href="404.html" class="hover:text-slate-400 transition">HIPAA Compliance</a>
         </div>
       </div>
     </div>

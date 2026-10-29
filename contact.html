@@ -282,10 +282,149 @@
     </div>
   </main>
 
-  <!-- Universal Footer -->
-  <footer class="bg-slate-900 text-slate-400 py-12 text-center text-xs">
-    © 2026 PhysioCare Clinic.
+  <!-- Universal Clinic Footer -->
+  <footer class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+        
+        <!-- Clinic Info & Brand -->
+        <div class="lg:col-span-6 space-y-4">
+          <a href="index.html" class="inline-block">
+            <img src="assets/images/logo-white-v2.svg" alt="PhysioCare" class="h-9 w-auto">
+          </a>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-lg">
+            PhysioCare is an advanced physical therapy and neurological rehabilitation center dedicated to restoring movement, eliminating acute pain, and empowering lifelong mobility through evidence-based doctoral care.
+          </p>
+          <div class="text-xs space-y-1.5 text-slate-400 pt-2">
+            <p><strong class="text-white">HQ Clinic:</strong> 450 Sutter St, Suite 800, San Francisco, CA 94108</p>
+            <p><strong class="text-white">Phone:</strong> +1 (800) 555-PHYS (7497)</p>
+            <p><strong class="text-white">Email:</strong> care@physiocare-clinic.com</p>
+            <p><strong class="text-white">Clinical Hours:</strong> Mon – Fri: 7:00 AM – 7:00 PM | Sat: 8:00 AM – 2:00 PM</p>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="lg:col-span-3">
+          <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider text-xs">Clinic Navigation</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm">
+            <li><a href="index.html" class="text-slate-400 hover:text-teal-400 transition">Home (Classic)</a></li>
+            <li><a href="home-2.html" class="text-slate-400 hover:text-teal-400 transition">Home 2 (Premium Care)</a></li>
+            <li><a href="about.html" class="text-slate-400 hover:text-teal-400 transition">About Our Clinic</a></li>
+            <li><a href="services.html" class="text-slate-400 hover:text-teal-400 transition">Rehabilitation Services</a></li>
+            <li><a href="therapists.html" class="text-slate-400 hover:text-teal-400 transition">Our Therapists</a></li>
+            <li><a href="pricing.html" class="text-slate-400 hover:text-teal-400 transition">Pricing & Packages</a></li>
+            <li><a href="contact.html" class="text-slate-400 hover:text-teal-400 transition">Contact & Locations</a></li>
+          </ul>
+        </div>
+
+        <!-- Patient Care & Access -->
+        <div class="lg:col-span-3 space-y-4">
+          <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider text-xs">Patient Access</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm">
+            <li>
+              <button data-open-modal="appointment" class="text-teal-400 hover:text-teal-300 font-bold transition flex items-center gap-1.5">
+                <span>Book Clinical Intake</span>
+                <svg class="w-3.5 h-3.5 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </li>
+            <li>
+              <a href="login.html" class="text-slate-400 hover:text-teal-400 transition flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
+                <span>Patient Portal Login</span>
+              </a>
+            </li>
+            <li><a href="dashboard.html" class="text-slate-400 hover:text-teal-400 transition">Patient Dashboard</a></li>
+            <li><a href="pricing.html" class="text-slate-400 hover:text-teal-400 transition">Insurance Verification</a></li>
+            <li><a href="contact.html" class="text-slate-400 hover:text-teal-400 transition">Emergency Clinic Support</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Bottom Disclaimers -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 PhysioCare Rehabilitation Group. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="404.html" class="hover:text-slate-400 transition">Privacy Policy</a>
+          <a href="404.html" class="hover:text-slate-400 transition">Terms of Care</a>
+          <a href="404.html" class="hover:text-slate-400 transition">HIPAA Compliance</a>
+        </div>
+      </div>
+    </div>
   </footer>
+
+  <!-- Universal Interactive Appointment Modal -->
+  <div id="appointment-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm hidden modal-overlay">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-100 dark:border-slate-800 relative max-h-[90vh] overflow-y-auto">
+      
+      <button data-close-modal class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 dark:hover:text-white p-1 rounded-lg">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="text-left mb-6">
+        <span class="text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wide">PhysioCare Clinical Intake</span>
+        <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">Book Your Evaluation</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Choose your preferred condition focus and timing.</p>
+      </div>
+
+      <form id="appointment-form" class="space-y-4 text-left">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Target Service / Condition</label>
+          <select name="service" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:outline-none">
+            <option value="Spine & Posture Rehab">Spine, Disc & Posture Correction</option>
+            <option value="Sports Rehabilitation">Sports Injury & Return-to-Play</option>
+            <option value="Post-Op Joint Rehabilitation">Post-Operative Orthopedic Rehab</option>
+            <option value="Neurological Rehabilitation">Neurological & Balance Therapy</option>
+            <option value="Chronic Pain Management">Chronic Muscle & Joint Pain</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Preferred Date</label>
+            <input type="date" required name="date" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Preferred Time</label>
+            <select name="time" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:outline-none">
+              <option>Morning (08:00 AM - 12:00 PM)</option>
+              <option>Afternoon (12:00 PM - 04:00 PM)</option>
+              <option>Evening (04:00 PM - 08:00 PM)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Full Patient Name</label>
+          <input type="text" required name="patient_name" placeholder="e.g. Alex Morgan" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Phone Number</label>
+            <input type="tel" required name="phone" placeholder="(555) 000-0000" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Email Address</label>
+            <input type="email" required name="email" placeholder="alex@example.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Current Symptoms / Primary Goal (Optional)</label>
+          <textarea rows="2" name="notes" placeholder="Tell us where you feel pain, how long it has persisted, or surgery dates..." class="w-full px-3.5 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:outline-none"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm shadow-lg shadow-teal-700/25 transition">
+          Confirm Appointment Request
+        </button>
+
+        <p class="text-[11px] text-slate-400 text-center">
+          🔒 Zero payment collected now. HIPAA compliant. We will confirm via SMS in 15 mins.
+        </p>
+      </form>
+    </div>
+  </div>
 
   <script src="assets/js/site.js"></script>
 </body>
