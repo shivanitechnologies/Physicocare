@@ -159,38 +159,100 @@
   </div>
 
   <main class="flex-grow pt-20">
-    <!-- Hero Header with Full Height Background Image -->
-    <section class="hero-full-screen min-h-[calc(100vh-5rem)] relative overflow-hidden py-16 sm:py-24 bg-slate-100 dark:bg-slate-950 border-b border-slate-200/80 dark:border-slate-800 mb-16">
-      <!-- High-Clarity Background Image with Balanced Scrim -->
-      <div class="absolute inset-0 z-0 pointer-events-none">
-        <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=1920&q=80" alt="PhysioCare Clinic Reception & Location" class="w-full h-full object-cover object-center opacity-90 sm:opacity-95 dark:opacity-80 filter saturate-115 contrast-105 hero-bg-animated">
-        <div class="absolute inset-0 bg-teal-900/10 dark:bg-slate-950/60 backdrop-blur-[0.3px]"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-teal-50/60 via-transparent to-slate-100/70 dark:from-slate-950/80 dark:via-slate-950/40 dark:to-slate-950/85"></div>
-      </div>
-      <!-- Ambient Medical Glows -->
-      <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-teal-200/30 dark:bg-teal-900/20 blur-3xl pointer-events-none"></div>
-      <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-sky-200/30 dark:bg-sky-900/20 blur-3xl pointer-events-none"></div>
+    <!-- Hero Header: Fast-Access Communication Split Hero -->
+    <section class="relative overflow-hidden py-16 sm:py-24 bg-gradient-to-br from-slate-50 via-teal-50/20 to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 border-b border-slate-200/80 dark:border-slate-800 mb-12">
+      
+      <!-- Subtle Decorative Ambient Mesh -->
+      <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-teal-300/20 dark:bg-teal-900/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-sky-300/15 dark:bg-sky-950/20 blur-3xl pointer-events-none"></div>
 
-            <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/90 border border-teal-200 dark:border-teal-700/60 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-widest shadow-sm mb-4 animate-hero-badge">Clinical Access & Care</span>
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white mt-1 mb-4 tracking-tight font-heading animate-hero-title leading-tight">
-            Get in Touch with Our Friendly Team
-          </h1>
-          <p class="text-base sm:text-lg text-slate-700 dark:text-slate-200 font-medium leading-relaxed max-w-2xl mx-auto animate-hero-desc">
-            Have questions regarding insurance coverage, doctor referrals, or treatment programs? Reach out directly to our clinical administrative team.
-          </p>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Left Column: Fast Contact Information -->
+          <div class="lg:col-span-7 space-y-6 text-left">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-50 dark:bg-teal-950/90 border border-teal-200 dark:border-teal-700/60 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider shadow-xs">
+              <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+              Fast Clinical Access
+            </div>
 
-          <!-- CTA Button Group: Click to move to Therapists page -->
-          <div class="mt-8 flex flex-wrap justify-center items-center gap-4 animate-hero-cta">
-            <a href="therapists.html" class="px-7 py-3.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm shadow-xl shadow-teal-700/25 hover:shadow-teal-700/40 hover:-translate-y-0.5 transition-all flex items-center gap-2.5">
-              <span>Book Your Visit</span>
-              <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </a>
-            <a href="#locations" class="px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-teal-600 dark:hover:border-teal-400 font-bold text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-teal-400 bg-white/90 dark:bg-slate-800/90 backdrop-blur transition flex items-center gap-2 text-sm">
-              <span>See Clinic Locations</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </a>
-      </div>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight font-heading leading-[1.15]">
+              Get in Touch with Our <br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-700 to-teal-500 dark:from-teal-400 dark:to-emerald-400">Friendly Care Team</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-2xl">
+              Have questions regarding insurance coverage, doctor referrals, or treatment programs? Reach out directly to our clinical administrative team. We answer promptly.
+            </p>
+
+            <!-- 3 Quick Communication Tiles -->
+            <div class="grid sm:grid-cols-2 gap-4 pt-1">
+              
+              <a href="tel:4158903321" class="p-4 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/90 dark:border-slate-700 shadow-sm hover:border-teal-500 transition group flex items-start gap-3">
+                <div class="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 flex items-center justify-center shrink-0 font-bold group-hover:scale-110 transition-transform">
+                  📞
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Phone Support</h4>
+                  <p class="text-sm font-extrabold text-slate-900 dark:text-white group-hover:text-teal-700 transition-colors">(415) 890-3321</p>
+                  <p class="text-[11px] text-teal-600 font-semibold">Instant Human Answer</p>
+                </div>
+              </a>
+
+              <div class="p-4 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/90 dark:border-slate-700 shadow-sm flex items-start gap-3">
+                <div class="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 flex items-center justify-center shrink-0 font-bold">
+                  ⏰
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Clinic Hours</h4>
+                  <p class="text-sm font-extrabold text-slate-900 dark:text-white">Mon–Fri: 7am–7:30pm</p>
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400">Sat: 8am–2pm (Weekend Care)</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a href="#contact-form" class="px-7 py-3.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm shadow-lg shadow-teal-700/25 hover:shadow-teal-700/40 hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                <span>Send Us a Message</span>
+                <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </a>
+              <a href="#locations" class="px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-teal-600 dark:hover:border-teal-400 font-bold text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-teal-400 bg-white dark:bg-slate-800 transition flex items-center gap-2 text-sm shadow-xs">
+                <span>See Clinic Locations</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Clinic Snapshot Card -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-slate-200 dark:bg-slate-800">
+              <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=800&q=80" alt="PhysioCare Clinic Reception" class="w-full h-[400px] object-cover">
+              
+              <!-- Floating Clinic Pill -->
+              <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-white/60 dark:border-slate-700 shadow-xl flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 flex items-center justify-center font-black text-lg">
+                    🏥
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900 dark:text-white">San Francisco &amp; Manhattan</h4>
+                    <p class="text-xs text-emerald-600 font-bold flex items-center gap-1">
+                      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Open Today for Intakes
+                    </p>
+                  </div>
+                </div>
+                <a href="#locations" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline">
+                  Directions &rarr;
+                </a>
+              </div>
+            </div>
+
+            <!-- Accent Background Blob Behind Image -->
+            <div class="absolute -bottom-6 -right-6 w-72 h-72 rounded-full bg-teal-600/15 dark:bg-teal-500/10 blur-2xl -z-10 pointer-events-none"></div>
+          </div>
+
+        </div>
       </div>
     </section>
 
