@@ -583,3 +583,48 @@ a:has(img[alt*="PhysioCare"]):active {
   opacity: 1;
   transform: rotate(25deg) translate(380%, 0);
 }
+
+
+/* ==========================================================================
+   Hero Image & Card Animation Effects (Natural, Non-AI, Elegant)
+   ========================================================================== */
+@keyframes imageFloatSoft {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes imageGlowPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.04);
+  }
+}
+
+.animate-image-float {
+  animation: imageFloatSoft 6s ease-in-out infinite;
+}
+
+.animate-image-glow {
+  animation: imageGlowPulse 5s ease-in-out infinite;
+}
+
+.image-zoom-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-zoom-card img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.image-zoom-card:hover img {
+  transform: scale(1.06);
+}
