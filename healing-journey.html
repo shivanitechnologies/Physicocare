@@ -12,126 +12,162 @@
     :root {
       --primary: #0F766E;
       --secondary: #1E293B;
-      --background: #F5FAFA;
+      --background: #F8FAFC;
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      background: #fff;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: #f1f5f9;
+      padding: 40px 20px;
     }
 
     .healing-section {
-      padding: 65px 24px;
-      background:
-        radial-gradient(circle at 85% 20%, rgba(20,184,166,.08), transparent 30%),
-        linear-gradient(135deg, #F7FAFC, #EFF8F7);
+      padding: 40px 0;
       overflow: hidden;
+      position: relative;
     }
 
     .journey-container {
-      max-width: 1450px;
-      min-height: 650px;
+      max-width: 1420px;
+      min-height: 700px;
       margin: auto;
-      padding: 65px 55px;
+      padding: 60px 55px;
       display: grid;
-      grid-template-columns: 36% 64%;
+      grid-template-columns: 35% 65%;
       align-items: center;
       position: relative;
       overflow: hidden;
       border: 1px solid #E2E8F0;
       border-radius: 38px;
-      background: rgba(255,255,255,.78);
-      box-shadow: 0 18px 55px rgba(15, 23, 42, .07);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
     }
 
-    /* LEFT CONTENT */
-
+    /* LEFT CONTENT - ENHANCED & BALANCED */
     .journey-intro {
       position: relative;
       z-index: 3;
-      max-width: 420px;
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .intro-icon {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
+    .intro-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
       background: #E0F2F1;
-      color: var(--primary);
-      margin-bottom: 32px;
+      border: 1px solid #B2DFDB;
+      color: #0F766E;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      width: fit-content;
     }
 
-    .intro-label {
-      color: var(--primary);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 15px;
+    .intro-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #0D9488;
+      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.25);
     }
 
     .journey-intro h2 {
-      color: #102A3A;
-      font-size: clamp(36px, 4vw, 56px);
+      color: #0F172A;
+      font-size: clamp(34px, 3.8vw, 52px);
       line-height: 1.12;
-      font-weight: 800;
-      letter-spacing: -2px;
-      margin: 0 0 22px;
+      font-weight: 850;
+      letter-spacing: -1.8px;
+      margin: 0 0 16px;
+    }
+
+    .journey-intro h2 .highlight {
+      color: #0F766E;
     }
 
     .intro-description {
-      color: #526477;
-      font-size: 19px;
-      line-height: 1.7;
-      max-width: 390px;
+      color: #475569;
+      font-size: 16.5px;
+      line-height: 1.65;
+      margin: 0 0 22px;
     }
 
     .intro-line {
       height: 4px;
-      width: 85px;
-      border-radius: 20px;
-      background: var(--primary);
-      margin: 30px 0;
+      width: 60px;
+      border-radius: 999px;
+      background: linear-gradient(to right, #0F766E, #14B8A6);
+      margin: 0 0 24px;
     }
 
-    .intro-support {
-      color: #286D6A;
-      font-size: 17px;
-      line-height: 1.7;
-      max-width: 310px;
+    /* Feature checklist balancing the vertical layout */
+    .intro-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .intro-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1E293B;
+    }
+
+    .intro-check-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #CCFBF1;
+      color: #0F766E;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
     }
 
     .journey-cta {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-top: 25px;
-      padding: 13px 21px;
-      background: var(--primary);
+      padding: 14px 26px;
+      background: #0F766E;
       color: white;
-      border-radius: 10px;
-      font-size: 14px;
+      border-radius: 12px;
+      font-size: 14.5px;
       font-weight: 700;
       text-decoration: none;
-      transition: .3s ease;
+      transition: all .3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 8px 20px rgba(15, 118, 110, 0.25);
       cursor: pointer;
+      width: fit-content;
+      border: none;
     }
 
     .journey-cta:hover {
       background: #115E59;
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(15,118,110,.22);
+      box-shadow: 0 12px 28px rgba(15, 118, 110, 0.35);
     }
 
-    /* RIGHT JOURNEY AREA */
-
+    /* RIGHT JOURNEY CANVAS */
     .journey-visual {
-      height: 570px;
+      height: 620px;
+      min-height: 620px;
       position: relative;
       z-index: 2;
     }
@@ -142,110 +178,101 @@
       width: 100%;
       height: 100%;
       overflow: visible;
-      z-index: 0;
+      z-index: 1;
+      pointer-events: none;
     }
 
     .path-base {
       fill: none;
-      stroke: #D8EAE8;
-      stroke-width: 3;
+      stroke: #CCFBF1;
+      stroke-width: 4;
       stroke-linecap: round;
     }
 
     .path-animated {
       fill: none;
-      stroke: #1AA69A;
-      stroke-width: 3.5;
+      stroke: #0D9488;
+      stroke-width: 4;
       stroke-linecap: round;
       stroke-dasharray: 1400;
       stroke-dashoffset: 1400;
-      transition: stroke-dashoffset 2.8s ease;
+      transition: stroke-dashoffset 2.6s cubic-bezier(0.16, 1, 0.3, 1);
+      filter: drop-shadow(0 2px 4px rgba(13, 148, 136, 0.25));
     }
 
-    
-.journey-section.visible .journey-card {
-  position: absolute;
-  width: 255px;
-  min-height: 108px;
-  padding: 12px 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(255,255,255,.96);
-  border: 1px solid #EDF2F7;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
-  z-index: 2;
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity .7s ease,
-    transform .7s cubic-bezier(.2,.8,.2,1),
-    box-shadow .3s ease,
-    border-color .3s ease;
-}
+    .journey-section.visible .path-animated {
+      stroke-dashoffset: 0;
+    }
 
-.dark .journey-card {
-  background: rgba(30, 41, 59, 0.95);
-  border-color: rgba(51, 65, 85, 0.8);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
-}
+    .path-dot {
+      fill: white;
+      stroke: #0D9488;
+      stroke-width: 4;
+      filter: drop-shadow(0 2px 5px rgba(13, 148, 136, 0.25));
+    }
 
-.journey-section.visible .journey-card {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
+    /* SLEEK COMPACT CARDS - NO PARAGRAPH, WIDER TEXT COLUMN */
+    .journey-card {
+      position: absolute;
+      width: 315px;
+      height: 94px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid #E2E8F0;
+      border-radius: 22px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+      z-index: 2;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0;
+      transform: translateY(20px);
+    }
 
-.step-visual {
-  width: 60px;
-  height: 60px;
-  flex-shrink: 0;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  position: relative;
-  background: #F1F5F9;
-}
+    .journey-section.visible .journey-card {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
 
-.step-copy h3 {
-  color: #142B3A;
-  font-size: 14px;
-  line-height: 1.25;
-  font-weight: 750;
-  margin: 0 0 3px;
-  white-space: nowrap;
-}
+    .journey-card:hover {
+      transform: translateY(-5px) scale(1.02) !important;
+      border-color: rgba(15, 118, 110, 0.5);
+      box-shadow: 0 18px 40px rgba(15, 118, 110, 0.16);
+    }
 
-.dark .step-copy h3 {
-  color: #FFFFFF;
-}
+    /* ASCENDING STAIRCASE COORDINATES - ZERO OVERLAP */
+    .step-1 {
+      left: 0;
+      top: 480px;
+    }
 
-.step-copy p {
-  color: #64748B;
-  font-size: 11px;
-  line-height: 1.45;
-  margin: 0;
-}
+    .step-2 {
+      left: 23%;
+      top: 320px;
+    }
 
-.dark .step-copy p {
-  color: #94A3B8;
-}
+    .step-3 {
+      left: 48%;
+      top: 160px;
+    }
 
-.step-1 { left: 0%; top: 72%; }
-.step-2 { left: 25%; top: 48%; }
-.step-3 { left: 51%; top: 24%; }
-.step-4 { right: 0%; top: 0%; }
+    .step-4 {
+      right: 0;
+      top: 10px;
+    }
 
     .step-visual {
-      width: 86px;
-      height: 86px;
+      width: 68px;
+      height: 68px;
       flex-shrink: 0;
-      border-radius: 17px;
+      border-radius: 16px;
       display: grid;
       place-items: center;
       overflow: hidden;
       position: relative;
+      background: #F1F5F9;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
     }
 
     .step-visual img {
@@ -260,72 +287,53 @@
     }
 
     .step-calendar {
-      background: #E4F6F2;
+      background: #E0F2F1;
       color: #0F766E;
     }
 
-    .step-copy { min-width: 0; }
+    .step-copy {
+      min-width: 0;
+      flex: 1;
+    }
 
     .step-number {
-      color: var(--primary);
-      font-size: 10px;
+      color: #0F766E;
+      font-size: 11px;
       font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
     }
 
     .step-copy h3 {
-      color: #142B3A;
-      font-size: 17px;
-      line-height: 1.3;
-      font-weight: 750;
-      margin: 0 0 7px;
-    }
-
-    .step-copy p {
-      color: #64748B;
-      font-size: 13px;
-      line-height: 1.55;
+      color: #0F172A;
+      font-size: 15.5px;
+      line-height: 1.25;
+      font-weight: 800;
       margin: 0;
+      white-space: nowrap;
     }
 
     /* STEP 1 CALENDAR ANIMATION */
-
     .calendar-icon {
       position: relative;
-      animation: calendarFloat 3s ease-in-out infinite;
     }
 
     .calendar-check {
       position: absolute;
-      width: 23px;
-      height: 23px;
+      width: 22px;
+      height: 22px;
       background: #10B981;
       color: white;
-      border: 3px solid #E4F6F2;
+      border: 3px solid #E0F2F1;
       border-radius: 50%;
       display: grid;
       place-items: center;
       right: -5px;
       bottom: -3px;
-      transform: scale(0);
-      animation: checkReveal .5s ease 1.2s forwards;
-    }
-
-    @keyframes calendarFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-
-    @keyframes checkReveal {
-      0% { transform: scale(0); }
-      70% { transform: scale(1.25); }
-      100% { transform: scale(1); }
     }
 
     /* STEP 2 MOVEMENT INDICATOR */
-
     .movement-overlay {
       position: absolute;
       width: 16px;
@@ -333,242 +341,196 @@
       border: 3px solid #fff;
       border-radius: 50%;
       background: #0EA5E9;
-      top: 12px;
-      right: 12px;
-      box-shadow: 0 0 0 0 rgba(14,165,233,.5);
+      top: 8px;
+      right: 8px;
+      box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.5);
       animation: movementPulse 1.8s infinite;
     }
 
     @keyframes movementPulse {
-      0% { box-shadow: 0 0 0 0 rgba(14,165,233,.5); }
-      70% { box-shadow: 0 0 0 12px rgba(14,165,233,0); }
-      100% { box-shadow: 0 0 0 0 rgba(14,165,233,0); }
+      0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.6); }
+      70% { box-shadow: 0 0 0 12px rgba(14, 165, 233, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
     }
 
     /* STEP 3 HEALING PULSE */
-
     .healing-visual::after {
       content: "";
       position: absolute;
-      inset: 7px;
-      border: 2px solid rgba(15,118,110,.65);
+      inset: 4px;
+      border: 2px solid rgba(13, 148, 136, 0.8);
       border-radius: 13px;
       animation: healingPulse 2s ease-out infinite;
       pointer-events: none;
     }
 
     @keyframes healingPulse {
-      0% { transform: scale(.85); opacity: .8; }
+      0% { transform: scale(0.88); opacity: 0.85; }
       100% { transform: scale(1.25); opacity: 0; }
     }
 
     /* STEP 4 RECOVERY CHECK */
-
     .recovery-check {
       position: absolute;
-      right: 8px;
-      bottom: 8px;
-      width: 27px;
-      height: 27px;
+      right: 6px;
+      bottom: 6px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       display: grid;
       place-items: center;
       color: white;
       background: #10B981;
-      border: 3px solid white;
-      animation: recoveryPop .6s ease 1.8s both;
+      border: 2.5px solid white;
+      box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
     }
 
-    @keyframes recoveryPop {
-      from { transform: scale(0) rotate(-30deg); }
-      to { transform: scale(1) rotate(0); }
-    }
-
-    /* DECORATIVE SHAPES */
-
-    .decor-circle {
-      position: absolute;
-      width: 310px;
-      height: 310px;
-      right: -150px;
-      bottom: -160px;
-      border-radius: 50%;
-      background: rgba(20,184,166,.07);
-      pointer-events: none;
-    }
-
+    /* DECORATIVE ELEMENTS */
     .decor-dots {
       position: absolute;
       right: 20px;
-      bottom: 35px;
+      bottom: 25px;
       width: 190px;
       height: 190px;
-      opacity: .15;
+      opacity: 0.14;
       background-image: radial-gradient(#0F766E 1.5px, transparent 1.5px);
-      background-size: 13px 13px;
+      background-size: 14px 14px;
       pointer-events: none;
     }
 
-    /* RESPONSIVE */
+    .decor-circle {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      right: -130px;
+      bottom: -150px;
+      border-radius: 50%;
+      background: rgba(20, 184, 166, 0.08);
+      pointer-events: none;
+    }
 
-    @media (max-width: 1100px) {
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 1200px) and (min-width: 851px) {
       .journey-container {
         grid-template-columns: 34% 66%;
         padding: 45px 30px;
+        min-height: 620px;
       }
 
-      /* Refined card dimensions matching reference 2 */
-.journey-card {
-  position: absolute;
-  width: 255px;
-  min-height: 108px;
-  padding: 12px 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(255,255,255,.96);
-  border: 1px solid #EDF2F7;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
-  z-index: 2;
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity .7s ease,
-    transform .7s cubic-bezier(.2,.8,.2,1),
-    box-shadow .3s ease,
-    border-color .3s ease;
-}
+      .journey-visual {
+        height: 570px;
+        min-height: 570px;
+      }
 
-.dark .journey-card {
-  background: rgba(30, 41, 59, 0.95);
-  border-color: rgba(51, 65, 85, 0.8);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
-}
+      .journey-card {
+        width: 270px;
+        height: 86px;
+        padding: 10px 14px;
+        gap: 12px;
+      }
 
-.journey-section.visible .journey-card {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
+      .step-visual {
+        width: 56px;
+        height: 56px;
+      }
 
-.step-visual {
-  width: 60px;
-  height: 60px;
-  flex-shrink: 0;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  position: relative;
-  background: #F1F5F9;
-}
+      .step-copy h3 {
+        font-size: 14px;
+      }
 
-.step-copy h3 {
-  color: #142B3A;
-  font-size: 14px;
-  line-height: 1.25;
-  font-weight: 750;
-  margin: 0 0 3px;
-  white-space: nowrap;
-}
-
-.dark .step-copy h3 {
-  color: #FFFFFF;
-}
-
-.step-copy p {
-  color: #64748B;
-  font-size: 11px;
-  line-height: 1.45;
-  margin: 0;
-}
-
-.dark .step-copy p {
-  color: #94A3B8;
-}
-
-.step-1 { left: 0%; top: 72%; }
-.step-2 { left: 25%; top: 48%; }
-.step-3 { left: 51%; top: 24%; }
-.step-4 { right: 0%; top: 0%; }
+      .step-1 { left: 0; top: 430px; }
+      .step-2 { left: 20%; top: 290px; }
+      .step-3 { left: 43%; top: 150px; }
+      .step-4 { right: 0; top: 10px; }
     }
 
     @media (max-width: 850px) {
+      .healing-section {
+        padding: 50px 16px;
+      }
+
       .journey-container {
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        gap: 45px;
-        padding: 45px 25px;
+        gap: 36px;
+        padding: 36px 20px;
+        min-height: auto;
+        border-radius: 30px;
       }
 
       .journey-intro {
-        max-width: 600px;
+        max-width: 100%;
       }
 
       .journey-visual {
         height: auto;
+        min-height: auto;
         display: flex;
         flex-direction: column;
-        gap: 22px;
-        padding-left: 28px;
+        gap: 16px;
       }
 
       .journey-path {
-        width: 32px;
-        height: 100%;
-        left: 0;
-        top: 0;
-      }
-
-      .journey-path path {
-        d: path("M 15 10 L 15 1000");
+        display: none;
       }
 
       .journey-card {
         position: relative;
-        left: auto;
-        right: auto;
-        top: auto;
+        inset: auto !important;
         width: 100%;
-        min-height: 125px;
+        height: auto;
+        min-height: 84px;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .decor-dots,
+      .decor-circle {
+        display: none;
       }
     }
 
     @media (max-width: 480px) {
-      .healing-section { padding: 30px 12px; }
+      .healing-section {
+        padding: 36px 12px;
+      }
 
       .journey-container {
-        padding: 32px 18px;
-        border-radius: 25px;
+        padding: 28px 16px;
+        border-radius: 24px;
       }
 
       .journey-intro h2 {
-        font-size: 36px;
+        font-size: 32px;
       }
 
-      .intro-description { font-size: 16px; }
-
-      .step-visual {
-        width: 72px;
-        height: 72px;
+      .intro-description {
+        font-size: 15px;
       }
 
       .journey-card {
-        padding: 13px;
-        gap: 12px;
+        padding: 10px 14px;
       }
 
-      .step-copy h3 { font-size: 15px; }
-      .step-copy p { font-size: 12px; }
+      .step-visual {
+        width: 54px;
+        height: 54px;
+      }
+
+      .step-copy h3 {
+        font-size: 14.5px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
+      .healing-section *,
+      .healing-section *::before,
+      .healing-section *::after {
+        animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
@@ -577,170 +539,146 @@
 <body>
 
 <section class="healing-section journey-section visible" id="healingJourney">
-
   <div class="journey-container">
 
     <!-- LEFT INTRODUCTION -->
     <div class="journey-intro">
 
-      <div class="intro-icon">
-        <i data-lucide="users-round" width="34" height="34"></i>
+      <div class="intro-badge">
+        <span class="intro-badge-dot"></span>
+        <span>Your Recovery Journey</span>
       </div>
-
-      <div class="intro-label">Your Recovery Journey</div>
 
       <h2>
         How We Help<br />
-        You Heal
+        <span class="highlight">You Heal</span>
       </h2>
 
       <p class="intro-description">
-        Our 4 simple steps take you from everyday pain
-        and stiffness to feeling strong and moving freely again.
+        Our 4 simple steps take you from everyday pain and stiffness to feeling strong, active, and moving freely again.
       </p>
 
       <div class="intro-line"></div>
 
-      <p class="intro-support">
-        Personalised care, expert guidance, and
-        support at every step of your recovery journey.
-      </p>
+      <!-- Trust Benefits Checklist -->
+      <ul class="intro-features">
+        <li class="intro-feature-item">
+          <span class="intro-check-circle">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </span>
+          <span>100% 1-on-1 Doctor of Physical Therapy Care</span>
+        </li>
+        <li class="intro-feature-item">
+          <span class="intro-check-circle">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </span>
+          <span>Customized Treatment &amp; Mobility Plan</span>
+        </li>
+        <li class="intro-feature-item">
+          <span class="intro-check-circle">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </span>
+          <span>In-Network Insurance &amp; Flexible Booking</span>
+        </li>
+      </ul>
 
       <a href="contact.html" class="journey-cta" data-open-modal="appointment">
-        Book Your Appointment
-        <i data-lucide="arrow-up-right" width="17"></i>
+        <span>Book Your Appointment</span>
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
       </a>
 
     </div>
 
-    <!-- RIGHT ANIMATED JOURNEY -->
+    <!-- RIGHT ANIMATED ASCENDING JOURNEY -->
     <div class="journey-visual">
 
       <!-- CONNECTING SVG PATH -->
-      <svg class="journey-path" viewBox="0 0 700 570"
-           preserveAspectRatio="none" aria-hidden="true">
-
+      <svg class="journey-path" viewBox="0 0 850 620" preserveAspectRatio="none" aria-hidden="true">
+        <!-- Base Path -->
         <path fill="none" class="path-base"
-          d="M45 530 C180 570 170 410 280 365
-             S350 240 445 220
-             S500 90 650 30" />
+          d="M 40 527 C 150 527, 160 367, 260 367
+             S 380 207, 480 207
+             S 620 57, 720 57" />
 
+        <!-- Animated Pathway -->
         <path fill="none" class="path-animated"
-          d="M45 530 C180 570 170 410 280 365
-             S350 240 445 220
-             S500 90 650 30" />
+          d="M 40 527 C 150 527, 160 367, 260 367
+             S 380 207, 480 207
+             S 620 57, 720 57" />
 
-        <circle class="path-dot" cx="45" cy="530" r="10"/>
-        <circle class="path-dot" cx="280" cy="365" r="9"/>
-        <circle class="path-dot" cx="445" cy="220" r="9"/>
-        <circle class="path-dot" cx="650" cy="30" r="10"/>
-
+        <!-- Connection Nodes -->
+        <circle class="path-dot" cx="40" cy="527" r="9"/>
+        <circle class="path-dot" cx="260" cy="367" r="9"/>
+        <circle class="path-dot" cx="480" cy="207" r="9"/>
+        <circle class="path-dot" cx="720" cy="57" r="9"/>
       </svg>
 
-      <!-- STEP 1 -->
+      <!-- STEP 1: Book Your Visit -->
       <article class="journey-card step-1">
-
         <div class="step-visual step-calendar">
-
           <div class="calendar-icon">
-            <i data-lucide="calendar-days" width="43" height="43"></i>
-
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
             <div class="calendar-check">
-              <i data-lucide="check" width="13" height="13"></i>
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             </div>
           </div>
-
         </div>
-
         <div class="step-copy">
           <div class="step-number">Step 01</div>
           <h3>Book Your Visit</h3>
-          <p>
-            Choose an in-person clinic visit or video call,
-            and share where it hurts in under 2 minutes.
-          </p>
         </div>
-
       </article>
 
-      <!-- STEP 2 -->
+      <!-- STEP 2: Gentle Movement Check -->
       <article class="journey-card step-2">
-
         <div class="step-visual">
-
           <img
             src="assets/images/step-assessment.jpg"
             alt="Physiotherapist assessing patient movement"
             loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=300&q=80'"
           />
-
           <span class="movement-overlay"></span>
         </div>
-
         <div class="step-copy">
           <div class="step-number">Step 02</div>
           <h3>Gentle Movement Check</h3>
-          <p>
-            Meet your therapist 1-on-1 for a gentle checkup
-            to find exactly why and where you hurt.
-          </p>
         </div>
-
       </article>
 
-      <!-- STEP 3 -->
+      <!-- STEP 3: Hands-On Healing Care -->
       <article class="journey-card step-3">
-
         <div class="step-visual healing-visual">
-
           <img
             src="assets/images/step-treatment.jpg"
             alt="Physiotherapy hands-on treatment"
             loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=300&q=80'"
           />
-
         </div>
-
         <div class="step-copy">
           <div class="step-number">Step 03</div>
           <h3>Hands-On Healing Care</h3>
-          <p>
-            Enjoy soothing hands-on care, modern pain relief,
-            and guided exercises made just for you.
-          </p>
         </div>
-
       </article>
 
-      <!-- STEP 4 -->
+      <!-- STEP 4: Stay Strong & Pain-Free -->
       <article class="journey-card step-4">
-
         <div class="step-visual">
-
           <img
             src="assets/images/step-recovery.jpg"
             alt="Patient enjoying an active lifestyle"
             loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=300&q=80'"
           />
-
           <span class="recovery-check">
-            <i data-lucide="check" width="15"></i>
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
           </span>
-
         </div>
-
         <div class="step-copy">
           <div class="step-number">Step 04</div>
-          <h3>Stay Strong & Pain-Free</h3>
-          <p>
-            Follow your simple home routine and healthy habits
-            so you stay strong, active, and moving confidently.
-          </p>
+          <h3>Stay Strong &amp; Pain-Free</h3>
         </div>
-
       </article>
 
       <div class="decor-circle"></div>
@@ -748,16 +686,15 @@
 
     </div>
   </div>
-
 </section>
 
 <script>
-  // Initialize Lucide icons
+  // Initialize Lucide icons if loaded
   if (window.lucide) {
     lucide.createIcons();
   }
 
-  // Animate the section when it enters the viewport
+  // Animate the section when it enters viewport
   const journey = document.getElementById("healingJourney");
   if (journey) {
     const observer = new IntersectionObserver((entries) => {

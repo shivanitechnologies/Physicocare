@@ -635,9 +635,9 @@ a:has(img[alt*="PhysioCare"]):active {
    ========================================================================== */
 
 .healing-section {
-  padding: 80px 24px;
+  padding: 70px 24px;
   background:
-    radial-gradient(circle at 85% 20%, rgba(20,184,166,.10), transparent 35%),
+    radial-gradient(circle at 85% 20%, rgba(20, 184, 166, 0.10), transparent 35%),
     linear-gradient(135deg, #F8FAFC, #EFF8F7);
   overflow: hidden;
   position: relative;
@@ -645,87 +645,105 @@ a:has(img[alt*="PhysioCare"]):active {
 
 .dark .healing-section {
   background:
-    radial-gradient(circle at 85% 20%, rgba(20,184,166,.08), transparent 35%),
+    radial-gradient(circle at 85% 20%, rgba(20, 184, 166, 0.08), transparent 35%),
     linear-gradient(135deg, #090e17, #0f172a);
 }
 
 .journey-container {
-  max-width: 1450px;
-  min-height: 650px;
+  max-width: 1420px;
+  min-height: 700px;
   margin: auto;
-  padding: 65px 55px;
+  padding: 60px 55px;
   display: grid;
-  grid-template-columns: 36% 64%;
+  grid-template-columns: 35% 65%;
   align-items: center;
   position: relative;
   overflow: hidden;
   border: 1px solid #E2E8F0;
   border-radius: 38px;
-  background: rgba(255,255,255,.82);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 18px 55px rgba(15, 23, 42, .07);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
 }
 
 .dark .journey-container {
   border-color: rgba(51, 65, 85, 0.7);
-  background: rgba(15, 23, 42, 0.85);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  background: rgba(15, 23, 42, 0.88);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
-/* LEFT CONTENT */
+/* LEFT CONTENT - ENHANCED & BALANCED */
 .journey-intro {
   position: relative;
   z-index: 3;
-  max-width: 420px;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.intro-icon {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
+.intro-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
   background: #E0F2F1;
+  border: 1px solid #B2DFDB;
   color: #0F766E;
-  margin-bottom: 28px;
-}
-
-.dark .intro-icon {
-  background: rgba(15, 118, 110, 0.25);
-  color: #2DD4BF;
-}
-
-.intro-label {
-  color: #0F766E;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
+  width: fit-content;
 }
 
-.dark .intro-label {
+.dark .intro-badge {
+  background: rgba(15, 118, 110, 0.25);
+  border-color: rgba(45, 212, 191, 0.4);
   color: #2DD4BF;
+}
+
+.intro-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0D9488;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.25);
+}
+
+.dark .intro-badge-dot {
+  background: #2DD4BF;
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.25);
 }
 
 .journey-intro h2 {
-  color: #102A3A;
-  font-size: clamp(34px, 3.8vw, 54px);
+  color: #0F172A;
+  font-size: clamp(34px, 3.8vw, 52px);
   line-height: 1.12;
-  font-weight: 800;
-  letter-spacing: -1.5px;
-  margin: 0 0 20px;
+  font-weight: 850;
+  letter-spacing: -1.8px;
+  margin: 0 0 16px;
 }
 
 .dark .journey-intro h2 {
   color: #FFFFFF;
 }
 
+.journey-intro h2 .highlight {
+  color: #0F766E;
+}
+
+.dark .journey-intro h2 .highlight {
+  color: #2DD4BF;
+}
+
 .intro-description {
-  color: #526477;
-  font-size: 18px;
-  line-height: 1.7;
-  max-width: 390px;
+  color: #475569;
+  font-size: 16.5px;
+  line-height: 1.65;
+  margin: 0 0 22px;
 }
 
 .dark .intro-description {
@@ -734,53 +752,83 @@ a:has(img[alt*="PhysioCare"]):active {
 
 .intro-line {
   height: 4px;
-  width: 85px;
-  border-radius: 20px;
-  background: #0F766E;
-  margin: 28px 0;
+  width: 60px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #0F766E, #14B8A6);
+  margin: 0 0 24px;
 }
 
 .dark .intro-line {
-  background: #14B8A6;
+  background: linear-gradient(to right, #14B8A6, #2DD4BF);
 }
 
-.intro-support {
-  color: #286D6A;
-  font-size: 16px;
-  line-height: 1.7;
-  max-width: 330px;
+/* Feature checklist balancing the vertical layout */
+.intro-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.dark .intro-support {
-  color: #5EEAD4;
+.intro-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1E293B;
+}
+
+.dark .intro-feature-item {
+  color: #F1F5F9;
+}
+
+.intro-check-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #CCFBF1;
+  color: #0F766E;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.dark .intro-check-circle {
+  background: rgba(15, 118, 110, 0.35);
+  color: #2DD4BF;
 }
 
 .journey-cta {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 26px;
-  padding: 14px 24px;
+  padding: 14px 26px;
   background: #0F766E;
   color: white;
   border-radius: 12px;
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 700;
   text-decoration: none;
-  transition: all .3s ease;
-  box-shadow: 0 4px 14px rgba(15, 118, 110, 0.2);
+  transition: all .3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 20px rgba(15, 118, 110, 0.25);
   cursor: pointer;
+  width: fit-content;
+  border: none;
 }
 
 .journey-cta:hover {
   background: #115E59;
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(15, 118, 110, .32);
+  box-shadow: 0 12px 28px rgba(15, 118, 110, 0.35);
 }
 
 /* RIGHT JOURNEY CANVAS */
 .journey-visual {
-  height: 570px;
+  height: 620px;
+  min-height: 620px;
   position: relative;
   z-index: 2;
 }
@@ -791,18 +839,19 @@ a:has(img[alt*="PhysioCare"]):active {
   width: 100%;
   height: 100%;
   overflow: visible;
-  z-index: 0;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .path-base {
   fill: none;
-  stroke: rgba(20, 184, 166, 0.35);
-  stroke-width: 3.5;
+  stroke: #CCFBF1;
+  stroke-width: 4;
   stroke-linecap: round;
 }
 
 .dark .path-base {
-  stroke: rgba(45, 212, 191, 0.25);
+  stroke: rgba(45, 212, 191, 0.22);
 }
 
 .path-animated {
@@ -813,33 +862,51 @@ a:has(img[alt*="PhysioCare"]):active {
   stroke-dasharray: 1400;
   stroke-dashoffset: 1400;
   transition: stroke-dashoffset 2.6s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 2px 4px rgba(13, 148, 136, 0.25));
 }
 
+.dark .path-animated {
+  stroke: #2DD4BF;
+  filter: drop-shadow(0 2px 6px rgba(45, 212, 191, 0.35));
+}
 
-.journey-section.visible .journey-card {
+.journey-section.visible .path-animated {
+  stroke-dashoffset: 0;
+}
+
+.path-dot {
+  fill: white;
+  stroke: #0D9488;
+  stroke-width: 4;
+  filter: drop-shadow(0 2px 5px rgba(13, 148, 136, 0.25));
+}
+
+.dark .path-dot {
+  fill: #0F172A;
+  stroke: #2DD4BF;
+}
+
+/* SLEEK COMPACT CARDS - NO PARAGRAPH, WIDER TEXT COLUMN */
+.journey-card {
   position: absolute;
-  width: 255px;
-  min-height: 108px;
-  padding: 12px 14px;
+  width: 315px;
+  height: 94px;
+  padding: 12px 18px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: rgba(255,255,255,.96);
-  border: 1px solid #EDF2F7;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid #E2E8F0;
+  border-radius: 22px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
   z-index: 2;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity .7s ease,
-    transform .7s cubic-bezier(.2,.8,.2,1),
-    box-shadow .3s ease,
-    border-color .3s ease;
+  transform: translateY(20px);
 }
 
 .dark .journey-card {
-  background: rgba(30, 41, 59, 0.95);
+  background: rgba(30, 41, 59, 0.96);
   border-color: rgba(51, 65, 85, 0.8);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
 }
@@ -849,57 +916,49 @@ a:has(img[alt*="PhysioCare"]):active {
   transform: translateY(0) !important;
 }
 
+.journey-card:hover {
+  transform: translateY(-5px) scale(1.02) !important;
+  border-color: rgba(15, 118, 110, 0.5);
+  box-shadow: 0 18px 40px rgba(15, 118, 110, 0.16);
+}
+
+.dark .journey-card:hover {
+  border-color: rgba(45, 212, 191, 0.6);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ASCENDING STAIRCASE COORDINATES - ZERO OVERLAP */
+.step-1 {
+  left: 0;
+  top: 480px;
+}
+
+.step-2 {
+  left: 23%;
+  top: 320px;
+}
+
+.step-3 {
+  left: 48%;
+  top: 160px;
+}
+
+.step-4 {
+  right: 0;
+  top: 10px;
+}
+
 .step-visual {
-  width: 60px;
-  height: 60px;
+  width: 68px;
+  height: 68px;
   flex-shrink: 0;
-  border-radius: 14px;
+  border-radius: 16px;
   display: grid;
   place-items: center;
   overflow: hidden;
   position: relative;
   background: #F1F5F9;
-}
-
-.step-copy h3 {
-  color: #142B3A;
-  font-size: 14px;
-  line-height: 1.25;
-  font-weight: 750;
-  margin: 0 0 3px;
-  white-space: nowrap;
-}
-
-.dark .step-copy h3 {
-  color: #FFFFFF;
-}
-
-.step-copy p {
-  color: #64748B;
-  font-size: 11px;
-  line-height: 1.45;
-  margin: 0;
-}
-
-.dark .step-copy p {
-  color: #94A3B8;
-}
-
-.step-1 { left: 0%; top: 72%; }
-.step-2 { left: 25%; top: 48%; }
-.step-3 { left: 51%; top: 24%; }
-.step-4 { right: 0%; top: 0%; }
-
-.step-visual {
-  width: 86px;
-  height: 86px;
-  flex-shrink: 0;
-  border-radius: 17px;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  position: relative;
-  background: #F1F5F9;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .dark .step-visual {
@@ -918,20 +977,23 @@ a:has(img[alt*="PhysioCare"]):active {
 }
 
 .step-calendar {
-  background: #E4F6F2;
+  background: #E0F2F1;
   color: #0F766E;
 }
 
 .dark .step-calendar {
-  background: rgba(15, 118, 110, 0.3);
+  background: rgba(15, 118, 110, 0.35);
   color: #2DD4BF;
 }
 
-.step-copy { min-width: 0; }
+.step-copy {
+  min-width: 0;
+  flex: 1;
+}
 
 .step-number {
   color: #0F766E;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -943,63 +1005,39 @@ a:has(img[alt*="PhysioCare"]):active {
 }
 
 .step-copy h3 {
-  color: #142B3A;
-  font-size: 17px;
-  line-height: 1.3;
-  font-weight: 750;
-  margin: 0 0 6px;
+  color: #0F172A;
+  font-size: 15.5px;
+  line-height: 1.25;
+  font-weight: 800;
+  margin: 0;
+  white-space: nowrap;
 }
 
 .dark .step-copy h3 {
   color: #FFFFFF;
 }
 
-.step-copy p {
-  color: #64748B;
-  font-size: 13px;
-  line-height: 1.55;
-  margin: 0;
-}
-
-.dark .step-copy p {
-  color: #94A3B8;
-}
-
 /* STEP 1 CALENDAR ANIMATION */
 .calendar-icon {
   position: relative;
-  animation: calendarFloat 3s ease-in-out infinite;
 }
 
 .calendar-check {
   position: absolute;
-  width: 23px;
-  height: 23px;
+  width: 22px;
+  height: 22px;
   background: #10B981;
   color: white;
-  border: 3px solid #E4F6F2;
+  border: 3px solid #E0F2F1;
   border-radius: 50%;
   display: grid;
   place-items: center;
   right: -5px;
   bottom: -3px;
-  transform: scale(0);
-  animation: checkReveal .5s ease 1.2s forwards;
 }
 
 .dark .calendar-check {
-  border-color: #042F2E;
-}
-
-@keyframes calendarFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-@keyframes checkReveal {
-  0% { transform: scale(0); }
-  70% { transform: scale(1.25); }
-  100% { transform: scale(1); }
+  border-color: #1E293B;
 }
 
 /* STEP 2 MOVEMENT INDICATOR */
@@ -1010,241 +1048,208 @@ a:has(img[alt*="PhysioCare"]):active {
   border: 3px solid #fff;
   border-radius: 50%;
   background: #0EA5E9;
-  top: 12px;
-  right: 12px;
-  box-shadow: 0 0 0 0 rgba(14,165,233,.5);
+  top: 8px;
+  right: 8px;
+  box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.5);
   animation: movementPulse 1.8s infinite;
 }
 
 @keyframes movementPulse {
-  0% { box-shadow: 0 0 0 0 rgba(14,165,233,.5); }
-  70% { box-shadow: 0 0 0 12px rgba(14,165,233,0); }
-  100% { box-shadow: 0 0 0 0 rgba(14,165,233,0); }
+  0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.6); }
+  70% { box-shadow: 0 0 0 12px rgba(14, 165, 233, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
 }
 
 /* STEP 3 HEALING PULSE */
 .healing-visual::after {
   content: "";
   position: absolute;
-  inset: 6px;
-  border: 2px solid rgba(20,184,166,.75);
+  inset: 4px;
+  border: 2px solid rgba(13, 148, 136, 0.8);
   border-radius: 13px;
   animation: healingPulse 2s ease-out infinite;
   pointer-events: none;
 }
 
 @keyframes healingPulse {
-  0% { transform: scale(.85); opacity: .8; }
+  0% { transform: scale(0.88); opacity: 0.85; }
   100% { transform: scale(1.25); opacity: 0; }
 }
 
 /* STEP 4 RECOVERY CHECK */
 .recovery-check {
   position: absolute;
-  right: 8px;
-  bottom: 8px;
-  width: 27px;
-  height: 27px;
+  right: 6px;
+  bottom: 6px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   color: white;
   background: #10B981;
-  border: 3px solid white;
-  animation: recoveryPop .6s ease 1.8s both;
+  border: 2.5px solid white;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
 }
 
 .dark .recovery-check {
   border-color: #1E293B;
 }
 
-@keyframes recoveryPop {
-  from { transform: scale(0) rotate(-30deg); }
-  to { transform: scale(1) rotate(0); }
-}
-
-/* DECORATIVE SHAPES */
-.decor-circle {
-  position: absolute;
-  width: 310px;
-  height: 310px;
-  right: -150px;
-  bottom: -160px;
-  border-radius: 50%;
-  background: rgba(20,184,166,.07);
-  pointer-events: none;
-}
-
+/* DECORATIVE ELEMENTS */
 .decor-dots {
   position: absolute;
   right: 20px;
-  bottom: 35px;
+  bottom: 25px;
   width: 190px;
   height: 190px;
-  opacity: .15;
+  opacity: 0.14;
   background-image: radial-gradient(#0F766E 1.5px, transparent 1.5px);
-  background-size: 13px 13px;
+  background-size: 14px 14px;
   pointer-events: none;
 }
 
+.dark .decor-dots {
+  opacity: 0.1;
+  background-image: radial-gradient(#2DD4BF 1.5px, transparent 1.5px);
+}
+
+.decor-circle {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  right: -130px;
+  bottom: -150px;
+  border-radius: 50%;
+  background: rgba(20, 184, 166, 0.08);
+  pointer-events: none;
+}
+
+.dark .decor-circle {
+  background: rgba(45, 212, 191, 0.05);
+}
+
 /* RESPONSIVE DESIGN */
-@media (max-width: 1100px) {
+@media (max-width: 1200px) and (min-width: 851px) {
   .journey-container {
     grid-template-columns: 34% 66%;
     padding: 45px 30px;
+    min-height: 620px;
   }
 
-  /* Refined card dimensions matching reference 2 */
-.journey-card {
-  position: absolute;
-  width: 255px;
-  min-height: 108px;
-  padding: 12px 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(255,255,255,.96);
-  border: 1px solid #EDF2F7;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
-  z-index: 2;
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity .7s ease,
-    transform .7s cubic-bezier(.2,.8,.2,1),
-    box-shadow .3s ease,
-    border-color .3s ease;
-}
+  .journey-visual {
+    height: 570px;
+    min-height: 570px;
+  }
 
-.dark .journey-card {
-  background: rgba(30, 41, 59, 0.95);
-  border-color: rgba(51, 65, 85, 0.8);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
-}
+  .journey-card {
+    width: 270px;
+    height: 86px;
+    padding: 10px 14px;
+    gap: 12px;
+  }
 
-.journey-section.visible .journey-card {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
+  .step-visual {
+    width: 56px;
+    height: 56px;
+  }
 
-.step-visual {
-  width: 60px;
-  height: 60px;
-  flex-shrink: 0;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  position: relative;
-  background: #F1F5F9;
-}
+  .step-copy h3 {
+    font-size: 14px;
+  }
 
-.step-copy h3 {
-  color: #142B3A;
-  font-size: 14px;
-  line-height: 1.25;
-  font-weight: 750;
-  margin: 0 0 3px;
-  white-space: nowrap;
-}
-
-.dark .step-copy h3 {
-  color: #FFFFFF;
-}
-
-.step-copy p {
-  color: #64748B;
-  font-size: 11px;
-  line-height: 1.45;
-  margin: 0;
-}
-
-.dark .step-copy p {
-  color: #94A3B8;
-}
-
-.step-1 { left: 0%; top: 72%; }
-.step-2 { left: 25%; top: 48%; }
-.step-3 { left: 51%; top: 24%; }
-.step-4 { right: 0%; top: 0%; }
+  .step-1 { left: 0; top: 430px; }
+  .step-2 { left: 20%; top: 290px; }
+  .step-3 { left: 43%; top: 150px; }
+  .step-4 { right: 0; top: 10px; }
 }
 
 @media (max-width: 850px) {
+  .healing-section {
+    padding: 50px 16px;
+  }
+
   .journey-container {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 45px;
-    padding: 45px 25px;
+    gap: 36px;
+    padding: 36px 20px;
+    min-height: auto;
+    border-radius: 30px;
   }
 
   .journey-intro {
-    max-width: 600px;
+    max-width: 100%;
   }
 
   .journey-visual {
     height: auto;
+    min-height: auto;
     display: flex;
     flex-direction: column;
-    gap: 22px;
-    padding-left: 28px;
+    gap: 16px;
   }
 
   .journey-path {
-    width: 32px;
-    height: 100%;
-    left: 0;
-    top: 0;
-  }
-
-  .journey-path path {
-    d: path("M 15 10 L 15 1000");
+    display: none;
   }
 
   .journey-card {
     position: relative;
-    left: auto;
-    right: auto;
-    top: auto;
+    inset: auto !important;
     width: 100%;
-    min-height: 125px;
+    height: auto;
+    min-height: 84px;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .decor-dots,
+  .decor-circle {
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
-  .healing-section { padding: 40px 12px; }
+  .healing-section {
+    padding: 36px 12px;
+  }
 
   .journey-container {
-    padding: 32px 18px;
-    border-radius: 28px;
+    padding: 28px 16px;
+    border-radius: 24px;
   }
 
   .journey-intro h2 {
-    font-size: 34px;
+    font-size: 32px;
   }
 
-  .intro-description { font-size: 15px; }
-
-  .step-visual {
-    width: 72px;
-    height: 72px;
+  .intro-description {
+    font-size: 15px;
   }
 
   .journey-card {
-    padding: 13px;
-    gap: 12px;
+    padding: 10px 14px;
   }
 
-  .step-copy h3 { font-size: 15px; }
-  .step-copy p { font-size: 12px; }
+  .step-visual {
+    width: 54px;
+    height: 54px;
+  }
+
+  .step-copy h3 {
+    font-size: 14.5px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .healing-section *, .healing-section *::before, .healing-section *::after {
-    animation-duration: .01ms !important;
+  .healing-section *,
+  .healing-section *::before,
+  .healing-section *::after {
+    animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
