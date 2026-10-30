@@ -554,3 +554,32 @@ a:has(img[alt*="PhysioCare"]):active {
   --tw-ring-shadow: none !important;
   --tw-ring-offset-shadow: none !important;
 }
+
+
+/* ==========================================================================
+   Service Cards — Light Sweep Shimmer & Animation Effects
+   ========================================================================== */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+.card-shine::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 50%;
+  height: 220%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: rotate(25deg);
+  opacity: 0;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  pointer-events: none;
+}
+.dark .card-shine::after {
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.12), transparent);
+}
+.card-shine:hover::after {
+  opacity: 1;
+  transform: rotate(25deg) translate(380%, 0);
+}
