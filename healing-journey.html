@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How We Help You Heal | PhysioCare</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --primary: #0F766E;
+      --secondary: #1E293B;
+      --background: #F5FAFA;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      background: #fff;
+    }
+
+    .healing-section {
+      padding: 65px 24px;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(20,184,166,.08), transparent 30%),
+        linear-gradient(135deg, #F7FAFC, #EFF8F7);
+      overflow: hidden;
+    }
+
+    .journey-container {
+      max-width: 1450px;
+      min-height: 650px;
+      margin: auto;
+      padding: 65px 55px;
+      display: grid;
+      grid-template-columns: 36% 64%;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #E2E8F0;
+      border-radius: 38px;
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 18px 55px rgba(15, 23, 42, .07);
+    }
+
+    /* LEFT CONTENT */
+
+    .journey-intro {
+      position: relative;
+      z-index: 3;
+      max-width: 420px;
+    }
+
+    .intro-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #E0F2F1;
+      color: var(--primary);
+      margin-bottom: 32px;
+    }
+
+    .intro-label {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .journey-intro h2 {
+      color: #102A3A;
+      font-size: clamp(36px, 4vw, 56px);
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -2px;
+      margin: 0 0 22px;
+    }
+
+    .intro-description {
+      color: #526477;
+      font-size: 19px;
+      line-height: 1.7;
+      max-width: 390px;
+    }
+
+    .intro-line {
+      height: 4px;
+      width: 85px;
+      border-radius: 20px;
+      background: var(--primary);
+      margin: 30px 0;
+    }
+
+    .intro-support {
+      color: #286D6A;
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 310px;
+    }
+
+    .journey-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 25px;
+      padding: 13px 21px;
+      background: var(--primary);
+      color: white;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: .3s ease;
+      cursor: pointer;
+    }
+
+    .journey-cta:hover {
+      background: #115E59;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(15,118,110,.22);
+    }
+
+    /* RIGHT JOURNEY AREA */
+
+    .journey-visual {
+      height: 570px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .journey-path {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      z-index: 0;
+    }
+
+    .path-base {
+      fill: none;
+      stroke: #D8EAE8;
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+
+    .path-animated {
+      fill: none;
+      stroke: #1AA69A;
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      stroke-dasharray: 1400;
+      stroke-dashoffset: 1400;
+      transition: stroke-dashoffset 2.8s ease;
+    }
+
+    
+.journey-section.visible .journey-card {
+  position: absolute;
+  width: 255px;
+  min-height: 108px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,.96);
+  border: 1px solid #EDF2F7;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity .7s ease,
+    transform .7s cubic-bezier(.2,.8,.2,1),
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+.dark .journey-card {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: rgba(51, 65, 85, 0.8);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.journey-section.visible .journey-card {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.step-visual {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  position: relative;
+  background: #F1F5F9;
+}
+
+.step-copy h3 {
+  color: #142B3A;
+  font-size: 14px;
+  line-height: 1.25;
+  font-weight: 750;
+  margin: 0 0 3px;
+  white-space: nowrap;
+}
+
+.dark .step-copy h3 {
+  color: #FFFFFF;
+}
+
+.step-copy p {
+  color: #64748B;
+  font-size: 11px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.dark .step-copy p {
+  color: #94A3B8;
+}
+
+.step-1 { left: 0%; top: 72%; }
+.step-2 { left: 25%; top: 48%; }
+.step-3 { left: 51%; top: 24%; }
+.step-4 { right: 0%; top: 0%; }
+
+    .step-visual {
+      width: 86px;
+      height: 86px;
+      flex-shrink: 0;
+      border-radius: 17px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .step-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+
+    .journey-card:hover .step-visual img {
+      transform: scale(1.1);
+    }
+
+    .step-calendar {
+      background: #E4F6F2;
+      color: #0F766E;
+    }
+
+    .step-copy { min-width: 0; }
+
+    .step-number {
+      color: var(--primary);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .step-copy h3 {
+      color: #142B3A;
+      font-size: 17px;
+      line-height: 1.3;
+      font-weight: 750;
+      margin: 0 0 7px;
+    }
+
+    .step-copy p {
+      color: #64748B;
+      font-size: 13px;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* STEP 1 CALENDAR ANIMATION */
+
+    .calendar-icon {
+      position: relative;
+      animation: calendarFloat 3s ease-in-out infinite;
+    }
+
+    .calendar-check {
+      position: absolute;
+      width: 23px;
+      height: 23px;
+      background: #10B981;
+      color: white;
+      border: 3px solid #E4F6F2;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      right: -5px;
+      bottom: -3px;
+      transform: scale(0);
+      animation: checkReveal .5s ease 1.2s forwards;
+    }
+
+    @keyframes calendarFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes checkReveal {
+      0% { transform: scale(0); }
+      70% { transform: scale(1.25); }
+      100% { transform: scale(1); }
+    }
+
+    /* STEP 2 MOVEMENT INDICATOR */
+
+    .movement-overlay {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      background: #0EA5E9;
+      top: 12px;
+      right: 12px;
+      box-shadow: 0 0 0 0 rgba(14,165,233,.5);
+      animation: movementPulse 1.8s infinite;
+    }
+
+    @keyframes movementPulse {
+      0% { box-shadow: 0 0 0 0 rgba(14,165,233,.5); }
+      70% { box-shadow: 0 0 0 12px rgba(14,165,233,0); }
+      100% { box-shadow: 0 0 0 0 rgba(14,165,233,0); }
+    }
+
+    /* STEP 3 HEALING PULSE */
+
+    .healing-visual::after {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border: 2px solid rgba(15,118,110,.65);
+      border-radius: 13px;
+      animation: healingPulse 2s ease-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes healingPulse {
+      0% { transform: scale(.85); opacity: .8; }
+      100% { transform: scale(1.25); opacity: 0; }
+    }
+
+    /* STEP 4 RECOVERY CHECK */
+
+    .recovery-check {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: #10B981;
+      border: 3px solid white;
+      animation: recoveryPop .6s ease 1.8s both;
+    }
+
+    @keyframes recoveryPop {
+      from { transform: scale(0) rotate(-30deg); }
+      to { transform: scale(1) rotate(0); }
+    }
+
+    /* DECORATIVE SHAPES */
+
+    .decor-circle {
+      position: absolute;
+      width: 310px;
+      height: 310px;
+      right: -150px;
+      bottom: -160px;
+      border-radius: 50%;
+      background: rgba(20,184,166,.07);
+      pointer-events: none;
+    }
+
+    .decor-dots {
+      position: absolute;
+      right: 20px;
+      bottom: 35px;
+      width: 190px;
+      height: 190px;
+      opacity: .15;
+      background-image: radial-gradient(#0F766E 1.5px, transparent 1.5px);
+      background-size: 13px 13px;
+      pointer-events: none;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1100px) {
+      .journey-container {
+        grid-template-columns: 34% 66%;
+        padding: 45px 30px;
+      }
+
+      /* Refined card dimensions matching reference 2 */
+.journey-card {
+  position: absolute;
+  width: 255px;
+  min-height: 108px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,.96);
+  border: 1px solid #EDF2F7;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity .7s ease,
+    transform .7s cubic-bezier(.2,.8,.2,1),
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+.dark .journey-card {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: rgba(51, 65, 85, 0.8);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.journey-section.visible .journey-card {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.step-visual {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  position: relative;
+  background: #F1F5F9;
+}
+
+.step-copy h3 {
+  color: #142B3A;
+  font-size: 14px;
+  line-height: 1.25;
+  font-weight: 750;
+  margin: 0 0 3px;
+  white-space: nowrap;
+}
+
+.dark .step-copy h3 {
+  color: #FFFFFF;
+}
+
+.step-copy p {
+  color: #64748B;
+  font-size: 11px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.dark .step-copy p {
+  color: #94A3B8;
+}
+
+.step-1 { left: 0%; top: 72%; }
+.step-2 { left: 25%; top: 48%; }
+.step-3 { left: 51%; top: 24%; }
+.step-4 { right: 0%; top: 0%; }
+    }
+
+    @media (max-width: 850px) {
+      .journey-container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 45px;
+        padding: 45px 25px;
+      }
+
+      .journey-intro {
+        max-width: 600px;
+      }
+
+      .journey-visual {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        padding-left: 28px;
+      }
+
+      .journey-path {
+        width: 32px;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+
+      .journey-path path {
+        d: path("M 15 10 L 15 1000");
+      }
+
+      .journey-card {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        width: 100%;
+        min-height: 125px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .healing-section { padding: 30px 12px; }
+
+      .journey-container {
+        padding: 32px 18px;
+        border-radius: 25px;
+      }
+
+      .journey-intro h2 {
+        font-size: 36px;
+      }
+
+      .intro-description { font-size: 16px; }
+
+      .step-visual {
+        width: 72px;
+        height: 72px;
+      }
+
+      .journey-card {
+        padding: 13px;
+        gap: 12px;
+      }
+
+      .step-copy h3 { font-size: 15px; }
+      .step-copy p { font-size: 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<section class="healing-section journey-section visible" id="healingJourney">
+
+  <div class="journey-container">
+
+    <!-- LEFT INTRODUCTION -->
+    <div class="journey-intro">
+
+      <div class="intro-icon">
+        <i data-lucide="users-round" width="34" height="34"></i>
+      </div>
+
+      <div class="intro-label">Your Recovery Journey</div>
+
+      <h2>
+        How We Help<br />
+        You Heal
+      </h2>
+
+      <p class="intro-description">
+        Our 4 simple steps take you from everyday pain
+        and stiffness to feeling strong and moving freely again.
+      </p>
+
+      <div class="intro-line"></div>
+
+      <p class="intro-support">
+        Personalised care, expert guidance, and
+        support at every step of your recovery journey.
+      </p>
+
+      <a href="contact.html" class="journey-cta" data-open-modal="appointment">
+        Book Your Appointment
+        <i data-lucide="arrow-up-right" width="17"></i>
+      </a>
+
+    </div>
+
+    <!-- RIGHT ANIMATED JOURNEY -->
+    <div class="journey-visual">
+
+      <!-- CONNECTING SVG PATH -->
+      <svg class="journey-path" viewBox="0 0 700 570"
+           preserveAspectRatio="none" aria-hidden="true">
+
+        <path fill="none" class="path-base"
+          d="M45 530 C180 570 170 410 280 365
+             S350 240 445 220
+             S500 90 650 30" />
+
+        <path fill="none" class="path-animated"
+          d="M45 530 C180 570 170 410 280 365
+             S350 240 445 220
+             S500 90 650 30" />
+
+        <circle class="path-dot" cx="45" cy="530" r="10"/>
+        <circle class="path-dot" cx="280" cy="365" r="9"/>
+        <circle class="path-dot" cx="445" cy="220" r="9"/>
+        <circle class="path-dot" cx="650" cy="30" r="10"/>
+
+      </svg>
+
+      <!-- STEP 1 -->
+      <article class="journey-card step-1">
+
+        <div class="step-visual step-calendar">
+
+          <div class="calendar-icon">
+            <i data-lucide="calendar-days" width="43" height="43"></i>
+
+            <div class="calendar-check">
+              <i data-lucide="check" width="13" height="13"></i>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="step-copy">
+          <div class="step-number">Step 01</div>
+          <h3>Book Your Visit</h3>
+          <p>
+            Choose an in-person clinic visit or video call,
+            and share where it hurts in under 2 minutes.
+          </p>
+        </div>
+
+      </article>
+
+      <!-- STEP 2 -->
+      <article class="journey-card step-2">
+
+        <div class="step-visual">
+
+          <img
+            src="assets/images/step-assessment.jpg"
+            alt="Physiotherapist assessing patient movement"
+            loading="lazy"
+            onerror="this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=300&q=80'"
+          />
+
+          <span class="movement-overlay"></span>
+        </div>
+
+        <div class="step-copy">
+          <div class="step-number">Step 02</div>
+          <h3>Gentle Movement Check</h3>
+          <p>
+            Meet your therapist 1-on-1 for a gentle checkup
+            to find exactly why and where you hurt.
+          </p>
+        </div>
+
+      </article>
+
+      <!-- STEP 3 -->
+      <article class="journey-card step-3">
+
+        <div class="step-visual healing-visual">
+
+          <img
+            src="assets/images/step-treatment.jpg"
+            alt="Physiotherapy hands-on treatment"
+            loading="lazy"
+            onerror="this.src='https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=300&q=80'"
+          />
+
+        </div>
+
+        <div class="step-copy">
+          <div class="step-number">Step 03</div>
+          <h3>Hands-On Healing Care</h3>
+          <p>
+            Enjoy soothing hands-on care, modern pain relief,
+            and guided exercises made just for you.
+          </p>
+        </div>
+
+      </article>
+
+      <!-- STEP 4 -->
+      <article class="journey-card step-4">
+
+        <div class="step-visual">
+
+          <img
+            src="assets/images/step-recovery.jpg"
+            alt="Patient enjoying an active lifestyle"
+            loading="lazy"
+            onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=300&q=80'"
+          />
+
+          <span class="recovery-check">
+            <i data-lucide="check" width="15"></i>
+          </span>
+
+        </div>
+
+        <div class="step-copy">
+          <div class="step-number">Step 04</div>
+          <h3>Stay Strong & Pain-Free</h3>
+          <p>
+            Follow your simple home routine and healthy habits
+            so you stay strong, active, and moving confidently.
+          </p>
+        </div>
+
+      </article>
+
+      <div class="decor-circle"></div>
+      <div class="decor-dots"></div>
+
+    </div>
+  </div>
+
+</section>
+
+<script>
+  // Initialize Lucide icons
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+
+  // Animate the section when it enters the viewport
+  const journey = document.getElementById("healingJourney");
+  if (journey) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          journey.classList.add("visible");
+          observer.unobserve(journey);
+        }
+      });
+    }, {
+      threshold: 0.18
+    });
+
+    observer.observe(journey);
+  }
+</script>
+
+</body>
+</html>

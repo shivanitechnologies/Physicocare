@@ -1000,3 +1000,43 @@ function initSmoothAnchors() {
 
   barObserver.observe(timelineSection);
 })();
+
+/* ==========================================================================
+   Ascending Care Pathways Journey Observer
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', function() {
+  const journey = document.getElementById("healingJourney");
+  if (journey && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          journey.classList.add("visible");
+          observer.unobserve(journey);
+        }
+      });
+    }, { threshold: 0.15 });
+    observer.observe(journey);
+  } else if (journey) {
+    journey.classList.add("visible");
+  }
+});
+
+/* ==========================================================================
+   Ascending Care Pathways Journey Observer
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', function() {
+  const journey = document.getElementById("healingJourney");
+  if (journey && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          journey.classList.add("visible");
+          observer.unobserve(journey);
+        }
+      });
+    }, { threshold: 0.15 });
+    observer.observe(journey);
+  } else if (journey) {
+    journey.classList.add("visible");
+  }
+});
