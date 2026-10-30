@@ -521,3 +521,36 @@ a.btn:active {
     display: none !important;
   }
 }
+
+
+/* ==========================================================================
+   Logo Clean Click & Focus — Remove border, ring, and outline when clicked
+   ========================================================================== */
+header a:has(img[src*="logo"]),
+.glass-nav a:has(img[src*="logo"]),
+a.group[href="index.html"],
+a:has(img[alt*="PhysioCare"]) {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+header a:has(img[src*="logo"]):focus,
+header a:has(img[src*="logo"]):focus-visible,
+header a:has(img[src*="logo"]):active,
+.glass-nav a:has(img[src*="logo"]):focus,
+.glass-nav a:has(img[src*="logo"]):focus-visible,
+.glass-nav a:has(img[src*="logo"]):active,
+a.group[href="index.html"]:focus,
+a.group[href="index.html"]:focus-visible,
+a.group[href="index.html"]:active,
+a:has(img[alt*="PhysioCare"]):focus,
+a:has(img[alt*="PhysioCare"]):focus-visible,
+a:has(img[alt*="PhysioCare"]):active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  --tw-ring-shadow: none !important;
+  --tw-ring-offset-shadow: none !important;
+}
