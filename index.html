@@ -316,72 +316,278 @@
       </div>
     </section>
 
-    <!-- How We Help You Heal: 4-Step Clinical Process -->
-    <section class="py-16 lg:py-20 bg-slate-100/70 dark:bg-slate-900/50 border-b border-slate-200/60 dark:border-slate-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- How We Help You Heal: 4-Step Clinical Process with Connected Pathway Timeline -->
+    <section id="how-we-heal" class="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-slate-50 via-teal-50/20 to-slate-100/90 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 border-b border-slate-200/80 dark:border-slate-800 relative overflow-hidden">
+      
+      <!-- Subtle Decorative Ambient Glows -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-teal-400/10 via-amber-300/10 via-sky-400/10 to-emerald-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <!-- Section Header -->
-        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-          <span class="text-xs font-bold uppercase tracking-widest text-teal-700 dark:text-teal-400 mb-2 block">Simple 4-Step Healing</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">
+        <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-20">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-50 dark:bg-teal-950/80 border border-teal-200/70 dark:border-teal-800/60 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+            Simple 4-Step Healing
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
             How We Help You Heal
           </h2>
-          <p class="mt-3 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
-            Our 4 simple steps take you from everyday pain and stiffness to feeling strong and moving freely again.
+          <p class="mt-3.5 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+            Our 4 simple steps take you from everyday pain and stiffness to feeling strong, confident, and moving freely again.
           </p>
         </div>
 
-        <!-- 4 Steps Cards Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Connected Timeline Pathway Wrapper -->
+        <div class="relative">
 
-          <!-- Step 1 -->
-          <div class="bg-white dark:bg-slate-800 rounded-3xl p-7 border border-slate-200/80 dark:border-slate-700/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <div class="w-16 h-16 rounded-2xl bg-teal-50 dark:bg-teal-950/70 text-teal-600 dark:text-teal-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-            </div>
-            <span class="text-xs font-extrabold uppercase tracking-widest text-teal-600 dark:text-teal-400 mb-1.5">Step 1</span>
-            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Book Your Visit</h3>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              Choose an in-person clinic visit or video call, and share where it hurts in under 2 minutes.
-            </p>
+          <!-- Desktop Connecting Animated Gradient Timeline (Horizontal track connecting cards) -->
+          <div class="hidden lg:block absolute top-[52px] left-[12%] right-[12%] h-1 z-0 pointer-events-none">
+            <div class="w-full h-full bg-slate-200/80 dark:bg-slate-700/60 rounded-full"></div>
+            <div class="absolute inset-0 h-full bg-gradient-to-r from-teal-500 via-amber-400 via-sky-500 to-emerald-500 rounded-full timeline-progress-bar shadow-sm" style="width: 100%;"></div>
           </div>
 
-          <!-- Step 2 -->
-          <div class="bg-white dark:bg-slate-800 rounded-3xl p-7 border border-slate-200/80 dark:border-slate-700/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <div class="w-16 h-16 rounded-2xl bg-amber-50 dark:bg-amber-950/70 text-amber-500 dark:text-amber-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
-            </div>
-            <span class="text-xs font-extrabold uppercase tracking-widest text-amber-500 dark:text-amber-400 mb-1.5">Step 2</span>
-            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Gentle Movement Check</h3>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              Meet your therapist 1-on-1 for a gentle checkup to find exactly why and where you hurt.
-            </p>
-          </div>
+          <!-- 4 Interactive Cards Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 relative z-10">
 
-          <!-- Step 3 -->
-          <div class="bg-white dark:bg-slate-800 rounded-3xl p-7 border border-slate-200/80 dark:border-slate-700/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <div class="w-16 h-16 rounded-2xl bg-sky-50 dark:bg-sky-950/70 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-            </div>
-            <span class="text-xs font-extrabold uppercase tracking-widest text-sky-600 dark:text-sky-400 mb-1.5">Step 3</span>
-            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Hands-On Healing Care</h3>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              Enjoy soothing hands-on care, modern pain relief, and guided exercises made just for you.
-            </p>
-          </div>
+            <!-- STEP 1: Book Your Visit (Teal Theme) -->
+            <div class="step-card group relative bg-white dark:bg-slate-800/90 rounded-3xl p-7 border border-slate-200/90 dark:border-slate-700/70 shadow-sm hover:shadow-2xl hover:border-teal-500/60 dark:hover:border-teal-400/60 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between" style="transition-delay: 0ms;">
+              <div>
+                
+                <!-- Timeline Step Milestone Pill & Status -->
+                <div class="flex items-center justify-between mb-6">
+                  <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/80 border border-teal-200 dark:border-teal-800/70 text-teal-700 dark:text-teal-300 text-xs font-black tracking-wider shadow-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse"></span>
+                    STEP 01
+                  </div>
+                  <span class="text-[11px] font-bold text-slate-400 dark:text-slate-500">Initial Step</span>
+                </div>
 
-          <!-- Step 4 -->
-          <div class="bg-white dark:bg-slate-800 rounded-3xl p-7 border border-slate-200/80 dark:border-slate-700/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <div class="w-16 h-16 rounded-2xl bg-emerald-50 dark:bg-emerald-950/70 text-emerald-500 dark:text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            </div>
-            <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-500 dark:text-emerald-400 mb-1.5">Step 4</span>
-            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Stay Strong & Pain-Free</h3>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              Follow your simple home routine and healthy habits so you stay strong, active, and pain-free for life.
-            </p>
-          </div>
+                <!-- Custom Vector Calendar Illustration with Confirmation Pop -->
+                <div class="relative w-20 h-20 rounded-2xl bg-teal-50 dark:bg-teal-950/70 border border-teal-200/80 dark:border-teal-700/60 flex items-center justify-center mx-auto mb-6 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-teal-500/15 transition-all duration-300">
+                  <!-- Mini Calendar Slate -->
+                  <div class="relative w-12 h-12 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-teal-100 dark:border-teal-800/80 overflow-hidden flex flex-col">
+                    <div class="h-3.5 bg-teal-600 dark:bg-teal-500 flex items-center justify-center gap-1.5 px-2">
+                      <span class="w-1 h-1 rounded-full bg-white/80"></span>
+                      <span class="w-1 h-1 rounded-full bg-white/80"></span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center justify-center p-1">
+                      <span class="text-[11px] font-black text-slate-800 dark:text-slate-100 font-heading">24</span>
+                      <span class="text-[7px] font-bold text-teal-600 dark:text-teal-400 uppercase tracking-tighter -mt-0.5">OCT</span>
+                    </div>
+                  </div>
+                  <!-- Animated Checkmark Pop Badge -->
+                  <div class="absolute -bottom-1.5 -right-1.5 w-6 h-6 rounded-full bg-teal-600 dark:bg-teal-500 text-white flex items-center justify-center shadow-md step-calendar-check transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                </div>
 
+                <!-- Content -->
+                <div class="text-center space-y-2">
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
+                    Book Your Visit
+                  </h3>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Choose an in-person clinic visit or video call, and share where it hurts in under 2 minutes.
+                  </p>
+                </div>
+
+              </div>
+
+              <!-- Bottom Feature Chip -->
+              <div class="pt-5 mt-5 border-t border-slate-100 dark:border-slate-800 text-center">
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-teal-700 dark:text-teal-400">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  Same-Week Openings
+                </span>
+              </div>
+            </div>
+
+            <!-- STEP 2: Gentle Movement Check (Amber Theme) -->
+            <div class="step-card group relative bg-white dark:bg-slate-800/90 rounded-3xl p-7 border border-slate-200/90 dark:border-slate-700/70 shadow-sm hover:shadow-2xl hover:border-amber-500/60 dark:hover:border-amber-400/60 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between" style="transition-delay: 100ms;">
+              <div>
+                
+                <!-- Timeline Step Milestone Pill & Status -->
+                <div class="flex items-center justify-between mb-6">
+                  <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-950/80 border border-amber-200 dark:border-amber-800/70 text-amber-700 dark:text-amber-300 text-xs font-black tracking-wider shadow-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                    STEP 02
+                  </div>
+                  <span class="text-[11px] font-bold text-slate-400 dark:text-slate-500">Evaluation</span>
+                </div>
+
+                <!-- Custom Vector Biomechanical Movement & Angle Measurement Indicator -->
+                <div class="relative w-20 h-20 rounded-2xl bg-amber-50 dark:bg-amber-950/70 border border-amber-200/80 dark:border-amber-700/60 flex items-center justify-center mx-auto mb-6 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-amber-500/15 transition-all duration-300">
+                  <!-- Measurement Arc SVG -->
+                  <div class="relative w-12 h-12 flex items-center justify-center">
+                    <svg class="w-12 h-12 text-amber-500 dark:text-amber-400" viewBox="0 0 48 48" fill="none">
+                      <!-- Center pivot -->
+                      <circle cx="24" cy="24" r="3" fill="currentColor"/>
+                      <!-- Baseline horizontal limb -->
+                      <line x1="24" y1="24" x2="40" y2="24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                      <!-- Sweeping range limb (animates on group hover) -->
+                      <line x1="24" y1="24" x2="34" y2="10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="step-angle-ray transition-transform duration-500 origin-[24px_24px] group-hover:-rotate-12"/>
+                      <!-- Dashed measurement arc -->
+                      <path d="M 37 24 A 13 13 0 0 0 31 14" stroke="currentColor" stroke-width="2" stroke-dasharray="2 2" stroke-linecap="round"/>
+                    </svg>
+                    <!-- Degree Tag Pill -->
+                    <span class="absolute -top-1 -right-1 px-1 py-0.5 rounded text-[8px] font-black bg-amber-100 dark:bg-amber-900/90 text-amber-800 dark:text-amber-200 border border-amber-300 dark:border-amber-700 shadow-xs group-hover:scale-110 transition-transform">
+                      120°
+                    </span>
+                  </div>
+                  <!-- Biomechanical caliper icon -->
+                  <div class="absolute -bottom-1.5 -right-1.5 w-6 h-6 rounded-full bg-amber-500 text-white flex items-center justify-center shadow-md">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                  </div>
+                </div>
+
+                <!-- Content -->
+                <div class="text-center space-y-2">
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
+                    Gentle Movement Check
+                  </h3>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Meet your therapist 1-on-1 for a gentle checkup to find exactly why and where you hurt.
+                  </p>
+                </div>
+
+              </div>
+
+              <!-- Bottom Feature Chip -->
+              <div class="pt-5 mt-5 border-t border-slate-100 dark:border-slate-800 text-center">
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-amber-700 dark:text-amber-400">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  Zero Pressure Exam
+                </span>
+              </div>
+            </div>
+
+            <!-- STEP 3: Hands-On Healing Care (Sky Theme) -->
+            <div class="step-card group relative bg-white dark:bg-slate-800/90 rounded-3xl p-7 border border-slate-200/90 dark:border-slate-700/70 shadow-sm hover:shadow-2xl hover:border-sky-500/60 dark:hover:border-sky-400/60 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between" style="transition-delay: 200ms;">
+              <div>
+                
+                <!-- Timeline Step Milestone Pill & Status -->
+                <div class="flex items-center justify-between mb-6">
+                  <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 dark:bg-sky-950/80 border border-sky-200 dark:border-sky-800/70 text-sky-700 dark:text-sky-300 text-xs font-black tracking-wider shadow-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse"></span>
+                    STEP 03
+                  </div>
+                  <span class="text-[11px] font-bold text-slate-400 dark:text-slate-500">Treatment</span>
+                </div>
+
+                <!-- Custom Vector Hands-On Care with Soft Pulse Therapeutic Glow -->
+                <div class="relative w-20 h-20 rounded-2xl bg-sky-50 dark:bg-sky-950/70 border border-sky-200/80 dark:border-sky-700/60 flex items-center justify-center mx-auto mb-6 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-sky-500/15 transition-all duration-300">
+                  <!-- Soft pulse wave behind icon -->
+                  <div class="absolute inset-1 rounded-2xl bg-sky-400/20 dark:bg-sky-400/15 animate-ping pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <!-- Hands & Healing Energy SVG -->
+                  <div class="relative w-12 h-12 flex items-center justify-center text-sky-600 dark:text-sky-400">
+                    <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364-6.364l-2.121 2.121M7.757 16.243l-2.121 2.121m12.728 0l-2.121-2.121M7.757 7.757L5.636 5.636"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9a3 3 0 100 6 3 3 0 000-6z"/>
+                    </svg>
+                  </div>
+                  <!-- Targeted therapy icon badge -->
+                  <div class="absolute -bottom-1.5 -right-1.5 w-6 h-6 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-md">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                  </div>
+                </div>
+
+                <!-- Content -->
+                <div class="text-center space-y-2">
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-sky-700 dark:group-hover:text-sky-400 transition-colors">
+                    Hands-On Healing Care
+                  </h3>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Enjoy soothing hands-on care, modern pain relief, and guided exercises made just for you.
+                  </p>
+                </div>
+
+              </div>
+
+              <!-- Bottom Feature Chip -->
+              <div class="pt-5 mt-5 border-t border-slate-100 dark:border-slate-800 text-center">
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-sky-700 dark:text-sky-400">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  60-Min Doctor Sessions
+                </span>
+              </div>
+            </div>
+
+            <!-- STEP 4: Stay Strong & Pain-Free (Emerald Theme) -->
+            <div class="step-card group relative bg-white dark:bg-slate-800/90 rounded-3xl p-7 border border-slate-200/90 dark:border-slate-700/70 shadow-sm hover:shadow-2xl hover:border-emerald-500/60 dark:hover:border-emerald-400/60 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between" style="transition-delay: 300ms;">
+              <div>
+                
+                <!-- Timeline Step Milestone Pill & Status -->
+                <div class="flex items-center justify-between mb-6">
+                  <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800/70 text-emerald-700 dark:text-emerald-300 text-xs font-black tracking-wider shadow-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    STEP 04
+                  </div>
+                  <span class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">Full Recovery</span>
+                </div>
+
+                <!-- Custom Vector Strength Shield & Upward Movement Indicator -->
+                <div class="relative w-20 h-20 rounded-2xl bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-200/80 dark:border-emerald-700/60 flex items-center justify-center mx-auto mb-6 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-emerald-500/15 transition-all duration-300">
+                  <!-- Wellness Shield SVG with upward float -->
+                  <div class="relative w-12 h-12 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:-translate-y-1 transition-transform duration-300">
+                    <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                  </div>
+                  <!-- Floating Checkmark Badge with upward reveal -->
+                  <div class="absolute -bottom-1.5 -right-1.5 w-6 h-6 rounded-full bg-emerald-600 dark:bg-emerald-500 text-white flex items-center justify-center shadow-md step-upward-badge transition-transform group-hover:-translate-y-1 group-hover:scale-110 duration-300">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                </div>
+
+                <!-- Content -->
+                <div class="text-center space-y-2">
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+                    Stay Strong &amp; Pain-Free
+                  </h3>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Follow your simple home routine and healthy habits so you stay strong, active, and pain-free for life.
+                  </p>
+                </div>
+
+              </div>
+
+              <!-- Bottom Feature Chip -->
+              <div class="pt-5 mt-5 border-t border-slate-100 dark:border-slate-800 text-center">
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-400">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                  Lasting Wellness
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Conversion CTA Banner Underneath -->
+        <div class="mt-14 sm:mt-18 text-center">
+          <div class="max-w-2xl mx-auto p-7 sm:p-9 rounded-3xl bg-white dark:bg-slate-800/90 border border-slate-200/90 dark:border-slate-700 shadow-xl space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/80 border border-teal-200 dark:border-teal-800/60 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider">
+              <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+              Begin Your Healing Journey
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
+              Ready to Start Your Recovery?
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 max-w-lg mx-auto leading-relaxed">
+              Take the first step toward moving freely and living pain-free. Book your initial 1-on-1 evaluation today with our licensed doctors.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+              <button data-open-modal="appointment" class="px-8 py-3.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm shadow-lg shadow-teal-700/25 hover:shadow-teal-700/40 hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                <span>Book Your Appointment</span>
+                <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+              <a href="tel:4158903321" class="px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-teal-600 dark:hover:border-teal-400 font-bold text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-teal-400 bg-white dark:bg-slate-800 transition flex items-center gap-2 text-sm shadow-xs">
+                <svg class="w-4 h-4 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                <span>Call (415) 890-3321</span>
+              </a>
+            </div>
+          </div>
         </div>
 
       </div>

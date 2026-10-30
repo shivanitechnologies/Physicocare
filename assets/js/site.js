@@ -949,3 +949,54 @@ function initSmoothAnchors() {
     });
   });
 }
+
+
+/* ==========================================================================
+   4-Step Timeline: Scroll-Triggered Animations
+   ========================================================================== */
+(function initStepTimeline() {
+  if (!('IntersectionObserver' in window)) return;
+
+  /* Animate step cards with staggered delays */
+  const stepCards = document.querySelectorAll('.step-card');
+  if (!stepCards.length) return;
+
+  const stepObserver = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var delay = parseInt(entry.target.style.transitionDelay) || 0;
+        setTimeout(function() {
+          entry.target.classList.add('is-visible');
+        }, delay);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  stepCards.forEach(function(el) { stepObserver.observe(el); });
+
+  /* Animate timeline progress bar on scroll */
+  var timelineBars = document.querySelectorAll('.timeline-progress-bar');
+  if (!timelineBars.length) return;
+
+  var timelineSection = stepCards[0].closest('section');
+  if (!timelineSection) return;
+
+  var barObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        timelineBars.forEach(function(bar) {
+          if (bar.style.width !== undefined && bar.style.width !== null) {
+            bar.style.width = '100%';
+          }
+          if (bar.style.height !== undefined && bar.style.height !== null) {
+            bar.style.height = '100%';
+          }
+        });
+        barObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  barObserver.observe(timelineSection);
+})();
