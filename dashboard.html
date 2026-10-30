@@ -1308,18 +1308,6 @@
     <aside id="admin-sidebar" class="fixed md:sticky top-20 left-0 bottom-0 z-30 w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between shrink-0 h-[calc(100vh-5rem)] overflow-y-auto transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out shadow-xl md:shadow-none">
       
       <div class="space-y-6">
-        <!-- Admin Identity Pill -->
-        <div class="flex items-center gap-3.5 p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&q=80" alt="Admin Sarah" class="w-12 h-12 rounded-xl object-cover border-2 border-teal-600 shadow-sm shrink-0">
-          <div class="min-w-0">
-            <div class="flex items-center gap-1.5">
-              <h3 class="font-extrabold text-sm text-slate-900 dark:text-white truncate">Sarah Jenkins</h3>
-              <span class="w-2 h-2 rounded-full bg-teal-500 shrink-0" title="Admin Active"></span>
-            </div>
-            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium truncate">Operations Manager</p>
-            <span class="inline-block px-2 py-0.5 mt-1 rounded-md text-[10px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">Super Admin</span>
-          </div>
-        </div>
 
         <!-- Admin Navigation Links -->
         <nav class="space-y-1" id="admin-nav-list">
@@ -1382,19 +1370,9 @@
             <span>Announcements</span>
           </button>
 
-          <button data-admin-tab="content" class="admin-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
-            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-            <span>Website Content</span>
-          </button>
-
           <button data-admin-tab="settings" class="admin-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
             <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            <span>Clinic Settings</span>
-          </button>
-
-          <button data-admin-tab="audit" class="admin-nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
-            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            <span>Audit Logs</span>
+            <span>Settings</span>
           </button>
         </nav>
       </div>
@@ -2227,40 +2205,12 @@
       </section>
 
       <!-- TAB 12: WEBSITE CONTENT CMS -->
-      <section id="atab-content" class="admin-tab-content hidden space-y-6">
-        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
-          <div class="pb-4 border-b border-slate-100 dark:border-slate-800">
-            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Website Content Manager (No Code Needed)</h2>
-            <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Update public phone numbers, operating hours, and banner announcements.</p>
-          </div>
-
-          <form onsubmit="event.preventDefault(); showToast('Website content updated across public pages', 'success')" class="space-y-4">
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Clinic Contact Phone</label>
-                <input type="text" value="+1 (800) 555-PHYS" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs">
-              </div>
-              <div>
-                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Operating Hours Headline</label>
-                <input type="text" value="Mon-Fri: 7:00 AM – 7:30 PM | Sat: 8:00 AM – 2:00 PM" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs">
-              </div>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Clinic Notice Bar (Top Banner)</label>
-              <input type="text" value="Direct Access Care Active: No physician referral required for appointment bookings." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs">
-            </div>
-            <button type="submit" class="px-5 py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs transition">
-              Save Website Updates
-            </button>
-          </form>
-        </div>
-      </section>
 
       <!-- TAB 13: CLINIC SETTINGS -->
       <section id="atab-settings" class="admin-tab-content hidden space-y-6">
         <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
           <div class="pb-4 border-b border-slate-100 dark:border-slate-800">
-            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Clinic Configuration &amp; Rules</h2>
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Settings &amp; Clinic Configuration</h2>
             <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Appointment cancellation policies, booking rules, and clinic campus details.</p>
           </div>
 
@@ -2287,58 +2237,6 @@
       </section>
 
       <!-- TAB 14: AUDIT LOGS -->
-      <section id="atab-audit" class="admin-tab-content hidden space-y-6">
-        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
-          <div class="pb-4 border-b border-slate-100 dark:border-slate-800">
-            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Security &amp; HIPAA Audit Trail</h2>
-            <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Timestamped record of all clinical updates, access logs, and billing edits.</p>
-          </div>
-
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs">
-              <thead>
-                <tr class="border-b border-slate-200 dark:border-slate-800 text-slate-400">
-                  <th class="py-2.5 font-bold">Timestamp</th>
-                  <th class="py-2.5 font-bold">Actor</th>
-                  <th class="py-2.5 font-bold">Action Performed</th>
-                  <th class="py-2.5 font-bold">Record Affected</th>
-                  <th class="py-2.5 font-bold">Status</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100 dark:divide-slate-800 font-mono">
-                <tr>
-                  <td class="py-3 text-slate-400">Oct 29, 19:42:10</td>
-                  <td class="py-3 text-slate-900 dark:text-white font-bold">Dr. Marcus Chen</td>
-                  <td class="py-3">Updated Treatment Plan (Goal 2 completed)</td>
-                  <td class="py-3">Pravin (#PC-4029)</td>
-                  <td class="py-3 text-emerald-600 font-bold">SUCCESS</td>
-                </tr>
-                <tr>
-                  <td class="py-3 text-slate-400">Oct 29, 18:15:22</td>
-                  <td class="py-3 text-slate-900 dark:text-white font-bold">Sarah Jenkins</td>
-                  <td class="py-3">Approved Appointment #APT-8821</td>
-                  <td class="py-3">Patient B (Amanda Keller)</td>
-                  <td class="py-3 text-emerald-600 font-bold">SUCCESS</td>
-                </tr>
-                <tr>
-                  <td class="py-3 text-slate-400">Oct 29, 16:30:05</td>
-                  <td class="py-3 text-slate-900 dark:text-white font-bold">Daniel Rossi</td>
-                  <td class="py-3">Generated Claim EOB #INV-2026-088</td>
-                  <td class="py-3">BlueCross PPO ($145)</td>
-                  <td class="py-3 text-emerald-600 font-bold">SUCCESS</td>
-                </tr>
-                <tr>
-                  <td class="py-3 text-slate-400">Oct 29, 14:10:44</td>
-                  <td class="py-3 text-slate-900 dark:text-white font-bold">Jessica Miller</td>
-                  <td class="py-3">Registered New Patient Intake</td>
-                  <td class="py-3">Robert King (#PC-4050)</td>
-                  <td class="py-3 text-emerald-600 font-bold">SUCCESS</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
 
     </main>
     </div>
