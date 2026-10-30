@@ -30,31 +30,50 @@
       position: relative;
     }
 
+    /* =========================================
+       CONNECTED HEALING JOURNEY - FINAL LAYOUT
+    ========================================= */
     .journey-container {
-      max-width: 1420px;
-      min-height: 700px;
-      margin: auto;
-      padding: 60px 55px;
       display: grid;
-      grid-template-columns: 35% 65%;
+      grid-template-columns: 39% 61%;
       align-items: center;
+      gap: 0;
+      max-width: 1420px;
+      margin: auto;
+      padding: 50px 42px;
       position: relative;
       overflow: hidden;
       border: 1px solid #E2E8F0;
-      border-radius: 38px;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+      border-radius: 36px;
+      background:
+        radial-gradient(
+          ellipse at 70% 50%,
+          rgba(20, 184, 166, 0.055),
+          transparent 55%
+        ),
+        #ffffff;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.07);
     }
 
-    /* LEFT CONTENT - ENHANCED & BALANCED */
+    .dark .journey-container {
+      background:
+        radial-gradient(
+          ellipse at 70% 50%,
+          rgba(20, 184, 166, 0.08),
+          transparent 55%
+        ),
+        #0f172a;
+      border-color: rgba(51, 65, 85, 0.7);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    /* LEFT CONTENT */
     .journey-intro {
+      width: 100%;
+      max-width: 440px;
       position: relative;
       z-index: 3;
-      max-width: 440px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      padding-right: 15px;
     }
 
     .intro-badge {
@@ -74,6 +93,12 @@
       width: fit-content;
     }
 
+    .dark .intro-badge {
+      background: rgba(15, 118, 110, 0.25);
+      border-color: rgba(45, 212, 191, 0.4);
+      color: #2DD4BF;
+    }
+
     .intro-badge-dot {
       width: 7px;
       height: 7px;
@@ -82,35 +107,56 @@
       box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.25);
     }
 
+    .dark .intro-badge-dot {
+      background: #2DD4BF;
+      box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.25);
+    }
+
     .journey-intro h2 {
-      color: #0F172A;
-      font-size: clamp(34px, 3.8vw, 52px);
-      line-height: 1.12;
+      max-width: 400px;
+      font-size: clamp(38px, 4vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -2px;
       font-weight: 850;
-      letter-spacing: -1.8px;
-      margin: 0 0 16px;
+      color: #0F172A;
+      margin-bottom: 18px;
+    }
+
+    .dark .journey-intro h2 {
+      color: #FFFFFF;
     }
 
     .journey-intro h2 .highlight {
       color: #0F766E;
     }
 
+    .dark .journey-intro h2 .highlight {
+      color: #2DD4BF;
+    }
+
     .intro-description {
-      color: #475569;
-      font-size: 16.5px;
+      max-width: 390px;
+      font-size: 17px;
       line-height: 1.65;
-      margin: 0 0 22px;
+      color: #475569;
+    }
+
+    .dark .intro-description {
+      color: #94A3B8;
     }
 
     .intro-line {
+      margin: 24px 0;
+      width: 65px;
       height: 4px;
-      width: 60px;
       border-radius: 999px;
       background: linear-gradient(to right, #0F766E, #14B8A6);
-      margin: 0 0 24px;
     }
 
-    /* Feature checklist balancing the vertical layout */
+    .dark .intro-line {
+      background: linear-gradient(to right, #14B8A6, #2DD4BF);
+    }
+
     .intro-features {
       list-style: none;
       padding: 0;
@@ -129,6 +175,10 @@
       color: #1E293B;
     }
 
+    .dark .intro-feature-item {
+      color: #F1F5F9;
+    }
+
     .intro-check-circle {
       width: 22px;
       height: 22px;
@@ -138,6 +188,11 @@
       display: grid;
       place-items: center;
       flex-shrink: 0;
+    }
+
+    .dark .intro-check-circle {
+      background: rgba(15, 118, 110, 0.35);
+      color: #2DD4BF;
     }
 
     .journey-cta {
@@ -164,40 +219,51 @@
       box-shadow: 0 12px 28px rgba(15, 118, 110, 0.35);
     }
 
-    /* RIGHT JOURNEY CANVAS */
+    /* RIGHT VISUAL - MOVE CLOSER TO LEFT */
     .journey-visual {
-      height: 620px;
-      min-height: 620px;
+      width: calc(100% + 45px);
+      height: 590px;
+      min-height: 590px;
       position: relative;
+      margin-left: -45px;
       z-index: 2;
     }
 
+    /* CONNECTOR PATH */
     .journey-path {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
-      overflow: visible;
       z-index: 1;
+      overflow: visible;
       pointer-events: none;
     }
 
     .path-base {
       fill: none;
-      stroke: #CCFBF1;
+      stroke: #DCEFEB;
       stroke-width: 4;
       stroke-linecap: round;
     }
 
+    .dark .path-base {
+      stroke: rgba(45, 212, 191, 0.2);
+    }
+
     .path-animated {
       fill: none;
-      stroke: #0D9488;
+      stroke: #0F9488;
       stroke-width: 4;
       stroke-linecap: round;
       stroke-dasharray: 1400;
       stroke-dashoffset: 1400;
       transition: stroke-dashoffset 2.6s cubic-bezier(0.16, 1, 0.3, 1);
-      filter: drop-shadow(0 2px 4px rgba(13, 148, 136, 0.25));
+      filter: drop-shadow(0 2px 5px rgba(15, 148, 136, 0.25));
+    }
+
+    .dark .path-animated {
+      stroke: #2DD4BF;
     }
 
     .journey-section.visible .path-animated {
@@ -206,28 +272,39 @@
 
     .path-dot {
       fill: white;
-      stroke: #0D9488;
-      stroke-width: 4;
-      filter: drop-shadow(0 2px 5px rgba(13, 148, 136, 0.25));
+      stroke: #0F9488;
+      stroke-width: 3.5;
+      filter: drop-shadow(0 2px 4px rgba(15, 148, 136, 0.2));
     }
 
-    /* SLEEK COMPACT CARDS - NO PARAGRAPH, WIDER TEXT COLUMN */
+    .dark .path-dot {
+      fill: #0F172A;
+      stroke: #2DD4BF;
+    }
+
+    /* CARDS */
     .journey-card {
       position: absolute;
-      width: 315px;
-      height: 94px;
-      padding: 12px 18px;
+      width: 300px;
+      min-height: 94px;
+      padding: 12px 16px;
+      gap: 13px;
       display: flex;
       align-items: center;
-      gap: 15px;
+      border-radius: 20px;
       background: rgba(255, 255, 255, 0.98);
       border: 1px solid #E2E8F0;
-      border-radius: 22px;
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 12px 35px rgba(15, 42, 58, 0.09);
       z-index: 2;
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       opacity: 0;
       transform: translateY(20px);
+    }
+
+    .dark .journey-card {
+      background: rgba(30, 41, 59, 0.96);
+      border-color: rgba(51, 65, 85, 0.8);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
     }
 
     .journey-section.visible .journey-card {
@@ -241,38 +318,47 @@
       box-shadow: 0 18px 40px rgba(15, 118, 110, 0.16);
     }
 
-    /* ASCENDING STAIRCASE COORDINATES - ZERO OVERLAP */
+    .dark .journey-card:hover {
+      border-color: rgba(45, 212, 191, 0.6);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Bring cards closer into one visual flow */
     .step-1 {
-      left: 0;
-      top: 480px;
+      left: 1%;
+      top: 70%;
     }
 
     .step-2 {
-      left: 23%;
-      top: 320px;
+      left: 25%;
+      top: 43%;
     }
 
     .step-3 {
-      left: 48%;
-      top: 160px;
+      left: 49%;
+      top: 17%;
     }
 
     .step-4 {
       right: 0;
-      top: 10px;
+      top: 1%;
     }
 
+    /* Consistent card images */
     .step-visual {
       width: 68px;
       height: 68px;
-      flex-shrink: 0;
-      border-radius: 16px;
+      flex: 0 0 68px;
+      border-radius: 15px;
       display: grid;
       place-items: center;
       overflow: hidden;
       position: relative;
       background: #F1F5F9;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .dark .step-visual {
+      background: #1E293B;
     }
 
     .step-visual img {
@@ -291,6 +377,11 @@
       color: #0F766E;
     }
 
+    .dark .step-calendar {
+      background: rgba(15, 118, 110, 0.35);
+      color: #2DD4BF;
+    }
+
     .step-copy {
       min-width: 0;
       flex: 1;
@@ -305,13 +396,21 @@
       margin-bottom: 4px;
     }
 
+    .dark .step-number {
+      color: #2DD4BF;
+    }
+
     .step-copy h3 {
       color: #0F172A;
-      font-size: 15.5px;
+      font-size: 15px;
       line-height: 1.25;
       font-weight: 800;
       margin: 0;
       white-space: nowrap;
+    }
+
+    .dark .step-copy h3 {
+      color: #FFFFFF;
     }
 
     /* STEP 1 CALENDAR ANIMATION */
@@ -331,6 +430,10 @@
       place-items: center;
       right: -5px;
       bottom: -3px;
+    }
+
+    .dark .calendar-check {
+      border-color: #1E293B;
     }
 
     /* STEP 2 MOVEMENT INDICATOR */
@@ -385,6 +488,10 @@
       box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
     }
 
+    .dark .recovery-check {
+      border-color: #1E293B;
+    }
+
     /* DECORATIVE ELEMENTS */
     .decor-dots {
       position: absolute;
@@ -392,10 +499,15 @@
       bottom: 25px;
       width: 190px;
       height: 190px;
-      opacity: 0.14;
+      opacity: 0.12;
       background-image: radial-gradient(#0F766E 1.5px, transparent 1.5px);
       background-size: 14px 14px;
       pointer-events: none;
+    }
+
+    .dark .decor-dots {
+      opacity: 0.1;
+      background-image: radial-gradient(#2DD4BF 1.5px, transparent 1.5px);
     }
 
     .decor-circle {
@@ -409,80 +521,78 @@
       pointer-events: none;
     }
 
-    /* RESPONSIVE DESIGN */
-    @media (max-width: 1200px) and (min-width: 851px) {
+    .dark .decor-circle {
+      background: rgba(45, 212, 191, 0.05);
+    }
+
+    /* TABLET */
+    @media (max-width: 1100px) and (min-width: 851px) {
       .journey-container {
-        grid-template-columns: 34% 66%;
-        padding: 45px 30px;
-        min-height: 620px;
+        grid-template-columns: 36% 64%;
+        padding: 35px 25px;
       }
 
       .journey-visual {
-        height: 570px;
-        min-height: 570px;
+        margin-left: -25px;
+        width: calc(100% + 25px);
       }
 
       .journey-card {
-        width: 270px;
-        height: 86px;
-        padding: 10px 14px;
-        gap: 12px;
+        width: 265px;
       }
 
-      .step-visual {
-        width: 56px;
-        height: 56px;
-      }
-
-      .step-copy h3 {
-        font-size: 14px;
-      }
-
-      .step-1 { left: 0; top: 430px; }
-      .step-2 { left: 20%; top: 290px; }
-      .step-3 { left: 43%; top: 150px; }
-      .step-4 { right: 0; top: 10px; }
+      .step-1 { left: 0; }
+      .step-2 { left: 17%; }
+      .step-3 { left: 36%; }
+      .step-4 { right: 0; }
     }
 
+    /* MOBILE */
     @media (max-width: 850px) {
       .healing-section {
-        padding: 50px 16px;
+        padding: 40px 16px;
       }
 
       .journey-container {
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        gap: 36px;
-        padding: 36px 20px;
-        min-height: auto;
-        border-radius: 30px;
+        gap: 35px;
+        padding: 35px 22px;
+        border-radius: 28px;
       }
 
       .journey-intro {
         max-width: 100%;
+        padding-right: 0;
       }
 
       .journey-visual {
+        width: 100%;
         height: auto;
         min-height: auto;
+        margin-left: 0;
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 18px;
+        padding-left: 0;
+      }
+
+      .journey-card,
+      .step-1,
+      .step-2,
+      .step-3,
+      .step-4 {
+        position: relative;
+        inset: auto !important;
+        width: 100%;
+        min-height: 85px;
+        opacity: 1 !important;
+        transform: none !important;
       }
 
       .journey-path {
         display: none;
-      }
-
-      .journey-card {
-        position: relative;
-        inset: auto !important;
-        width: 100%;
-        height: auto;
-        min-height: 84px;
-        opacity: 1 !important;
-        transform: none !important;
       }
 
       .decor-dots,
@@ -493,12 +603,12 @@
 
     @media (max-width: 480px) {
       .healing-section {
-        padding: 36px 12px;
+        padding: 32px 12px;
       }
 
       .journey-container {
-        padding: 28px 16px;
-        border-radius: 24px;
+        padding: 26px 16px;
+        border-radius: 22px;
       }
 
       .journey-intro h2 {
@@ -516,6 +626,7 @@
       .step-visual {
         width: 54px;
         height: 54px;
+        flex: 0 0 54px;
       }
 
       .step-copy h3 {
@@ -543,13 +654,12 @@
 
     <!-- LEFT INTRODUCTION -->
     <div class="journey-intro">
-
       <div class="intro-badge">
         <span class="intro-badge-dot"></span>
         <span>Your Recovery Journey</span>
       </div>
 
-      <h2>
+      <h2 class="font-heading">
         How We Help<br />
         <span class="highlight">You Heal</span>
       </h2>
@@ -584,33 +694,34 @@
 
       <a href="contact.html" class="journey-cta" data-open-modal="appointment">
         <span>Book Your Appointment</span>
-        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
       </a>
-
     </div>
 
-    <!-- RIGHT ANIMATED ASCENDING JOURNEY -->
+    <!-- RIGHT VISUAL - SHIFTED LEFT TOWARD INTRO -->
     <div class="journey-visual">
 
-      <!-- CONNECTING SVG PATH -->
-      <svg class="journey-path" viewBox="0 0 850 620" preserveAspectRatio="none" aria-hidden="true">
-        <!-- Base Path -->
+      <!-- CONNECTING SVG PATH: Begins near left content and curves through all 4 steps -->
+      <svg class="journey-path" viewBox="0 0 850 590" preserveAspectRatio="none" aria-hidden="true">
+        <!-- Connecting curved path that begins right near the left content -->
         <path fill="none" class="path-base"
-          d="M 40 527 C 150 527, 160 367, 260 367
-             S 380 207, 480 207
-             S 620 57, 720 57" />
+          d="M -30 460 C 0 460, 10 460, 58 460
+             C 140 460, 175 301, 262 301
+             S 375 147, 466 147
+             S 560 59, 680 59" />
 
-        <!-- Animated Pathway -->
         <path fill="none" class="path-animated"
-          d="M 40 527 C 150 527, 160 367, 260 367
-             S 380 207, 480 207
-             S 620 57, 720 57" />
+          d="M -30 460 C 0 460, 10 460, 58 460
+             C 140 460, 175 301, 262 301
+             S 375 147, 466 147
+             S 560 59, 680 59" />
 
-        <!-- Connection Nodes -->
-        <circle class="path-dot" cx="40" cy="527" r="9"/>
-        <circle class="path-dot" cx="260" cy="367" r="9"/>
-        <circle class="path-dot" cx="480" cy="207" r="9"/>
-        <circle class="path-dot" cx="720" cy="57" r="9"/>
+        <!-- Nodes at card connection points -->
+        <circle class="path-dot" cx="-20" cy="460" r="7"/>
+        <circle class="path-dot" cx="58" cy="460" r="8"/>
+        <circle class="path-dot" cx="262" cy="301" r="8"/>
+        <circle class="path-dot" cx="466" cy="147" r="8"/>
+        <circle class="path-dot" cx="680" cy="59" r="8"/>
       </svg>
 
       <!-- STEP 1: Book Your Visit -->
@@ -689,12 +800,10 @@
 </section>
 
 <script>
-  // Initialize Lucide icons if loaded
   if (window.lucide) {
     lucide.createIcons();
   }
 
-  // Animate the section when it enters viewport
   const journey = document.getElementById("healingJourney");
   if (journey) {
     const observer = new IntersectionObserver((entries) => {
