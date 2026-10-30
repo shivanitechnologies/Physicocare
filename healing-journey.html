@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How We Help You Heal | PhysioCare</title>
+  <title>Your Recovery Journey | PhysioCare</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -89,7 +89,7 @@
       font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       width: fit-content;
     }
 
@@ -114,12 +114,12 @@
 
     .journey-intro h2 {
       max-width: 400px;
-      font-size: clamp(38px, 4vw, 54px);
-      line-height: 1.08;
-      letter-spacing: -2px;
+      font-size: clamp(34px, 3.8vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -1.8px;
       font-weight: 850;
       color: #0F172A;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .dark .journey-intro h2 {
@@ -135,8 +135,8 @@
     }
 
     .intro-description {
-      max-width: 390px;
-      font-size: 17px;
+      max-width: 410px;
+      font-size: 15.5px;
       line-height: 1.65;
       color: #475569;
     }
@@ -146,7 +146,7 @@
     }
 
     .intro-line {
-      margin: 24px 0;
+      margin: 20px 0 22px;
       width: 65px;
       height: 4px;
       border-radius: 999px;
@@ -160,7 +160,7 @@
     .intro-features {
       list-style: none;
       padding: 0;
-      margin: 0 0 28px;
+      margin: 0 0 26px;
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -170,7 +170,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 600;
       color: #1E293B;
     }
@@ -222,8 +222,8 @@
     /* RIGHT VISUAL - MOVE CLOSER TO LEFT */
     .journey-visual {
       width: calc(100% + 45px);
-      height: 590px;
-      min-height: 590px;
+      height: 610px;
+      min-height: 610px;
       position: relative;
       margin-left: -45px;
       z-index: 2;
@@ -285,8 +285,7 @@
     /* CARDS */
     .journey-card {
       position: absolute;
-      width: 300px;
-      min-height: 94px;
+      width: 310px;
       padding: 12px 16px;
       gap: 13px;
       display: flex;
@@ -326,29 +325,29 @@
     /* Bring cards closer into one visual flow */
     .step-1 {
       left: 1%;
-      top: 70%;
+      top: 455px;
     }
 
     .step-2 {
       left: 25%;
-      top: 43%;
+      top: 295px;
     }
 
     .step-3 {
       left: 49%;
-      top: 17%;
+      top: 140px;
     }
 
     .step-4 {
       right: 0;
-      top: 1%;
+      top: 6px;
     }
 
     /* Consistent card images */
     .step-visual {
-      width: 68px;
-      height: 68px;
-      flex: 0 0 68px;
+      width: 64px;
+      height: 64px;
+      flex: 0 0 64px;
       border-radius: 15px;
       display: grid;
       place-items: center;
@@ -389,11 +388,11 @@
 
     .step-number {
       color: #0F766E;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .dark .step-number {
@@ -402,15 +401,25 @@
 
     .step-copy h3 {
       color: #0F172A;
-      font-size: 15px;
+      font-size: 14.5px;
       line-height: 1.25;
       font-weight: 800;
-      margin: 0;
-      white-space: nowrap;
+      margin: 0 0 3px;
     }
 
     .dark .step-copy h3 {
       color: #FFFFFF;
+    }
+
+    .step-copy p {
+      color: #64748B;
+      font-size: 11px;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .dark .step-copy p {
+      color: #94A3B8;
     }
 
     /* STEP 1 CALENDAR ANIMATION */
@@ -420,11 +429,11 @@
 
     .calendar-check {
       position: absolute;
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       background: #10B981;
       color: white;
-      border: 3px solid #E0F2F1;
+      border: 2.5px solid #E0F2F1;
       border-radius: 50%;
       display: grid;
       place-items: center;
@@ -444,8 +453,8 @@
       border: 3px solid #fff;
       border-radius: 50%;
       background: #0EA5E9;
-      top: 8px;
-      right: 8px;
+      top: 6px;
+      right: 6px;
       box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.5);
       animation: movementPulse 1.8s infinite;
     }
@@ -475,16 +484,16 @@
     /* STEP 4 RECOVERY CHECK */
     .recovery-check {
       position: absolute;
-      right: 6px;
-      bottom: 6px;
-      width: 22px;
-      height: 22px;
+      right: 5px;
+      bottom: 5px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       display: grid;
       place-items: center;
       color: white;
       background: #10B981;
-      border: 2.5px solid white;
+      border: 2px solid white;
       box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
     }
 
@@ -535,16 +544,18 @@
       .journey-visual {
         margin-left: -25px;
         width: calc(100% + 25px);
+        height: 580px;
       }
 
       .journey-card {
         width: 265px;
+        padding: 10px 14px;
       }
 
-      .step-1 { left: 0; }
-      .step-2 { left: 17%; }
-      .step-3 { left: 36%; }
-      .step-4 { right: 0; }
+      .step-1 { left: 0; top: 430px; }
+      .step-2 { left: 17%; top: 285px; }
+      .step-3 { left: 36%; top: 140px; }
+      .step-4 { right: 0; top: 6px; }
     }
 
     /* MOBILE */
@@ -574,7 +585,7 @@
         margin-left: 0;
         display: flex;
         flex-direction: column;
-        gap: 18px;
+        gap: 16px;
         padding-left: 0;
       }
 
@@ -612,11 +623,11 @@
       }
 
       .journey-intro h2 {
-        font-size: 32px;
+        font-size: 30px;
       }
 
       .intro-description {
-        font-size: 15px;
+        font-size: 14.5px;
       }
 
       .journey-card {
@@ -624,13 +635,17 @@
       }
 
       .step-visual {
-        width: 54px;
-        height: 54px;
-        flex: 0 0 54px;
+        width: 52px;
+        height: 52px;
+        flex: 0 0 52px;
       }
 
       .step-copy h3 {
-        font-size: 14.5px;
+        font-size: 14px;
+      }
+
+      .step-copy p {
+        font-size: 10.5px;
       }
     }
 
@@ -656,16 +671,17 @@
     <div class="journey-intro">
       <div class="intro-badge">
         <span class="intro-badge-dot"></span>
-        <span>Your Recovery Journey</span>
+        <span>YOUR RECOVERY JOURNEY</span>
       </div>
 
       <h2 class="font-heading">
-        How We Help<br />
-        <span class="highlight">You Heal</span>
+        Feel Better.<br>
+        Move Better.<br>
+        <span class="highlight">Live Better.</span>
       </h2>
 
       <p class="intro-description">
-        Our 4 simple steps take you from everyday pain and stiffness to feeling strong, active, and moving freely again.
+        From your first consultation to your recovery goals, we're here to help you move with confidence. Our expert physiotherapy team creates personalised treatment plans designed around your needs.
       </p>
 
       <div class="intro-line"></div>
@@ -676,19 +692,19 @@
           <span class="intro-check-circle">
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
           </span>
-          <span>100% 1-on-1 Doctor of Physical Therapy Care</span>
+          <span>One-on-one care from qualified physiotherapists</span>
         </li>
         <li class="intro-feature-item">
           <span class="intro-check-circle">
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
           </span>
-          <span>Customized Treatment &amp; Mobility Plan</span>
+          <span>Personalised treatment and rehabilitation plans</span>
         </li>
         <li class="intro-feature-item">
           <span class="intro-check-circle">
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
           </span>
-          <span>In-Network Insurance &amp; Flexible Booking</span>
+          <span>Flexible appointments and ongoing recovery support</span>
         </li>
       </ul>
 
@@ -698,97 +714,99 @@
       </a>
     </div>
 
-    <!-- RIGHT VISUAL - SHIFTED LEFT TOWARD INTRO -->
+    <!-- RIGHT VISUAL -->
     <div class="journey-visual">
 
-      <!-- CONNECTING SVG PATH: Begins near left content and curves through all 4 steps -->
-      <svg class="journey-path" viewBox="0 0 850 590" preserveAspectRatio="none" aria-hidden="true">
-        <!-- Connecting curved path that begins right near the left content -->
-        <path fill="none" class="path-base"
-          d="M -30 460 C 0 460, 10 460, 58 460
-             C 140 460, 175 301, 262 301
-             S 375 147, 466 147
-             S 560 59, 680 59" />
+      <!-- CONNECTING SVG PATH -->
+      <svg class="journey-path" viewBox="0 0 850 610" preserveAspectRatio="none" aria-hidden="true">
+        <path class="path-base"
+          d="M -30 495 C 0 495, 10 495, 58 495
+             C 140 495, 175 335, 262 335
+             S 375 180, 466 180
+             S 560 50, 680 50" />
 
-        <path fill="none" class="path-animated"
-          d="M -30 460 C 0 460, 10 460, 58 460
-             C 140 460, 175 301, 262 301
-             S 375 147, 466 147
-             S 560 59, 680 59" />
+        <path class="path-animated"
+          d="M -30 495 C 0 495, 10 495, 58 495
+             C 140 495, 175 335, 262 335
+             S 375 180, 466 180
+             S 560 50, 680 50" />
 
-        <!-- Nodes at card connection points -->
-        <circle class="path-dot" cx="-20" cy="460" r="7"/>
-        <circle class="path-dot" cx="58" cy="460" r="8"/>
-        <circle class="path-dot" cx="262" cy="301" r="8"/>
-        <circle class="path-dot" cx="466" cy="147" r="8"/>
-        <circle class="path-dot" cx="680" cy="59" r="8"/>
+        <circle class="path-dot" cx="-20" cy="495" r="7"/>
+        <circle class="path-dot" cx="58" cy="495" r="8"/>
+        <circle class="path-dot" cx="262" cy="335" r="8"/>
+        <circle class="path-dot" cx="466" cy="180" r="8"/>
+        <circle class="path-dot" cx="680" cy="50" r="8"/>
       </svg>
 
       <!-- STEP 1: Book Your Visit -->
       <article class="journey-card step-1">
         <div class="step-visual step-calendar">
           <div class="calendar-icon">
-            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
             <div class="calendar-check">
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             </div>
           </div>
         </div>
         <div class="step-copy">
-          <div class="step-number">Step 01</div>
+          <div class="step-number">STEP 01</div>
           <h3>Book Your Visit</h3>
+          <p>Schedule your appointment and tell us about your pain, concerns, and recovery goals.</p>
         </div>
       </article>
 
-      <!-- STEP 2: Gentle Movement Check -->
+      <!-- STEP 2: Understand Your Movement -->
       <article class="journey-card step-2">
         <div class="step-visual">
           <img
             src="assets/images/step-assessment.jpg"
-            alt="Physiotherapist assessing patient movement"
+            alt="Physiotherapist evaluating patient movement"
             loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=300&q=80'"
           />
           <span class="movement-overlay"></span>
         </div>
         <div class="step-copy">
-          <div class="step-number">Step 02</div>
-          <h3>Gentle Movement Check</h3>
+          <div class="step-number">STEP 02</div>
+          <h3>Understand Your Movement</h3>
+          <p>Your physiotherapist evaluates your movement, flexibility, strength, and areas of discomfort.</p>
         </div>
       </article>
 
-      <!-- STEP 3: Hands-On Healing Care -->
+      <!-- STEP 3: Personalised Healing Care -->
       <article class="journey-card step-3">
         <div class="step-visual healing-visual">
           <img
             src="assets/images/step-treatment.jpg"
-            alt="Physiotherapy hands-on treatment"
+            alt="Personalised physiotherapy treatment"
             loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=300&q=80'"
           />
         </div>
         <div class="step-copy">
-          <div class="step-number">Step 03</div>
-          <h3>Hands-On Healing Care</h3>
+          <div class="step-number">STEP 03</div>
+          <h3>Personalised Healing Care</h3>
+          <p>Receive expert-guided treatment and exercises tailored to your individual recovery plan.</p>
         </div>
       </article>
 
-      <!-- STEP 4: Stay Strong & Pain-Free -->
+      <!-- STEP 4: Move Forward with Confidence -->
       <article class="journey-card step-4">
         <div class="step-visual">
           <img
             src="assets/images/step-recovery.jpg"
-            alt="Patient enjoying an active lifestyle"
+            alt="Patient moving forward with confidence"
             loading="lazy"
             onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=300&q=80'"
           />
           <span class="recovery-check">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
           </span>
         </div>
         <div class="step-copy">
-          <div class="step-number">Step 04</div>
-          <h3>Stay Strong &amp; Pain-Free</h3>
+          <div class="step-number">STEP 04</div>
+          <h3>Move Forward with Confidence</h3>
+          <p>Build strength, improve mobility, and continue healthy habits with ongoing guidance.</p>
         </div>
       </article>
 

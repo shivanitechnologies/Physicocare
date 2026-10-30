@@ -705,7 +705,7 @@ a:has(img[alt*="PhysioCare"]):active {
   font-weight: 800;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   width: fit-content;
 }
 
@@ -730,12 +730,12 @@ a:has(img[alt*="PhysioCare"]):active {
 
 .journey-intro h2 {
   max-width: 400px;
-  font-size: clamp(38px, 4vw, 54px);
-  line-height: 1.08;
-  letter-spacing: -2px;
+  font-size: clamp(34px, 3.8vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -1.8px;
   font-weight: 850;
   color: #0F172A;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .dark .journey-intro h2 {
@@ -751,8 +751,8 @@ a:has(img[alt*="PhysioCare"]):active {
 }
 
 .intro-description {
-  max-width: 390px;
-  font-size: 17px;
+  max-width: 410px;
+  font-size: 15.5px;
   line-height: 1.65;
   color: #475569;
 }
@@ -762,7 +762,7 @@ a:has(img[alt*="PhysioCare"]):active {
 }
 
 .intro-line {
-  margin: 24px 0;
+  margin: 20px 0 22px;
   width: 65px;
   height: 4px;
   border-radius: 999px;
@@ -776,7 +776,7 @@ a:has(img[alt*="PhysioCare"]):active {
 .intro-features {
   list-style: none;
   padding: 0;
-  margin: 0 0 28px;
+  margin: 0 0 26px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -786,7 +786,7 @@ a:has(img[alt*="PhysioCare"]):active {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
   color: #1E293B;
 }
@@ -838,8 +838,8 @@ a:has(img[alt*="PhysioCare"]):active {
 /* RIGHT VISUAL - MOVE CLOSER TO LEFT */
 .journey-visual {
   width: calc(100% + 45px);
-  height: 590px;
-  min-height: 590px;
+  height: 610px;
+  min-height: 610px;
   position: relative;
   margin-left: -45px;
   z-index: 2;
@@ -901,8 +901,7 @@ a:has(img[alt*="PhysioCare"]):active {
 /* CARDS */
 .journey-card {
   position: absolute;
-  width: 300px;
-  min-height: 94px;
+  width: 310px;
   padding: 12px 16px;
   gap: 13px;
   display: flex;
@@ -942,29 +941,29 @@ a:has(img[alt*="PhysioCare"]):active {
 /* Bring cards closer into one visual flow */
 .step-1 {
   left: 1%;
-  top: 70%;
+  top: 455px;
 }
 
 .step-2 {
   left: 25%;
-  top: 43%;
+  top: 295px;
 }
 
 .step-3 {
   left: 49%;
-  top: 17%;
+  top: 140px;
 }
 
 .step-4 {
   right: 0;
-  top: 1%;
+  top: 6px;
 }
 
 /* Consistent card images */
 .step-visual {
-  width: 68px;
-  height: 68px;
-  flex: 0 0 68px;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
   border-radius: 15px;
   display: grid;
   place-items: center;
@@ -1005,11 +1004,11 @@ a:has(img[alt*="PhysioCare"]):active {
 
 .step-number {
   color: #0F766E;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 800;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .dark .step-number {
@@ -1018,11 +1017,10 @@ a:has(img[alt*="PhysioCare"]):active {
 
 .step-copy h3 {
   color: #0F172A;
-  font-size: 15px;
+  font-size: 14.5px;
   line-height: 1.25;
   font-weight: 800;
-  margin: 0;
-  white-space: nowrap;
+  margin: 0 0 3px;
 }
 
 .dark .step-copy h3 {
@@ -1031,7 +1029,7 @@ a:has(img[alt*="PhysioCare"]):active {
 
 .step-copy p {
   color: #64748B;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.45;
   margin: 0;
 }
@@ -1047,11 +1045,11 @@ a:has(img[alt*="PhysioCare"]):active {
 
 .calendar-check {
   position: absolute;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   background: #10B981;
   color: white;
-  border: 3px solid #E0F2F1;
+  border: 2.5px solid #E0F2F1;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -1071,8 +1069,8 @@ a:has(img[alt*="PhysioCare"]):active {
   border: 3px solid #fff;
   border-radius: 50%;
   background: #0EA5E9;
-  top: 8px;
-  right: 8px;
+  top: 6px;
+  right: 6px;
   box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.5);
   animation: movementPulse 1.8s infinite;
 }
@@ -1102,16 +1100,16 @@ a:has(img[alt*="PhysioCare"]):active {
 /* STEP 4 RECOVERY CHECK */
 .recovery-check {
   position: absolute;
-  right: 6px;
-  bottom: 6px;
-  width: 22px;
-  height: 22px;
+  right: 5px;
+  bottom: 5px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   color: white;
   background: #10B981;
-  border: 2.5px solid white;
+  border: 2px solid white;
   box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
 }
 
@@ -1162,16 +1160,18 @@ a:has(img[alt*="PhysioCare"]):active {
   .journey-visual {
     margin-left: -25px;
     width: calc(100% + 25px);
+    height: 580px;
   }
 
   .journey-card {
     width: 265px;
+    padding: 10px 14px;
   }
 
-  .step-1 { left: 0; }
-  .step-2 { left: 17%; }
-  .step-3 { left: 36%; }
-  .step-4 { right: 0; }
+  .step-1 { left: 0; top: 430px; }
+  .step-2 { left: 17%; top: 285px; }
+  .step-3 { left: 36%; top: 140px; }
+  .step-4 { right: 0; top: 6px; }
 }
 
 /* MOBILE */
@@ -1201,7 +1201,7 @@ a:has(img[alt*="PhysioCare"]):active {
     margin-left: 0;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
     padding-left: 0;
   }
 
@@ -1239,11 +1239,11 @@ a:has(img[alt*="PhysioCare"]):active {
   }
 
   .journey-intro h2 {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .intro-description {
-    font-size: 15px;
+    font-size: 14.5px;
   }
 
   .journey-card {
@@ -1251,13 +1251,17 @@ a:has(img[alt*="PhysioCare"]):active {
   }
 
   .step-visual {
-    width: 54px;
-    height: 54px;
-    flex: 0 0 54px;
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
   }
 
   .step-copy h3 {
-    font-size: 14.5px;
+    font-size: 14px;
+  }
+
+  .step-copy p {
+    font-size: 10.5px;
   }
 }
 
