@@ -12,7 +12,7 @@ window.PhysioDemoData = {
       shortDesc: "Evidence-based rehabilitation for arthritis, fractures, tendonitis, and joint replacements.",
       duration: "45–60 mins",
       price: "₹1,499",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80",
       category: "Musculoskeletal"
     },
     {
@@ -42,7 +42,7 @@ window.PhysioDemoData = {
       shortDesc: "Neuro-plasticity and gait training for stroke recovery, Parkinson's, and vestibular disorders.",
       duration: "60 mins",
       price: "₹1,999",
-      image: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80",
       category: "Neuro-Rehab"
     },
     {
@@ -62,7 +62,7 @@ window.PhysioDemoData = {
       shortDesc: "Gentle restorative therapy enhancing independence, bone density, and stability in seniors.",
       duration: "40 mins",
       price: "₹1,299",
-      image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=800&q=80",
       category: "Active Aging"
     },
     {
@@ -92,7 +92,7 @@ window.PhysioDemoData = {
       shortDesc: "Myofascial release, joint mobilizations, and soft tissue manipulation to restore joint mechanics.",
       duration: "40 mins",
       price: "₹1,499",
-      image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80",
       category: "Manual Treatment"
     },
     {
