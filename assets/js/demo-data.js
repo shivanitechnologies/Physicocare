@@ -115,7 +115,7 @@ window.PhysioDemoData = {
       qualifications: "Doctor of Physical Therapy (DPT), OCS",
       experience: "12+ Years Clinical Practice",
       specialty: "Spine & Joint Replacement",
-      photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80",
+      photo: "assets/images/team/elena-vance.jpg",
       rating: "4.98",
       availability: "Mon – Thu"
     },
@@ -126,7 +126,7 @@ window.PhysioDemoData = {
       qualifications: "MSc Sports Medicine, CSCS, PT",
       experience: "9+ Years Athletic Care",
       specialty: "Knee, ACL & Rotator Cuff",
-      photo: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80",
+      photo: "assets/images/team/marcus-chen.jpg",
       rating: "4.95",
       availability: "Tue – Sat"
     },
@@ -137,7 +137,7 @@ window.PhysioDemoData = {
       qualifications: "Master of Physiotherapy (Neuro), NCS",
       experience: "11+ Years Neurological Care",
       specialty: "Stroke Recovery & Vestibular",
-      photo: "https://images.unsplash.com/photo-1594824813637-67990119b917?auto=format&fit=crop&w=600&q=80",
+      photo: "assets/images/team/priya-patel.jpg",
       rating: "4.99",
       availability: "Mon – Fri"
     },
@@ -148,7 +148,7 @@ window.PhysioDemoData = {
       qualifications: "DPT, GCS, Women's Health Certified",
       experience: "8+ Years Practice",
       specialty: "Active Aging & Mobility Support",
-      photo: "https://images.unsplash.com/photo-1594824813718-472e81fc0643?auto=format&fit=crop&w=600&q=80",
+      photo: "assets/images/team/kimberly-adams.jpg",
       rating: "4.94",
       availability: "Wed – Sun"
     }

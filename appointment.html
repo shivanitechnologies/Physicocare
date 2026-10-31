@@ -503,5 +503,24 @@
   <script src="assets/js/demo-data.js"></script>
   <script src="assets/js/storage.js"></script>
   <script src="assets/js/app.js"></script>
+  <script>
+    // Auto-select therapist from URL parameter
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const therapistParam = (urlParams.get('therapist') || '').toLowerCase();
+      const therapistSelect = document.getElementById('apt-therapist');
+      if (therapistSelect && therapistParam) {
+        if (therapistParam.includes('priya')) {
+          therapistSelect.value = "Dr. Priya Patel, MPT";
+        } else if (therapistParam.includes('marcus')) {
+          therapistSelect.value = "Dr. Marcus Chen, PT";
+        } else if (therapistParam.includes('kimberly')) {
+          therapistSelect.value = "Dr. Kimberly Adams, PT";
+        } else if (therapistParam.includes('elena')) {
+          therapistSelect.value = "Dr. Elena Vance, DPT";
+        }
+      }
+    });
+  </script>
 </body>
 </html>
