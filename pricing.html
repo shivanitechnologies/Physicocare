@@ -44,39 +44,43 @@
           <img src="assets/images/logo-v2.svg" alt="PhysioCare" class="h-10 w-auto block dark:hidden">
           <img src="assets/images/logo-white-v2.svg" alt="PhysioCare" class="h-10 w-auto hidden dark:block">
         </a>
-        <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-1 lg:gap-1.5" aria-label="Main Navigation">
           <!-- Home Dropdown -->
           <div class="relative group">
-            <button class="px-3.5 py-2 rounded-xl hover:text-teal-700 dark:hover:text-teal-400 transition flex items-center gap-1.5" aria-expanded="false">
+            <button class="nav-link  flex items-center gap-1.5" aria-expanded="false" aria-haspopup="true">
               <span>Home</span>
-              <svg class="w-3.5 h-3.5 transition group-hover:rotate-180 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+              <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
             </button>
-            <div class="absolute left-0 mt-1.5 w-44 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 p-2 hidden group-hover:block transition-all duration-200 z-50">
-              <a href="index.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition group/item">
-                <svg class="w-4 h-4 shrink-0 text-slate-400 group-hover/item:text-teal-600 dark:group-hover/item:text-teal-400 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-                <span>Home 1</span>
-              </a>
-              <a href="home-2.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition group/item">
-                <svg class="w-4 h-4 shrink-0 text-slate-400 group-hover/item:text-teal-600 dark:group-hover/item:text-teal-400 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-                <span>Home 2</span>
-              </a>
+            <div class="absolute left-0 top-full pt-1.5 w-48 hidden group-hover:block transition-all duration-200 z-50">
+              <div class="nav-dropdown-menu p-1.5 space-y-0.5">
+                <a href="index.html" class="nav-dropdown-item  flex items-center gap-3 px-3 py-2.5">
+                  <svg class="w-4 h-4 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                  <span>Home 1 (Classic)</span>
+                </a>
+                <a href="home-2.html" class="nav-dropdown-item  flex items-center gap-3 px-3 py-2.5">
+                  <svg class="w-4 h-4 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                  <span>Home 2 (Advanced Care)</span>
+                </a>
+              </div>
             </div>
           </div>
-          <a href="about.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400">About Us</a>
-          <a href="services.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400">Services</a>
-          <a href="therapists.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Therapists</a>
-          <a href="pricing.html" class="px-3 py-2 rounded-lg text-teal-700 dark:text-teal-400 font-bold bg-teal-50 dark:bg-teal-950/40">Pricing</a>
-          <a href="contact.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400">Contact</a>
-                              <!-- Dashboard Dropdown -->
+
+          <a href="about.html" class="nav-link ">About Us</a>
+          <a href="services.html" class="nav-link ">Services</a>
+          <a href="therapists.html" class="nav-link ">Therapists</a>
+          <a href="contact.html" class="nav-link ">Contact</a>
+
+          <!-- Dashboard Dropdown -->
           <div class="relative group/dash">
-            <a href="dashboard.html" class="px-3 py-2 rounded-lg hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-haspopup="true">
+            <a href="dashboard.html" class="nav-link  flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-haspopup="true">
               <span>Dashboard</span>
               <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover/dash:rotate-180 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
             </a>
             <div class="absolute right-0 top-full pt-1.5 w-52 hidden group-hover/dash:block z-50 transition-all duration-200">
-              <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 p-2 space-y-0.5">
-                <a href="dashboard.html#patient" onclick="if(window.switchDashboardRole){switchDashboardRole('patient');}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition group/item">
-                  <svg class="w-5 h-5 text-slate-500 group-hover/item:text-teal-600 dark:text-slate-400 dark:group-hover/item:text-teal-400 shrink-0 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+              <div class="nav-dropdown-menu p-1.5 space-y-0.5">
+                <a href="dashboard.html#patient" onclick="if(window.switchDashboardRole){switchDashboardRole('patient');}" class="nav-dropdown-item flex items-center gap-3 px-3 py-2.5">
+                  <svg class="w-4 h-4 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                     <rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1.5"/>
                     <rect x="14" y="3.5" width="6.5" height="6.5" rx="1.5"/>
                     <rect x="3.5" y="14" width="6.5" height="6.5" rx="1.5"/>
@@ -84,8 +88,8 @@
                   </svg>
                   <span>Patient Dashboard</span>
                 </a>
-                <a href="dashboard.html#admin" onclick="if(window.switchDashboardRole){switchDashboardRole('admin');}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition group/item">
-                  <svg class="w-5 h-5 text-slate-500 group-hover/item:text-teal-600 dark:text-slate-400 dark:group-hover/item:text-teal-400 shrink-0 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                <a href="dashboard.html#admin" onclick="if(window.switchDashboardRole){switchDashboardRole('admin');}" class="nav-dropdown-item flex items-center gap-3 px-3 py-2.5">
+                  <svg class="w-4 h-4 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                   </svg>
                   <span>Admin Dashboard</span>
@@ -141,16 +145,27 @@
         </button>
       </div>
 
-            <nav class="mt-6 flex flex-col space-y-1">
-        <a href="index.html" class="px-3 py-2.5 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Home 1</a>
-        <a href="home-2.html" class="px-3 py-2.5 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Home 2</a>
-        <a href="about.html" class="px-3 py-2.5 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">About Us</a>
-        <a href="services.html" class="px-3 py-2.5 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Services</a>
-        <a href="therapists.html" class="px-3 py-2.5 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Therapists</a>
-        <a href="pricing.html" class="px-3 py-2.5 rounded-xl font-bold bg-teal-50 dark:bg-teal-950/50 text-teal-700 dark:text-teal-400">Pricing</a>
-        <a href="contact.html" class="px-3 py-2.5 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Contact</a>
-        <a href="dashboard.html" class="px-3 py-2.5 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center justify-between">
-          <span>Dashboard</span>
+                  <nav class="mt-6 flex flex-col space-y-1">
+        <a href="index.html" class="drawer-nav-link ">
+          <span>Home 1 (Classic)</span>
+        </a>
+        <a href="home-2.html" class="drawer-nav-link ">
+          <span>Home 2 (Advanced Care)</span>
+        </a>
+        <a href="about.html" class="drawer-nav-link ">
+          <span>About Us</span>
+        </a>
+        <a href="services.html" class="drawer-nav-link ">
+          <span>Services</span>
+        </a>
+        <a href="therapists.html" class="drawer-nav-link ">
+          <span>Therapists</span>
+        </a>
+        <a href="contact.html" class="drawer-nav-link ">
+          <span>Contact</span>
+        </a>
+        <a href="dashboard.html" class="drawer-nav-link ">
+          <span>Patient Dashboard</span>
           <span class="text-xs bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300 px-2 py-0.5 rounded font-bold">Portal</span>
         </a>
       </nav>
