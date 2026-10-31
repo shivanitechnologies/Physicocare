@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Management Portal — PhysioCare</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            teal: {
+              50: '#F0FDFA', 100: '#CCFBF1', 200: '#99F6E4', 300: '#5EEAD4',
+              400: '#2DD4BF', 500: '#14B8A6', 600: '#0D9488', 700: '#0F766E',
+              800: '#115E59', 900: '#134E4A', 950: '#042F2E',
+            },
+            slate: {
+              750: '#243044', 800: '#1E293B', 850: '#151F30', 900: '#0F172A', 950: '#090D12'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Plus Jakarta Sans"', 'Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo-mark.svg">
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+</head>
+<body class="bg-[#F5F7FA] dark:bg-[#090D12] text-slate-600 dark:text-slate-300 font-sans antialiased">
+
+  <div class="portal-layout">
+    
+    <!-- Admin Sidebar -->
+    <aside class="portal-sidebar p-5 hidden md:flex">
+      <div class="space-y-6">
+        <!-- Logo -->
+        <a href="../index.html" class="flex items-center gap-2">
+          <img src="../assets/images/logo.svg" alt="PhysioCare" class="h-8 w-auto dark:hidden">
+          <img src="../assets/images/logo-white.svg" alt="PhysioCare" class="h-8 w-auto hidden dark:block">
+        </a>
+
+        <!-- Admin Badge -->
+        <div class="p-3.5 rounded-2xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-teal-700 text-white flex items-center justify-center font-bold">
+            ⚡
+          </div>
+          <div class="min-w-0">
+            <h4 class="text-xs font-bold text-slate-900 dark:text-white">Clinical Admin</h4>
+            <p class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold">Master Operations Hub</p>
+          </div>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <nav class="space-y-1 text-xs">
+          <button onclick="switchAdminTab('overview')" class="w-full portal-nav-item active" id="atab-btn-overview">
+            <span>📊</span><span>Operations Overview</span>
+          </button>
+          <button onclick="switchAdminTab('appointments')" class="w-full portal-nav-item" id="atab-btn-appointments">
+            <span>📅</span><span>Appointment Manager</span>
+          </button>
+          <button onclick="switchAdminTab('patients')" class="w-full portal-nav-item" id="atab-btn-patients">
+            <span>👥</span><span>Patient Directory</span>
+          </button>
+          <button onclick="switchAdminTab('therapists')" class="w-full portal-nav-item" id="atab-btn-therapists">
+            <span>🩺</span><span>Therapist Faculty</span>
+          </button>
+          <button onclick="switchAdminTab('services')" class="w-full portal-nav-item" id="atab-btn-services">
+            <span>🏥</span><span>Service Catalog</span>
+          </button>
+          <button onclick="switchAdminTab('reports')" class="w-full portal-nav-item" id="atab-btn-reports">
+            <span>📈</span><span>Clinic Analytics</span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-2">
+        <a href="../patient/index.html" class="portal-nav-item text-xs text-slate-500 hover:text-slate-800 dark:hover:text-white">
+          <span>👤</span><span>Switch to Patient View</span>
+        </a>
+        <a href="../index.html" class="portal-nav-item text-xs text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40">
+          <span>🚪</span><span>Exit to Public Site</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <div class="portal-main">
+      
+      <!-- Topbar -->
+      <header class="portal-topbar">
+        <h2 class="text-base font-bold text-slate-900 dark:text-white font-heading" id="admin-tab-title">Clinic Operations Dashboard</h2>
+        
+        <div class="flex items-center gap-3">
+          <button type="button" class="rtl-toggle-btn w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center text-xs" title="Toggle RTL">⇄</button>
+          
+          <button type="button" class="theme-toggle-btn w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center text-xs" aria-label="Toggle theme">
+            <span class="theme-icon-moon">🌙</span>
+            <span class="theme-icon-sun hidden">☀️</span>
+          </button>
+
+          <span class="text-xs bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300 px-2.5 py-1 rounded-full font-bold">
+            Live Synchronized
+          </span>
+        </div>
+      </header>
+
+      <!-- Content Area -->
+      <main class="p-6 lg:p-8 space-y-8 flex-grow">
+        
+        <!-- TAB 1: OVERVIEW -->
+        <div id="atab-overview" class="space-y-8">
+          
+          <!-- Key Clinical Metrics -->
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="stat-card">
+              <p class="text-[11px] font-bold text-slate-400 uppercase">Active Patients</p>
+              <h4 class="text-2xl font-black text-slate-900 dark:text-white font-heading mt-1">1,420</h4>
+              <p class="text-[10px] text-emerald-600 font-bold mt-1">↑ +24 this month</p>
+            </div>
+            <div class="stat-card">
+              <p class="text-[11px] font-bold text-slate-400 uppercase">Today's Bookings</p>
+              <h4 class="text-2xl font-black text-teal-700 dark:text-teal-400 font-heading mt-1" id="admin-today-count">8</h4>
+              <p class="text-[10px] text-slate-500 mt-1">100% room occupancy</p>
+            </div>
+            <div class="stat-card">
+              <p class="text-[11px] font-bold text-slate-400 uppercase">Active Therapists</p>
+              <h4 class="text-2xl font-black text-slate-900 dark:text-white font-heading mt-1">4 Staff</h4>
+              <p class="text-[10px] text-slate-500 mt-1">All suites staffed</p>
+            </div>
+            <div class="stat-card">
+              <p class="text-[11px] font-bold text-slate-400 uppercase">Monthly Volume</p>
+              <h4 class="text-2xl font-black text-slate-900 dark:text-white font-heading mt-1">₹1,48,500</h4>
+              <p class="text-[10px] text-emerald-600 font-bold mt-1">↑ 12% vs target</p>
+            </div>
+          </div>
+
+          <!-- Appointments Intake Queue -->
+          <div class="card-base p-6 space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+              <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Recent Booking Inflow &amp; Approvals</h3>
+              <span class="text-xs text-slate-400">LocalStorage Live Sync</span>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead>
+                  <tr class="text-[10px] uppercase tracking-wider text-slate-400 border-b border-slate-200 dark:border-slate-700">
+                    <th class="py-2.5 px-3">Patient</th>
+                    <th class="py-2.5 px-3">Service</th>
+                    <th class="py-2.5 px-3">Clinician</th>
+                    <th class="py-2.5 px-3">Date &amp; Time</th>
+                    <th class="py-2.5 px-3">Status</th>
+                    <th class="py-2.5 px-3 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-appointments-tbody" class="divide-y divide-slate-100 dark:divide-slate-800">
+                  <!-- Populated from storage -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- TAB 2: APPOINTMENTS FULL -->
+        <div id="atab-appointments" class="hidden space-y-6">
+          <div class="card-base p-6 space-y-4">
+            <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Clinic Booking Ledger</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs" id="admin-all-bookings-table">
+                <!-- Sync table -->
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: PATIENTS -->
+        <div id="atab-patients" class="hidden space-y-6">
+          <div class="card-base p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Registered Patient Directory</h3>
+              <button onclick="promptNewPatient()" class="btn-primary btn-sm">+ Add Demo Patient</button>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead>
+                  <tr class="text-[10px] uppercase text-slate-400 border-b border-slate-200 dark:border-slate-700">
+                    <th class="py-2.5 px-3">Patient</th>
+                    <th class="py-2.5 px-3">Diagnosis</th>
+                    <th class="py-2.5 px-3">Sessions</th>
+                    <th class="py-2.5 px-3">Recovery</th>
+                    <th class="py-2.5 px-3 text-right">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-patients-tbody" class="divide-y divide-slate-100 dark:divide-slate-800">
+                  <!-- Populated dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: THERAPISTS -->
+        <div id="atab-therapists" class="hidden space-y-6">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="admin-therapists-grid">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- TAB 5: SERVICES -->
+        <div id="atab-services" class="hidden space-y-6">
+          <div class="card-base p-6 space-y-4">
+            <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Clinical Service Catalog (10 Treatments)</h3>
+            <div class="grid sm:grid-cols-2 gap-4" id="admin-services-list">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 6: REPORTS -->
+        <div id="atab-reports" class="hidden space-y-6">
+          <div class="card-base p-8 space-y-6">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Clinic Analytics &amp; Treatment Volume</h3>
+            <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 text-center space-y-2">
+              <p class="text-xs text-slate-400">Total Clinical Recoveries Completed to Date</p>
+              <h2 class="text-4xl font-black text-teal-700 dark:text-teal-400 font-heading">14,218 Patients</h2>
+              <p class="text-xs text-emerald-600 font-semibold">Average treatment cycle: 8.4 sessions</p>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="../assets/js/demo-data.js"></script>
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script>
+    function switchAdminTab(tabId) {
+      const tabs = ['overview', 'appointments', 'patients', 'therapists', 'services', 'reports'];
+      tabs.forEach(t => {
+        const el = document.getElementById('atab-' + t);
+        const btn = document.getElementById('atab-btn-' + t);
+        if (t === tabId) {
+          if (el) el.classList.remove('hidden');
+          if (btn) btn.classList.add('active');
+        } else {
+          if (el) el.classList.add('hidden');
+          if (btn) btn.classList.remove('active');
+        }
+      });
+      const titles = {
+        overview: 'Clinic Operations Overview',
+        appointments: 'Appointment Management',
+        patients: 'Patient Directory & Medical Records',
+        therapists: 'Clinical Specialist Faculty',
+        services: 'Clinical Treatment Catalog',
+        reports: 'Reports & Recovery Analytics'
+      };
+      document.getElementById('admin-tab-title').textContent = titles[tabId] || 'Admin Portal';
+    }
+
+    function renderAdminAppointments() {
+      if (!window.PhysioStorage) return;
+      const list = window.PhysioStorage.get(window.PhysioStorage.KEYS.APPOINTMENTS, []);
+      const tbody = document.getElementById('admin-appointments-tbody');
+      if (tbody) {
+        tbody.innerHTML = list.map(a => `
+          <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
+            <td class="py-2.5 px-3 font-bold text-slate-900 dark:text-white">${a.patientName}</td>
+            <td class="py-2.5 px-3">${a.service}</td>
+            <td class="py-2.5 px-3 text-slate-500">${a.therapist}</td>
+            <td class="py-2.5 px-3 font-semibold">${a.date}</td>
+            <td class="py-2.5 px-3">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold ${a.status === 'Confirmed' ? 'badge-status-confirmed' : 'badge-status-completed'}">${a.status}</span>
+            </td>
+            <td class="py-2.5 px-3 text-right space-x-2">
+              ${a.status !== 'Completed' ? `
+                <button onclick="updateAptStatus('${a.id}', 'Completed')" class="text-emerald-600 hover:underline">Complete</button>
+                <button onclick="updateAptStatus('${a.id}', 'Cancelled')" class="text-rose-600 hover:underline">Cancel</button>
+              ` : '<span class="text-slate-400">Archived</span>'}
+            </td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    function updateAptStatus(id, newStatus) {
+      if (!window.PhysioStorage) return;
+      const list = window.PhysioStorage.get(window.PhysioStorage.KEYS.APPOINTMENTS, []);
+      const item = list.find(a => a.id === id);
+      if (item) {
+        item.status = newStatus;
+        window.PhysioStorage.set(window.PhysioStorage.KEYS.APPOINTMENTS, list);
+        renderAdminAppointments();
+        showToast('Appointment status updated to ' + newStatus);
+      }
+    }
+
+    function renderAdminPatients() {
+      if (!window.PhysioStorage) return;
+      const list = window.PhysioStorage.get(window.PhysioStorage.KEYS.PATIENTS, []);
+      const tbody = document.getElementById('admin-patients-tbody');
+      if (tbody) {
+        tbody.innerHTML = list.map(p => `
+          <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
+            <td class="py-2.5 px-3 font-bold text-slate-900 dark:text-white">${p.name}<br><span class="text-[10px] text-slate-400">${p.email}</span></td>
+            <td class="py-2.5 px-3">${p.diagnosis}</td>
+            <td class="py-2.5 px-3 font-semibold">${p.sessionsCompleted} / ${p.sessionsTotal}</td>
+            <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 font-bold text-[10px]">${p.recoveryScore}%</span></td>
+            <td class="py-2.5 px-3 text-right"><button onclick="alert('Viewing patient record for ${p.name}')" class="text-teal-600 hover:underline">View Chart</button></td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    function promptNewPatient() {
+      const name = prompt('Enter Patient Full Name:');
+      if (!name) return;
+      const diag = prompt('Enter Condition / Diagnosis:', 'Post-Op Knee Recovery');
+      if (window.PhysioStorage) {
+        const list = window.PhysioStorage.get(window.PhysioStorage.KEYS.PATIENTS, []);
+        list.push({
+          id: 'pat-' + Date.now(),
+          name: name,
+          email: name.toLowerCase().replace(/\s+/g, '.') + '@example.com',
+          phone: '+91 99000 11223',
+          diagnosis: diag,
+          sessionsCompleted: 1,
+          sessionsTotal: 8,
+          recoveryScore: 25
+        });
+        window.PhysioStorage.set(window.PhysioStorage.KEYS.PATIENTS, list);
+        renderAdminPatients();
+        showToast('Patient ' + name + ' added to directory!');
+      }
+    }
+
+    function renderAdminFaculty() {
+      const grid = document.getElementById('admin-therapists-grid');
+      if (grid && window.PhysioDemoData) {
+        grid.innerHTML = window.PhysioDemoData.therapists.map(t => `
+          <div class="card-base p-4 space-y-3">
+            <img src="${t.photo}" class="w-full h-40 rounded-xl object-cover">
+            <div>
+              <h4 class="text-xs font-bold text-slate-900 dark:text-white">${t.name}</h4>
+              <p class="text-[10px] text-teal-600 font-bold">${t.role}</p>
+              <p class="text-[10px] text-slate-400">${t.availability}</p>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    function renderAdminServices() {
+      const list = document.getElementById('admin-services-list');
+      if (list && window.PhysioDemoData) {
+        list.innerHTML = window.PhysioDemoData.services.map(s => `
+          <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs">
+            <div>
+              <p class="font-bold text-slate-900 dark:text-white">${s.title}</p>
+              <p class="text-[10px] text-slate-400">${s.category} &bull; ${s.duration}</p>
+            </div>
+            <span class="font-bold text-teal-600">${s.price}</span>
+          </div>
+        `).join('');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderAdminAppointments();
+      renderAdminPatients();
+      renderAdminFaculty();
+      renderAdminServices();
+    });
+  </script>
+</body>
+</html>
