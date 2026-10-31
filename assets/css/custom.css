@@ -404,7 +404,7 @@ header.nav-scrolled {
 }
 
 /* ==========================================================================
-   3D SERVICE FLIP CARDS (Ultra-Smooth Hardware-Accelerated Physics)
+   3D SERVICE FLIP CARDS (Silky-Smooth Hardware-Accelerated Physics)
    ========================================================================== */
 
 .flip-card-container {
@@ -412,27 +412,29 @@ header.nav-scrolled {
   -webkit-perspective: 1200px;
   min-height: 385px;
   height: 385px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   will-change: transform;
   border-radius: 1.25rem;
 }
 
-/* Hover flip on desktop devices with pointer */
+/* Silky hover flip on pointer devices */
 @media (hover: hover) and (pointer: fine) {
   .flip-card-container:hover .flip-card-inner {
     transform: rotateY(180deg);
   }
 }
 
-/* Explicit toggle class for click, tap & accessibility */
+/* Explicit toggle class for touch / tap */
 .flip-card-container.is-flipped .flip-card-inner {
   transform: rotateY(180deg);
 }
@@ -446,8 +448,8 @@ header.nav-scrolled {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   border-radius: 1.25rem;
   overflow: hidden;
   display: flex;
@@ -455,55 +457,26 @@ header.nav-scrolled {
 }
 
 .flip-card-front {
-  transform: rotateY(0deg);
+  transform: rotateY(0deg) translateZ(1px);
+  -webkit-transform: rotateY(0deg) translateZ(1px);
   z-index: 2;
 }
 
 .flip-card-back {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateZ(1px);
+  -webkit-transform: rotateY(180deg) translateZ(1px);
   z-index: 1;
 }
 
 /* RTL layout support */
 [dir="rtl"] .flip-card-back {
-  transform: rotateY(-180deg);
+  transform: rotateY(-180deg) translateZ(1px);
+  -webkit-transform: rotateY(-180deg) translateZ(1px);
 }
 
 [dir="rtl"] .flip-card-container:hover .flip-card-inner,
 [dir="rtl"] .flip-card-container.is-flipped .flip-card-inner {
   transform: rotateY(-180deg);
-}
-
-/* Card flip hint badge button */
-.flip-hint-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.72rem;
-  font-weight: 800;
-  color: #0F766E;
-  background-color: rgba(15, 118, 110, 0.08);
-  border: 1px solid rgba(15, 118, 110, 0.22);
-  padding: 0.35rem 0.65rem;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.dark .flip-hint-btn {
-  color: #5EEAD4;
-  background-color: rgba(94, 234, 212, 0.1);
-  border-color: rgba(94, 234, 212, 0.25);
-}
-
-.flip-hint-btn:hover {
-  background-color: rgba(15, 118, 110, 0.16);
-  transform: scale(1.04);
-}
-
-.dark .flip-hint-btn:hover {
-  background-color: rgba(94, 234, 212, 0.22);
-  transform: scale(1.04);
 }
 
 @media (prefers-reduced-motion: reduce) {
