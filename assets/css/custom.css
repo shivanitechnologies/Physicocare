@@ -1374,3 +1374,38 @@ a:has(img[alt*="PhysioCare"]):active {
   font-size: 1rem !important;
   border-radius: 0.875rem !important;
 }
+
+
+/* ==========================================================================
+   PREMIUM HEALTHCARE HERO DESIGN SYSTEM
+   Primary: #087F75 | Secondary/Mint: #66DCC7 | Light: #F4F9F8 | Dark: #101B2D
+   ========================================================================== */
+
+/* Style A: Split hero with mint radial & linear gradient (Recommended for Home 2) */
+.hero-style-a {
+  background: radial-gradient(circle at 10% 20%, rgba(102, 220, 199, 0.22), transparent 45%),
+              linear-gradient(135deg, #f4f9f8 0%, #ffffff 50%, #eaf8f5 100%);
+}
+.dark .hero-style-a,
+.dark-theme .hero-style-a,
+[data-theme="dark"] .hero-style-a {
+  background: radial-gradient(circle at 10% 20%, rgba(102, 220, 199, 0.10), transparent 45%),
+              linear-gradient(135deg, #101b2d 0%, #0d1522 50%, #101b2d 100%);
+}
+
+/* Style B: Full-width / dark navy hero (Recommended for Services) */
+.hero-style-b {
+  background-color: #101b2d;
+}
+
+/* Style C: Editorial split hero with soft mint/white background (Recommended for About, Therapists, Pricing, Contact) */
+.hero-style-c {
+  background: radial-gradient(circle at 85% 15%, rgba(102, 220, 199, 0.18), transparent 42%),
+              linear-gradient(180deg, #f4f9f8 0%, #ffffff 55%, #f4f9f8 100%);
+}
+.dark .hero-style-c,
+.dark-theme .hero-style-c,
+[data-theme="dark"] .hero-style-c {
+  background: radial-gradient(circle at 85% 15%, rgba(102, 220, 199, 0.08), transparent 45%),
+              linear-gradient(180deg, #101b2d 0%, #0d1522 55%, #101b2d 100%);
+}
