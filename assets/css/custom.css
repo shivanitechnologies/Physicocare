@@ -1275,3 +1275,102 @@ a:has(img[alt*="PhysioCare"]):active {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* ==========================================================================
+   CANONICAL CALL-TO-ACTION (CTA) BUTTONS - STRICT DESIGN SYSTEM
+   Primary: Medical Teal #0F766E | Secondary: Deep Slate #0F172A / #1E293B
+   ========================================================================== */
+.btn-primary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  padding: 0.8125rem 1.5rem !important;
+  font-size: 0.9375rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #ffffff !important;
+  background-color: #0f766e !important;
+  border: 1px solid #0f766e !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 10px 15px -3px rgba(15, 118, 110, 0.25), 0 4px 6px -4px rgba(15, 118, 110, 0.2) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+.btn-primary:hover {
+  background-color: #115e59 !important;
+  border-color: #115e59 !important;
+  color: #ffffff !important;
+  box-shadow: 0 14px 20px -3px rgba(15, 118, 110, 0.38), 0 6px 8px -4px rgba(15, 118, 110, 0.25) !important;
+  transform: translateY(-2px) !important;
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+.btn-secondary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  padding: 0.8125rem 1.5rem !important;
+  font-size: 0.9375rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #0f172a !important;
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+.btn-secondary:hover {
+  color: #0f766e !important;
+  border-color: #0f766e !important;
+  background-color: #f8fafc !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08) !important;
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+/* Dark mode overrides for secondary button */
+.dark .btn-secondary,
+.dark-theme .btn-secondary,
+[data-theme="dark"] .btn-secondary {
+  color: #f8fafc !important;
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+.dark .btn-secondary:hover,
+.dark-theme .btn-secondary:hover,
+[data-theme="dark"] .btn-secondary:hover {
+  color: #2dd4bf !important;
+  border-color: #14b8a6 !important;
+  background-color: #243044 !important;
+}
+
+/* Size modifiers */
+.btn-sm {
+  padding: 0.5625rem 1.125rem !important;
+  font-size: 0.8125rem !important;
+  border-radius: 0.625rem !important;
+}
+
+.btn-lg {
+  padding: 0.9375rem 1.875rem !important;
+  font-size: 1rem !important;
+  border-radius: 0.875rem !important;
+}
