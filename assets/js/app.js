@@ -82,6 +82,29 @@
   };
 
   // Appointment Modal Controller
+
+  // 3D Flip Cards Interaction (Click & Tap Toggle)
+  function initFlipCards() {
+    document.querySelectorAll('.flip-card-container').forEach(card => {
+      // Toggle on flip button click (front and back buttons)
+      card.querySelectorAll('.js-flip-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          card.classList.toggle('is-flipped');
+        });
+      });
+
+      // On touch devices or when clicking non-action card surfaces
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a') || e.target.closest('button')) return;
+        if (window.innerWidth < 1024 || window.matchMedia('(hover: none)').matches) {
+          card.classList.toggle('is-flipped');
+        }
+      });
+    });
+  }
+
   function initAppointmentModal() {
     document.querySelectorAll('[data-open-modal="appointment"]').forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -95,6 +118,7 @@
     initMobileMenu();
     initHeaderScroll();
     initAppointmentModal();
+    initFlipCards();
 
     // Auto-update copyright year
     document.querySelectorAll('.current-year').forEach(el => {

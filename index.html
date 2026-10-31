@@ -464,135 +464,639 @@
     <section class="py-16 lg:py-24 bg-white dark:bg-slate-900 border-y border-slate-200/80 dark:border-slate-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
+                <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
           <span class="text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">SPECIALIZED CLINICAL CARE</span>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">
             Comprehensive Rehabilitation Services
           </h2>
           <p class="text-slate-600 dark:text-slate-400 text-sm">
-            Targeted therapies administered by certified specialists using proven orthopedic, sports, and neurological modalities.
+            Targeted therapies administered by certified specialists using proven orthopedic, sports, and neurological modalities. Hover or tap any card to view clinical inclusions.
           </p>
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           
-          <!-- Card 1 -->
-          <div class="card-base card-hover overflow-hidden flex flex-col">
-            <div class="h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80" alt="Orthopedic Physiotherapy" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
-              <div>
-                <span class="text-[11px] font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">Musculoskeletal</span>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading mt-1">Orthopedic Physiotherapy</h3>
-                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 line-clamp-3">
-                  Restorative care for joint degeneration, ligament sprains, muscle tears, and tendonitis with targeted manual therapy.
-                </p>
+          <!-- Card 1: Orthopedic Physiotherapy (3D Flip Card) -->
+          <div class="flip-card-container group">
+            <div class="flip-card-inner">
+              
+              <!-- Front Face: Overview & Book Appointment -->
+              <div class="flip-card-front card-base overflow-hidden border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                <!-- Relatable Authentic Clinical Image -->
+                <div class="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
+                  <img src="https://plus.unsplash.com/premium_photo-1683133819121-2f2958d9da09?auto=format&fit=crop&w=600&q=80" 
+                       alt="Physiotherapist examining patient knee joint mobility on clinical treatment plinth" 
+                       class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm text-teal-700 dark:text-teal-400 text-[11px] font-extrabold uppercase tracking-wider shadow-xs">
+                    Musculoskeletal
+                  </span>
+                  <span class="absolute bottom-3 left-3 px-2.5 py-1 rounded-md bg-slate-900/80 backdrop-blur-sm text-white text-[11px] font-semibold">
+                    45–60 mins &bull; &#8377;1,499
+                  </span>
+                </div>
+
+                <!-- Card Details & Actions -->
+                <div class="p-5 flex-grow flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-start justify-between gap-2">
+                      <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading leading-snug">
+                        Orthopedic Physiotherapy
+                      </h3>
+                      <button type="button" class="js-flip-toggle flip-hint-btn shrink-0" title="Click to view clinical inclusions" aria-label="View inclusions">
+                        <span>Inclusions</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                      </button>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 line-clamp-3 leading-relaxed">
+                      Restorative care for joint degeneration, ligament sprains, muscle tears, and tendonitis with targeted manual therapy.
+                    </p>
+                  </div>
+
+                  <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3">
+                    <a href="appointment.html?service=orthopedic" class="btn-primary w-full py-2.5 text-xs font-bold rounded-xl shadow-sm">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                      <span>Book Appointment</span>
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-                <span class="font-bold text-slate-900 dark:text-white">45–60 mins &bull; ₹1,499</span>
-                <a href="service-details.html?id=orthopedic" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">View Details &rarr;</a>
+
+              <!-- Back Face: Clinical Protocol & Session Inclusions -->
+              <div class="flip-card-back card-base overflow-hidden border-2 border-teal-600/30 dark:border-teal-500/30 bg-slate-50/95 dark:bg-slate-900/95 p-6 shadow-xl flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between border-b border-slate-200/80 dark:border-slate-800 pb-3 mb-4">
+                    <span class="text-[11px] font-extrabold text-teal-700 dark:text-teal-400 uppercase tracking-wider">
+                      Clinical Inclusions
+                    </span>
+                    <button type="button" class="js-flip-toggle flip-hint-btn text-[11px]" title="Flip back to overview">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                      <span>Overview</span>
+                    </button>
+                  </div>
+
+                  <h4 class="text-base font-bold text-slate-900 dark:text-white font-heading mb-3">
+                    Orthopedic Treatment Protocol
+                  </h4>
+
+                  <ul class="space-y-2.5 text-xs text-slate-700 dark:text-slate-300">
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Comprehensive joint range-of-motion & ligament stress testing</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Hands-on joint mobilization & deep myofascial release</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Customized strengthening & progressive weight-bearing drills</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Take-home pain-relief exercise prescription & biomechanics guide</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="pt-4 border-t border-slate-200/80 dark:border-slate-800 space-y-2.5">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="text-slate-500 dark:text-slate-400 font-medium">Session Fee</span>
+                    <span class="font-extrabold text-slate-900 dark:text-white">&#8377;1,499 &bull; 45–60 mins</span>
+                  </div>
+                  <a href="appointment.html?service=orthopedic" class="btn-primary w-full py-2.5 text-xs font-bold rounded-xl shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span>Book Appointment</span>
+                  </a>
+                  <div class="text-center">
+                    <a href="service-details.html?id=orthopedic" class="text-[11px] font-bold text-teal-700 dark:text-teal-400 hover:underline inline-flex items-center gap-1">
+                      <span>View Full Treatment Details</span>
+                      <svg class="w-3 h-3 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
 
-          <!-- Card 2 -->
-          <div class="card-base card-hover overflow-hidden flex flex-col">
-            <div class="h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80" alt="Sports Injury Rehabilitation" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
-              <div>
-                <span class="text-[11px] font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">Sports Performance</span>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading mt-1">Sports Injury Rehabilitation</h3>
-                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 line-clamp-3">
-                  Accelerated protocol care for runners, athletes, and fitness enthusiasts recovering from ACL, meniscus, and rotator cuff injuries.
-                </p>
+          <!-- Card 2: Sports Injury Rehabilitation (3D Flip Card) -->
+          <div class="flip-card-container group">
+            <div class="flip-card-inner">
+              
+              <!-- Front Face: Overview & Book Appointment -->
+              <div class="flip-card-front card-base overflow-hidden border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                <!-- Relatable Authentic Clinical Image -->
+                <div class="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
+                  <img src="https://plus.unsplash.com/premium_photo-1661716849429-6796ea134487?auto=format&fit=crop&w=600&q=80" 
+                       alt="Sports physiotherapist guiding athlete hamstring and joint rehabilitation on clinical plinth" 
+                       class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm text-teal-700 dark:text-teal-400 text-[11px] font-extrabold uppercase tracking-wider shadow-xs">
+                    Sports Performance
+                  </span>
+                  <span class="absolute bottom-3 left-3 px-2.5 py-1 rounded-md bg-slate-900/80 backdrop-blur-sm text-white text-[11px] font-semibold">
+                    45–60 mins &bull; &#8377;1,799
+                  </span>
+                </div>
+
+                <!-- Card Details & Actions -->
+                <div class="p-5 flex-grow flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-start justify-between gap-2">
+                      <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading leading-snug">
+                        Sports Injury Rehabilitation
+                      </h3>
+                      <button type="button" class="js-flip-toggle flip-hint-btn shrink-0" title="Click to view clinical inclusions" aria-label="View inclusions">
+                        <span>Inclusions</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                      </button>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 line-clamp-3 leading-relaxed">
+                      Accelerated protocol care for runners, athletes, and fitness enthusiasts recovering from ACL, meniscus, and rotator cuff injuries.
+                    </p>
+                  </div>
+
+                  <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3">
+                    <a href="appointment.html?service=sports" class="btn-primary w-full py-2.5 text-xs font-bold rounded-xl shadow-sm">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                      <span>Book Appointment</span>
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-                <span class="font-bold text-slate-900 dark:text-white">45–60 mins &bull; ₹1,799</span>
-                <a href="service-details.html?id=sports" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">View Details &rarr;</a>
+
+              <!-- Back Face: Clinical Protocol & Session Inclusions -->
+              <div class="flip-card-back card-base overflow-hidden border-2 border-teal-600/30 dark:border-teal-500/30 bg-slate-50/95 dark:bg-slate-900/95 p-6 shadow-xl flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between border-b border-slate-200/80 dark:border-slate-800 pb-3 mb-4">
+                    <span class="text-[11px] font-extrabold text-teal-700 dark:text-teal-400 uppercase tracking-wider">
+                      Athletic Recovery
+                    </span>
+                    <button type="button" class="js-flip-toggle flip-hint-btn text-[11px]" title="Flip back to overview">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                      <span>Overview</span>
+                    </button>
+                  </div>
+
+                  <h4 class="text-base font-bold text-slate-900 dark:text-white font-heading mb-3">
+                    Sports Rehabilitation Protocol
+                  </h4>
+
+                  <ul class="space-y-2.5 text-xs text-slate-700 dark:text-slate-300">
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Functional movement screening & return-to-sport metrics</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>High-velocity eccentric training & neuromuscular control</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Kinesiology taping, cryotherapy & active recovery modalities</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Sport-specific agility drills & re-injury prevention protocol</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="pt-4 border-t border-slate-200/80 dark:border-slate-800 space-y-2.5">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="text-slate-500 dark:text-slate-400 font-medium">Session Fee</span>
+                    <span class="font-extrabold text-slate-900 dark:text-white">&#8377;1,799 &bull; 45–60 mins</span>
+                  </div>
+                  <a href="appointment.html?service=sports" class="btn-primary w-full py-2.5 text-xs font-bold rounded-xl shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span>Book Appointment</span>
+                  </a>
+                  <div class="text-center">
+                    <a href="service-details.html?id=sports" class="text-[11px] font-bold text-teal-700 dark:text-teal-400 hover:underline inline-flex items-center gap-1">
+                      <span>View Full Treatment Details</span>
+                      <svg class="w-3 h-3 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
 
-          <!-- Card 3 -->
-          <div class="card-base card-hover overflow-hidden flex flex-col">
-            <div class="h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=600&q=80" alt="Spine & Posture Care" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
-              <div>
-                <span class="text-[11px] font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">Spine Health</span>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading mt-1">Spine &amp; Posture Care</h3>
-                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 line-clamp-3">
-                  Targeted traction and ergonomic corrections for herniated discs, chronic sciatica, and desk-related cervical tension.
-                </p>
+          <!-- Card 3: Spine & Posture Care (3D Flip Card) -->
+          <div class="flip-card-container group">
+            <div class="flip-card-inner">
+              
+              <!-- Front Face: Overview & Book Appointment -->
+              <div class="flip-card-front card-base overflow-hidden border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                <!-- Relatable Authentic Clinical Image -->
+                <div class="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
+                  <img src="https://images.unsplash.com/photo-1706353399656-210cca727a33?auto=format&fit=crop&w=600&q=80" 
+                       alt="Senior physiotherapist performing manual spinal mobilization on patient back" 
+                       class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm text-teal-700 dark:text-teal-400 text-[11px] font-extrabold uppercase tracking-wider shadow-xs">
+                    Spine Health
+                  </span>
+                  <span class="absolute bottom-3 left-3 px-2.5 py-1 rounded-md bg-slate-900/80 backdrop-blur-sm text-white text-[11px] font-semibold">
+                    40–50 mins &bull; &#8377;1,499
+                  </span>
+                </div>
+
+                <!-- Card Details & Actions -->
+                <div class="p-5 flex-grow flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-start justify-between gap-2">
+                      <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading leading-snug">
+                        Spine & Posture Care
+                      </h3>
+                      <button type="button" class="js-flip-toggle flip-hint-btn shrink-0" title="Click to view clinical inclusions" aria-label="View inclusions">
+                        <span>Inclusions</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                      </button>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 line-clamp-3 leading-relaxed">
+                      Targeted traction and ergonomic corrections for herniated discs, chronic sciatica, and desk-related cervical tension.
+                    </p>
+                  </div>
+
+                  <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3">
+                    <a href="appointment.html?service=spine-posture" class="btn-primary w-full py-2.5 text-xs font-bold rounded-xl shadow-sm">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                      <span>Book Appointment</span>
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-                <span class="font-bold text-slate-900 dark:text-white">40–50 mins &bull; ₹1,499</span>
-                <a href="service-details.html?id=spine-posture" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">View Details &rarr;</a>
+
+              <!-- Back Face: Clinical Protocol & Session Inclusions -->
+              <div class="flip-card-back card-base overflow-hidden border-2 border-teal-600/30 dark:border-teal-500/30 bg-slate-50/95 dark:bg-slate-900/95 p-6 shadow-xl flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between border-b border-slate-200/80 dark:border-slate-800 pb-3 mb-4">
+                    <span class="text-[11px] font-extrabold text-teal-700 dark:text-teal-400 uppercase tracking-wider">
+                      Spinal Alignment
+                    </span>
+                    <button type="button" class="js-flip-toggle flip-hint-btn text-[11px]" title="Flip back to overview">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                      <span>Overview</span>
+                    </button>
+                  </div>
+
+                  <h4 class="text-base font-bold text-slate-900 dark:text-white font-heading mb-3">
+                    Spine & Posture Protocol
+                  </h4>
+
+                  <ul class="space-y-2.5 text-xs text-slate-700 dark:text-slate-300">
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Detailed postural curvature & ergonomic work-setup analysis</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Gentle manual spinal traction & thoracic decompression</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Deep core stabilizer activation & lumbar flexion exercises</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Cervical ergonomics re-training & desk pain prevention plan</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="pt-4 border-t border-slate-200/80 dark:border-slate-800 space-y-2.5">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="text-slate-500 dark:text-slate-400 font-medium">Session Fee</span>
+                    <span class="font-extrabold text-slate-900 dark:text-white">&#8377;1,499 &bull; 40–50 mins</span>
+                  </div>
+                  <a href="appointment.html?service=spine-posture" class="btn-primary w-full py-2.5 text-xs font-bold rounded-xl shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span>Book Appointment</span>
+                  </a>
+                  <div class="text-center">
+                    <a href="service-details.html?id=spine-posture" class="text-[11px] font-bold text-teal-700 dark:text-teal-400 hover:underline inline-flex items-center gap-1">
+                      <span>View Full Treatment Details</span>
+                      <svg class="w-3 h-3 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
 
-          <!-- Card 4 -->
-          <div class="card-base card-hover overflow-hidden flex flex-col">
-            <div class="h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=600&q=80" alt="Neurological Physiotherapy" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
-              <div>
-                <span class="text-[11px] font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">Neuro-Rehab</span>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading mt-1">Neurological Physiotherapy</h3>
-                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 line-clamp-3">
-                  Functional neuro-plasticity training to rebuild balance, gait stability, and neuromuscular coordination post-stroke.
-                </p>
+          <!-- Card 4: Neurological Physiotherapy (3D Flip Card) -->
+          <div class="flip-card-container group">
+            <div class="flip-card-inner">
+              
+              <!-- Front Face: Overview & Book Appointment -->
+              <div class="flip-card-front card-base overflow-hidden border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                <!-- Relatable Authentic Clinical Image -->
+                <div class="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
+                  <img src="https://plus.unsplash.com/premium_photo-1661767448598-f42428886f1c?auto=format&fit=crop&w=600&q=80" 
+                       alt="Neurological rehabilitation therapist guiding neuromuscular coordination training" 
+                       class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm text-teal-700 dark:text-teal-400 text-[11px] font-extrabold uppercase tracking-wider shadow-xs">
+                    Neuro-Rehab
+                  </span>
+                  <span class="absolute bottom-3 left-3 px-2.5 py-1 rounded-md bg-slate-900/80 backdrop-blur-sm text-white text-[11px] font-semibold">
+                    60 mins &bull; &#8377;1,999
+                  </span>
+                </div>
+
+                <!-- Card Details & Actions -->
+                <div class="p-5 flex-grow flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-start justify-between gap-2">
+                      <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading leading-snug">
+                        Neurological Physiotherapy
+                      </h3>
+                      <button type="button" class="js-flip-toggle flip-hint-btn shrink-0" title="Click to view clinical inclusions" aria-label="View inclusions">
+                        <span>Inclusions</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                      </button>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 line-clamp-3 leading-relaxed">
+                      Functional neuro-plasticity training to rebuild balance, gait stability, and neuromuscular coordination post-stroke.
+                    </p>
+                  </div>
+
+                  <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3">
+                    <a href="appointment.html?service=neurological" class="btn-primary w-full py-2.5 text-xs font-bold rounded-xl shadow-sm">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                      <span>Book Appointment</span>
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-                <span class="font-bold text-slate-900 dark:text-white">60 mins &bull; ₹1,999</span>
-                <a href="service-details.html?id=neurological" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">View Details &rarr;</a>
+
+              <!-- Back Face: Clinical Protocol & Session Inclusions -->
+              <div class="flip-card-back card-base overflow-hidden border-2 border-teal-600/30 dark:border-teal-500/30 bg-slate-50/95 dark:bg-slate-900/95 p-6 shadow-xl flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between border-b border-slate-200/80 dark:border-slate-800 pb-3 mb-4">
+                    <span class="text-[11px] font-extrabold text-teal-700 dark:text-teal-400 uppercase tracking-wider">
+                      Neuro Recovery
+                    </span>
+                    <button type="button" class="js-flip-toggle flip-hint-btn text-[11px]" title="Flip back to overview">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                      <span>Overview</span>
+                    </button>
+                  </div>
+
+                  <h4 class="text-base font-bold text-slate-900 dark:text-white font-heading mb-3">
+                    Neurological Care Protocol
+                  </h4>
+
+                  <ul class="space-y-2.5 text-xs text-slate-700 dark:text-slate-300">
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Neuro-plasticity motor re-training & balance symmetry drills</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Proprioceptive facilitation & fall-prevention coordination</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Assisted parallel bar gait training & transfer technique practice</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Dedicated caregiver home assistance & safety coaching</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="pt-4 border-t border-slate-200/80 dark:border-slate-800 space-y-2.5">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="text-slate-500 dark:text-slate-400 font-medium">Session Fee</span>
+                    <span class="font-extrabold text-slate-900 dark:text-white">&#8377;1,999 &bull; 60 mins</span>
+                  </div>
+                  <a href="appointment.html?service=neurological" class="btn-primary w-full py-2.5 text-xs font-bold rounded-xl shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span>Book Appointment</span>
+                  </a>
+                  <div class="text-center">
+                    <a href="service-details.html?id=neurological" class="text-[11px] font-bold text-teal-700 dark:text-teal-400 hover:underline inline-flex items-center gap-1">
+                      <span>View Full Treatment Details</span>
+                      <svg class="w-3 h-3 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
 
-          <!-- Card 5 -->
-          <div class="card-base card-hover overflow-hidden flex flex-col">
-            <div class="h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" alt="Post-Surgical Rehabilitation" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
-              <div>
-                <span class="text-[11px] font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">Surgical Recovery</span>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading mt-1">Post-Surgical Rehabilitation</h3>
-                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 line-clamp-3">
-                  Phase-gated clinical recovery plans post knee replacement, spinal surgery, and shoulder reconstruction.
-                </p>
+          <!-- Card 5: Post-Surgical Rehabilitation (3D Flip Card) -->
+          <div class="flip-card-container group">
+            <div class="flip-card-inner">
+              
+              <!-- Front Face: Overview & Book Appointment -->
+              <div class="flip-card-front card-base overflow-hidden border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                <!-- Relatable Authentic Clinical Image -->
+                <div class="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
+                  <img src="https://plus.unsplash.com/premium_photo-1726873370032-6017d28bf169?auto=format&fit=crop&w=600&q=80" 
+                       alt="Post-surgical patient walking with crutches during clinical rehabilitation" 
+                       class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm text-teal-700 dark:text-teal-400 text-[11px] font-extrabold uppercase tracking-wider shadow-xs">
+                    Surgical Recovery
+                  </span>
+                  <span class="absolute bottom-3 left-3 px-2.5 py-1 rounded-md bg-slate-900/80 backdrop-blur-sm text-white text-[11px] font-semibold">
+                    45 mins &bull; &#8377;1,599
+                  </span>
+                </div>
+
+                <!-- Card Details & Actions -->
+                <div class="p-5 flex-grow flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-start justify-between gap-2">
+                      <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading leading-snug">
+                        Post-Surgical Rehabilitation
+                      </h3>
+                      <button type="button" class="js-flip-toggle flip-hint-btn shrink-0" title="Click to view clinical inclusions" aria-label="View inclusions">
+                        <span>Inclusions</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                      </button>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 line-clamp-3 leading-relaxed">
+                      Phase-gated clinical recovery plans post knee replacement, spinal surgery, and shoulder reconstruction.
+                    </p>
+                  </div>
+
+                  <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3">
+                    <a href="appointment.html?service=post-surgical" class="btn-primary w-full py-2.5 text-xs font-bold rounded-xl shadow-sm">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                      <span>Book Appointment</span>
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-                <span class="font-bold text-slate-900 dark:text-white">45 mins &bull; ₹1,599</span>
-                <a href="service-details.html?id=post-surgical" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">View Details &rarr;</a>
+
+              <!-- Back Face: Clinical Protocol & Session Inclusions -->
+              <div class="flip-card-back card-base overflow-hidden border-2 border-teal-600/30 dark:border-teal-500/30 bg-slate-50/95 dark:bg-slate-900/95 p-6 shadow-xl flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between border-b border-slate-200/80 dark:border-slate-800 pb-3 mb-4">
+                    <span class="text-[11px] font-extrabold text-teal-700 dark:text-teal-400 uppercase tracking-wider">
+                      Post-Op Milestones
+                    </span>
+                    <button type="button" class="js-flip-toggle flip-hint-btn text-[11px]" title="Flip back to overview">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                      <span>Overview</span>
+                    </button>
+                  </div>
+
+                  <h4 class="text-base font-bold text-slate-900 dark:text-white font-heading mb-3">
+                    Post-Surgical Protocol
+                  </h4>
+
+                  <ul class="space-y-2.5 text-xs text-slate-700 dark:text-slate-300">
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Surgeon-aligned phase-gated rehabilitation roadmap</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Gentle scar tissue mobilization & lymphatic edema drainage</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Safe progressive weight-bearing & joint flexion drills</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Crutch-to-independent walking milestone monitoring</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="pt-4 border-t border-slate-200/80 dark:border-slate-800 space-y-2.5">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="text-slate-500 dark:text-slate-400 font-medium">Session Fee</span>
+                    <span class="font-extrabold text-slate-900 dark:text-white">&#8377;1,599 &bull; 45 mins</span>
+                  </div>
+                  <a href="appointment.html?service=post-surgical" class="btn-primary w-full py-2.5 text-xs font-bold rounded-xl shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span>Book Appointment</span>
+                  </a>
+                  <div class="text-center">
+                    <a href="service-details.html?id=post-surgical" class="text-[11px] font-bold text-teal-700 dark:text-teal-400 hover:underline inline-flex items-center gap-1">
+                      <span>View Full Treatment Details</span>
+                      <svg class="w-3 h-3 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
 
-          <!-- Card 6 -->
-          <div class="card-base card-hover overflow-hidden flex flex-col">
-            <div class="h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=600&q=80" alt="Geriatric Physiotherapy" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
-              <div>
-                <span class="text-[11px] font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">Active Aging</span>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading mt-1">Geriatric Physiotherapy</h3>
-                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 line-clamp-3">
-                  Gentle, empowering balance and strength training to prevent falls and preserve active independence for seniors.
-                </p>
+          <!-- Card 6: Geriatric Physiotherapy (3D Flip Card) -->
+          <div class="flip-card-container group">
+            <div class="flip-card-inner">
+              
+              <!-- Front Face: Overview & Book Appointment -->
+              <div class="flip-card-front card-base overflow-hidden border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                <!-- Relatable Authentic Clinical Image -->
+                <div class="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
+                  <img src="https://plus.unsplash.com/premium_photo-1733306487434-e0438608dd10?auto=format&fit=crop&w=600&q=80" 
+                       alt="Caring physical therapist assisting senior patient with gentle leg and knee exercises" 
+                       class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                  <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm text-teal-700 dark:text-teal-400 text-[11px] font-extrabold uppercase tracking-wider shadow-xs">
+                    Active Aging
+                  </span>
+                  <span class="absolute bottom-3 left-3 px-2.5 py-1 rounded-md bg-slate-900/80 backdrop-blur-sm text-white text-[11px] font-semibold">
+                    40 mins &bull; &#8377;1,299
+                  </span>
+                </div>
+
+                <!-- Card Details & Actions -->
+                <div class="p-5 flex-grow flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-start justify-between gap-2">
+                      <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading leading-snug">
+                        Geriatric Physiotherapy
+                      </h3>
+                      <button type="button" class="js-flip-toggle flip-hint-btn shrink-0" title="Click to view clinical inclusions" aria-label="View inclusions">
+                        <span>Inclusions</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                      </button>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 line-clamp-3 leading-relaxed">
+                      Gentle, empowering balance and strength training to prevent falls and preserve active independence for seniors.
+                    </p>
+                  </div>
+
+                  <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3">
+                    <a href="appointment.html?service=geriatric" class="btn-primary w-full py-2.5 text-xs font-bold rounded-xl shadow-sm">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                      <span>Book Appointment</span>
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-                <span class="font-bold text-slate-900 dark:text-white">40 mins &bull; ₹1,299</span>
-                <a href="service-details.html?id=geriatric" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">View Details &rarr;</a>
+
+              <!-- Back Face: Clinical Protocol & Session Inclusions -->
+              <div class="flip-card-back card-base overflow-hidden border-2 border-teal-600/30 dark:border-teal-500/30 bg-slate-50/95 dark:bg-slate-900/95 p-6 shadow-xl flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between border-b border-slate-200/80 dark:border-slate-800 pb-3 mb-4">
+                    <span class="text-[11px] font-extrabold text-teal-700 dark:text-teal-400 uppercase tracking-wider">
+                      Senior Mobility
+                    </span>
+                    <button type="button" class="js-flip-toggle flip-hint-btn text-[11px]" title="Flip back to overview">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                      <span>Overview</span>
+                    </button>
+                  </div>
+
+                  <h4 class="text-base font-bold text-slate-900 dark:text-white font-heading mb-3">
+                    Active Aging Care Protocol
+                  </h4>
+
+                  <ul class="space-y-2.5 text-xs text-slate-700 dark:text-slate-300">
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Comprehensive senior fall risk & static/dynamic balance check</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Low-impact joint preservation & gentle muscle activation</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Safe chair-rise, stairs & independent walking coaching</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>Home fall-hazard audit & personalized mobility preservation plan</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="pt-4 border-t border-slate-200/80 dark:border-slate-800 space-y-2.5">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="text-slate-500 dark:text-slate-400 font-medium">Session Fee</span>
+                    <span class="font-extrabold text-slate-900 dark:text-white">&#8377;1,299 &bull; 40 mins</span>
+                  </div>
+                  <a href="appointment.html?service=geriatric" class="btn-primary w-full py-2.5 text-xs font-bold rounded-xl shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span>Book Appointment</span>
+                  </a>
+                  <div class="text-center">
+                    <a href="service-details.html?id=geriatric" class="text-[11px] font-bold text-teal-700 dark:text-teal-400 hover:underline inline-flex items-center gap-1">
+                      <span>View Full Treatment Details</span>
+                      <svg class="w-3 h-3 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
 
