@@ -410,8 +410,8 @@ header.nav-scrolled {
 .flip-card-container {
   perspective: 1200px;
   -webkit-perspective: 1200px;
-  min-height: 415px;
-  height: 415px;
+  min-height: 385px;
+  height: 385px;
 }
 
 .flip-card-inner {
