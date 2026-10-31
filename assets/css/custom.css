@@ -479,6 +479,41 @@ header.nav-scrolled {
   transform: rotateY(-180deg);
 }
 
+
+/* ==========================================================================
+   Interactive Recovery Journey Pathway
+   ========================================================================== */
+
+.path-dash-animated {
+  stroke-dasharray: 8 8;
+  animation: journeyDashFlow 25s linear infinite;
+}
+
+@keyframes journeyDashFlow {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@keyframes journeyPulseRing {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+
+.node-pulse {
+  transform-origin: center;
+  animation: journeyPulseRing 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.journey-card {
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.25s ease;
+}
+
+.journey-card:hover {
+  transform: translateY(-4px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

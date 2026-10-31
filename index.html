@@ -1024,68 +1024,238 @@
       </div>
     </section>
 
-    <!-- 5. Recovery Journey (4-Step Care Pathway) -->
-    <section class="py-16 lg:py-24 bg-[#F5F7FA] dark:bg-[#090D12]">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
-          <span class="text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">YOUR RECOVERY PATHWAY</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">
-            Four Steps from Pain to Performance
-          </h2>
-          <p class="text-slate-600 dark:text-slate-400 text-sm">
-            A clear, predictable roadmap ensuring you understand every phase of your rehabilitation.
-          </p>
-        </div>
+        <!-- 5. Your Journey to Recovery (Interactive Curved Pathway) -->
+    <section class="recovery-pathway-section relative py-16 lg:py-24 bg-[#F5F7FA] dark:bg-[#090D12] overflow-hidden" id="recovery-journey">
+      
+      <!-- Background Ambient Glow & Grid -->
+      <div class="absolute inset-0 pointer-events-none opacity-40 dark:opacity-20 overflow-hidden" aria-hidden="true">
+        <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-teal-400/20 blur-3xl"></div>
+        <div class="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-teal-600/20 blur-3xl"></div>
+        <div class="absolute top-1/2 right-1/4 w-80 h-80 rounded-full bg-emerald-500/10 blur-3xl"></div>
+      </div>
 
-        <div class="grid md:grid-cols-4 gap-8 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          <!-- Step 1 -->
-          <div class="space-y-4 text-center md:text-left">
-            <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-400 border border-teal-200 dark:border-teal-800 flex items-center justify-center font-black text-lg mx-auto md:mx-0">
-              01
+          <!-- LEFT COLUMN: Visually Stable Overview & CTAs (~38% on Desktop) -->
+          <div class="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
+            <div class="space-y-3">
+              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-teal-50 dark:bg-teal-950/70 text-teal-700 dark:text-teal-400 border border-teal-200/80 dark:border-teal-800/80">
+                <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                YOUR RECOVERY JOURNEY
+              </span>
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-heading leading-tight tracking-tight">
+                Your Path to <span class="text-teal-600 dark:text-teal-400">Moving Better</span>
+              </h2>
+              <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed pt-1">
+                From your first consultation to confident movement, we guide you through every stage of recovery with continuous personalized care.
+              </p>
             </div>
-            <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Comprehensive Evaluation</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Detailed biomechanical exam, range-of-motion metrics, and medical history intake to diagnose root causes.
-            </p>
+
+            <!-- Highlight Feature Box -->
+            <div class="p-5 rounded-2xl bg-white/90 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/90 dark:border-slate-700 shadow-xs space-y-2.5">
+              <div class="flex items-center gap-2 text-teal-700 dark:text-teal-400 font-extrabold text-xs uppercase tracking-wider font-heading">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Care That Moves With You
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 font-medium leading-relaxed">
+                Our specialists guide you from your first assessment to long-term wellness.
+              </p>
+              <div class="pt-1 flex flex-wrap gap-2 text-[11px] font-bold text-slate-700 dark:text-slate-300">
+                <span class="px-2.5 py-1 rounded-lg bg-teal-50/80 dark:bg-teal-950/50 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/50">Personalized Care</span>
+                <span class="px-2.5 py-1 rounded-lg bg-teal-50/80 dark:bg-teal-950/50 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/50">Meaningful Progress</span>
+                <span class="px-2.5 py-1 rounded-lg bg-teal-50/80 dark:bg-teal-950/50 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/50">Lasting Mobility</span>
+              </div>
+            </div>
+
+            <!-- Action CTAs -->
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <button data-open-modal="appointment" class="btn-primary shadow-lg shadow-teal-700/20">
+                <span>Book Your Assessment</span>
+                <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+              <a href="services.html" class="px-5 py-3 rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs hover:border-teal-600 hover:text-teal-600 dark:hover:text-teal-400 transition inline-flex items-center gap-1.5">
+                <span>Explore Treatments</span>
+              </a>
+            </div>
           </div>
 
-          <!-- Step 2 -->
-          <div class="space-y-4 text-center md:text-left">
-            <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-400 border border-teal-200 dark:border-teal-800 flex items-center justify-center font-black text-lg mx-auto md:mx-0">
-              02
-            </div>
-            <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Customized Care Protocol</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Your clinician sets measurable recovery milestones, session frequencies, and personalized target goals.
-            </p>
-          </div>
+          <!-- RIGHT COLUMN: Interactive Recovery Pathway with Staggered Cards (~62% on Desktop) -->
+          <div class="lg:col-span-7 relative">
+            
+            <!-- Curved Animated SVG Pathway (Desktop / Tablet view) -->
+            <div class="absolute inset-0 pointer-events-none hidden md:block overflow-visible" aria-hidden="true">
+              <svg class="w-full h-full" viewBox="0 0 680 840" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="journeyGlowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#0F766E" stop-opacity="0.8"/>
+                    <stop offset="50%" stop-color="#14B8A6" stop-opacity="0.9"/>
+                    <stop offset="100%" stop-color="#10B981" stop-opacity="0.8"/>
+                  </linearGradient>
+                  <linearGradient id="journeyBackdropTrack" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#94A3B8" stop-opacity="0.25"/>
+                    <stop offset="100%" stop-color="#94A3B8" stop-opacity="0.1"/>
+                  </linearGradient>
+                </defs>
+                
+                <!-- Background Flowing Curve -->
+                <path d="M 80 100 
+                         C 280 100, 360 280, 520 280 
+                         C 600 280, 480 480, 200 480 
+                         C 100 480, 180 680, 520 680" 
+                      stroke="url(#journeyBackdropTrack)" 
+                      stroke-width="6" 
+                      stroke-linecap="round"/>
 
-          <!-- Step 3 -->
-          <div class="space-y-4 text-center md:text-left">
-            <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-400 border border-teal-200 dark:border-teal-800 flex items-center justify-center font-black text-lg mx-auto md:mx-0">
-              03
-            </div>
-            <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Active 1-on-1 Therapy</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Hands-on joint mobilization, soft tissue release, and supervised clinical exercise conditioning.
-            </p>
-          </div>
+                <!-- Flowing Animated Pulse Track -->
+                <path class="path-dash-animated"
+                      d="M 80 100 
+                         C 280 100, 360 280, 520 280 
+                         C 600 280, 480 480, 200 480 
+                         C 100 480, 180 680, 520 680" 
+                      stroke="url(#journeyGlowGradient)" 
+                      stroke-width="3.5" 
+                      stroke-linecap="round"/>
 
-          <!-- Step 4 -->
-          <div class="space-y-4 text-center md:text-left">
-            <div class="w-12 h-12 rounded-2xl bg-teal-700 text-white flex items-center justify-center font-black text-lg mx-auto md:mx-0 shadow-md">
-              04
+                <!-- Pathway Waypoint Nodes -->
+                <g class="journey-node" data-node="1" transform="translate(80, 100)">
+                  <circle r="14" class="fill-teal-500/20 node-pulse" />
+                  <circle r="7" class="fill-teal-600 dark:fill-teal-400 stroke-2 stroke-white dark:stroke-slate-900" />
+                </g>
+                <g class="journey-node" data-node="2" transform="translate(520, 280)">
+                  <circle r="14" class="fill-teal-500/20 node-pulse" style="animation-delay: 0.6s;" />
+                  <circle r="7" class="fill-teal-600 dark:fill-teal-400 stroke-2 stroke-white dark:stroke-slate-900" />
+                </g>
+                <g class="journey-node" data-node="3" transform="translate(200, 480)">
+                  <circle r="14" class="fill-teal-500/20 node-pulse" style="animation-delay: 1.2s;" />
+                  <circle r="7" class="fill-teal-600 dark:fill-teal-400 stroke-2 stroke-white dark:stroke-slate-900" />
+                </g>
+                <g class="journey-node" data-node="4" transform="translate(520, 680)">
+                  <circle r="16" class="fill-emerald-500/30 node-pulse" style="animation-delay: 1.8s;" />
+                  <circle r="8" class="fill-emerald-500 stroke-2 stroke-white dark:stroke-slate-900" />
+                </g>
+              </svg>
             </div>
-            <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Lifelong Prevention</h3>
-            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Access your personalized digital home program on your Patient Portal to maintain strength and prevent relapse.
-            </p>
+
+            <!-- Vertical Track Indicator for Small Mobile Screens -->
+            <div class="absolute left-6 top-8 bottom-8 w-1 bg-gradient-to-b from-teal-500 via-teal-400 to-emerald-500 rounded-full md:hidden" aria-hidden="true"></div>
+
+            <!-- Staggered Step Cards Container -->
+            <div class="space-y-6 sm:space-y-8 relative z-10 pl-10 md:pl-0">
+              
+              <!-- STEP 01: Initial Assessment (Left Oriented) -->
+              <div class="journey-card group relative max-w-xl md:mr-auto rounded-3xl bg-white/95 dark:bg-slate-800/95 backdrop-blur-md p-4 sm:p-5 border-2 border-teal-600 dark:border-teal-400 ring-4 ring-teal-500/20 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer active" data-step="1">
+                <div class="flex items-center gap-4 sm:gap-5">
+                  <div class="relative w-20 h-20 sm:w-22 sm:h-22 rounded-2xl overflow-hidden shrink-0 border border-slate-200 dark:border-slate-700 shadow-xs">
+                    <img src="assets/images/journey/step-01-assessment.jpg" 
+                         alt="Therapist assessing patient joint movement with goniometer" 
+                         class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded-md bg-teal-700/90 text-white font-mono text-[10px] font-black">01</span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between gap-2">
+                      <span class="text-[11px] font-extrabold uppercase tracking-wider text-teal-700 dark:text-teal-400 font-heading">Initial Assessment</span>
+                      <span class="stage-badge px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-600 text-white transition-colors">Stage 1</span>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white font-heading mt-0.5">Understand your condition</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                      A specialist evaluates your movement, symptoms, mobility and recovery goals.
+                    </p>
+                  </div>
+                </div>
+                <!-- Micro-milestone bullets -->
+                <div class="mt-3 pt-3 border-t border-slate-100 dark:border-slate-700/80 flex flex-wrap gap-2 text-[11px] font-semibold text-slate-600 dark:text-slate-300">
+                  <span class="inline-flex items-center gap-1 text-teal-700 dark:text-teal-400">✓ Biomechanical scan</span>
+                  <span class="inline-flex items-center gap-1 text-teal-700 dark:text-teal-400">✓ Range of motion check</span>
+                  <span class="inline-flex items-center gap-1 text-teal-700 dark:text-teal-400">✓ Pain trigger analysis</span>
+                </div>
+              </div>
+
+              <!-- STEP 02: Personalized Plan (Shifted Right) -->
+              <div class="journey-card group relative max-w-xl md:ml-auto rounded-3xl bg-white/95 dark:bg-slate-800/95 backdrop-blur-md p-4 sm:p-5 border border-slate-200/90 dark:border-slate-700/80 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-teal-500 cursor-pointer" data-step="2">
+                <div class="flex items-center gap-4 sm:gap-5">
+                  <div class="relative w-20 h-20 sm:w-22 sm:h-22 rounded-2xl overflow-hidden shrink-0 border border-slate-200 dark:border-slate-700 shadow-xs">
+                    <img src="assets/images/journey/step-02-plan.jpg" 
+                         alt="Therapist explaining a personalized recovery treatment plan" 
+                         class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded-md bg-teal-700/90 text-white font-mono text-[10px] font-black">02</span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between gap-2">
+                      <span class="text-[11px] font-extrabold uppercase tracking-wider text-teal-700 dark:text-teal-400 font-heading">Personalized Plan</span>
+                      <span class="stage-badge px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors">Stage 2</span>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white font-heading mt-0.5">A plan built around you</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                      Receive a treatment approach designed around your needs, comfort and goals.
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-3 pt-3 border-t border-slate-100 dark:border-slate-700/80 flex flex-wrap gap-2 text-[11px] font-semibold text-slate-600 dark:text-slate-300">
+                  <span class="inline-flex items-center gap-1 text-teal-700 dark:text-teal-400">✓ Target milestone setting</span>
+                  <span class="inline-flex items-center gap-1 text-teal-700 dark:text-teal-400">✓ Weekly cadence mapping</span>
+                  <span class="inline-flex items-center gap-1 text-teal-700 dark:text-teal-400">✓ Portal exercise routine</span>
+                </div>
+              </div>
+
+              <!-- STEP 03: Active Treatment (Shifted Left-Center) -->
+              <div class="journey-card group relative max-w-xl md:mr-auto rounded-3xl bg-white/95 dark:bg-slate-800/95 backdrop-blur-md p-4 sm:p-5 border border-slate-200/90 dark:border-slate-700/80 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-teal-500 cursor-pointer" data-step="3">
+                <div class="flex items-center gap-4 sm:gap-5">
+                  <div class="relative w-20 h-20 sm:w-22 sm:h-22 rounded-2xl overflow-hidden shrink-0 border border-slate-200 dark:border-slate-700 shadow-xs">
+                    <img src="assets/images/journey/step-03-treatment.jpg" 
+                         alt="Active one-on-one rehabilitation treatment session" 
+                         class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded-md bg-teal-700/90 text-white font-mono text-[10px] font-black">03</span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between gap-2">
+                      <span class="text-[11px] font-extrabold uppercase tracking-wider text-teal-700 dark:text-teal-400 font-heading">Active Treatment</span>
+                      <span class="stage-badge px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors">Stage 3</span>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white font-heading mt-0.5">Guided care and movement</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                      Work with your physiotherapist through hands-on treatment and guided exercises.
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-3 pt-3 border-t border-slate-100 dark:border-slate-700/80 flex flex-wrap gap-2 text-[11px] font-semibold text-slate-600 dark:text-slate-300">
+                  <span class="inline-flex items-center gap-1 text-teal-700 dark:text-teal-400">✓ Manual joint therapy</span>
+                  <span class="inline-flex items-center gap-1 text-teal-700 dark:text-teal-400">✓ Supervised exercise load</span>
+                  <span class="inline-flex items-center gap-1 text-teal-700 dark:text-teal-400">✓ Real-time form corrections</span>
+                </div>
+              </div>
+
+              <!-- STEP 04: Stronger Living (Shifted Right / Goal Achieved) -->
+              <div class="journey-card group relative max-w-xl md:ml-auto rounded-3xl bg-white/95 dark:bg-slate-800/95 backdrop-blur-md p-4 sm:p-5 border border-slate-200/90 dark:border-slate-700/80 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-emerald-500 cursor-pointer" data-step="4">
+                <div class="flex items-center gap-4 sm:gap-5">
+                  <div class="relative w-20 h-20 sm:w-22 sm:h-22 rounded-2xl overflow-hidden shrink-0 border border-slate-200 dark:border-slate-700 shadow-xs">
+                    <img src="assets/images/journey/step-04-living.jpg" 
+                         alt="Patient returning to active everyday living and walking outdoors" 
+                         class="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500">
+                    <span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded-md bg-emerald-600/90 text-white font-mono text-[10px] font-black">04</span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between gap-2">
+                      <span class="text-[11px] font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-heading">Stronger Living</span>
+                      <span class="stage-badge px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors">Stage 4</span>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white font-heading mt-0.5">Keep moving with confidence</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                      Track your progress and learn ways to maintain mobility and support long-term wellbeing.
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-3 pt-3 border-t border-slate-100 dark:border-slate-700/80 flex flex-wrap gap-2 text-[11px] font-semibold text-slate-600 dark:text-slate-300">
+                  <span class="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">✓ Independence graduation</span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">✓ Relapse prevention guide</span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">✓ Ongoing clinician portal check-ins</span>
+                </div>
+              </div>
+
+            </div>
           </div>
 
         </div>
-
       </div>
     </section>
 

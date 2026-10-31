@@ -106,11 +106,55 @@
     });
   }
 
+  
+  /**
+   * Interactive Recovery Journey Pathway
+   */
+  function initRecoveryJourney() {
+    const journeyCards = document.querySelectorAll('.journey-card');
+    if (!journeyCards.length) return;
+
+    journeyCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const step = card.getAttribute('data-step');
+        
+        journeyCards.forEach(c => {
+          c.classList.remove('active', 'border-teal-600', 'dark:border-teal-400', 'border-2', 'ring-4', 'ring-teal-500/20');
+          c.classList.add('border-slate-200/90', 'dark:border-slate-700/80');
+          const badge = c.querySelector('.stage-badge');
+          if (badge) {
+            badge.classList.remove('bg-teal-600', 'text-white');
+            badge.classList.add('bg-slate-100', 'dark:bg-slate-700', 'text-slate-700', 'dark:text-slate-300');
+          }
+        });
+
+        card.classList.add('active', 'border-teal-600', 'dark:border-teal-400', 'border-2', 'ring-4', 'ring-teal-500/20');
+        card.classList.remove('border-slate-200/90', 'dark:border-slate-700/80');
+        const activeBadge = card.querySelector('.stage-badge');
+        if (activeBadge) {
+          activeBadge.classList.add('bg-teal-600', 'text-white');
+          activeBadge.classList.remove('bg-slate-100', 'dark:bg-slate-700', 'text-slate-700', 'dark:text-slate-300');
+        }
+
+        // Highlight matching SVG node if present
+        document.querySelectorAll('.journey-node').forEach(node => {
+          const circle = node.querySelector('circle:last-child');
+          if (node.getAttribute('data-node') === step) {
+            circle.setAttribute('class', 'fill-emerald-500 stroke-2 stroke-white dark:stroke-slate-900');
+          } else {
+            circle.setAttribute('class', 'fill-teal-600 dark:fill-teal-400 stroke-2 stroke-white dark:stroke-slate-900');
+          }
+        });
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initHeaderScroll();
     initAppointmentModal();
     initFlipCards();
+    initRecoveryJourney();
 
     // Auto-update copyright year
     document.querySelectorAll('.current-year').forEach(el => {
