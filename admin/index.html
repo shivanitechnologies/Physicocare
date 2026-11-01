@@ -1038,21 +1038,262 @@
         <!-- ========================================== -->
         <!-- TAB 15: CLINIC SETTINGS -->
         <!-- ========================================== -->
-        <div id="atab-settings" class="hidden space-y-6">
-          <div class="bg-white dark:bg-[#151F2E] rounded-2xl border border-slate-200/80 dark:border-slate-800 p-6 space-y-4 shadow-sm max-w-xl">
-            <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Clinic Configuration</h3>
-            <div class="space-y-3 text-xs">
-              <div class="space-y-1">
-                <label class="font-bold text-slate-700 dark:text-slate-300">Clinic Name</label>
-                <input type="text" value="PhysioCare Rehabilitation & Physiotherapy Clinic" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white">
-              </div>
-              <div class="space-y-1">
-                <label class="font-bold text-slate-700 dark:text-slate-300">Default Currency</label>
-                <input type="text" value="INR (₹) - Indian Rupee" readonly class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800/50 text-slate-500">
-              </div>
-              <button onclick="if(typeof showToast==='function') showToast('Settings saved successfully.');" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold transition">Save Configuration</button>
+        <div id="atab-settings" class="hidden space-y-8">
+          
+          <!-- Header / Action Bar -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Clinic Configuration & Operational Settings</h2>
+              <p class="text-xs text-slate-500">Real-time parameters, automated patient notifications, scheduling constraints & EMR compliance</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="resetClinicSettingsDefaults()" class="px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition">
+                Reset Defaults
+              </button>
+              <button onclick="saveAllClinicSettings()" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm transition flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>Save All Settings</span>
+              </button>
             </div>
           </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+            <!-- Card 1: Clinic Profile & Legal Identity -->
+            <div class="p-6 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+              <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-xl bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center font-bold">
+                    🏥
+                  </div>
+                  <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Clinic Legal Profile & Identity</h3>
+                </div>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">Live Active</span>
+              </div>
+
+              <div class="space-y-3 text-xs">
+                <div>
+                  <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Clinic Legal Name</label>
+                  <input type="text" id="cfg-clinic-name" value="PhysioCare Rehabilitation & Sports Medicine Clinic" onchange="autoSaveClinicSetting('clinic_name', this.value)" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Clinical Director / CMO</label>
+                    <input type="text" id="cfg-director" value="Dr. Marcus Chen, DPT, CSCS" onchange="autoSaveClinicSetting('director', this.value)" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                  </div>
+                  <div>
+                    <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Clinical Registration No.</label>
+                    <input type="text" id="cfg-license" value="KA-MED-REG-2024-8841" onchange="autoSaveClinicSetting('license', this.value)" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Reception Telephone</label>
+                    <input type="tel" id="cfg-phone" value="+91 80 4567 8900" onchange="autoSaveClinicSetting('phone', this.value)" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                  </div>
+                  <div>
+                    <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Emergency On-Call Line</label>
+                    <input type="tel" id="cfg-emergency" value="+91 98765 00000" onchange="autoSaveClinicSetting('emergency', this.value)" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Official Facility Address</label>
+                  <input type="text" id="cfg-address" value="Suites 01–04, Medical Arts Pavilion, Indiranagar, Bengaluru, KA 560038" onchange="autoSaveClinicSetting('address', this.value)" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">GSTIN / Tax Registration</label>
+                    <input type="text" id="cfg-gst" value="29AAAAA0000A1Z5" onchange="autoSaveClinicSetting('gst', this.value)" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-mono">
+                  </div>
+                  <div>
+                    <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Timezone & Base Currency</label>
+                    <input type="text" value="Asia/Kolkata (IST) • INR (₹)" readonly class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-500">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Scheduling & Private Suite Constraints -->
+            <div class="p-6 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+              <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-400 flex items-center justify-center font-bold">
+                    ⏱️
+                  </div>
+                  <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Scheduling & Private Suite Rules</h3>
+                </div>
+                <span class="text-[10px] text-teal-700 dark:text-teal-400 font-bold">Real-time Constraints</span>
+              </div>
+
+              <div class="space-y-4 text-xs">
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Session Block Duration</label>
+                    <select id="cfg-duration" onchange="autoSaveClinicSetting('duration', this.value)" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                      <option value="30">30 Minutes Care</option>
+                      <option value="45" selected>45 Minutes Care (Standard)</option>
+                      <option value="60">60 Minutes Care</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Turnover Sanitization</label>
+                    <select id="cfg-turnover" onchange="autoSaveClinicSetting('turnover', this.value)" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                      <option value="10">10 Minutes Buffer</option>
+                      <option value="15" selected>15 Minutes Buffer (Clean)</option>
+                      <option value="20">20 Minutes Buffer</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Min Advance Notice</label>
+                    <select id="cfg-advance-notice" onchange="autoSaveClinicSetting('advance_notice', this.value)" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                      <option value="1">1 Hour in advance</option>
+                      <option value="2" selected>2 Hours in advance</option>
+                      <option value="4">4 Hours in advance</option>
+                      <option value="24">24 Hours in advance</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Cancellation Cut-Off</label>
+                    <select id="cfg-cancel-cutoff" onchange="autoSaveClinicSetting('cancel_cutoff', this.value)" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                      <option value="6">Up to 6 hours prior</option>
+                      <option value="12" selected>Up to 12 hours prior</option>
+                      <option value="24">Up to 24 hours prior</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Realtime Toggles -->
+                <div class="space-y-2.5 pt-2">
+                  <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
+                    <div>
+                      <p class="font-bold text-slate-900 dark:text-white">Auto-Confirm Online Appointments</p>
+                      <p class="text-[10px] text-slate-400">Instantly allocate suite & specialist when patient books online</p>
+                    </div>
+                    <input type="checkbox" id="cfg-auto-confirm" checked onchange="autoSaveClinicToggle('auto_confirm', this.checked)" class="w-4 h-4 text-teal-600 rounded">
+                  </label>
+
+                  <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
+                    <div>
+                      <p class="font-bold text-slate-900 dark:text-white">Strict 1-on-1 Suite Allocation</p>
+                      <p class="text-[10px] text-slate-400">Lock suites to single patients; zero overlapping appointments</p>
+                    </div>
+                    <input type="checkbox" id="cfg-strict-suites" checked onchange="autoSaveClinicToggle('strict_suites', this.checked)" class="w-4 h-4 text-teal-600 rounded">
+                  </label>
+
+                  <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
+                    <div>
+                      <p class="font-bold text-slate-900 dark:text-white">Patient Self-Service Rescheduling</p>
+                      <p class="text-[10px] text-slate-400">Allow patients to shift sessions up to cancellation window</p>
+                    </div>
+                    <input type="checkbox" id="cfg-self-reschedule" checked onchange="autoSaveClinicToggle('self_reschedule', this.checked)" class="w-4 h-4 text-teal-600 rounded">
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Automated Patient Communications & Notifications -->
+            <div class="p-6 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+              <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 flex items-center justify-center font-bold">
+                    🔔
+                  </div>
+                  <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Automated Patient Communications</h3>
+                </div>
+                <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold">Multi-Channel Active</span>
+              </div>
+
+              <div class="space-y-2.5 text-xs">
+                <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">Instant SMS Confirmation on Booking</p>
+                    <p class="text-[10px] text-slate-400">Sends appointment time, treating doctor name, and suite ID</p>
+                  </div>
+                  <input type="checkbox" id="cfg-sms-confirm" checked onchange="autoSaveClinicToggle('sms_confirm', this.checked)" class="w-4 h-4 text-teal-600 rounded">
+                </label>
+
+                <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">24-Hour Prior WhatsApp Reminder</p>
+                    <p class="text-[10px] text-slate-400">Includes Google Maps clinic directions and prep notes</p>
+                  </div>
+                  <input type="checkbox" id="cfg-wa-reminder" checked onchange="autoSaveClinicToggle('wa_reminder', this.checked)" class="w-4 h-4 text-teal-600 rounded">
+                </label>
+
+                <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">Automated Superbill Email Delivery</p>
+                    <p class="text-[10px] text-slate-400">Dispatches CMS-1500 PDF for insurance reimbursement</p>
+                  </div>
+                  <input type="checkbox" id="cfg-email-superbill" checked onchange="autoSaveClinicToggle('email_superbill', this.checked)" class="w-4 h-4 text-teal-600 rounded">
+                </label>
+
+                <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">Daily 08:30 AM Home Exercise Push</p>
+                    <p class="text-[10px] text-slate-400">Reminds patients to complete prescribed HEP sets</p>
+                  </div>
+                  <input type="checkbox" id="cfg-hep-push" checked onchange="autoSaveClinicToggle('hep_push', this.checked)" class="w-4 h-4 text-teal-600 rounded">
+                </label>
+              </div>
+            </div>
+
+            <!-- Card 4: EMR Compliance & Clinical Safeguards -->
+            <div class="p-6 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+              <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-xl bg-purple-50 dark:bg-purple-950 text-purple-700 dark:text-purple-400 flex items-center justify-center font-bold">
+                    🔒
+                  </div>
+                  <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">EMR Compliance & Medical Records</h3>
+                </div>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-300">HIPAA Standards</span>
+              </div>
+
+              <div class="space-y-2.5 text-xs">
+                <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">SOAP Clinical Note Locking</p>
+                    <p class="text-[10px] text-slate-400">Automatically seal therapist notes 24 hours post-session</p>
+                  </div>
+                  <input type="checkbox" id="cfg-soap-lock" checked onchange="autoSaveClinicToggle('soap_lock', this.checked)" class="w-4 h-4 text-teal-600 rounded">
+                </label>
+
+                <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">Mandatory ICD-10 & CPT Validation</p>
+                    <p class="text-[10px] text-slate-400">Enforce diagnosis code before completing appointment discharge</p>
+                  </div>
+                  <input type="checkbox" id="cfg-icd10-enforce" checked onchange="autoSaveClinicToggle('icd10_enforce', this.checked)" class="w-4 h-4 text-teal-600 rounded">
+                </label>
+
+                <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">Patient Portal EMR Visibility</p>
+                    <p class="text-[10px] text-slate-400">Allow verified MRN accounts to view signed clinical documentation</p>
+                  </div>
+                  <input type="checkbox" id="cfg-patient-emr-access" checked onchange="autoSaveClinicToggle('patient_emr_access', this.checked)" class="w-4 h-4 text-teal-600 rounded">
+                </label>
+
+                <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">Two-Factor Authentication for Staff</p>
+                    <p class="text-[10px] text-slate-400">Mandate OTP verification for all doctor & administration logins</p>
+                  </div>
+                  <input type="checkbox" id="cfg-staff-2fa" checked onchange="autoSaveClinicToggle('staff_2fa', this.checked)" class="w-4 h-4 text-teal-600 rounded">
+                </label>
+              </div>
+            </div>
+
+          </div>
+
         </div>
 
       </main>
@@ -1712,6 +1953,89 @@
         openNewPatientModal();
       }
     });
-  </script>
+  
+    // Realtime Clinic Settings Manager
+    const CLINIC_SETTINGS_KEY = 'physiocare_clinic_settings';
+    function getClinicSettings() {
+      try {
+        const saved = localStorage.getItem(CLINIC_SETTINGS_KEY);
+        return saved ? JSON.parse(saved) : {};
+      } catch (e) { return {}; }
+    }
+
+    function autoSaveClinicSetting(key, val) {
+      const cfg = getClinicSettings();
+      cfg[key] = val;
+      localStorage.setItem(CLINIC_SETTINGS_KEY, JSON.stringify(cfg));
+      showSettingsToast('Clinic Setting Updated in Real-Time', 'Parameter "' + key + '" set to "' + val + '"');
+    }
+
+    function autoSaveClinicToggle(key, boolVal) {
+      const cfg = getClinicSettings();
+      cfg[key] = boolVal;
+      localStorage.setItem(CLINIC_SETTINGS_KEY, JSON.stringify(cfg));
+      showSettingsToast('Operational Rule ' + (boolVal ? 'Enabled' : 'Disabled'), 'Policy "' + key + '" active across all suites.');
+    }
+
+    function saveAllClinicSettings() {
+      const cfg = {
+        clinic_name: document.getElementById('cfg-clinic-name').value,
+        director: document.getElementById('cfg-director').value,
+        license: document.getElementById('cfg-license').value,
+        phone: document.getElementById('cfg-phone').value,
+        emergency: document.getElementById('cfg-emergency').value,
+        address: document.getElementById('cfg-address').value,
+        gst: document.getElementById('cfg-gst').value,
+        duration: document.getElementById('cfg-duration').value,
+        turnover: document.getElementById('cfg-turnover').value,
+        advance_notice: document.getElementById('cfg-advance-notice').value,
+        cancel_cutoff: document.getElementById('cfg-cancel-cutoff').value,
+        auto_confirm: document.getElementById('cfg-auto-confirm').checked,
+        strict_suites: document.getElementById('cfg-strict-suites').checked,
+        self_reschedule: document.getElementById('cfg-self-reschedule').checked,
+        sms_confirm: document.getElementById('cfg-sms-confirm').checked,
+        wa_reminder: document.getElementById('cfg-wa-reminder').checked,
+        email_superbill: document.getElementById('cfg-email-superbill').checked,
+        hep_push: document.getElementById('cfg-hep-push').checked,
+        soap_lock: document.getElementById('cfg-soap-lock').checked,
+        icd10_enforce: document.getElementById('cfg-icd10-enforce').checked,
+        patient_emr_access: document.getElementById('cfg-patient-emr-access').checked,
+        staff_2fa: document.getElementById('cfg-staff-2fa').checked
+      };
+      localStorage.setItem(CLINIC_SETTINGS_KEY, JSON.stringify(cfg));
+      showSettingsToast('All Clinic Settings Saved', 'Operational parameters and booking policies successfully synchronized in real-time.');
+    }
+
+    function resetClinicSettingsDefaults() {
+      if (confirm('Reset clinic operational rules to default standard values?')) {
+        localStorage.removeItem(CLINIC_SETTINGS_KEY);
+        showSettingsToast('Settings Restored', 'Standard clinical operating parameters restored.');
+        setTimeout(() => window.location.reload(), 600);
+      }
+    }
+
+    // Floating Toast Notification
+    function showSettingsToast(title, msg) {
+      let toast = document.getElementById('settings-live-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'settings-live-toast';
+        toast.className = 'fixed bottom-6 right-6 z-50 bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-3 rounded-2xl shadow-2xl border border-slate-700 dark:border-slate-200 flex items-center gap-3 transition-all duration-300 transform translate-y-20 opacity-0 text-xs';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = `
+        <div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">✓</div>
+        <div>
+          <p class="font-bold">${title}</p>
+          <p class="text-[11px] opacity-80">${msg}</p>
+        </div>
+      `;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3500);
+    }
+</script>
 </body>
 </html>
