@@ -164,32 +164,41 @@
         </button>
       </div>
 
-      <nav class="mt-6 flex flex-col space-y-1">
-        <a href="index.html" class="drawer-nav-link ">
+            <nav class="mt-6 flex flex-col space-y-1">
+        <div class="px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Home</div>
+        <a href="index.html" class="drawer-nav-link">
           <span>Home 1 (Classic)</span>
         </a>
-        <a href="home-2.html" class="drawer-nav-link ">
+        <a href="home-2.html" class="drawer-nav-link">
           <span>Home 2 (Premium)</span>
         </a>
-        <a href="about.html" class="drawer-nav-link active">
-          <span>About Clinic</span>
-        </a>
-        <a href="services.html" class="drawer-nav-link ">
-          <span>Treatments &amp; Services</span>
-        </a>
-        <a href="team.html" class="drawer-nav-link ">
-          <span>Our Clinical Team</span>
-        </a>
-        <a href="pricing.html" class="drawer-nav-link">
-          <span>Treatment Packages</span>
-        </a>
-        <a href="contact.html" class="drawer-nav-link ">
-          <span>Contact &amp; Location</span>
-        </a>
-        <a href="patient/index.html" class="drawer-nav-link ">
-          <span>Patient Portal</span>
-          <span class="text-xs bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300 px-2 py-0.5 rounded font-bold">Portal</span>
-        </a>
+
+        <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 space-y-1">
+          <a href="about.html" class="drawer-nav-link active">
+            <span>About</span>
+          </a>
+          <a href="services.html" class="drawer-nav-link">
+            <span>Services</span>
+          </a>
+          <a href="team.html" class="drawer-nav-link">
+            <span>Our Team</span>
+          </a>
+          <a href="contact.html" class="drawer-nav-link">
+            <span>Contact</span>
+          </a>
+        </div>
+
+        <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 space-y-1">
+          <div class="px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Dashboard</div>
+          <a href="patient/index.html" class="drawer-nav-link flex items-center justify-between">
+            <span>Patient Portal</span>
+            <span class="text-[10px] bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300 px-2 py-0.5 rounded font-bold uppercase">Patient</span>
+          </a>
+          <a href="admin/index.html" class="drawer-nav-link flex items-center justify-between">
+            <span>Admin Portal</span>
+            <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-2 py-0.5 rounded font-bold uppercase">Admin</span>
+          </a>
+        </div>
       </nav>
     </div>
 
@@ -225,27 +234,27 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          <!-- Left Content -->
-          <div class="lg:col-span-7 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200/80 dark:border-teal-800/60 text-teal-700 dark:text-teal-300 text-xs font-bold uppercase tracking-wider">
+          <!-- Left Content (Centered on Mobile, Left on Desktop) -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200/80 dark:border-teal-800/60 text-teal-700 dark:text-teal-300 text-xs font-bold uppercase tracking-wider mx-auto lg:mx-0">
               <span class="w-2 h-2 rounded-full bg-teal-600 dark:bg-teal-400"></span>
               <span>GET TO KNOW PHYSIOCARE</span>
             </div>
             
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white font-heading leading-tight tracking-tight">
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white font-heading leading-tight tracking-tight">
               We Believe Everyone Deserves to <span class="text-teal-700 dark:text-teal-400">Move Without Limits</span>.
             </h1>
             
-            <p class="text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+            <p class="text-sm sm:text-base lg:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
               At PhysioCare, we believe rehabilitation is about more than physical recovery. It is about restoring confidence, independence and the freedom to enjoy everyday life.
             </p>
             
-            <div class="flex flex-wrap items-center gap-4 pt-3">
-              <a href="#our-story" class="btn-primary py-3 px-6 rounded-xl font-bold flex items-center gap-2 shadow-sm">
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-3 w-full sm:w-auto">
+              <a href="#our-story" class="btn-primary py-3 px-6 rounded-xl font-bold flex items-center justify-center gap-2 shadow-sm w-full sm:w-auto">
                 <span>Discover Our Story</span>
                 <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
               </a>
-              <a href="#our-philosophy" class="btn-secondary py-3 px-6 rounded-xl font-bold">
+              <a href="#our-philosophy" class="btn-secondary py-3 px-6 rounded-xl font-bold w-full sm:w-auto justify-center">
                 <span>Our Philosophy</span>
               </a>
             </div>

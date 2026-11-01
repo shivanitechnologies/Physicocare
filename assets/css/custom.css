@@ -522,3 +522,62 @@ header.nav-scrolled {
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   ENHANCED MOBILE RESPONSIVENESS & TOUCH OPTIMIZATIONS
+   Ensures seamless presentation across all mobile viewports (320px - 768px)
+   ========================================================================== */
+
+/* Prevent horizontal viewport overflow & wobble */
+html, body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* Ensure headings wrap cleanly on smaller mobile viewports without clipping */
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Mobile-friendly touch scrolling and tap feedback */
+@media (max-width: 768px) {
+  /* Smooth touch scrolling for tables and horizontal lists */
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  /* Prevent iOS zoom-on-focus by guaranteeing 16px font-size */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="date"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  /* Touch-friendly button tap target heights */
+  .btn-primary, 
+  .btn-secondary {
+    min-height: 44px;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Mobile Drawer links - comfortable 44px tap targets */
+  .drawer-nav-link {
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9375rem;
+  }
+
+  /* Ensure modal dialogs and dropdowns don't overflow viewport */
+  .modal-dialog,
+  .dialog-content {
+    max-width: calc(100vw - 2rem);
+    margin: 1rem auto;
+  }
+}

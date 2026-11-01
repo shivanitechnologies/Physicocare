@@ -29,6 +29,13 @@
     if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
     if (backdrop) backdrop.addEventListener('click', closeDrawer);
 
+    // Auto-close drawer when any drawer navigation link is clicked
+    drawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        closeDrawer();
+      });
+    });
+
     // Close drawer when pressing Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !drawer.classList.contains('translate-x-full')) {

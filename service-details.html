@@ -163,32 +163,41 @@
         </button>
       </div>
 
-      <nav class="mt-6 flex flex-col space-y-1">
-        <a href="index.html" class="drawer-nav-link ">
+            <nav class="mt-6 flex flex-col space-y-1">
+        <div class="px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Home</div>
+        <a href="index.html" class="drawer-nav-link">
           <span>Home 1 (Classic)</span>
         </a>
-        <a href="home-2.html" class="drawer-nav-link ">
+        <a href="home-2.html" class="drawer-nav-link">
           <span>Home 2 (Premium)</span>
         </a>
-        <a href="about.html" class="drawer-nav-link ">
-          <span>About Clinic</span>
-        </a>
-        <a href="services.html" class="drawer-nav-link active">
-          <span>Treatments &amp; Services</span>
-        </a>
-        <a href="team.html" class="drawer-nav-link ">
-          <span>Our Clinical Team</span>
-        </a>
-        <a href="pricing.html" class="drawer-nav-link">
-          <span>Treatment Packages</span>
-        </a>
-        <a href="contact.html" class="drawer-nav-link ">
-          <span>Contact &amp; Location</span>
-        </a>
-        <a href="patient/index.html" class="drawer-nav-link ">
-          <span>Patient Portal</span>
-          <span class="text-xs bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300 px-2 py-0.5 rounded font-bold">Portal</span>
-        </a>
+
+        <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 space-y-1">
+          <a href="about.html" class="drawer-nav-link">
+            <span>About</span>
+          </a>
+          <a href="services.html" class="drawer-nav-link active">
+            <span>Services</span>
+          </a>
+          <a href="team.html" class="drawer-nav-link">
+            <span>Our Team</span>
+          </a>
+          <a href="contact.html" class="drawer-nav-link">
+            <span>Contact</span>
+          </a>
+        </div>
+
+        <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 space-y-1">
+          <div class="px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Dashboard</div>
+          <a href="patient/index.html" class="drawer-nav-link flex items-center justify-between">
+            <span>Patient Portal</span>
+            <span class="text-[10px] bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300 px-2 py-0.5 rounded font-bold uppercase">Patient</span>
+          </a>
+          <a href="admin/index.html" class="drawer-nav-link flex items-center justify-between">
+            <span>Admin Portal</span>
+            <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-2 py-0.5 rounded font-bold uppercase">Admin</span>
+          </a>
+        </div>
       </nav>
     </div>
 
@@ -222,10 +231,10 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          <!-- Hero Text (No extra buttons - Clean typography) -->
-          <div class="lg:col-span-7 space-y-5">
+          <!-- Hero Text (Clean typography, centered on mobile) -->
+          <div class="lg:col-span-7 space-y-5 text-center lg:text-left flex flex-col items-center lg:items-start">
             <!-- Breadcrumb Navigation -->
-            <nav class="flex items-center gap-2 text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-widest" aria-label="Breadcrumb">
+            <nav class="flex items-center justify-center lg:justify-start gap-2 text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-widest mx-auto lg:mx-0" aria-label="Breadcrumb">
               <a href="index.html" class="hover:underline">PhysioCare</a>
               <span class="text-slate-400">/</span>
               <a href="services.html" class="hover:underline">Services</a>
@@ -234,17 +243,17 @@
             </nav>
 
             <!-- Main Heading (36-44px desktop) -->
-            <h1 class="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 dark:text-white font-heading tracking-tight leading-tight" id="sd-title">
+            <h1 class="text-2xl sm:text-3xl lg:text-[42px] font-black text-slate-900 dark:text-white font-heading tracking-tight leading-tight" id="sd-title">
               Orthopedic Physiotherapy
             </h1>
             
             <!-- Clear Description (15-16px) -->
-            <p class="text-[15px] sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl" id="sd-subtitle">
+            <p class="text-sm sm:text-[15px] lg:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0" id="sd-subtitle">
               Personalized care for joint pain, muscle injuries and movement difficulties. Our physiotherapy approach focuses on improving mobility, strength and everyday function.
             </p>
 
-            <!-- Key Feature Highlights (clean text, no clutter) -->
-            <div class="flex flex-wrap items-center gap-y-2 gap-x-6 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 pt-1">
+            <!-- Key Feature Highlights -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-4 sm:gap-x-6 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 pt-1">
               <div class="flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-teal-600 dark:bg-teal-400"></span>
                 <span id="sd-duration">45–60 min session</span>
