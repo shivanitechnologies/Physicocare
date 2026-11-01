@@ -73,15 +73,17 @@
 
     <!-- Patient Portal Sidebar (300px fixed width, structured categories) -->
     <aside id="portal-sidebar" class="portal-sidebar fixed inset-y-0 left-0 z-50 w-[300px] bg-white dark:bg-[#151F2E] border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between transition-transform duration-300 -translate-x-full md:translate-x-0 md:sticky md:top-0 h-screen overflow-y-auto">
-      <div class="p-5 space-y-6">
-        <!-- Brand Logo -->
-        <div class="flex items-center justify-between">
+      <div>
+        <!-- Brand Logo Header (Aligned with Navbar 72px Height & Generous Corner Padding) -->
+        <div class="h-[72px] px-7 border-b border-slate-200/80 dark:border-slate-800 flex items-center justify-between shrink-0">
           <a href="../index.html" class="flex items-center gap-2 group">
             <img src="../assets/images/logo.svg" alt="PhysioCare" class="h-8 w-auto dark:hidden">
             <img src="../assets/images/logo-white.svg" alt="PhysioCare" class="h-8 w-auto hidden dark:block">
           </a>
           <button onclick="toggleMobileSidebar()" class="md:hidden text-slate-400 hover:text-slate-600 text-lg">&times;</button>
         </div>
+
+        <div class="p-6 space-y-6">
 
         <!-- Sidebar Navigation Sections (Grouped as per specifications) -->
         <nav class="space-y-5 text-xs">
@@ -190,6 +192,7 @@
           </div>
 
         </nav>
+        </div>
       </div>
 
       <!-- Logout & Clinic Switch Link -->
