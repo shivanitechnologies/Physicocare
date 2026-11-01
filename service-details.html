@@ -393,7 +393,7 @@
                     <p class="text-[11px] text-teal-700 dark:text-teal-400 font-semibold mt-1">Direct 1-on-1 Doctoral Oversight &bull; Verified Specialist</p>
                   </div>
                 </div>
-                <a href="appointment.html" class="btn-primary btn-sm shrink-0">
+                <a href="appointment.html" id="sd-therapist-book-btn" class="btn-primary btn-sm shrink-0">
                   <span>Book With Doctor &rarr;</span>
                 </a>
               </div>
@@ -584,7 +584,11 @@
       </div>
     </div>
   </footer>
-    <script>
+  <!-- Storage & State Engine -->
+  <script src="assets/js/demo-data.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       const id = params.get('id') || 'orthopedic';
@@ -603,9 +607,14 @@
       document.getElementById('sd-img').alt = s.title;
       document.getElementById('sd-desc').textContent = s.fullDesc || s.shortDesc;
       
-      const bookUrl = `appointment.html?service=${s.id}`;
-      document.getElementById('sd-hero-book-btn').href = bookUrl;
-      document.getElementById('sidebar-book-btn').href = bookUrl;
+      const docQuery = s.therapist ? `&doctor=${encodeURIComponent(s.therapist.name)}` : '';
+      const bookUrl = `appointment.html?service=${encodeURIComponent(s.id)}${docQuery}`;
+      const heroBtn = document.getElementById('sd-hero-book-btn');
+      if (heroBtn) heroBtn.href = bookUrl;
+      const sidebarBtn = document.getElementById('sidebar-book-btn');
+      if (sidebarBtn) sidebarBtn.href = bookUrl;
+      const therapistBtn = document.getElementById('sd-therapist-book-btn');
+      if (therapistBtn) therapistBtn.href = bookUrl;
 
       // Sidebar Elements
       document.getElementById('sidebar-price').textContent = s.price;
@@ -664,9 +673,6 @@
     });
   </script>
 
-  <!-- Storage & State Engine -->
-  <script src="assets/js/demo-data.js"></script>
-  <script src="assets/js/storage.js"></script>
-  <script src="assets/js/app.js"></script>
+
 </body>
 </html>

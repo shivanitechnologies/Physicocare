@@ -258,30 +258,45 @@
 
             <!-- Step 2: Treatment & Clinician -->
             <div class="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-              <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center text-xs font-bold">2</span>
-                Treatment &amp; Clinician
-              </h3>
+              <div class="flex items-center justify-between">
+                <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center text-xs font-bold">2</span>
+                  Treatment &amp; Clinician
+                </h3>
+                <span class="text-[11px] font-semibold text-teal-700 dark:text-teal-400 hidden sm:inline-flex items-center gap-1">
+                  <span>⚡ Doctor Auto-Selected</span>
+                </span>
+              </div>
+              
               <div class="grid sm:grid-cols-2 gap-4 text-xs">
                 <div>
-                  <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Select Service</label>
-                  <select id="apt-service" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-600 outline-none">
+                  <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1" for="apt-service">Select Service</label>
+                  <select id="apt-service" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-600 outline-none transition">
                     <option value="Orthopedic Physiotherapy">Orthopedic Physiotherapy (₹1,499)</option>
-                    <option value="Sports Physiotherapy">Sports Injury Rehabilitation (₹1,799)</option>
-                    <option value="Spine & Posture Care" selected>Spine &amp; Posture Care (₹1,499)</option>
+                    <option value="Sports Physiotherapy">Sports Physiotherapy (₹1,799)</option>
+                    <option value="Spine & Posture Care">Spine &amp; Posture Care (₹1,499)</option>
                     <option value="Neurological Physiotherapy">Neurological Physiotherapy (₹1,999)</option>
                     <option value="Post-Surgical Rehabilitation">Post-Surgical Rehabilitation (₹1,599)</option>
                     <option value="Geriatric Physiotherapy">Geriatric Physiotherapy (₹1,299)</option>
+                    <option value="Pediatric Physiotherapy">Pediatric Physiotherapy (₹1,499)</option>
+                    <option value="Pain Management Therapy">Pain Management Therapy (₹1,499)</option>
+                    <option value="Manual Therapy">Manual Therapy (₹1,499)</option>
+                    <option value="Guided Therapeutic Exercise">Guided Therapeutic Exercise (₹1,299)</option>
                   </select>
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Select any service; the specialist doctor updates automatically.</p>
                 </div>
                 <div>
-                  <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Select Therapist</label>
-                  <select id="apt-therapist" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-600 outline-none">
-                    <option value="Dr. Elena Vance, DPT">Dr. Elena Vance, DPT (Spine Specialist)</option>
-                    <option value="Dr. Marcus Chen, PT">Dr. Marcus Chen, PT (Sports Director)</option>
-                    <option value="Dr. Priya Patel, MPT">Dr. Priya Patel, MPT (Neuro Specialist)</option>
-                    <option value="Dr. Kimberly Adams, PT">Dr. Kimberly Adams, PT (Geriatric Specialist)</option>
+                  <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1" for="apt-therapist">Treating Doctor / Specialist</label>
+                  <select id="apt-therapist" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-teal-600 outline-none transition">
+                    <option value="Dr. Marcus Chen, PT">Dr. Marcus Chen, PT (Senior Orthopedic &amp; Manual)</option>
+                    <option value="Dr. Elena Vance, DPT">Dr. Elena Vance, DPT (Sports &amp; Pain Management)</option>
+                    <option value="Dr. Priya Patel, MPT">Dr. Priya Patel, MPT (Senior Neuro &amp; Geriatrics)</option>
+                    <option value="Dr. Kimberly Adams, PT">Dr. Kimberly Adams, PT (Spine &amp; Pediatrics)</option>
                   </select>
+                  <div id="therapist-matched-notice" class="mt-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-teal-700 dark:text-teal-400 bg-teal-50/80 dark:bg-teal-950/60 border border-teal-200/60 dark:border-teal-800/80 px-2.5 py-1 rounded-lg">
+                    <svg class="w-3.5 h-3.5 text-teal-600 dark:text-teal-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    <span id="therapist-notice-text">Assigned Specialist: Dr. Marcus Chen, PT</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -476,34 +491,166 @@
   <script src="assets/js/storage.js"></script>
   <script src="assets/js/app.js"></script>
   <script>
-    // Auto-select therapist and plan from URL parameters
+    // Intelligent Service-to-Doctor Auto-Selection Engine
+    const SERVICE_DOCTOR_DATA = {
+      'orthopedic': {
+        serviceVal: 'Orthopedic Physiotherapy',
+        doctorVal: 'Dr. Marcus Chen, PT',
+        specialty: 'Senior Orthopedic Specialist'
+      },
+      'sports': {
+        serviceVal: 'Sports Physiotherapy',
+        doctorVal: 'Dr. Elena Vance, DPT',
+        specialty: 'Sports Rehabilitation Director'
+      },
+      'spine-posture': {
+        serviceVal: 'Spine & Posture Care',
+        doctorVal: 'Dr. Kimberly Adams, PT',
+        specialty: 'Spine & Posture Specialist'
+      },
+      'spine': {
+        serviceVal: 'Spine & Posture Care',
+        doctorVal: 'Dr. Kimberly Adams, PT',
+        specialty: 'Spine & Posture Specialist'
+      },
+      'neurological': {
+        serviceVal: 'Neurological Physiotherapy',
+        doctorVal: 'Dr. Priya Patel, MPT',
+        specialty: 'Senior Neuro-Physiotherapist'
+      },
+      'neuro': {
+        serviceVal: 'Neurological Physiotherapy',
+        doctorVal: 'Dr. Priya Patel, MPT',
+        specialty: 'Senior Neuro-Physiotherapist'
+      },
+      'post-surgical': {
+        serviceVal: 'Post-Surgical Rehabilitation',
+        doctorVal: 'Dr. Marcus Chen, PT',
+        specialty: 'Orthopedic & Post-Surgical Specialist'
+      },
+      'geriatric': {
+        serviceVal: 'Geriatric Physiotherapy',
+        doctorVal: 'Dr. Priya Patel, MPT',
+        specialty: 'Senior Geriatric Specialist'
+      },
+      'pediatric': {
+        serviceVal: 'Pediatric Physiotherapy',
+        doctorVal: 'Dr. Kimberly Adams, PT',
+        specialty: 'Pediatric Clinical Specialist'
+      },
+      'pain-management': {
+        serviceVal: 'Pain Management Therapy',
+        doctorVal: 'Dr. Elena Vance, DPT',
+        specialty: 'Lead Pain & Modalities Specialist'
+      },
+      'manual-therapy': {
+        serviceVal: 'Manual Therapy',
+        doctorVal: 'Dr. Marcus Chen, PT',
+        specialty: 'Senior Manual Physical Therapist'
+      },
+      'exercise-therapy': {
+        serviceVal: 'Guided Therapeutic Exercise',
+        doctorVal: 'Dr. Elena Vance, DPT',
+        specialty: 'Kinesiology & Athletic Director'
+      }
+    };
+
+    // Fast mapping from service select value to doctor
+    const VALUE_TO_DOCTOR = {
+      'Orthopedic Physiotherapy': { doctor: 'Dr. Marcus Chen, PT', specialty: 'Senior Orthopedic Specialist' },
+      'Sports Physiotherapy': { doctor: 'Dr. Elena Vance, DPT', specialty: 'Sports Rehabilitation Director' },
+      'Spine & Posture Care': { doctor: 'Dr. Kimberly Adams, PT', specialty: 'Spine & Posture Specialist' },
+      'Neurological Physiotherapy': { doctor: 'Dr. Priya Patel, MPT', specialty: 'Senior Neuro-Physiotherapist' },
+      'Post-Surgical Rehabilitation': { doctor: 'Dr. Marcus Chen, PT', specialty: 'Orthopedic & Post-Surgical Specialist' },
+      'Geriatric Physiotherapy': { doctor: 'Dr. Priya Patel, MPT', specialty: 'Senior Geriatric Specialist' },
+      'Pediatric Physiotherapy': { doctor: 'Dr. Kimberly Adams, PT', specialty: 'Pediatric Clinical Specialist' },
+      'Pain Management Therapy': { doctor: 'Dr. Elena Vance, DPT', specialty: 'Lead Pain & Modalities Specialist' },
+      'Manual Therapy': { doctor: 'Dr. Marcus Chen, PT', specialty: 'Senior Manual Physical Therapist' },
+      'Guided Therapeutic Exercise': { doctor: 'Dr. Elena Vance, DPT', specialty: 'Kinesiology & Athletic Director' }
+    };
+
+    function autoSelectDoctorForService(serviceValue, isUserChange = false) {
+      const therapistSelect = document.getElementById('apt-therapist');
+      const noticeText = document.getElementById('therapist-notice-text');
+      const match = VALUE_TO_DOCTOR[serviceValue];
+      if (!match || !therapistSelect) return;
+
+      therapistSelect.value = match.doctor;
+      if (noticeText) {
+        noticeText.textContent = `Assigned Specialist: ${match.doctor} (${match.specialty})`;
+      }
+
+      if (isUserChange) {
+        therapistSelect.classList.add('ring-2', 'ring-teal-500');
+        setTimeout(() => {
+          therapistSelect.classList.remove('ring-2', 'ring-teal-500');
+        }, 600);
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
-      const therapistParam = (urlParams.get('therapist') || '').toLowerCase();
+      const serviceParam = (urlParams.get('service') || urlParams.get('id') || '').toLowerCase();
+      const doctorParam = (urlParams.get('doctor') || urlParams.get('therapist') || '').toLowerCase();
       const planParam = (urlParams.get('plan') || urlParams.get('package') || '').toLowerCase();
-      
+
+      const serviceSelect = document.getElementById('apt-service');
       const therapistSelect = document.getElementById('apt-therapist');
-      if (therapistSelect && therapistParam) {
-        if (therapistParam.includes('priya')) {
-          therapistSelect.value = "Dr. Priya Patel, MPT";
-        } else if (therapistParam.includes('marcus')) {
+      const noticeText = document.getElementById('therapist-notice-text');
+
+      // 1. Resolve Service from URL
+      let resolvedKey = null;
+      if (serviceParam) {
+        for (const [key, data] of Object.entries(SERVICE_DOCTOR_DATA)) {
+          if (serviceParam === key || serviceParam.includes(key) || data.serviceVal.toLowerCase().includes(serviceParam)) {
+            resolvedKey = key;
+            break;
+          }
+        }
+      } else if (planParam) {
+        if (planParam.includes('basic')) resolvedKey = 'orthopedic';
+        else if (planParam.includes('standard')) resolvedKey = 'spine-posture';
+        else if (planParam.includes('premium')) resolvedKey = 'neurological';
+      }
+
+      if (resolvedKey && serviceSelect) {
+        serviceSelect.value = SERVICE_DOCTOR_DATA[resolvedKey].serviceVal;
+        autoSelectDoctorForService(serviceSelect.value, false);
+      } else if (serviceSelect) {
+        autoSelectDoctorForService(serviceSelect.value, false);
+      }
+
+      // 2. Specific Doctor Override if provided in URL
+      if (doctorParam && therapistSelect) {
+        if (doctorParam.includes('marcus') || doctorParam.includes('chen') || doctorParam === 't-2') {
           therapistSelect.value = "Dr. Marcus Chen, PT";
-        } else if (therapistParam.includes('kimberly')) {
-          therapistSelect.value = "Dr. Kimberly Adams, PT";
-        } else if (therapistParam.includes('elena')) {
+          if (noticeText) noticeText.textContent = "Assigned Specialist: Dr. Marcus Chen, PT (Senior Orthopedic Specialist)";
+        } else if (doctorParam.includes('elena') || doctorParam.includes('vance') || doctorParam === 't-1') {
           therapistSelect.value = "Dr. Elena Vance, DPT";
+          if (noticeText) noticeText.textContent = "Assigned Specialist: Dr. Elena Vance, DPT (Sports Rehabilitation Director)";
+        } else if (doctorParam.includes('priya') || doctorParam.includes('patel') || doctorParam === 't-3') {
+          therapistSelect.value = "Dr. Priya Patel, MPT";
+          if (noticeText) noticeText.textContent = "Assigned Specialist: Dr. Priya Patel, MPT (Senior Neuro Specialist)";
+        } else if (doctorParam.includes('kimberly') || doctorParam.includes('adams') || doctorParam === 't-4') {
+          therapistSelect.value = "Dr. Kimberly Adams, PT";
+          if (noticeText) noticeText.textContent = "Assigned Specialist: Dr. Kimberly Adams, PT (Spine & Posture Specialist)";
         }
       }
 
-      const serviceSelect = document.getElementById('apt-service');
-      if (serviceSelect && planParam) {
-        if (planParam.includes('basic')) {
-          serviceSelect.value = "Orthopedic Physiotherapy";
-        } else if (planParam.includes('standard')) {
-          serviceSelect.value = "Spine & Posture Care";
-        } else if (planParam.includes('premium')) {
-          serviceSelect.value = "Neurological Physiotherapy";
-        }
+      // 3. User Interaction: When service changes, automatically update the doctor!
+      if (serviceSelect) {
+        serviceSelect.addEventListener('change', () => {
+          autoSelectDoctorForService(serviceSelect.value, true);
+        });
+      }
+
+      // 4. User Interaction: If user manually changes therapist
+      if (therapistSelect) {
+        therapistSelect.addEventListener('change', () => {
+          if (noticeText) {
+            noticeText.textContent = `Selected Clinician: ${therapistSelect.value}`;
+          }
+        });
       }
     });
   </script>
