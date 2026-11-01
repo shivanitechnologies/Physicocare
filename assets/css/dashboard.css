@@ -27,8 +27,8 @@
 
 .dark .portal-sidebar {
   width: 280px;
-  background-color: #FFFFFF;
-  border-right: 1px solid #E2E8F0;
+  background-color: #151F2E;
+  border-right: 1px solid #1E293B;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -157,4 +157,26 @@
   background-color: rgba(71, 85, 105, 0.25);
   color: #94A3B8;
   border-color: rgba(148, 163, 184, 0.3);
+}
+
+
+/* Main Content Typography Enhancements */
+.portal-main {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.portal-tab-content h2,
+.portal-tab-content h3 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.015em;
+}
+
+.portal-tab-content {
+  animation: portalTabFade 0.2s ease-in-out;
+}
+
+@keyframes portalTabFade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
