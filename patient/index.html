@@ -123,12 +123,6 @@
                 </svg>
                 <span>My Profile</span>
               </button>
-              <button onclick="switchTab('settings')" class="w-full portal-nav-item flex items-center gap-3.5 px-3.5 rounded-xl transition text-[15px]" id="ptab-btn-settings">
-                <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
-                <span>Settings</span>
-              </button>
             </div>
           </div>
 
@@ -223,13 +217,6 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                   </svg>
                   <span>My Treatment Plan</span>
-                </button>
-                <button onclick="switchTab('settings'); toggleProfileDropdown();" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium transition">
-                  <svg class="w-4 h-4 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                  </svg>
-                  <span>Preferences & Settings</span>
                 </button>
               </div>
 
@@ -1057,187 +1044,7 @@
           </div>
         </section>
 
-
-        <!-- ========================================== -->
-        <!-- TAB 11: SETTINGS -->
-        <!-- ========================================== -->
-        <section id="ptab-settings" class="portal-tab-content hidden space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Patient Preferences & Account Settings</h2>
-              <p class="text-xs text-slate-500">Real-time notification triggers, clinical communication channels, visual theme & data privacy</p>
-            </div>
-            <button onclick="saveAllPatientSettings()" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm transition flex items-center gap-1.5">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span>Save Preferences</span>
-            </button>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
-            <!-- Card 1: Clinical Notifications & Channels -->
-            <div class="p-6 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-              <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded-xl bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center font-bold">
-                    🔔
-                  </div>
-                  <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Clinical Alerts & Communication</h3>
-                </div>
-                <span class="text-[10px] text-teal-700 dark:text-teal-400 font-bold">Real-time Dispatch</span>
-              </div>
-
-              <div class="space-y-3 text-xs">
-                <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
-                  <div>
-                    <p class="font-bold text-slate-900 dark:text-white">SMS 24-Hour Appointment Reminder</p>
-                    <p class="text-[10px] text-slate-400">Receive automated SMS to +91 98765 43210</p>
-                  </div>
-                  <input type="checkbox" id="pref-sms" checked onchange="autoSavePatientPref('sms_reminder', this.checked)" class="w-4 h-4 text-teal-600 rounded">
-                </label>
-
-                <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
-                  <div>
-                    <p class="font-bold text-slate-900 dark:text-white">WhatsApp Calendar Links & Suite Directions</p>
-                    <p class="text-[10px] text-slate-400">Direct WhatsApp message with suite directions</p>
-                  </div>
-                  <input type="checkbox" id="pref-wa" checked onchange="autoSavePatientPref('wa_reminder', this.checked)" class="w-4 h-4 text-teal-600 rounded">
-                </label>
-
-                <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
-                  <div>
-                    <p class="font-bold text-slate-900 dark:text-white">Daily 08:30 AM Home Exercise (HEP) Nudge</p>
-                    <p class="text-[10px] text-slate-400">Morning push alert to complete prescribed stability drills</p>
-                  </div>
-                  <input type="checkbox" id="pref-hep" checked onchange="autoSavePatientPref('hep_nudge', this.checked)" class="w-4 h-4 text-teal-600 rounded">
-                </label>
-
-                <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
-                  <div>
-                    <p class="font-bold text-slate-900 dark:text-white">Doctor Clinical Progress Note Alerts</p>
-                    <p class="text-[10px] text-slate-400">Instant notification when Dr. Elena Vance signs a session note</p>
-                  </div>
-                  <input type="checkbox" id="pref-doctor-notes" checked onchange="autoSavePatientPref('doctor_notes', this.checked)" class="w-4 h-4 text-teal-600 rounded">
-                </label>
-              </div>
-            </div>
-
-            <!-- Card 2: Visual & Display Preferences -->
-            <div class="p-6 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-              <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-400 flex items-center justify-center font-bold">
-                    🎨
-                  </div>
-                  <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Display & Visual Experience</h3>
-                </div>
-                <span class="text-[10px] text-slate-400 font-bold">Instant Switch</span>
-              </div>
-
-              <div class="space-y-4 text-xs">
-                <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800">
-                  <div>
-                    <p class="font-bold text-slate-900 dark:text-white">Dark Healthcare Mode</p>
-                    <p class="text-[10px] text-slate-400">Switch between Crisp Healthcare Light & Charcoal Dark</p>
-                  </div>
-                  <button onclick="togglePortalTheme()" class="px-3.5 py-1.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs transition">
-                    Toggle Mode
-                  </button>
-                </div>
-
-                <div>
-                  <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Date & Time Format</label>
-                  <select id="pref-date-format" onchange="autoSavePatientPref('date_format', this.value)" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
-                    <option value="DD/MM/YYYY">DD/MM/YYYY (Standard Indian / British) - 01/11/2026</option>
-                    <option value="MM/DD/YYYY">MM/DD/YYYY (US Format) - 11/01/2026</option>
-                    <option value="YYYY-MM-DD">YYYY-MM-DD (ISO Medical) - 2026-11-01</option>
-                  </select>
-                </div>
-
-                <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
-                  <div>
-                    <p class="font-bold text-slate-900 dark:text-white">High Contrast Medical Accessibility</p>
-                    <p class="text-[10px] text-slate-400">Increase font weight and card borders for readability</p>
-                  </div>
-                  <input type="checkbox" id="pref-contrast" onchange="autoSavePatientPref('high_contrast', this.checked)" class="w-4 h-4 text-teal-600 rounded">
-                </label>
-              </div>
-            </div>
-
-            <!-- Card 3: Medical Privacy & HIPAA Consent -->
-            <div class="p-6 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-              <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 flex items-center justify-center font-bold">
-                    🛡️
-                  </div>
-                  <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Privacy & Data Governance</h3>
-                </div>
-                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">Protected</span>
-              </div>
-
-              <div class="space-y-3 text-xs">
-                <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
-                  <div>
-                    <p class="font-bold text-slate-900 dark:text-white">Digital Health Record Storage Consent</p>
-                    <p class="text-[10px] text-slate-400">Authorize secure clinical cloud storage for diagnostic MRIs and SOAP logs</p>
-                  </div>
-                  <input type="checkbox" id="pref-storage-consent" checked onchange="autoSavePatientPref('storage_consent', this.checked)" class="w-4 h-4 text-teal-600 rounded">
-                </label>
-
-                <label class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer">
-                  <div>
-                    <p class="font-bold text-slate-900 dark:text-white">Anonymized Recovery Telemetry Contribution</p>
-                    <p class="text-[10px] text-slate-400">Contribute de-identified ROM progress to spinal biomechanics research</p>
-                  </div>
-                  <input type="checkbox" id="pref-research-consent" checked onchange="autoSavePatientPref('research_consent', this.checked)" class="w-4 h-4 text-teal-600 rounded">
-                </label>
-              </div>
-            </div>
-
-            <!-- Card 4: Security & Authentication -->
-            <div class="p-6 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-              <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded-xl bg-purple-50 dark:bg-purple-950 text-purple-700 dark:text-purple-400 flex items-center justify-center font-bold">
-                    🔐
-                  </div>
-                  <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Security & Credentials</h3>
-                </div>
-                <span class="text-[10px] text-teal-700 dark:text-teal-400 font-bold">MRN #PAT-101</span>
-              </div>
-
-              <form onsubmit="handlePatientPasswordChange(event)" class="space-y-3 text-xs">
-                <div>
-                  <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Current Password</label>
-                  <input type="password" id="pwd-current" required placeholder="••••••••••••" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">New Password</label>
-                    <input type="password" id="pwd-new" required placeholder="Min 8 characters" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
-                  </div>
-                  <div>
-                    <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Confirm New Password</label>
-                    <input type="password" id="pwd-confirm" required placeholder="Re-enter password" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
-                  </div>
-                </div>
-
-                <div class="pt-2 flex items-center justify-between">
-                  <span class="text-[10px] text-slate-400">2FA Active via +91 98765 43210</span>
-                  <button type="submit" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold transition">
-                    Update Password
-                  </button>
-                </div>
-              </form>
-            </div>
-
-          </div>
-        </section>
-
-
-        <!-- ========================================== -->
+<!-- ========================================== -->
         <!-- TAB 12: HELP & SUPPORT -->
         <!-- ========================================== -->
         <section id="ptab-help" class="portal-tab-content hidden space-y-6">
@@ -1432,7 +1239,7 @@
     const PATIENT_TABS = [
       'overview', 'appointments', 'plans', 'recovery', 'therapist', 
       'records', 'exercises', 'payments', 'messages', 'profile', 
-      'settings', 'help'
+      'help'
     ];
 
     const TAB_TITLES = {
@@ -1446,8 +1253,7 @@
       payments: 'Payments & Itemized Invoices',
       messages: 'Direct Clinician Messages',
       profile: 'My Profile & Patient Records',
-      settings: 'Communication & Theme Settings',
-      help: 'Help, FAQ & Clinic Support'
+            help: 'Help, FAQ & Clinic Support'
     };
 
     function switchTab(tabId) {
@@ -1912,51 +1718,7 @@ function togglePortalTheme() {
       }
     });
   
-    // Realtime Patient Settings Handlers
-    const PATIENT_PREF_KEY = 'physiocare_patient_prefs';
-    function getPatientPrefs() {
-      try {
-        const saved = localStorage.getItem(PATIENT_PREF_KEY);
-        return saved ? JSON.parse(saved) : {};
-      } catch (e) { return {}; }
-    }
-
-    function autoSavePatientPref(key, val) {
-      const prefs = getPatientPrefs();
-      prefs[key] = val;
-      localStorage.setItem(PATIENT_PREF_KEY, JSON.stringify(prefs));
-      showPatientSettingsToast('Preference Saved in Real-Time', 'Updated ' + key.replace(/_/g, ' ') + ' to ' + val);
-    }
-
-    function saveAllPatientSettings() {
-      const prefs = {
-        sms_reminder: document.getElementById('pref-sms').checked,
-        wa_reminder: document.getElementById('pref-wa').checked,
-        hep_nudge: document.getElementById('pref-hep').checked,
-        doctor_notes: document.getElementById('pref-doctor-notes').checked,
-        date_format: document.getElementById('pref-date-format').value,
-        high_contrast: document.getElementById('pref-contrast').checked,
-        storage_consent: document.getElementById('pref-storage-consent').checked,
-        research_consent: document.getElementById('pref-research-consent').checked
-      };
-      localStorage.setItem(PATIENT_PREF_KEY, JSON.stringify(prefs));
-      showPatientSettingsToast('All Preferences Synchronized', 'Your clinical privacy and communication preferences are saved in real-time.');
-    }
-
-    function handlePatientPasswordChange(e) {
-      e.preventDefault();
-      const newPwd = document.getElementById('pwd-new').value;
-      const confirmPwd = document.getElementById('pwd-confirm').value;
-      if (newPwd !== confirmPwd) {
-        alert('New passwords do not match. Please verify and retry.');
-        return;
-      }
-      showPatientSettingsToast('Security Updated', 'Your patient portal password has been updated securely.');
-      document.getElementById('pwd-current').value = '';
-      document.getElementById('pwd-new').value = '';
-      document.getElementById('pwd-confirm').value = '';
-    }
-
+    // Notification Toast Helper
     function showPatientSettingsToast(title, msg) {
       let toast = document.getElementById('patient-live-toast');
       if (!toast) {
