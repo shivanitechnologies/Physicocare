@@ -1419,6 +1419,7 @@
     </section>
 
     <!-- 8. Patient Testimonials (Review Cards) -->
+    <!-- 8. Patient Testimonials (3-Card Simple Grid) -->
     <section class="py-16 lg:py-24 bg-white dark:bg-slate-900 border-y border-slate-200/80 dark:border-slate-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -1432,33 +1433,62 @@
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
           
-          <div class="p-8 rounded-3xl card-base space-y-4">
-            <div class="flex items-center gap-1 text-amber-400 text-sm">★★★★★</div>
-            <p class="text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed italic">
-              "After my knee injury during soccer, two clinics told me I'd never run competitively again. Dr. Marcus built a measured 16-week return plan. Today I just finished my first half-marathon completely pain-free."
-            </p>
-            <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-              <div>
-                <p class="text-sm font-bold text-slate-900 dark:text-white">Rajesh Sharma</p>
-                <p class="text-xs text-slate-500 dark:text-slate-400">Post-Op ACL Patient &bull; 4 Months Protocol</p>
+          <!-- Testimonial 1: Rajesh Sharma -->
+          <div class="p-6 sm:p-7 rounded-3xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-amber-400 text-base mb-4">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
               </div>
-              <span class="text-xs text-teal-700 dark:text-teal-400 font-bold bg-teal-50 dark:bg-teal-950 px-2.5 py-1 rounded-full">Verified Outcome</span>
+              <p class="text-slate-700 dark:text-slate-200 text-sm leading-relaxed mb-6">
+                "After my knee injury during soccer, two clinics told me I'd never run competitively again. Dr. Marcus built a measured 16-week return plan. Today I just finished my first half-marathon completely pain-free."
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-700/80 flex items-center gap-3">
+              <img src="assets/images/testimonials/rajesh-sharma.jpg" alt="Rajesh Sharma" class="w-11 h-11 rounded-full object-cover border border-slate-100 dark:border-slate-700 flex-shrink-0">
+              <div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white font-heading leading-tight">Rajesh Sharma</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Sports Injury Rehab, Bengaluru</p>
+              </div>
             </div>
           </div>
 
-          <div class="p-8 rounded-3xl card-base space-y-4">
-            <div class="flex items-center gap-1 text-amber-400 text-sm">★★★★★</div>
-            <p class="text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed italic">
-              "Seven years of daily lower back pain from desk work disappeared after working with Dr. Elena. The personalized decompression and postural coaching gave me my life back. The Patient Portal exercise videos are gold."
-            </p>
-            <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-              <div>
-                <p class="text-sm font-bold text-slate-900 dark:text-white">Meera Kapoor</p>
-                <p class="text-xs text-slate-500 dark:text-slate-400">Chronic Cervical &amp; Lumbar Care</p>
+          <!-- Testimonial 2: Meera Kapoor -->
+          <div class="p-6 sm:p-7 rounded-3xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-amber-400 text-base mb-4">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
               </div>
-              <span class="text-xs text-teal-700 dark:text-teal-400 font-bold bg-teal-50 dark:bg-teal-950 px-2.5 py-1 rounded-full">Verified Outcome</span>
+              <p class="text-slate-700 dark:text-slate-200 text-sm leading-relaxed mb-6">
+                "Seven years of daily lower back pain from desk work disappeared after working with Dr. Elena. The personalized decompression and postural coaching gave me my life back. The exercise videos are gold."
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-700/80 flex items-center gap-3">
+              <img src="assets/images/testimonials/meera-kapoor.jpg" alt="Meera Kapoor" class="w-11 h-11 rounded-full object-cover border border-slate-100 dark:border-slate-700 flex-shrink-0">
+              <div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white font-heading leading-tight">Meera Kapoor</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Spine &amp; Posture Care, Mumbai</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3: Arjun Nambiar -->
+          <div class="p-6 sm:p-7 rounded-3xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-amber-400 text-base mb-4">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <p class="text-slate-700 dark:text-slate-200 text-sm leading-relaxed mb-6">
+                "My mother regained her balance and independent walking in just 8 weeks with Dr. Priya's neuro-rehab care. The compassionate one-on-one attention made all the difference in her confidence."
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-700/80 flex items-center gap-3">
+              <img src="assets/images/testimonials/arjun-nambiar.jpg" alt="Arjun Nambiar" class="w-11 h-11 rounded-full object-cover border border-slate-100 dark:border-slate-700 flex-shrink-0">
+              <div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white font-heading leading-tight">Arjun Nambiar</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Neuro &amp; Gait Recovery, Chennai</p>
+              </div>
             </div>
           </div>
 
