@@ -48,34 +48,10 @@
   <link rel="icon" type="image/svg+xml" href="../assets/images/logo-mark.svg">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    /* Custom Scrollbar & Active Portal States */
+    /* Premium scrollbars */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.3); border-radius: 9999px; }
-    .portal-nav-item {
-      position: relative;
-      border-radius: 0 1rem 1rem 0 !important;
-      border-left: 4px solid transparent !important;
-      padding: 0.65rem 1rem !important;
-      transition: all 0.2s ease !important;
-    }
-    .portal-nav-item:hover {
-      background-color: rgba(241, 245, 249, 0.7);
-    }
-    .dark .portal-nav-item:hover {
-      background-color: rgba(30, 41, 59, 0.5);
-    }
-    .portal-nav-item.active {
-      background-color: rgba(15, 118, 110, 0.08) !important;
-      color: #0F766E !important;
-      font-weight: 700 !important;
-      border-left: 4px solid #0F766E !important;
-    }
-    .dark .portal-nav-item.active {
-      background-color: rgba(20, 184, 166, 0.12) !important;
-      color: #2DD4BF !important;
-      border-left: 4px solid #2DD4BF !important;
-    }
   </style>
 </head>
 <body class="bg-[#F8FAFC] dark:bg-[#0B1220] text-slate-600 dark:text-slate-300 font-sans antialiased">
@@ -85,11 +61,11 @@
     <!-- Mobile Sidebar Drawer Backdrop -->
     <div id="mobile-sidebar-backdrop" onclick="toggleMobileSidebar()" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden md:hidden"></div>
 
-    <!-- Patient Portal Sidebar (300px fixed width, structured categories) -->
-    <aside id="portal-sidebar" class="portal-sidebar fixed inset-y-0 left-0 z-50 w-[300px] bg-white dark:bg-[#151F2E] border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between transition-transform duration-300 -translate-x-full md:translate-x-0 md:sticky md:top-0 h-screen overflow-y-auto">
+        <!-- Patient Sidebar (250px minimal patient experience) -->
+    <aside id="portal-sidebar" class="portal-sidebar fixed inset-y-0 left-0 z-50 w-[250px] bg-white dark:bg-[#151F2E] border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between transition-transform duration-300 -translate-x-full md:translate-x-0 md:sticky md:top-0 h-screen overflow-y-auto">
       <div>
-        <!-- Brand Logo Header (Aligned with Navbar 72px Height & Generous Corner Padding) -->
-        <div class="h-[72px] px-7 border-b border-slate-200/80 dark:border-slate-800 flex items-center justify-between shrink-0">
+        <!-- Logo Area (70px height) -->
+        <div class="h-[70px] px-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between shrink-0">
           <a href="../index.html" class="flex items-center gap-2 group">
             <img src="../assets/images/logo.svg" alt="PhysioCare" class="h-8 w-auto dark:hidden">
             <img src="../assets/images/logo-white.svg" alt="PhysioCare" class="h-8 w-auto hidden dark:block">
@@ -97,114 +73,105 @@
           <button onclick="toggleMobileSidebar()" class="md:hidden text-slate-400 hover:text-slate-600 text-lg">&times;</button>
         </div>
 
-        <div class="p-6 space-y-6">
-
-        <!-- Sidebar Navigation Sections (Clean flat structure matching modern dashboards) -->
-        <nav class="space-y-1.5 text-xs">
-          <button onclick="switchTab('overview')" class="w-full portal-nav-item active flex items-center gap-3 font-semibold transition" id="ptab-btn-overview">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-            </svg>
-            <span>Overview</span>
-          </button>
-
-          <button onclick="switchTab('appointments')" class="w-full portal-nav-item flex items-center gap-3 font-semibold transition" id="ptab-btn-appointments">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-            </svg>
-            <span>My Appointments</span>
-          </button>
-
-          <button onclick="switchTab('plans')" class="w-full portal-nav-item flex items-center gap-3 font-semibold transition" id="ptab-btn-plans">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-            <span>My Treatment Plan</span>
-          </button>
-
-          <button onclick="switchTab('recovery')" class="w-full portal-nav-item flex items-center gap-3 font-semibold transition" id="ptab-btn-recovery">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-            </svg>
-            <span>Recovery Progress</span>
-          </button>
-
-          <button onclick="switchTab('therapist')" class="w-full portal-nav-item flex items-center gap-3 font-semibold transition" id="ptab-btn-therapist">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-            </svg>
-            <span>My Therapist</span>
-          </button>
-
-          <button onclick="switchTab('records')" class="w-full portal-nav-item flex items-center gap-3 font-semibold transition" id="ptab-btn-records">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-            <span>Medical Records</span>
-          </button>
-
-          <button onclick="switchTab('exercises')" class="w-full portal-nav-item flex items-center gap-3 font-semibold transition" id="ptab-btn-exercises">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Exercise Programs</span>
-          </button>
-
-          <button onclick="switchTab('payments')" class="w-full portal-nav-item flex items-center gap-3 font-semibold transition" id="ptab-btn-payments">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
-            </svg>
-            <span>Payments & Invoices</span>
-          </button>
-
-          <button onclick="switchTab('messages')" class="w-full portal-nav-item flex items-center gap-3 font-semibold transition" id="ptab-btn-messages">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
-            </svg>
-            <div class="flex items-center justify-between flex-1">
-              <span>Messages</span>
-              <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-300">1</span>
+        <!-- Navigation Sections -->
+        <div class="p-3.5 space-y-4">
+          
+          <!-- SECTION 1: MENU -->
+          <div>
+            <p class="px-3 text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5">Menu</p>
+            <div class="space-y-1">
+              <button onclick="switchTab('overview')" class="w-full portal-nav-item active flex items-center gap-3 px-3 rounded-xl transition" id="ptab-btn-overview">
+                <svg class="w-[18px] h-[18px] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+                <span>Overview</span>
+              </button>
+              <button onclick="switchTab('appointments')" class="w-full portal-nav-item flex items-center gap-3 px-3 rounded-xl transition" id="ptab-btn-appointments">
+                <svg class="w-[18px] h-[18px] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <span>Appointments</span>
+              </button>
+              <button onclick="switchTab('plans')" class="w-full portal-nav-item flex items-center gap-3 px-3 rounded-xl transition" id="ptab-btn-plans">
+                <svg class="w-[18px] h-[18px] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                <span>My Treatment</span>
+              </button>
+              <button onclick="switchTab('recovery')" class="w-full portal-nav-item flex items-center gap-3 px-3 rounded-xl transition" id="ptab-btn-recovery">
+                <svg class="w-[18px] h-[18px] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                </svg>
+                <span>Recovery Progress</span>
+              </button>
+              <button onclick="switchTab('therapist')" class="w-full portal-nav-item flex items-center gap-3 px-3 rounded-xl transition" id="ptab-btn-therapist">
+                <svg class="w-[18px] h-[18px] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+                <span>My Therapist</span>
+              </button>
             </div>
-          </button>
+          </div>
 
-          <button onclick="switchTab('profile')" class="w-full portal-nav-item flex items-center gap-3 font-semibold transition" id="ptab-btn-profile">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Profile</span>
-          </button>
+          <!-- SECTION 2: ACCOUNT -->
+          <div>
+            <p class="px-3 text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5">Account</p>
+            <div class="space-y-1">
+              <button onclick="switchTab('records')" class="w-full portal-nav-item flex items-center gap-3 px-3 rounded-xl transition" id="ptab-btn-records">
+                <svg class="w-[18px] h-[18px] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+                <span>Medical Records</span>
+              </button>
+              <button onclick="switchTab('payments')" class="w-full portal-nav-item flex items-center gap-3 px-3 rounded-xl transition" id="ptab-btn-payments">
+                <svg class="w-[18px] h-[18px] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                </svg>
+                <span>Payments</span>
+              </button>
+              <button onclick="switchTab('profile')" class="w-full portal-nav-item flex items-center gap-3 px-3 rounded-xl transition" id="ptab-btn-profile">
+                <svg class="w-[18px] h-[18px] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+                <span>My Profile</span>
+              </button>
+              <button onclick="switchTab('settings')" class="w-full portal-nav-item flex items-center gap-3 px-3 rounded-xl transition" id="ptab-btn-settings">
+                <svg class="w-[18px] h-[18px] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span>Settings</span>
+              </button>
+            </div>
+          </div>
 
-          <button onclick="switchTab('settings')" class="w-full portal-nav-item flex items-center gap-3 font-semibold transition" id="ptab-btn-settings">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-            <span>Settings</span>
-          </button>
-
-          <button onclick="switchTab('help')" class="w-full portal-nav-item flex items-center gap-3 font-semibold transition" id="ptab-btn-help">
-            <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
-            </svg>
-            <span>Help & Support</span>
-          </button>
-        </nav>
         </div>
       </div>
 
-      <!-- Logout & Clinic Switch Link -->
-      <div class="p-4 border-t border-slate-200 dark:border-slate-800 space-y-2">
-        <a href="../admin/index.html" class="flex items-center gap-2 px-3 py-2 rounded-xl text-[11px] font-semibold text-slate-500 hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition">
+      <!-- Bottom Profile & Logout -->
+      <div class="p-3.5 border-t border-slate-100 dark:border-slate-800 space-y-2">
+        <!-- Profile Info -->
+        <div class="px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-teal-700 text-white font-bold text-xs flex items-center justify-center shrink-0">
+            PK
+          </div>
+          <div class="min-w-0 flex-1 leading-tight">
+            <p class="text-xs font-bold text-slate-900 dark:text-white truncate">Pravin Kumar</p>
+            <p class="text-[10px] text-teal-700 dark:text-teal-400 font-medium">Patient #PAT-101</p>
+          </div>
+        </div>
+
+        <!-- Role Switch & Logout -->
+        <a href="../admin/index.html" class="w-full h-[38px] flex items-center gap-2.5 px-3 rounded-xl text-xs font-semibold text-slate-500 hover:text-slate-800 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60 transition">
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
           </svg>
-          <span>Switch to Admin View</span>
+          <span>Switch to Admin</span>
         </a>
-        <button onclick="handleLogout()" class="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-[11px] font-semibold text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition">
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <button onclick="handleLogout()" class="w-full h-[44px] flex items-center gap-2.5 px-3 rounded-xl text-[14px] font-semibold text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition text-left">
+          <svg class="w-[18px] h-[18px] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
           </svg>
-          <span>Sign Out</span>
+          <span>Logout</span>
         </button>
       </div>
     </aside>
