@@ -215,14 +215,14 @@
       </a>
     </div>
   </div>
-    <main class="flex-grow pt-20" id="service-detail-container">
+      <main class="flex-grow pt-20" id="service-detail-container">
     
-    <!-- 1. Hero Section - Simplified, Elegant & Focused -->
+    <!-- 1. Hero Section - Pure, Minimal & Focused (No Multiple Buttons) -->
     <section class="py-12 lg:py-16 bg-gradient-to-b from-teal-50/50 via-white to-[#F5F7FA] dark:from-[#0c141d] dark:via-[#090D12] dark:to-[#090D12] border-b border-slate-100 dark:border-slate-800/80">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          <!-- Hero Text & Primary Action (60% width) -->
+          <!-- Hero Text (No extra buttons - Clean typography) -->
           <div class="lg:col-span-7 space-y-5">
             <!-- Breadcrumb Navigation -->
             <nav class="flex items-center gap-2 text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-widest" aria-label="Breadcrumb">
@@ -258,17 +258,9 @@
                 <span>Personalized treatment</span>
               </div>
             </div>
-
-            <!-- Single Clean Hero CTA Button -->
-            <div class="pt-2">
-              <a href="appointment.html?service=orthopedic&doctor=Dr.+Marcus+Chen" id="sd-hero-book-btn" class="btn-primary inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-bold shadow-sm transition">
-                <span>Book an Assessment</span>
-                <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-              </a>
-            </div>
           </div>
 
-          <!-- Hero Image: Larger with Consistent Aspect Ratio (no stickers/badges) -->
+          <!-- Hero Image: Larger with Consistent Aspect Ratio -->
           <div class="lg:col-span-5">
             <div class="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 aspect-[4/3] sm:aspect-[16/11]">
               <img id="sd-img" src="assets/images/services/orthopedic-pathway.jpg" alt="Orthopedic Physiotherapy" class="w-full h-full object-cover object-center transition duration-500 hover:scale-105">
@@ -279,13 +271,13 @@
       </div>
     </section>
 
-    <!-- 2. Main Content & Right-Side Booking Card -->
+    <!-- 2. Main Content & Right-Side Therapist Booking Card -->
     <section class="py-12 lg:py-16 bg-[#F5F7FA] dark:bg-[#090D12]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
-          <!-- Left Column: Clean Layout with 4 Sections + Specialist (65-70% width) -->
-          <div class="lg:col-span-8 bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200/70 dark:border-slate-800/80 shadow-xs space-y-12">
+          <!-- Left Column: Treatment Overview & Treatment Progress (lg:col-span-7) -->
+          <div class="lg:col-span-7 bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200/70 dark:border-slate-800/80 shadow-xs space-y-12">
             
             <!-- Section 01 – Treatment Overview -->
             <div class="space-y-4">
@@ -324,49 +316,7 @@
               </div>
             </div>
 
-            <!-- Section 02 – Treatments Included (Simple Two-Column List) -->
-            <div class="space-y-4 pt-8 border-t border-slate-100 dark:border-slate-800">
-              <h2 class="text-2xl sm:text-[26px] font-bold text-slate-900 dark:text-white font-heading">
-                Therapies &amp; Treatment Techniques
-              </h2>
-              
-              <!-- Two-column clean list without large separate cards -->
-              <div class="grid sm:grid-cols-2 gap-x-8 gap-y-4 pt-1" id="sd-therapies-grid">
-                <div class="flex items-start gap-3">
-                  <span class="w-5 h-5 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</span>
-                  <div>
-                    <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">Manual Mobilization</h4>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">Hands-on joint glide and myofascial easing.</p>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-3">
-                  <span class="w-5 h-5 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</span>
-                  <div>
-                    <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">Therapeutic Exercise</h4>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">Active kinesiology resistance to rebuild stabilizing muscle groups.</p>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-3">
-                  <span class="w-5 h-5 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</span>
-                  <div>
-                    <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">Biomechanical Assessment</h4>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">Computerized posture and dynamic movement screening.</p>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-3">
-                  <span class="w-5 h-5 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</span>
-                  <div>
-                    <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">Joint &amp; Muscle Rehabilitation</h4>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">Structured reconditioning guarding against future re-injury.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Section 03 – Your Treatment Process (Simple Vertical Timeline) -->
+            <!-- Section 02 – Your Treatment Process (Simple Vertical Timeline) -->
             <div class="space-y-5 pt-8 border-t border-slate-100 dark:border-slate-800">
               <h2 class="text-2xl sm:text-[26px] font-bold text-slate-900 dark:text-white font-heading">
                 How Your Treatment Progresses
@@ -410,76 +360,44 @@
               </div>
             </div>
 
-            <!-- Section 04 – Conditions We Help Manage (Clean 2-Column Text List) -->
-            <div class="space-y-4 pt-8 border-t border-slate-100 dark:border-slate-800">
-              <h2 class="text-2xl sm:text-[26px] font-bold text-slate-900 dark:text-white font-heading">
-                Conditions This Treatment May Help With
-              </h2>
-              
-              <!-- 2 columns on desktop, 1 column on mobile -->
-              <div class="grid sm:grid-cols-2 gap-y-3.5 gap-x-6 pt-1" id="sd-conditions-grid">
-                <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
-                  <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0"></span>
-                  <span>Shoulder pain and stiffness</span>
-                </div>
-                <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
-                  <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0"></span>
-                  <span>Knee and joint discomfort</span>
-                </div>
-                <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
-                  <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0"></span>
-                  <span>Back and neck pain</span>
-                </div>
-                <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
-                  <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0"></span>
-                  <span>Sports-related injuries</span>
-                </div>
-                <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
-                  <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0"></span>
-                  <span>Muscle strains and sprains</span>
-                </div>
-                <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
-                  <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0"></span>
-                  <span>Post-surgical mobility limitations</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Section 05 – Therapist Information (Prominent Doctor Profile, No Duplicate Button) -->
-            <div class="pt-8 border-t border-slate-100 dark:border-slate-800" id="sd-therapist-card">
-              <span class="text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider block mb-3">Treating Clinical Specialist</span>
-              <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 p-5 sm:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
-                <img id="sd-therapist-img" src="assets/images/team/marcus-chen.jpg" alt="Dr. Marcus Chen" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover object-top border-2 border-teal-600/30 shadow-sm shrink-0">
-                <div class="space-y-1 text-center sm:text-left">
-                  <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white font-heading" id="sd-therapist-name">Dr. Marcus Chen</h3>
-                    <span class="text-[11px] font-semibold text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/80 px-2.5 py-0.5 rounded-full border border-teal-200/60 dark:border-teal-800">Verified Specialist</span>
-                  </div>
-                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-medium" id="sd-therapist-role">Senior Physiotherapist &bull; Orthopedic Rehabilitation</p>
-                  <p class="text-xs text-slate-500 dark:text-slate-400 pt-0.5">Direct 1-on-1 doctoral care in private suites. No overlapping patients.</p>
-                </div>
-              </div>
-            </div>
-
           </div>
 
-          <!-- 3. Right-Side Booking Card (Clean, Focused, Sticky on Desktop - 30-35% width) -->
-          <div class="lg:col-span-4 space-y-6">
-            <div class="card-base p-6 sm:p-8 space-y-6 sticky top-28 shadow-xl border border-slate-200/80 dark:border-slate-800">
+          <!-- Right Column: Therapist Shown Big + Only One Button (lg:col-span-5) -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="card-base p-6 sm:p-8 space-y-6 sticky top-28 shadow-xl border border-slate-200/80 dark:border-slate-800" id="sd-booking-card">
               
-              <div class="space-y-1">
-                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white font-heading">Schedule Your Assessment</h3>
-                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Start with an individual consultation.</p>
+              <!-- Therapist Shown Big on Right Side -->
+              <div class="space-y-4 pb-6 border-b border-slate-100 dark:border-slate-800" id="sd-therapist-card">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">Treating Specialist</span>
+                  <span class="text-[11px] font-semibold text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/80 px-2.5 py-0.5 rounded-full border border-teal-200/60 dark:border-teal-800">Verified Specialist</span>
+                </div>
+
+                <div class="flex items-center gap-4 sm:gap-5">
+                  <img id="sd-therapist-img" src="assets/images/team/marcus-chen.jpg" alt="Dr. Marcus Chen" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover object-top border-2 border-teal-600/30 shadow-md shrink-0">
+                  <div class="space-y-1">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white font-heading" id="sd-therapist-name">Dr. Marcus Chen</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-medium" id="sd-therapist-role">Senior Physiotherapist &bull; Orthopedic Rehabilitation</p>
+                    <p class="text-[11px] text-teal-700 dark:text-teal-400 font-semibold pt-0.5">Direct 1-on-1 doctoral care in private suites</p>
+                  </div>
+                </div>
               </div>
 
-              <!-- Starting From Price -->
-              <div class="p-4 sm:p-5 rounded-2xl bg-teal-50/80 dark:bg-teal-950/40 border border-teal-100 dark:border-teal-900/60 space-y-1">
-                <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Starting from</span>
-                <div class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white" id="sidebar-price">₹1,499</div>
-                <p class="text-[11px] text-teal-800 dark:text-teal-300 font-medium">Illustrative demo price / session</p>
+              <!-- Assessment Title & Starting From Price -->
+              <div class="space-y-2">
+                <div class="space-y-1">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Schedule Your Assessment</h3>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Start with an individual consultation.</p>
+                </div>
+
+                <div class="p-4 sm:p-5 rounded-2xl bg-teal-50/80 dark:bg-teal-950/40 border border-teal-100 dark:border-teal-900/60 space-y-1">
+                  <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Starting from</span>
+                  <div class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white" id="sidebar-price">₹1,499</div>
+                  <p class="text-[11px] text-teal-800 dark:text-teal-300 font-medium">Illustrative demo price / session</p>
+                </div>
               </div>
 
-              <!-- What's Included -->
+              <!-- What's Included Checklist -->
               <div class="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300 pt-1">
                 <div class="font-bold text-slate-900 dark:text-white text-xs uppercase tracking-wider">What's included</div>
                 <div class="flex items-center gap-2.5">
@@ -496,7 +414,7 @@
                 </div>
               </div>
 
-              <!-- One Primary Booking Card Button -->
+              <!-- ONLY ONE PRIMARY BUTTON ON THE PAGE -->
               <div class="pt-2">
                 <a href="appointment.html?service=orthopedic&doctor=Dr.+Marcus+Chen" id="sidebar-book-btn" class="btn-primary w-full justify-center py-4 text-sm font-bold shadow-md">
                   <span>Book This Treatment</span>
@@ -641,7 +559,7 @@
         imgEl.alt = s.title;
       }
 
-      // Update Overview Heading & Text if other service
+      // Update Overview Heading & Text
       const overviewHeading = document.getElementById('sd-overview-heading');
       if (overviewHeading && s.id !== 'orthopedic') {
         overviewHeading.textContent = `What Is ${s.title}?`;
@@ -651,12 +569,9 @@
         descEl.textContent = s.fullDesc || s.shortDesc;
       }
 
-      // Update Booking URLs for the Two Main CTAs (Hero & Sticky Sidebar)
+      // Update Booking URL for the Single Booking Button on the Right Side
       const docQuery = s.therapist ? `&doctor=${encodeURIComponent(s.therapist.name)}` : '';
       const bookUrl = `appointment.html?service=${encodeURIComponent(s.id)}${docQuery}`;
-      
-      const heroBtn = document.getElementById('sd-hero-book-btn');
-      if (heroBtn) heroBtn.href = bookUrl;
       
       const sidebarBtn = document.getElementById('sidebar-book-btn');
       if (sidebarBtn) sidebarBtn.href = bookUrl;
@@ -665,7 +580,7 @@
       const priceEl = document.getElementById('sidebar-price');
       if (priceEl) priceEl.textContent = s.price;
 
-      // Specialist Details (Compact, Big Picture)
+      // Specialist Details (Prominent Right-Side Display)
       if (s.therapist) {
         const docName = document.getElementById('sd-therapist-name');
         if (docName) docName.textContent = s.therapist.name;
@@ -675,31 +590,6 @@
         
         const docImg = document.getElementById('sd-therapist-img');
         if (docImg && s.therapist.photo) docImg.src = s.therapist.photo;
-      }
-
-      // Dynamic Therapies List (if custom therapies exist and not default orthopedic)
-      const therapiesGrid = document.getElementById('sd-therapies-grid');
-      if (therapiesGrid && s.id !== 'orthopedic' && s.therapies) {
-        therapiesGrid.innerHTML = s.therapies.map(t => `
-          <div class="flex items-start gap-3">
-            <span class="w-5 h-5 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</span>
-            <div>
-              <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">${t.name}</h4>
-              <p class="text-xs text-slate-500 dark:text-slate-400">${t.desc}</p>
-            </div>
-          </div>
-        `).join('');
-      }
-
-      // Dynamic Conditions List (if not default orthopedic)
-      const conditionsGrid = document.getElementById('sd-conditions-grid');
-      if (conditionsGrid && s.id !== 'orthopedic' && s.conditions) {
-        conditionsGrid.innerHTML = s.conditions.map(c => `
-          <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
-            <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0"></span>
-            <span>${c}</span>
-          </div>
-        `).join('');
       }
 
       // Dynamic Protocol Timeline (if not default orthopedic)
