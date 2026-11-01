@@ -279,19 +279,124 @@
             </div>
           </div>
           
-          <!-- Right Image with Rounded Corners & Decorative Element -->
+          <!-- Right: Book Page Translation Slider (5 Images, Translates Every 5 Seconds) -->
           <div class="lg:col-span-5 relative">
             <div class="relative mx-auto max-w-md lg:max-w-none">
               <!-- Background Ambient Glow -->
               <div class="absolute -inset-2 bg-gradient-to-tr from-teal-500/20 to-teal-200/30 dark:from-teal-900/30 dark:to-teal-500/10 rounded-[32px] blur-xl -z-10"></div>
               
-              <!-- Main Rounded Photograph -->
-              <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-800">
-                <img src="assets/images/about/hero-about.jpg" alt="PhysioCare consultation and patient rehabilitation" class="w-full h-[420px] sm:h-[480px] object-cover">
+              <!-- Book Slider Frame with Page Border & Spine Depth -->
+              <div id="hero-book-carousel" class="group relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-900 h-[420px] sm:h-[480px]">
+                
+                <!-- Sliding Track (Translates 100% per slide) -->
+                <div id="hero-slider-track" class="flex w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform">
+                  
+                  <!-- Page 1 -->
+                  <div class="w-full h-full flex-shrink-0 relative overflow-hidden">
+                    <img src="assets/images/about/hero-slider/slide-1.jpg" alt="1-on-1 Clinical Assessment" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/30"></div>
+                    <div class="absolute top-4 left-4 z-20">
+                      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/70 backdrop-blur-md border border-white/20 text-white text-xs font-semibold shadow-md">
+                        <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+                        <span class="text-teal-300 font-bold">01</span>
+                        <span>Clinical Evaluation</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Page 2 -->
+                  <div class="w-full h-full flex-shrink-0 relative overflow-hidden">
+                    <img src="assets/images/about/hero-slider/slide-2.jpg" alt="Personalized Treatment Plan" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/30"></div>
+                    <div class="absolute top-4 left-4 z-20">
+                      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/70 backdrop-blur-md border border-white/20 text-white text-xs font-semibold shadow-md">
+                        <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+                        <span class="text-teal-300 font-bold">02</span>
+                        <span>Recovery Protocols</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Page 3 -->
+                  <div class="w-full h-full flex-shrink-0 relative overflow-hidden">
+                    <img src="assets/images/about/hero-slider/slide-3.jpg" alt="Active Movement Guidance" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/30"></div>
+                    <div class="absolute top-4 left-4 z-20">
+                      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/70 backdrop-blur-md border border-white/20 text-white text-xs font-semibold shadow-md">
+                        <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+                        <span class="text-teal-300 font-bold">03</span>
+                        <span>Guided Movement</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Page 4 -->
+                  <div class="w-full h-full flex-shrink-0 relative overflow-hidden">
+                    <img src="assets/images/about/hero-slider/slide-4.jpg" alt="Doctor Consultation &amp; Care History" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/30"></div>
+                    <div class="absolute top-4 left-4 z-20">
+                      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/70 backdrop-blur-md border border-white/20 text-white text-xs font-semibold shadow-md">
+                        <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+                        <span class="text-teal-300 font-bold">04</span>
+                        <span>Doctor Consultation</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Page 5 -->
+                  <div class="w-full h-full flex-shrink-0 relative overflow-hidden">
+                    <img src="assets/images/about/hero-slider/slide-5.jpg" alt="Lifelong Mobility &amp; Independence" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/30"></div>
+                    <div class="absolute top-4 left-4 z-20">
+                      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/70 backdrop-blur-md border border-white/20 text-white text-xs font-semibold shadow-md">
+                        <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+                        <span class="text-teal-300 font-bold">05</span>
+                        <span>Active Independence</span>
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Book Spine / Page Fold Gradient Depth (Visual book effect) -->
+                <div class="absolute inset-y-0 left-0 w-8 pointer-events-none bg-gradient-to-r from-black/35 via-black/10 to-transparent z-10"></div>
+                <div class="absolute inset-y-0 right-0 w-6 pointer-events-none bg-gradient-to-l from-black/20 to-transparent z-10"></div>
+
+                <!-- Top Page Counter Badge -->
+                <div class="absolute top-4 right-4 z-20">
+                  <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/70 backdrop-blur-md border border-white/20 text-white text-xs font-semibold shadow-md">
+                    <span id="hero-slide-num" class="text-teal-300 font-bold">1</span>
+                    <span class="text-white/60">/</span>
+                    <span class="text-white/80">5</span>
+                  </div>
+                </div>
+
+                <!-- Progress Timer Bar (5-second countdown) -->
+                <div class="absolute top-0 left-0 right-0 h-1 bg-white/10 z-20">
+                  <div id="hero-slide-progress" class="h-full bg-teal-400 transition-all duration-100 ease-linear" style="width: 0%;"></div>
+                </div>
+
+                <!-- Interactive Pagination Dots (Bottom Right) -->
+                <div class="absolute bottom-4 right-4 z-20 flex items-center gap-1.5 bg-slate-950/60 backdrop-blur-md px-2.5 py-1.5 rounded-full border border-white/15">
+                  <button type="button" class="hero-dot w-5 h-2 rounded-full bg-teal-400 transition-all duration-300" aria-label="Page 1" data-slide="0"></button>
+                  <button type="button" class="hero-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all duration-300" aria-label="Page 2" data-slide="1"></button>
+                  <button type="button" class="hero-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all duration-300" aria-label="Page 3" data-slide="2"></button>
+                  <button type="button" class="hero-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all duration-300" aria-label="Page 4" data-slide="3"></button>
+                  <button type="button" class="hero-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all duration-300" aria-label="Page 5" data-slide="4"></button>
+                </div>
+
+                <!-- Navigation Arrow Buttons (Visible on hover) -->
+                <button type="button" id="hero-slider-prev" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-slate-950/60 hover:bg-teal-700 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 border border-white/20 shadow-lg backdrop-blur-sm" aria-label="Previous page">
+                  <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button type="button" id="hero-slider-next" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-slate-950/60 hover:bg-teal-700 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 border border-white/20 shadow-lg backdrop-blur-sm" aria-label="Next page">
+                  <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                </button>
+
               </div>
               
-              <!-- Decorative Brand Element: Floating Badge -->
-              <div class="absolute -bottom-5 sm:-bottom-6 -left-3 sm:-left-6 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl shadow-xl border border-slate-200/90 dark:border-slate-700/80 flex items-center gap-3.5 max-w-[280px]">
+              <!-- Decorative Brand Element: Floating Badge (Positioned over bottom-left) -->
+              <div class="absolute -bottom-5 sm:-bottom-6 -left-3 sm:-left-6 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl shadow-xl border border-slate-200/90 dark:border-slate-700/80 flex items-center gap-3.5 max-w-[280px] z-30 pointer-events-auto">
                 <div class="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center flex-shrink-0">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                 </div>
@@ -762,5 +867,130 @@
   <script src="assets/js/demo-data.js"></script>
   <script src="assets/js/storage.js"></script>
   <script src="assets/js/app.js"></script>
+  <!-- Hero Book Page Translation Slider (5s Auto-Translate) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const track = document.getElementById('hero-slider-track');
+      if (!track) return;
+
+      const dots = document.querySelectorAll('.hero-dot');
+      const counter = document.getElementById('hero-slide-num');
+      const progress = document.getElementById('hero-slide-progress');
+      const prevBtn = document.getElementById('hero-slider-prev');
+      const nextBtn = document.getElementById('hero-slider-next');
+      const container = document.getElementById('hero-book-carousel');
+
+      const totalSlides = 5;
+      let currentSlide = 0;
+      const intervalTime = 5000;
+      let timer = null;
+      let progressTimer = null;
+      let progressStartTime = Date.now();
+      let isPaused = false;
+
+      function updateSlider(index) {
+        currentSlide = (index + totalSlides) % totalSlides;
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+        // Update counter
+        if (counter) counter.textContent = currentSlide + 1;
+
+        // Update dots
+        dots.forEach((dot, i) => {
+          if (i === currentSlide) {
+            dot.classList.remove('w-2', 'bg-white/50');
+            dot.classList.add('w-5', 'bg-teal-400');
+          } else {
+            dot.classList.remove('w-5', 'bg-teal-400');
+            dot.classList.add('w-2', 'bg-white/50');
+          }
+        });
+
+        // Reset progress bar
+        resetProgress();
+      }
+
+      function resetProgress() {
+        if (progress) progress.style.width = '0%';
+        progressStartTime = Date.now();
+      }
+
+      function stepProgress() {
+        if (!isPaused && progress) {
+          const elapsed = Date.now() - progressStartTime;
+          const pct = Math.min(100, (elapsed / intervalTime) * 100);
+          progress.style.width = `${pct}%`;
+        }
+        progressTimer = requestAnimationFrame(stepProgress);
+      }
+
+      function startAutoSlide() {
+        clearInterval(timer);
+        resetProgress();
+        timer = setInterval(() => {
+          if (!isPaused) {
+            updateSlider(currentSlide + 1);
+          }
+        }, intervalTime);
+      }
+
+      // Button controls
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          updateSlider(currentSlide + 1);
+          startAutoSlide();
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          updateSlider(currentSlide - 1);
+          startAutoSlide();
+        });
+      }
+
+      // Dot click controls
+      dots.forEach((dot) => {
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const idx = parseInt(dot.getAttribute('data-slide'), 10);
+          updateSlider(idx);
+          startAutoSlide();
+        });
+      });
+
+      // Pause on hover
+      if (container) {
+        container.addEventListener('mouseenter', () => { isPaused = true; });
+        container.addEventListener('mouseleave', () => {
+          isPaused = false;
+          progressStartTime = Date.now() - ((parseFloat(progress?.style.width || '0') / 100) * intervalTime);
+        });
+
+        // Touch swipe support on mobile
+        let touchStartX = 0;
+        container.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        container.addEventListener('touchend', (e) => {
+          const touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0) updateSlider(currentSlide + 1);
+            else updateSlider(currentSlide - 1);
+            startAutoSlide();
+          }
+        }, { passive: true });
+      }
+
+      // Initialize
+      updateSlider(0);
+      startAutoSlide();
+      progressTimer = requestAnimationFrame(stepProgress);
+    });
+  </script>
 </body>
 </html>
