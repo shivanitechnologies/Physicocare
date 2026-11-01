@@ -312,6 +312,49 @@
       </div>
     </section>
 
+    <!-- Clinical Treatment Pathways: Step-by-Step Recovery Walkthrough -->
+    <section class="py-20 lg:py-28 bg-white dark:bg-[#0c1219]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 dark:bg-teal-400/10 border border-teal-600/20 dark:border-teal-400/20 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider shadow-2xs">
+            <span class="w-2 h-2 rounded-full bg-teal-600 dark:bg-teal-400"></span>
+            <span>Clinical Pathways &bull; How We Solve Pain</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white font-heading tracking-tight">
+            How Our Therapies Restore Your Movement
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+            Every recovery is an exact science. See step-by-step how our doctoral therapists evaluate, relieve, and rehabilitate each condition in private 1-on-1 suites.
+          </p>
+        </div>
+
+        <!-- Dynamic Alternating Pathways Container -->
+        <div id="treatment-pathways-container" class="space-y-20 lg:space-y-28">
+          <!-- Populated dynamically via renderTreatmentPathways() -->
+        </div>
+
+        <!-- Bottom Reassurance Banner -->
+        <div class="mt-20 p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-teal-50 via-white to-teal-50/40 dark:from-slate-900 dark:via-slate-900/90 dark:to-slate-900 border border-teal-100 dark:border-slate-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="space-y-2 text-center md:text-left">
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-heading">Not sure which therapy pathway you need?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-xl">
+              Schedule a comprehensive 1-on-1 doctoral assessment. Our licensed physical therapists will evaluate your movement and construct your custom care plan.
+            </p>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <a href="appointment.html" class="btn-primary">
+              <span>Book Doctoral Assessment &rarr;</span>
+            </a>
+            <a href="contact.html" class="btn-secondary">
+              <span>Ask a Question</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
   </main>
 
   <script>
@@ -354,8 +397,261 @@
       renderServices(cat);
     }
 
+        // Structured Treatment Pathways Dataset for Step-by-Step Walkthrough
+    window.PhysioTreatmentPathways = [
+      {
+        id: "orthopedic",
+        category: "Musculoskeletal & Joint Care",
+        title: "How We Relieve Joint Stiffness & Rebuild Musculoskeletal Function",
+        description: "Targeting arthritis, meniscus tears, frozen shoulder, and chronic muscle pain through progressive clinical biomechanics and private 1-on-1 care.",
+        image: "assets/images/services/orthopedic-pathway.jpg",
+        imageAlt: "Physiotherapist providing hands-on manual joint mobilization therapy",
+        badgeTop: "Manual Therapy Technique",
+        badgeBottom: "Private Clinical Suite",
+        therapist: {
+          name: "Dr. Marcus Chen",
+          credentials: "DPT, OCS",
+          role: "Lead Orthopedic Physical Therapist",
+          avatar: "assets/images/team/marcus-chen.jpg"
+        },
+        steps: [
+          {
+            num: "01",
+            title: "Biomechanical Joint Evaluation",
+            desc: "Precision range-of-motion scan, joint-play examination, and digital posture mapping to locate the exact source of restriction."
+          },
+          {
+            num: "02",
+            title: "Targeted Manual Joint Mobilization",
+            desc: "Gentle oscillatory traction and myofascial release delivered hands-on in private suites to relieve pain and restore fluid articulation."
+          },
+          {
+            num: "03",
+            title: "Kinetic Strengthening & Movement Retraining",
+            desc: "Tailored resistance drills to reinforce stabilizing muscles, eliminate compensatory habits, and guard against future joint strain."
+          }
+        ],
+        actionText: "Book Joint Assessment",
+        actionLink: "appointment.html"
+      },
+      {
+        id: "sports",
+        category: "Sports Performance & Injury Return",
+        title: "How We Return Athletes to Peak Performance Safely",
+        description: "Phase-gated return-to-play protocols for ACL sprains, rotator cuff tears, shin splints, and athletic conditioning — building durable power.",
+        image: "assets/images/services/sports-pathway.jpg",
+        imageAlt: "Physiotherapist guiding athlete through resistance band recovery exercises",
+        badgeTop: "Kinetic Return-to-Play",
+        badgeBottom: "16-Week Safe Recovery",
+        therapist: {
+          name: "Dr. Elena Vance",
+          credentials: "PT, DPT, SCS",
+          role: "Lead Sports Physical Therapist",
+          avatar: "assets/images/team/elena-vance.jpg"
+        },
+        steps: [
+          {
+            num: "01",
+            title: "Acute Pain & Inflammation Calming",
+            desc: "Targeted therapeutic ultrasound, cold compression, and protected motion to eliminate acute swelling without loss of muscle tone."
+          },
+          {
+            num: "02",
+            title: "Dynamic Kinetic Loading & Elastic Band Therapy",
+            desc: "Progressive eccentric and concentric resistance training to safely rebuild tendon tensile capacity and joint stability."
+          },
+          {
+            num: "03",
+            title: "Sport-Specific Agility & Re-Injury Prevention",
+            desc: "High-speed deceleration drills, multi-planar cutting tests, and plyometric force absorption before clearing competitive return."
+          }
+        ],
+        actionText: "Schedule Athletic Evaluation",
+        actionLink: "appointment.html"
+      },
+      {
+        id: "spine-posture",
+        category: "Spine & Non-Surgical Decompression",
+        title: "How We Relieve Herniated Discs & Chronic Back Strain",
+        description: "Non-surgical, evidence-based relief for sciatica, lumbar spasms, tech-neck syndrome, and pinched spinal nerves without pharmaceutical dependency.",
+        image: "assets/images/services/spine-pathway.jpg",
+        imageAlt: "Tranquil private physiotherapy treatment suite with medical couch and screen",
+        badgeTop: "Non-Surgical Decompression",
+        badgeBottom: "Tranquil Private Room",
+        therapist: {
+          name: "Dr. Kimberly Adams",
+          credentials: "DPT, Cert. SMT",
+          role: "Spine & Neuromuscular Specialist",
+          avatar: "assets/images/team/kimberly-adams.jpg"
+        },
+        steps: [
+          {
+            num: "01",
+            title: "3D Spinal Alignment & Nerve Root Mapping",
+            desc: "Pinpointing vertebral compression, disc bulge direction, and dermatomal nerve irritation in complete clinical privacy."
+          },
+          {
+            num: "02",
+            title: "Gentle Axial Decompression & Manual Traction",
+            desc: "Targeted spinal elongation to create negative intra-discal pressure, allowing herniated material and inflamed nerves to calm."
+          },
+          {
+            num: "03",
+            title: "Deep Core Stabilization & Ergonomic Coaching",
+            desc: "Strengthening the transverse abdominis, multifidus, and pelvic girdle to maintain posture and prevent recurring flare-ups."
+          }
+        ],
+        actionText: "Start Spine Relief Protocol",
+        actionLink: "appointment.html"
+      },
+      {
+        id: "neurological",
+        category: "Neuro-Rehabilitation & Fall Prevention",
+        title: "How We Restore Balance, Neuro-Plasticity & Confident Walking",
+        description: "Specialized balance training for post-stroke recovery, Parkinson’s, vestibular vertigo, and senior fall-risk prevention.",
+        image: "assets/images/services/neuro-pathway.jpg",
+        imageAlt: "Specialist physiotherapist assisting senior patient walking between parallel bars with harness",
+        badgeTop: "Parallel-Bar Gait Drills",
+        badgeBottom: "Certified Fall Prevention",
+        therapist: {
+          name: "Dr. Priya Patel",
+          credentials: "PT, GCS",
+          role: "Senior Geriatric & Neuro Specialist",
+          avatar: "assets/images/team/priya-patel.jpg"
+        },
+        steps: [
+          {
+            num: "01",
+            title: "Vestibular & Dynamic Balance Assessment",
+            desc: "Screening center-of-gravity shifts, proprioceptive feedback, and foot-clearance mechanics during gait."
+          },
+          {
+            num: "02",
+            title: "Parallel-Bar Gait & Harness-Assisted Training",
+            desc: "Safe, supported weight-bearing walking drills to stimulate neuro-plastic pathways and rebuild natural stride confidence."
+          },
+          {
+            num: "03",
+            title: "Real-World Independence & Fall Prevention",
+            desc: "Obstacle step-over drills, sit-to-stand endurance, and reactive recovery strategies for confident daily living at home."
+          }
+        ],
+        actionText: "Book Mobility Evaluation",
+        actionLink: "appointment.html"
+      }
+    ];
+
+    function renderTreatmentPathways() {
+      const container = document.getElementById('treatment-pathways-container');
+      if (!container || !window.PhysioTreatmentPathways) return;
+
+      container.innerHTML = window.PhysioTreatmentPathways.map((item, index) => {
+        const isEven = index % 2 === 0;
+
+        // Content Column
+        const contentCol = `
+          <div class="lg:col-span-7 space-y-6 ${isEven ? 'order-1' : 'order-1 lg:order-2'}">
+            <!-- Category Pill -->
+            <span class="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-teal-100/70 dark:bg-teal-950/80 text-teal-800 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800">
+              ${item.category}
+            </span>
+
+            <!-- Headline & Problem Description -->
+            <div class="space-y-2">
+              <h3 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-heading leading-tight">
+                ${item.title}
+              </h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                ${item.description}
+              </p>
+            </div>
+
+            <!-- The 3 Step Cards -->
+            <div class="space-y-3">
+              ${item.steps.map(s => `
+                <div class="p-3.5 sm:p-4 rounded-2xl bg-[#F5F7FA] dark:bg-slate-900/70 border border-slate-200/70 dark:border-slate-800/80 hover:border-teal-500/50 transition flex items-start gap-3.5 group">
+                  <div class="w-8 h-8 rounded-xl bg-teal-700 text-white flex items-center justify-center font-black text-xs shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                    ${s.num}
+                  </div>
+                  <div class="space-y-1">
+                    <h4 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white font-heading">
+                      ${s.title}
+                    </h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                      ${s.desc}
+                    </p>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+
+            <!-- Therapist Lead Pill & CTA Row -->
+            <div class="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-slate-100 dark:border-slate-800/80">
+              <!-- Therapist mini card -->
+              <div class="flex items-center gap-2.5">
+                <img src="${item.therapist.avatar}" alt="${item.therapist.name}" class="w-9 h-9 rounded-full object-cover border border-teal-500/40">
+                <div>
+                  <p class="text-xs font-bold text-slate-900 dark:text-white">${item.therapist.name}, <span class="text-teal-700 dark:text-teal-400">${item.therapist.credentials}</span></p>
+                  <p class="text-[10px] text-slate-500 dark:text-slate-400">${item.therapist.role}</p>
+                </div>
+              </div>
+
+              <!-- Action Button -->
+              <a href="${item.actionLink}" class="btn-primary btn-sm">
+                <span>${item.actionText}</span>
+                <svg class="w-3.5 h-3.5 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+        `;
+
+        // Image Column
+        const imageCol = `
+          <div class="lg:col-span-5 ${isEven ? 'order-2' : 'order-2 lg:order-1'}">
+            <div class="relative group">
+              <!-- Ambient Glow behind image -->
+              <div class="absolute -inset-2 bg-gradient-to-tr from-teal-500/20 to-teal-100/10 dark:from-teal-500/10 dark:to-transparent rounded-3xl blur-xl opacity-70 group-hover:opacity-100 transition duration-500 pointer-events-none"></div>
+              
+              <!-- Image Card Container -->
+              <div class="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-800 bg-slate-100 dark:bg-slate-800">
+                <img src="${item.image}" alt="${item.imageAlt}" class="w-full h-[360px] sm:h-[420px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-80"></div>
+                
+                <!-- Top-Left Floating Badge -->
+                <div class="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-700 text-[11px] font-bold text-slate-900 dark:text-white shadow-sm">
+                  <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                  <span>${item.badgeTop}</span>
+                </div>
+
+                <!-- Bottom Floating Outcome Pill -->
+                <div class="absolute bottom-4 left-4 right-4 inline-flex items-center justify-between px-3.5 py-2 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/80 dark:border-slate-800 shadow-md">
+                  <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-xl bg-teal-100 dark:bg-teal-950/80 text-teal-700 dark:text-teal-400 flex items-center justify-center font-bold text-xs">
+                      ✓
+                    </div>
+                    <div>
+                      <p class="text-xs font-bold text-slate-900 dark:text-white">${item.badgeBottom}</p>
+                      <p class="text-[10px] text-slate-500 dark:text-slate-400">Doctor-Guided Protocol</p>
+                    </div>
+                  </div>
+                  <span class="text-[11px] font-bold text-teal-700 dark:text-teal-400">Verified &bull; 1-on-1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        return `
+          <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            ${isEven ? contentCol + imageCol : imageCol + contentCol}
+          </div>
+        `;
+      }).join('');
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       renderServices('all');
+      renderTreatmentPathways();
     });
   </script>
 
