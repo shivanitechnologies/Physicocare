@@ -144,6 +144,14 @@
             </select>
           </div>
 
+          <!-- Fresh Data Reset -->
+          <button onclick="resetToFreshData()" class="px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:text-teal-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-[11px] font-semibold transition hidden sm:flex items-center gap-1" title="Reset to clean demonstration records">
+            <svg class="w-3.5 h-3.5 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+            <span>Fresh Data</span>
+          </button>
+
           <!-- RTL Switcher -->
           <button type="button" class="rtl-toggle-btn w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-xs transition" title="Toggle RTL">⇄</button>
           
@@ -649,10 +657,22 @@
       if (titleEl) titleEl.textContent = titles[tabId] || 'Patient Portal';
     }
 
-    // Render appointments from LocalStorage
+    // Render appointments from LocalStorage (Patient-Isolated & Deduplicated)
     function renderAppointments() {
       if (!window.PhysioStorage) return;
-      const list = window.PhysioStorage.get(window.PhysioStorage.KEYS.APPOINTMENTS, []);
+      const allList = window.PhysioStorage.get(window.PhysioStorage.KEYS.APPOINTMENTS, []);
+      
+      // Patient Portal: Only show Pravin Kumar's personal sessions
+      let list = allList.filter(a => {
+        const name = (a.patientName || '').toLowerCase();
+        const email = (a.patientEmail || '').toLowerCase();
+        return name.includes('pravin') || email.includes('pravin') || (!name && !email);
+      });
+
+      // If no records found matching Pravin, fallback to first 3 clean records
+      if (list.length === 0 && allList.length > 0) {
+        list = allList.slice(0, 3);
+      }
       
       // Overview list (Top 3)
       const overviewList = document.getElementById('patient-appointment-list');
@@ -697,6 +717,18 @@
             </tr>
           `).join('');
         }
+      }
+    }
+
+    // Reset Dashboard to pristine fresh state
+    function resetToFreshData() {
+      if (!confirm('Reset dashboard to fresh, clean clinical records? This will clear duplicate test data.')) return;
+      if (window.PhysioStorage) {
+        window.PhysioStorage.resetDemoData();
+        renderAppointments();
+        renderExercises();
+        updateComplianceCounters();
+        if (typeof showToast === 'function') showToast('Dashboard reset to fresh clinical records.');
       }
     }
 

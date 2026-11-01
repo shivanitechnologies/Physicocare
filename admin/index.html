@@ -156,6 +156,14 @@
             </select>
           </div>
 
+          <!-- Fresh Data Reset -->
+          <button onclick="resetAdminDemoData()" class="px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:text-teal-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-[11px] font-semibold transition hidden sm:flex items-center gap-1" title="Reset to clean demonstration records">
+            <svg class="w-3.5 h-3.5 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+            <span>Fresh Data</span>
+          </button>
+
           <!-- RTL Switcher -->
           <button type="button" class="rtl-toggle-btn w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-xs transition" title="Toggle RTL">⇄</button>
           
@@ -1060,6 +1068,19 @@
             </div>
           </div>
         `).join('');
+      }
+    }
+
+    // Reset Dashboard to pristine fresh state
+    function resetAdminDemoData() {
+      if (!confirm('Reset dashboard to fresh, clean clinical records? This will clear duplicate test bookings.')) return;
+      if (window.PhysioStorage) {
+        window.PhysioStorage.resetDemoData();
+        renderAdminAppointments();
+        renderAdminPatients();
+        renderAdminFaculty();
+        renderAdminServices();
+        if (typeof showToast === 'function') showToast('Dashboard reset to fresh clinical records.');
       }
     }
 
