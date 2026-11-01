@@ -222,7 +222,7 @@ window.PhysioDemoData = {
       duration: "45 mins",
       price: "₹1,599",
       packagePrice: "₹4,199 (3 Sessions)",
-      image: "assets/images/packages/standard-recovery.jpg",
+      image: "assets/images/team/team-knee-manual.jpg",
       category: "Surgical Recovery",
       therapist: {
         name: "Dr. Marcus Chen",
@@ -274,7 +274,7 @@ window.PhysioDemoData = {
       duration: "40 mins",
       price: "₹1,299",
       packagePrice: "₹3,499 (3 Sessions)",
-      image: "assets/images/about/principle-independence.jpg",
+      image: "assets/images/team/spec_geriatric_care.jpg",
       category: "Active Aging",
       therapist: {
         name: "Dr. Priya Patel",
@@ -430,7 +430,7 @@ window.PhysioDemoData = {
       duration: "40 mins",
       price: "₹1,499",
       packagePrice: "₹3,999 (3 Sessions)",
-      image: "assets/images/packages/basic-assessment.jpg",
+      image: "assets/images/team/behind_resistance.jpg",
       category: "Manual Treatment",
       therapist: {
         name: "Dr. Marcus Chen",
@@ -482,7 +482,7 @@ window.PhysioDemoData = {
       duration: "45 mins",
       price: "₹1,299",
       packagePrice: "₹3,499 (3 Sessions)",
-      image: "assets/images/about/hero-consultation.jpg",
+      image: "assets/images/team/dev_learning.jpg",
       category: "Kinesiology",
       therapist: {
         name: "Dr. Elena Vance",
