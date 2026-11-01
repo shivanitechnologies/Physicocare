@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Management Portal — PhysioCare</title>
+  <title>Admin Operations Portal — PhysioCare</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -22,7 +22,7 @@
           },
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            heading: ['"Plus Jakarta Sans"', 'Outfit', 'sans-serif'],
+            heading: ['"Plus Jakarta Sans"', 'sans-serif'],
           }
         }
       }
@@ -34,134 +34,302 @@
   <script src="../assets/js/theme.js"></script>
   <script src="../assets/js/rtl.js"></script>
 </head>
-<body class="bg-[#F5F7FA] dark:bg-[#090D12] text-slate-600 dark:text-slate-300 font-sans antialiased">
+<body class="bg-[#F8FAFC] dark:bg-[#090D12] text-slate-600 dark:text-slate-300 font-sans antialiased">
 
-  <div class="portal-layout">
+  <div class="portal-layout min-h-screen flex">
     
     <!-- Admin Sidebar -->
-    <aside class="portal-sidebar p-5 hidden md:flex">
+    <aside class="portal-sidebar p-5 hidden md:flex flex-col justify-between w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 sticky top-0 h-screen">
       <div class="space-y-6">
         <!-- Logo -->
-        <a href="../index.html" class="flex items-center gap-2">
+        <a href="../index.html" class="flex items-center gap-2 group">
           <img src="../assets/images/logo.svg" alt="PhysioCare" class="h-8 w-auto dark:hidden">
           <img src="../assets/images/logo-white.svg" alt="PhysioCare" class="h-8 w-auto hidden dark:block">
         </a>
 
         <!-- Admin Badge -->
-        <div class="p-3.5 rounded-2xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-teal-700 text-white flex items-center justify-center font-bold">
-            ⚡
+        <div class="p-3.5 rounded-2xl bg-teal-50/70 dark:bg-slate-800/80 border border-teal-100/80 dark:border-slate-700 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-teal-700 text-white flex items-center justify-center font-bold shadow-sm">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+            </svg>
           </div>
-          <div class="min-w-0">
-            <h4 class="text-xs font-bold text-slate-900 dark:text-white">Clinical Admin</h4>
-            <p class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold">Master Operations Hub</p>
+          <div class="min-w-0 flex-1">
+            <h4 class="text-xs font-bold text-slate-900 dark:text-white truncate">Clinic Operations</h4>
+            <div class="flex items-center gap-1.5 mt-0.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <p class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold tracking-wide">Live Clinic Server</p>
+            </div>
           </div>
         </div>
 
-        <!-- Sidebar Navigation -->
+        <!-- Sidebar Navigation (SVG Icons) -->
         <nav class="space-y-1 text-xs">
-          <button onclick="switchAdminTab('overview')" class="w-full portal-nav-item active" id="atab-btn-overview">
-            <span>📊</span><span>Operations Overview</span>
+          <button onclick="switchAdminTab('overview')" class="w-full portal-nav-item active flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold transition" id="atab-btn-overview">
+            <svg class="w-4 h-4 text-teal-700 dark:text-teal-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+            <span>Operations Overview</span>
           </button>
-          <button onclick="switchAdminTab('appointments')" class="w-full portal-nav-item" id="atab-btn-appointments">
-            <span>📅</span><span>Appointment Manager</span>
+          
+          <button onclick="switchAdminTab('appointments')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold transition" id="atab-btn-appointments">
+            <svg class="w-4 h-4 text-slate-500 dark:text-slate-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <span>Appointment Manager</span>
           </button>
-          <button onclick="switchAdminTab('patients')" class="w-full portal-nav-item" id="atab-btn-patients">
-            <span>👥</span><span>Patient Directory</span>
+
+          <button onclick="switchAdminTab('patients')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold transition" id="atab-btn-patients">
+            <svg class="w-4 h-4 text-slate-500 dark:text-slate-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+            <span>Patient Directory</span>
           </button>
-          <button onclick="switchAdminTab('therapists')" class="w-full portal-nav-item" id="atab-btn-therapists">
-            <span>🩺</span><span>Therapist Faculty</span>
+
+          <button onclick="switchAdminTab('therapists')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold transition" id="atab-btn-therapists">
+            <svg class="w-4 h-4 text-slate-500 dark:text-slate-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+            <span>Therapist Faculty</span>
           </button>
-          <button onclick="switchAdminTab('services')" class="w-full portal-nav-item" id="atab-btn-services">
-            <span>🏥</span><span>Service Catalog</span>
+
+          <button onclick="switchAdminTab('services')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold transition" id="atab-btn-services">
+            <svg class="w-4 h-4 text-slate-500 dark:text-slate-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+            </svg>
+            <span>Service &amp; CPT Catalog</span>
           </button>
-          <button onclick="switchAdminTab('reports')" class="w-full portal-nav-item" id="atab-btn-reports">
-            <span>📈</span><span>Clinic Analytics</span>
+
+          <button onclick="switchAdminTab('reports')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold transition" id="atab-btn-reports">
+            <svg class="w-4 h-4 text-slate-500 dark:text-slate-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+            </svg>
+            <span>Clinic Analytics</span>
           </button>
         </nav>
       </div>
 
-      <div class="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-2">
-        <a href="../patient/index.html" class="portal-nav-item text-xs text-slate-500 hover:text-slate-800 dark:hover:text-white">
-          <span>👤</span><span>Switch to Patient View</span>
+      <!-- Bottom Actions -->
+      <div class="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-1.5">
+        <a href="../patient/index.html" class="portal-nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-xs text-slate-500 hover:text-slate-800 dark:hover:text-white transition">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+          </svg>
+          <span>Switch to Patient Portal</span>
         </a>
-        <a href="../index.html" class="portal-nav-item text-xs text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40">
-          <span>🚪</span><span>Exit to Public Site</span>
+        <a href="../index.html" class="portal-nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-xs text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+          </svg>
+          <span>Exit to Public Site</span>
         </a>
       </div>
     </aside>
 
     <!-- Main Workspace -->
-    <div class="portal-main">
+    <div class="portal-main flex-1 flex flex-col min-w-0">
       
       <!-- Topbar -->
-      <header class="portal-topbar">
-        <h2 class="text-base font-bold text-slate-900 dark:text-white font-heading" id="admin-tab-title">Clinic Operations Dashboard</h2>
+      <header class="portal-topbar h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 flex items-center justify-between sticky top-0 z-20">
+        <div class="flex items-center gap-3">
+          <div class="md:hidden">
+            <a href="../index.html" class="inline-block">
+              <img src="../assets/images/logo-mark.svg" alt="PhysioCare" class="h-7 w-auto">
+            </a>
+          </div>
+          <div>
+            <h2 class="text-base font-bold text-slate-900 dark:text-white font-heading" id="admin-tab-title">Clinic Operations Dashboard</h2>
+            <p class="text-[11px] text-slate-400 hidden sm:block">Central Clinical Administration &bull; Multi-Suite Capacity</p>
+          </div>
+        </div>
         
         <div class="flex items-center gap-3">
-          <button type="button" class="rtl-toggle-btn w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center text-xs" title="Toggle RTL">⇄</button>
+          <!-- Mobile Tab Selector -->
+          <div class="md:hidden">
+            <select onchange="switchAdminTab(this.value)" class="text-xs bg-slate-100 dark:bg-slate-800 border-0 rounded-lg px-2.5 py-1.5 font-semibold text-slate-800 dark:text-white">
+              <option value="overview">Overview</option>
+              <option value="appointments">Appointments</option>
+              <option value="patients">Patients</option>
+              <option value="therapists">Faculty</option>
+              <option value="services">Services</option>
+              <option value="reports">Analytics</option>
+            </select>
+          </div>
+
+          <!-- RTL Switcher -->
+          <button type="button" class="rtl-toggle-btn w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-xs transition" title="Toggle RTL">⇄</button>
           
-          <button type="button" class="theme-toggle-btn w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center text-xs" aria-label="Toggle theme">
+          <!-- Theme Switcher -->
+          <button type="button" class="theme-toggle-btn w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-xs transition" aria-label="Toggle theme">
             <span class="theme-icon-moon">🌙</span>
             <span class="theme-icon-sun hidden">☀️</span>
           </button>
 
-          <span class="text-xs bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300 px-2.5 py-1 rounded-full font-bold">
-            Live Synchronized
-          </span>
+          <button onclick="openNewAppointmentModal()" class="px-3.5 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+            </svg>
+            <span>+ Intake Booking</span>
+          </button>
         </div>
       </header>
 
       <!-- Content Area -->
       <main class="p-6 lg:p-8 space-y-8 flex-grow">
         
-        <!-- TAB 1: OVERVIEW -->
+        <!-- ========================================== -->
+        <!-- TAB 1: OPERATIONS OVERVIEW -->
+        <!-- ========================================== -->
         <div id="atab-overview" class="space-y-8">
           
-          <!-- Key Clinical Metrics -->
+          <!-- Key Clinical KPIs -->
           <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="stat-card">
-              <p class="text-[11px] font-bold text-slate-400 uppercase">Active Patients</p>
-              <h4 class="text-2xl font-black text-slate-900 dark:text-white font-heading mt-1">1,420</h4>
-              <p class="text-[10px] text-emerald-600 font-bold mt-1">↑ +24 this month</p>
+            <div class="stat-card p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700">
+              <div class="flex items-center justify-between">
+                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Active Patients</p>
+                <span class="text-xs px-2 py-0.5 rounded-full font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">↑ +24 this mo</span>
+              </div>
+              <h4 class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2">1,420</h4>
+              <p class="text-[11px] text-slate-500 mt-1">98.4% retention rate</p>
             </div>
-            <div class="stat-card">
-              <p class="text-[11px] font-bold text-slate-400 uppercase">Today's Bookings</p>
-              <h4 class="text-2xl font-black text-teal-700 dark:text-teal-400 font-heading mt-1" id="admin-today-count">8</h4>
-              <p class="text-[10px] text-slate-500 mt-1">100% room occupancy</p>
+
+            <div class="stat-card p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700">
+              <div class="flex items-center justify-between">
+                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Today's Bookings</p>
+                <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+              </div>
+              <h4 class="text-2xl lg:text-3xl font-black text-teal-700 dark:text-teal-400 font-heading mt-2" id="admin-today-count">8 Sessions</h4>
+              <p class="text-[11px] text-teal-600 font-semibold mt-1">100% room occupancy</p>
             </div>
-            <div class="stat-card">
-              <p class="text-[11px] font-bold text-slate-400 uppercase">Active Therapists</p>
-              <h4 class="text-2xl font-black text-slate-900 dark:text-white font-heading mt-1">4 Staff</h4>
-              <p class="text-[10px] text-slate-500 mt-1">All suites staffed</p>
+
+            <div class="stat-card p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700">
+              <div class="flex items-center justify-between">
+                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Doctor Faculty</p>
+                <span class="text-xs text-slate-400 font-semibold">4 Doctoral PTs</span>
+              </div>
+              <h4 class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2">4 On-Duty</h4>
+              <p class="text-[11px] text-slate-500 mt-1">Zero overlapping shifts</p>
             </div>
-            <div class="stat-card">
-              <p class="text-[11px] font-bold text-slate-400 uppercase">Monthly Volume</p>
-              <h4 class="text-2xl font-black text-slate-900 dark:text-white font-heading mt-1">₹1,48,500</h4>
-              <p class="text-[10px] text-emerald-600 font-bold mt-1">↑ 12% vs target</p>
+
+            <div class="stat-card p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700">
+              <div class="flex items-center justify-between">
+                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Monthly Volume</p>
+                <span class="text-xs px-2 py-0.5 rounded-full font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">↑ 12%</span>
+              </div>
+              <h4 class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2">₹1,48,500</h4>
+              <p class="text-[11px] text-slate-500 mt-1">HSA &amp; Direct settlements</p>
+            </div>
+          </div>
+
+          <!-- Real-Time Clinic Treatment Suite Occupancy Monitor -->
+          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-6 space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-700/60">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+                <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Private Clinical Suite Real-Time Monitor</h3>
+              </div>
+              <span class="text-xs text-teal-700 dark:text-teal-400 font-bold bg-teal-50 dark:bg-teal-950/60 px-2.5 py-1 rounded-full border border-teal-200/60 dark:border-teal-800/60">4 / 4 Suites Active</span>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              
+              <!-- Suite 1 -->
+              <div class="p-4 rounded-xl border border-teal-200 dark:border-teal-800 bg-teal-50/30 dark:bg-teal-950/20 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-teal-700 dark:text-teal-300 uppercase tracking-wide">Suite 01 • Orthopedic</span>
+                  <span class="flex items-center gap-1 text-[10px] text-emerald-600 font-bold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    In-Session
+                  </span>
+                </div>
+                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Dr. Marcus Chen, DPT</h4>
+                <p class="text-[11px] text-slate-500">Patient: Rajesh Sharma • ACL Post-Op</p>
+                <div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
+                  <div class="bg-teal-600 h-full rounded-full" style="width: 65%;"></div>
+                </div>
+                <p class="text-[10px] text-slate-400">Time remaining: ~20 mins</p>
+              </div>
+
+              <!-- Suite 2 -->
+              <div class="p-4 rounded-xl border border-teal-200 dark:border-teal-800 bg-teal-50/30 dark:bg-teal-950/20 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-teal-700 dark:text-teal-300 uppercase tracking-wide">Suite 02 • Spine Lab</span>
+                  <span class="flex items-center gap-1 text-[10px] text-teal-600 font-bold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                    Prep / Next
+                  </span>
+                </div>
+                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Dr. Elena Vance, DPT</h4>
+                <p class="text-[11px] text-slate-500">Next: Pravin Kumar • 10:30 AM</p>
+                <div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
+                  <div class="bg-teal-500 h-full rounded-full" style="width: 100%;"></div>
+                </div>
+                <p class="text-[10px] text-slate-400">Suite sanitized &bull; Ready</p>
+              </div>
+
+              <!-- Suite 3 -->
+              <div class="p-4 rounded-xl border border-teal-200 dark:border-teal-800 bg-teal-50/30 dark:bg-teal-950/20 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-teal-700 dark:text-teal-300 uppercase tracking-wide">Suite 03 • Neuro Lab</span>
+                  <span class="flex items-center gap-1 text-[10px] text-emerald-600 font-bold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    In-Session
+                  </span>
+                </div>
+                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Dr. Priya Patel, MPT</h4>
+                <p class="text-[11px] text-slate-500">Patient: Meera Kapoor • Vestibular</p>
+                <div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
+                  <div class="bg-teal-600 h-full rounded-full" style="width: 40%;"></div>
+                </div>
+                <p class="text-[10px] text-slate-400">Time remaining: ~35 mins</p>
+              </div>
+
+              <!-- Suite 4 -->
+              <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/40 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wide">Suite 04 • Sports Rehab</span>
+                  <span class="flex items-center gap-1 text-[10px] text-slate-500 font-bold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                    Turnover
+                  </span>
+                </div>
+                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Dr. Sarah Jenkins, DPT</h4>
+                <p class="text-[11px] text-slate-500">Patient: Arjun Nambiar • Next: 11:15</p>
+                <div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
+                  <div class="bg-amber-400 h-full rounded-full" style="width: 15%;"></div>
+                </div>
+                <p class="text-[10px] text-slate-400">Cleaned &bull; Awaiting intake</p>
+              </div>
+
             </div>
           </div>
 
           <!-- Appointments Intake Queue -->
-          <div class="card-base p-6 space-y-4">
-            <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-              <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Recent Booking Inflow &amp; Approvals</h3>
-              <span class="text-xs text-slate-400">LocalStorage Live Sync</span>
+          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-6 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-slate-700/60">
+              <div>
+                <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Recent Booking Inflow &amp; Approval Queue</h3>
+                <p class="text-xs text-slate-400">Live synchronization with LocalStorage client bookings.</p>
+              </div>
+              <button onclick="switchAdminTab('appointments')" class="text-xs text-teal-600 dark:text-teal-400 font-bold hover:underline">Full Booking Ledger →</button>
             </div>
+            
             <div class="overflow-x-auto">
               <table class="w-full text-left text-xs">
                 <thead>
                   <tr class="text-[10px] uppercase tracking-wider text-slate-400 border-b border-slate-200 dark:border-slate-700">
-                    <th class="py-2.5 px-3">Patient</th>
+                    <th class="py-2.5 px-3">Patient Details</th>
                     <th class="py-2.5 px-3">Service</th>
-                    <th class="py-2.5 px-3">Clinician</th>
+                    <th class="py-2.5 px-3">Lead Clinician</th>
                     <th class="py-2.5 px-3">Date &amp; Time</th>
                     <th class="py-2.5 px-3">Status</th>
-                    <th class="py-2.5 px-3 text-right">Actions</th>
+                    <th class="py-2.5 px-3 text-right">Instant Action</th>
                   </tr>
                 </thead>
                 <tbody id="admin-appointments-tbody" class="divide-y divide-slate-100 dark:divide-slate-800">
-                  <!-- Populated from storage -->
+                  <!-- Populated dynamically from storage -->
                 </tbody>
               </table>
             </div>
@@ -169,34 +337,92 @@
 
         </div>
 
-        <!-- TAB 2: APPOINTMENTS FULL -->
+        <!-- ========================================== -->
+        <!-- TAB 2: APPOINTMENT MANAGER -->
+        <!-- ========================================== -->
         <div id="atab-appointments" class="hidden space-y-6">
-          <div class="card-base p-6 space-y-4">
-            <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Clinic Booking Ledger</h3>
-            <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs" id="admin-all-bookings-table">
-                <!-- Sync table -->
-              </table>
+          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-6 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-slate-700/60">
+              <div>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Clinic Master Booking Ledger</h3>
+                <p class="text-xs text-slate-400">Filter, search, or reschedule patient bookings across all 4 suites.</p>
+              </div>
+              <button onclick="openNewAppointmentModal()" class="px-3.5 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                <span>+ Book Intake Appointment</span>
+              </button>
             </div>
-          </div>
-        </div>
 
-        <!-- TAB 3: PATIENTS -->
-        <div id="atab-patients" class="hidden space-y-6">
-          <div class="card-base p-6 space-y-4">
-            <div class="flex items-center justify-between">
-              <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Registered Patient Directory</h3>
-              <button onclick="promptNewPatient()" class="btn-primary btn-sm">+ Add Demo Patient</button>
+            <!-- Filter Controls -->
+            <div class="flex flex-wrap items-center gap-3">
+              <input type="text" id="apt-search-input" onkeyup="filterAdminAppointments()" placeholder="Search patient or service..." class="px-3 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500 w-64">
+              
+              <select id="apt-status-filter" onchange="filterAdminAppointments()" class="px-3 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white">
+                <option value="ALL">All Statuses</option>
+                <option value="Confirmed">Confirmed</option>
+                <option value="Scheduled">Scheduled</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+
+              <select id="apt-doctor-filter" onchange="filterAdminAppointments()" class="px-3 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white">
+                <option value="ALL">All Doctors</option>
+                <option value="Dr. Marcus Chen">Dr. Marcus Chen</option>
+                <option value="Dr. Elena Vance">Dr. Elena Vance</option>
+                <option value="Dr. Priya Patel">Dr. Priya Patel</option>
+                <option value="Dr. Sarah Jenkins">Dr. Sarah Jenkins</option>
+              </select>
             </div>
+
             <div class="overflow-x-auto">
               <table class="w-full text-left text-xs">
                 <thead>
                   <tr class="text-[10px] uppercase text-slate-400 border-b border-slate-200 dark:border-slate-700">
                     <th class="py-2.5 px-3">Patient</th>
-                    <th class="py-2.5 px-3">Diagnosis</th>
-                    <th class="py-2.5 px-3">Sessions</th>
-                    <th class="py-2.5 px-3">Recovery</th>
+                    <th class="py-2.5 px-3">Service</th>
+                    <th class="py-2.5 px-3">Clinician</th>
+                    <th class="py-2.5 px-3">Date &amp; Time</th>
+                    <th class="py-2.5 px-3">Format / Suite</th>
+                    <th class="py-2.5 px-3">Status</th>
                     <th class="py-2.5 px-3 text-right">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-all-bookings-tbody" class="divide-y divide-slate-100 dark:divide-slate-800">
+                  <!-- Populated from storage with full filter support -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- TAB 3: PATIENT DIRECTORY -->
+        <!-- ========================================== -->
+        <div id="atab-patients" class="hidden space-y-6">
+          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-6 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-slate-700/60">
+              <div>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Registered Patient Medical Records</h3>
+                <p class="text-xs text-slate-400">Access electronic health records, diagnosis tracking, and ROM progress.</p>
+              </div>
+              <button onclick="openNewPatientModal()" class="px-3.5 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                <span>+ Register New Patient</span>
+              </button>
+            </div>
+
+            <!-- Search input -->
+            <div class="w-full sm:w-72">
+              <input type="text" id="patient-search-input" onkeyup="filterAdminPatients()" placeholder="Search patient by name or diagnosis..." class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500">
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead>
+                  <tr class="text-[10px] uppercase text-slate-400 border-b border-slate-200 dark:border-slate-700">
+                    <th class="py-2.5 px-3">Patient Name &amp; Contact</th>
+                    <th class="py-2.5 px-3">Clinical Diagnosis</th>
+                    <th class="py-2.5 px-3">Sessions Logged</th>
+                    <th class="py-2.5 px-3">Recovery Progress</th>
+                    <th class="py-2.5 px-3 text-right">Medical Records</th>
                   </tr>
                 </thead>
                 <tbody id="admin-patients-tbody" class="divide-y divide-slate-100 dark:divide-slate-800">
@@ -207,32 +433,122 @@
           </div>
         </div>
 
-        <!-- TAB 4: THERAPISTS -->
+        <!-- ========================================== -->
+        <!-- TAB 4: THERAPIST FACULTY -->
+        <!-- ========================================== -->
         <div id="atab-therapists" class="hidden space-y-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Clinical Specialist Faculty (Doctoral PTs)</h3>
+              <p class="text-xs text-slate-400">All therapists hold doctoral degrees with specialized orthopedics &amp; neurology board certifications.</p>
+            </div>
+            <span class="text-xs font-semibold px-3 py-1.5 rounded-xl bg-teal-50 dark:bg-slate-800 text-teal-700 dark:text-teal-300">
+              4 Full-Time Specialists
+            </span>
+          </div>
+
           <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="admin-therapists-grid">
             <!-- Populated dynamically -->
           </div>
         </div>
 
-        <!-- TAB 5: SERVICES -->
+        <!-- ========================================== -->
+        <!-- TAB 5: SERVICES & CPT CATALOG -->
+        <!-- ========================================== -->
         <div id="atab-services" class="hidden space-y-6">
-          <div class="card-base p-6 space-y-4">
-            <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Clinical Service Catalog (10 Treatments)</h3>
+          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-6 space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-700/60">
+              <div>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Clinical Service Catalog &amp; CPT Fee Schedule</h3>
+                <p class="text-xs text-slate-400">10 standard evidence-based treatments with billable CPT billing codes.</p>
+              </div>
+              <span class="text-xs font-bold text-teal-600 dark:text-teal-400">10 Active Services</span>
+            </div>
             <div class="grid sm:grid-cols-2 gap-4" id="admin-services-list">
               <!-- Populated dynamically -->
             </div>
           </div>
         </div>
 
-        <!-- TAB 6: REPORTS -->
+        <!-- ========================================== -->
+        <!-- TAB 6: CLINIC ANALYTICS -->
+        <!-- ========================================== -->
         <div id="atab-reports" class="hidden space-y-6">
-          <div class="card-base p-8 space-y-6">
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Clinic Analytics &amp; Treatment Volume</h3>
-            <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 text-center space-y-2">
-              <p class="text-xs text-slate-400">Total Clinical Recoveries Completed to Date</p>
-              <h2 class="text-4xl font-black text-teal-700 dark:text-teal-400 font-heading">14,218 Patients</h2>
-              <p class="text-xs text-emerald-600 font-semibold">Average treatment cycle: 8.4 sessions</p>
+          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-6 lg:p-8 space-y-6">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-700/60">
+              <div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Clinical Outcome Metrics &amp; Recovery Analytics</h3>
+                <p class="text-xs text-slate-400">Aggregated patient progress metrics based on standard functional outcome measures.</p>
+              </div>
+              <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300">Annual Audit 2026</span>
             </div>
+
+            <div class="grid sm:grid-cols-3 gap-4">
+              <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 text-center space-y-1">
+                <p class="text-[11px] font-bold text-slate-400 uppercase">Outcome Success Rate</p>
+                <h4 class="text-3xl font-black text-teal-700 dark:text-teal-400 font-heading">98.4%</h4>
+                <p class="text-[11px] text-emerald-600 font-semibold">Achieved discharge criteria</p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 text-center space-y-1">
+                <p class="text-[11px] font-bold text-slate-400 uppercase">Avg Sessions to Recovery</p>
+                <h4 class="text-3xl font-black text-slate-900 dark:text-white font-heading">8.4 Visits</h4>
+                <p class="text-[11px] text-slate-500 font-semibold">Benchmark: 12.2 visits national</p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 text-center space-y-1">
+                <p class="text-[11px] font-bold text-slate-400 uppercase">Patient Satisfaction (NPS)</p>
+                <h4 class="text-3xl font-black text-emerald-600 font-heading">4.95 / 5.0</h4>
+                <p class="text-[11px] text-emerald-600 font-semibold">520+ verified patient reviews</p>
+              </div>
+            </div>
+
+            <!-- Conditions Distribution -->
+            <div class="space-y-3 pt-3 border-t border-slate-100 dark:border-slate-700/60">
+              <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Clinical Case Distribution by Specialty:</h4>
+              <div class="space-y-3 text-xs">
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="font-medium text-slate-700 dark:text-slate-300">Spine, Lumbar &amp; Cervical Posture (38%)</span>
+                    <span class="font-bold text-slate-900 dark:text-white">540 Patients</span>
+                  </div>
+                  <div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                    <div class="bg-teal-600 h-full rounded-full" style="width: 38%;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="font-medium text-slate-700 dark:text-slate-300">Post-Op Knee, ACL &amp; Meniscus (28%)</span>
+                    <span class="font-bold text-slate-900 dark:text-white">398 Patients</span>
+                  </div>
+                  <div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                    <div class="bg-teal-500 h-full rounded-full" style="width: 28%;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="font-medium text-slate-700 dark:text-slate-300">Shoulder, Rotator Cuff &amp; Upper Extremity (20%)</span>
+                    <span class="font-bold text-slate-900 dark:text-white">284 Patients</span>
+                  </div>
+                  <div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                    <div class="bg-teal-400 h-full rounded-full" style="width: 20%;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="font-medium text-slate-700 dark:text-slate-300">Neurological, Balance &amp; Vestibular (14%)</span>
+                    <span class="font-bold text-slate-900 dark:text-white">198 Patients</span>
+                  </div>
+                  <div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                    <div class="bg-slate-400 h-full rounded-full" style="width: 14%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -242,10 +558,196 @@
 
   </div>
 
+  <!-- ========================================== -->
+  <!-- MODAL: VIEW PATIENT CLINICAL CHART -->
+  <!-- ========================================== -->
+  <div id="patient-chart-modal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-6 shadow-2xl border border-slate-200 dark:border-slate-800 max-h-[90vh] overflow-y-auto">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <span class="text-[10px] font-bold text-teal-600 uppercase tracking-wider" id="chart-mrn">MRN #PAT-101</span>
+          <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading" id="chart-patient-name">Pravin Kumar</h3>
+        </div>
+        <button onclick="closePatientChartModal()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-white flex items-center justify-center text-sm font-bold">&times;</button>
+      </div>
+
+      <div class="space-y-4 text-xs">
+        <div class="grid grid-cols-2 gap-3 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+          <div>
+            <p class="text-[10px] uppercase font-bold text-slate-400">Diagnosis</p>
+            <p class="font-bold text-slate-900 dark:text-white" id="chart-diagnosis">Lumbar Strain</p>
+          </div>
+          <div>
+            <p class="text-[10px] uppercase font-bold text-slate-400">Assigned Clinician</p>
+            <p class="font-bold text-slate-900 dark:text-white">Dr. Elena Vance, DPT</p>
+          </div>
+          <div>
+            <p class="text-[10px] uppercase font-bold text-slate-400">Care Plan Progress</p>
+            <p class="font-bold text-teal-600 dark:text-teal-400" id="chart-sessions">6 / 10 Sessions</p>
+          </div>
+          <div>
+            <p class="text-[10px] uppercase font-bold text-slate-400">Recovery Score</p>
+            <p class="font-bold text-emerald-600" id="chart-recovery">78% Achieved</p>
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <p class="font-bold text-slate-900 dark:text-white">Objective Clinical Vitals &amp; ROM</p>
+          <div class="grid grid-cols-3 gap-2 text-center p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40">
+            <div>
+              <p class="text-[10px] text-slate-400">VAS Pain Score</p>
+              <p class="text-base font-bold text-teal-600">1.5 / 10</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-slate-400">Lumbar Straight Leg</p>
+              <p class="text-base font-bold text-emerald-600">+38° (76°)</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-slate-400">Discharge Est.</p>
+              <p class="text-base font-bold text-slate-700 dark:text-slate-300">2 Weeks</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-1">
+          <p class="font-bold text-slate-900 dark:text-white">Clinical Note Entry</p>
+          <p class="text-slate-600 dark:text-slate-300 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 leading-relaxed text-[11px] italic" id="chart-notes">
+            Patient responds favorably to oscillatory joint mobilization. Lumbar extension pain has resolved from 6/10 to 1.5/10. Maintaining core stabilization home routine daily.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+        <button onclick="closePatientChartModal()" class="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition">Close Chart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: ADD NEW PATIENT -->
+  <!-- ========================================== -->
+  <div id="new-patient-modal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-6 sm:p-8 space-y-6 shadow-2xl border border-slate-200 dark:border-slate-800">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
+        <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Register New Patient</h3>
+        <button onclick="closeNewPatientModal()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-white flex items-center justify-center text-sm font-bold">&times;</button>
+      </div>
+
+      <form id="new-patient-form" onsubmit="handleSavePatient(event)" class="space-y-4 text-xs">
+        <div class="space-y-1">
+          <label class="font-bold text-slate-700 dark:text-slate-300">Patient Full Name</label>
+          <input type="text" id="np-name" required placeholder="e.g. Ramesh Varma" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500">
+        </div>
+
+        <div class="space-y-1">
+          <label class="font-bold text-slate-700 dark:text-slate-300">Primary Diagnosis / Condition</label>
+          <input type="text" id="np-diagnosis" required placeholder="e.g. Cervical Disc Spondylosis" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div class="space-y-1">
+            <label class="font-bold text-slate-700 dark:text-slate-300">Email Address</label>
+            <input type="email" id="np-email" required placeholder="patient@example.com" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500">
+          </div>
+          <div class="space-y-1">
+            <label class="font-bold text-slate-700 dark:text-slate-300">Phone Number</label>
+            <input type="tel" id="np-phone" required placeholder="+91 98765 00000" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500">
+          </div>
+        </div>
+
+        <div class="space-y-1">
+          <label class="font-bold text-slate-700 dark:text-slate-300">Assigned Doctoral Clinician</label>
+          <select id="np-therapist" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white">
+            <option value="Dr. Elena Vance">Dr. Elena Vance, DPT (Spine &amp; Posture)</option>
+            <option value="Dr. Marcus Chen">Dr. Marcus Chen, DPT (Orthopedic)</option>
+            <option value="Dr. Priya Patel">Dr. Priya Patel, MPT (Neurological)</option>
+            <option value="Dr. Sarah Jenkins">Dr. Sarah Jenkins, DPT (Sports)</option>
+          </select>
+        </div>
+
+        <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+          <button type="button" onclick="closeNewPatientModal()" class="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition">Cancel</button>
+          <button type="submit" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition shadow-sm">Save to Directory</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: INTAKE NEW APPOINTMENT -->
+  <!-- ========================================== -->
+  <div id="new-apt-modal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-6 sm:p-8 space-y-6 shadow-2xl border border-slate-200 dark:border-slate-800">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
+        <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Intake New Clinical Session</h3>
+        <button onclick="closeNewAppointmentModal()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-white flex items-center justify-center text-sm font-bold">&times;</button>
+      </div>
+
+      <form id="new-apt-form" onsubmit="handleSaveAppointment(event)" class="space-y-4 text-xs">
+        <div class="space-y-1">
+          <label class="font-bold text-slate-700 dark:text-slate-300">Patient Full Name</label>
+          <input type="text" id="na-name" required placeholder="e.g. Pravin Kumar" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500">
+        </div>
+
+        <div class="space-y-1">
+          <label class="font-bold text-slate-700 dark:text-slate-300">Clinical Service</label>
+          <select id="na-service" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white">
+            <option value="Orthopedic Physiotherapy">Orthopedic Physiotherapy</option>
+            <option value="Spine & Posture Care">Spine &amp; Posture Care</option>
+            <option value="Sports Physiotherapy">Sports Physiotherapy</option>
+            <option value="Neurological Rehabilitation">Neurological Rehabilitation</option>
+            <option value="Post-Surgical Rehabilitation">Post-Surgical Rehabilitation</option>
+            <option value="Geriatric Mobility Program">Geriatric Mobility Program</option>
+          </select>
+        </div>
+
+        <div class="space-y-1">
+          <label class="font-bold text-slate-700 dark:text-slate-300">Treating Doctoral Clinician</label>
+          <select id="na-doctor" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white">
+            <option value="Dr. Marcus Chen">Dr. Marcus Chen, DPT (Suite 01)</option>
+            <option value="Dr. Elena Vance">Dr. Elena Vance, DPT (Suite 02)</option>
+            <option value="Dr. Priya Patel">Dr. Priya Patel, MPT (Suite 03)</option>
+            <option value="Dr. Sarah Jenkins">Dr. Sarah Jenkins, DPT (Suite 04)</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div class="space-y-1">
+            <label class="font-bold text-slate-700 dark:text-slate-300">Appointment Date</label>
+            <input type="date" id="na-date" required class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500">
+          </div>
+          <div class="space-y-1">
+            <label class="font-bold text-slate-700 dark:text-slate-300">Time Slot</label>
+            <select id="na-time" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white">
+              <option value="09:00 AM">09:00 AM</option>
+              <option value="10:30 AM" selected>10:30 AM</option>
+              <option value="11:45 AM">11:45 AM</option>
+              <option value="02:00 PM">02:00 PM</option>
+              <option value="03:30 PM">03:30 PM</option>
+              <option value="04:45 PM">04:45 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+          <button type="button" onclick="closeNewAppointmentModal()" class="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition">Cancel</button>
+          <button type="submit" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition shadow-sm">Confirm Intake</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
   <script src="../assets/js/demo-data.js"></script>
   <script src="../assets/js/storage.js"></script>
   <script src="../assets/js/app.js"></script>
   <script>
+    // Tab switching for 6 clinical operations sections
     function switchAdminTab(tabId) {
       const tabs = ['overview', 'appointments', 'patients', 'therapists', 'services', 'reports'];
       tabs.forEach(t => {
@@ -261,37 +763,100 @@
       });
       const titles = {
         overview: 'Clinic Operations Overview',
-        appointments: 'Appointment Management',
+        appointments: 'Appointment Management & Ledger',
         patients: 'Patient Directory & Medical Records',
-        therapists: 'Clinical Specialist Faculty',
-        services: 'Clinical Treatment Catalog',
-        reports: 'Reports & Recovery Analytics'
+        therapists: 'Doctoral Clinical Faculty',
+        services: 'Clinical Treatment Catalog & Fee Schedule',
+        reports: 'Clinical Outcome Analytics'
       };
-      document.getElementById('admin-tab-title').textContent = titles[tabId] || 'Admin Portal';
+      const titleEl = document.getElementById('admin-tab-title');
+      if (titleEl) titleEl.textContent = titles[tabId] || 'Admin Operations';
     }
 
+    // Render appointments across Overview and Manager
     function renderAdminAppointments() {
       if (!window.PhysioStorage) return;
       const list = window.PhysioStorage.get(window.PhysioStorage.KEYS.APPOINTMENTS, []);
+      
+      // Update today's count
+      const countEl = document.getElementById('admin-today-count');
+      if (countEl) countEl.textContent = `${list.length} Sessions`;
+
+      // Overview intake queue
       const tbody = document.getElementById('admin-appointments-tbody');
       if (tbody) {
-        tbody.innerHTML = list.map(a => `
-          <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
-            <td class="py-2.5 px-3 font-bold text-slate-900 dark:text-white">${a.patientName}</td>
-            <td class="py-2.5 px-3">${a.service}</td>
-            <td class="py-2.5 px-3 text-slate-500">${a.therapist}</td>
-            <td class="py-2.5 px-3 font-semibold">${a.date}</td>
-            <td class="py-2.5 px-3">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold ${a.status === 'Confirmed' ? 'badge-status-confirmed' : 'badge-status-completed'}">${a.status}</span>
-            </td>
-            <td class="py-2.5 px-3 text-right space-x-2">
-              ${a.status !== 'Completed' ? `
-                <button onclick="updateAptStatus('${a.id}', 'Completed')" class="text-emerald-600 hover:underline">Complete</button>
-                <button onclick="updateAptStatus('${a.id}', 'Cancelled')" class="text-rose-600 hover:underline">Cancel</button>
-              ` : '<span class="text-slate-400">Archived</span>'}
-            </td>
-          </tr>
-        `).join('');
+        if (list.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" class="py-6 text-center text-xs text-slate-400">No appointments in intake queue.</td></tr>';
+        } else {
+          tbody.innerHTML = list.slice(0, 5).map(a => `
+            <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
+              <td class="py-2.5 px-3 font-bold text-slate-900 dark:text-white">
+                ${a.patientName}
+                <span class="block text-[10px] text-slate-400 font-normal">${a.patientEmail || 'client@demo.com'}</span>
+              </td>
+              <td class="py-2.5 px-3 font-medium text-slate-700 dark:text-slate-300">${a.service}</td>
+              <td class="py-2.5 px-3 text-slate-500">${a.therapist}</td>
+              <td class="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">${a.date}</td>
+              <td class="py-2.5 px-3">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold ${a.status === 'Confirmed' ? 'badge-status-confirmed' : (a.status === 'Cancelled' ? 'bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-400 border border-rose-200' : 'badge-status-completed')}">${a.status}</span>
+              </td>
+              <td class="py-2.5 px-3 text-right space-x-2">
+                ${a.status !== 'Completed' && a.status !== 'Cancelled' ? `
+                  <button onclick="updateAptStatus('${a.id}', 'Completed')" class="text-emerald-600 hover:text-emerald-700 font-semibold hover:underline">Complete</button>
+                  <button onclick="updateAptStatus('${a.id}', 'Cancelled')" class="text-rose-600 hover:text-rose-700 font-semibold hover:underline">Cancel</button>
+                ` : `<span class="text-slate-400 font-medium">Logged</span>`}
+              </td>
+            </tr>
+          `).join('');
+        }
+      }
+
+      // Full ledger
+      filterAdminAppointments();
+    }
+
+    // Filter ledger appointments
+    function filterAdminAppointments() {
+      if (!window.PhysioStorage) return;
+      const list = window.PhysioStorage.get(window.PhysioStorage.KEYS.APPOINTMENTS, []);
+      const searchVal = (document.getElementById('apt-search-input')?.value || '').toLowerCase();
+      const statusVal = document.getElementById('apt-status-filter')?.value || 'ALL';
+      const doctorVal = document.getElementById('apt-doctor-filter')?.value || 'ALL';
+
+      const filtered = list.filter(a => {
+        const matchSearch = (a.patientName || '').toLowerCase().includes(searchVal) || (a.service || '').toLowerCase().includes(searchVal);
+        const matchStatus = statusVal === 'ALL' || a.status === statusVal;
+        const matchDoctor = doctorVal === 'ALL' || (a.therapist || '').includes(doctorVal);
+        return matchSearch && matchStatus && matchDoctor;
+      });
+
+      const allTbody = document.getElementById('admin-all-bookings-tbody');
+      if (allTbody) {
+        if (filtered.length === 0) {
+          allTbody.innerHTML = '<tr><td colspan="7" class="py-6 text-center text-xs text-slate-400">No matching appointments found.</td></tr>';
+        } else {
+          allTbody.innerHTML = filtered.map(a => `
+            <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
+              <td class="py-2.5 px-3 font-bold text-slate-900 dark:text-white">
+                ${a.patientName}
+                <span class="block text-[10px] text-slate-400 font-normal">${a.patientEmail || 'client@demo.com'}</span>
+              </td>
+              <td class="py-2.5 px-3 font-medium text-slate-700 dark:text-slate-300">${a.service}</td>
+              <td class="py-2.5 px-3 text-slate-500">${a.therapist}</td>
+              <td class="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">${a.date}</td>
+              <td class="py-2.5 px-3 text-slate-500">${a.type || 'In-Person'}</td>
+              <td class="py-2.5 px-3">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold ${a.status === 'Confirmed' ? 'badge-status-confirmed' : (a.status === 'Cancelled' ? 'bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-400 border border-rose-200' : 'badge-status-completed')}">${a.status}</span>
+              </td>
+              <td class="py-2.5 px-3 text-right space-x-2">
+                ${a.status !== 'Completed' && a.status !== 'Cancelled' ? `
+                  <button onclick="updateAptStatus('${a.id}', 'Completed')" class="text-emerald-600 hover:text-emerald-700 font-semibold hover:underline">Complete</button>
+                  <button onclick="updateAptStatus('${a.id}', 'Cancelled')" class="text-rose-600 hover:text-rose-700 font-semibold hover:underline">Cancel</button>
+                ` : `<span class="text-slate-400">Archived</span>`}
+              </td>
+            </tr>
+          `).join('');
+        }
       }
     }
 
@@ -303,75 +868,196 @@
         item.status = newStatus;
         window.PhysioStorage.set(window.PhysioStorage.KEYS.APPOINTMENTS, list);
         renderAdminAppointments();
-        showToast('Appointment status updated to ' + newStatus);
+        if (typeof showToast === 'function') showToast('Appointment status updated to ' + newStatus);
       }
     }
 
+    // Render Patients Directory
     function renderAdminPatients() {
       if (!window.PhysioStorage) return;
       const list = window.PhysioStorage.get(window.PhysioStorage.KEYS.PATIENTS, []);
       const tbody = document.getElementById('admin-patients-tbody');
       if (tbody) {
         tbody.innerHTML = list.map(p => `
-          <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
-            <td class="py-2.5 px-3 font-bold text-slate-900 dark:text-white">${p.name}<br><span class="text-[10px] text-slate-400">${p.email}</span></td>
-            <td class="py-2.5 px-3">${p.diagnosis}</td>
-            <td class="py-2.5 px-3 font-semibold">${p.sessionsCompleted} / ${p.sessionsTotal}</td>
-            <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 font-bold text-[10px]">${p.recoveryScore}%</span></td>
-            <td class="py-2.5 px-3 text-right"><button onclick="alert('Viewing patient record for ${p.name}')" class="text-teal-600 hover:underline">View Chart</button></td>
+          <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
+            <td class="py-2.5 px-3 font-bold text-slate-900 dark:text-white">
+              ${p.name}
+              <span class="block text-[10px] text-slate-400 font-normal">${p.email} &bull; ${p.phone || '+91 98765 43210'}</span>
+            </td>
+            <td class="py-2.5 px-3 font-medium text-slate-700 dark:text-slate-300">${p.diagnosis}</td>
+            <td class="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">${p.sessionsCompleted} / ${p.sessionsTotal} Sessions</td>
+            <td class="py-2.5 px-3">
+              <div class="flex items-center gap-2">
+                <div class="w-16 bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
+                  <div class="bg-teal-600 h-full rounded-full" style="width: ${p.recoveryScore}%;"></div>
+                </div>
+                <span class="font-bold text-[11px] text-teal-700 dark:text-teal-400">${p.recoveryScore}%</span>
+              </div>
+            </td>
+            <td class="py-2.5 px-3 text-right">
+              <button onclick="openPatientChartModal('${p.name}', '${p.diagnosis}', '${p.sessionsCompleted}', '${p.sessionsTotal}', '${p.recoveryScore}')" class="px-2.5 py-1 rounded-lg bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 font-bold hover:bg-teal-100 dark:hover:bg-teal-900 transition">View Chart</button>
+            </td>
           </tr>
         `).join('');
       }
     }
 
-    function promptNewPatient() {
-      const name = prompt('Enter Patient Full Name:');
-      if (!name) return;
-      const diag = prompt('Enter Condition / Diagnosis:', 'Post-Op Knee Recovery');
+    function filterAdminPatients() {
+      const search = (document.getElementById('patient-search-input')?.value || '').toLowerCase();
+      if (!window.PhysioStorage) return;
+      const list = window.PhysioStorage.get(window.PhysioStorage.KEYS.PATIENTS, []);
+      const filtered = list.filter(p => (p.name || '').toLowerCase().includes(search) || (p.diagnosis || '').toLowerCase().includes(search));
+      const tbody = document.getElementById('admin-patients-tbody');
+      if (tbody) {
+        tbody.innerHTML = filtered.map(p => `
+          <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
+            <td class="py-2.5 px-3 font-bold text-slate-900 dark:text-white">
+              ${p.name}
+              <span class="block text-[10px] text-slate-400 font-normal">${p.email} &bull; ${p.phone || '+91 98765 43210'}</span>
+            </td>
+            <td class="py-2.5 px-3 font-medium text-slate-700 dark:text-slate-300">${p.diagnosis}</td>
+            <td class="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">${p.sessionsCompleted} / ${p.sessionsTotal} Sessions</td>
+            <td class="py-2.5 px-3">
+              <div class="flex items-center gap-2">
+                <div class="w-16 bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
+                  <div class="bg-teal-600 h-full rounded-full" style="width: ${p.recoveryScore}%;"></div>
+                </div>
+                <span class="font-bold text-[11px] text-teal-700 dark:text-teal-400">${p.recoveryScore}%</span>
+              </div>
+            </td>
+            <td class="py-2.5 px-3 text-right">
+              <button onclick="openPatientChartModal('${p.name}', '${p.diagnosis}', '${p.sessionsCompleted}', '${p.sessionsTotal}', '${p.recoveryScore}')" class="px-2.5 py-1 rounded-lg bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 font-bold hover:bg-teal-100 dark:hover:bg-teal-900 transition">View Chart</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    // Modal: Patient Chart
+    function openPatientChartModal(name, diag, completed, total, recovery) {
+      document.getElementById('chart-patient-name').textContent = name;
+      document.getElementById('chart-diagnosis').textContent = diag;
+      document.getElementById('chart-sessions').textContent = `${completed} / ${total} Sessions`;
+      document.getElementById('chart-recovery').textContent = `${recovery}% Achieved`;
+      document.getElementById('patient-chart-modal').classList.remove('hidden');
+    }
+
+    function closePatientChartModal() {
+      document.getElementById('patient-chart-modal').classList.add('hidden');
+    }
+
+    // Modal: New Patient
+    function openNewPatientModal() {
+      document.getElementById('new-patient-modal').classList.remove('hidden');
+    }
+
+    function closeNewPatientModal() {
+      document.getElementById('new-patient-modal').classList.add('hidden');
+    }
+
+    function handleSavePatient(e) {
+      e.preventDefault();
+      const name = document.getElementById('np-name').value.trim();
+      const diag = document.getElementById('np-diagnosis').value.trim();
+      const email = document.getElementById('np-email').value.trim();
+      const phone = document.getElementById('np-phone').value.trim();
+      
       if (window.PhysioStorage) {
         const list = window.PhysioStorage.get(window.PhysioStorage.KEYS.PATIENTS, []);
         list.push({
           id: 'pat-' + Date.now(),
           name: name,
-          email: name.toLowerCase().replace(/\s+/g, '.') + '@example.com',
-          phone: '+91 99000 11223',
+          email: email,
+          phone: phone,
           diagnosis: diag,
           sessionsCompleted: 1,
           sessionsTotal: 8,
-          recoveryScore: 25
+          recoveryScore: 15
         });
         window.PhysioStorage.set(window.PhysioStorage.KEYS.PATIENTS, list);
         renderAdminPatients();
-        showToast('Patient ' + name + ' added to directory!');
+        closeNewPatientModal();
+        if (typeof showToast === 'function') showToast(`Patient ${name} registered successfully.`);
       }
     }
 
+    // Modal: Intake Appointment
+    function openNewAppointmentModal() {
+      const today = new Date().toISOString().split('T')[0];
+      const dateInput = document.getElementById('na-date');
+      if (dateInput) dateInput.value = today;
+      document.getElementById('new-apt-modal').classList.remove('hidden');
+    }
+
+    function closeNewAppointmentModal() {
+      document.getElementById('new-apt-modal').classList.add('hidden');
+    }
+
+    function handleSaveAppointment(e) {
+      e.preventDefault();
+      const name = document.getElementById('na-name').value.trim();
+      const service = document.getElementById('na-service').value;
+      const doctor = document.getElementById('na-doctor').value;
+      const date = document.getElementById('na-date').value;
+      const time = document.getElementById('na-time').value;
+
+      if (window.PhysioStorage) {
+        window.PhysioStorage.addAppointment({
+          patientName: name,
+          patientEmail: name.toLowerCase().replace(/\s+/g, '.') + '@example.com',
+          service: service,
+          therapist: doctor,
+          date: `${date}, ${time}`,
+          type: 'In-Person (Private Suite)',
+          status: 'Confirmed'
+        });
+        renderAdminAppointments();
+        closeNewAppointmentModal();
+        if (typeof showToast === 'function') showToast(`Intake booking confirmed for ${name}!`);
+      }
+    }
+
+    // Render Therapists
     function renderAdminFaculty() {
       const grid = document.getElementById('admin-therapists-grid');
       if (grid && window.PhysioDemoData) {
-        grid.innerHTML = window.PhysioDemoData.therapists.map(t => `
-          <div class="card-base p-4 space-y-3">
-            <img src="${t.photo}" class="w-full h-40 rounded-xl object-cover">
+        grid.innerHTML = window.PhysioDemoData.therapists.map((t, idx) => `
+          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 space-y-3 shadow-sm">
+            <div class="h-44 rounded-xl overflow-hidden relative">
+              <img src="${t.photo}" class="w-full h-full object-cover">
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-slate-900/80 text-white font-bold text-[10px]">Suite 0${idx + 1}</span>
+            </div>
             <div>
-              <h4 class="text-xs font-bold text-slate-900 dark:text-white">${t.name}</h4>
-              <p class="text-[10px] text-teal-600 font-bold">${t.role}</p>
-              <p class="text-[10px] text-slate-400">${t.availability}</p>
+              <h4 class="text-sm font-bold text-slate-900 dark:text-white font-heading">${t.name}</h4>
+              <p class="text-xs text-teal-600 dark:text-teal-400 font-bold">${t.role}</p>
+              <p class="text-[11px] text-slate-400 mt-1">${t.availability}</p>
+            </div>
+            <div class="pt-2 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between text-[11px]">
+              <span class="text-slate-400">Caseload:</span>
+              <span class="font-bold text-slate-700 dark:text-slate-300">${20 + idx * 4} Active Patients</span>
             </div>
           </div>
         `).join('');
       }
     }
 
+    // Render Services & CPT Catalog
     function renderAdminServices() {
       const list = document.getElementById('admin-services-list');
       if (list && window.PhysioDemoData) {
-        list.innerHTML = window.PhysioDemoData.services.map(s => `
-          <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs">
-            <div>
-              <p class="font-bold text-slate-900 dark:text-white">${s.title}</p>
-              <p class="text-[10px] text-slate-400">${s.category} &bull; ${s.duration}</p>
+        list.innerHTML = window.PhysioDemoData.services.map((s, idx) => `
+          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-700/80 bg-slate-50/50 dark:bg-slate-900/40 flex items-center justify-between text-xs transition hover:border-teal-500">
+            <div class="space-y-0.5">
+              <div class="flex items-center gap-2">
+                <p class="font-bold text-slate-900 dark:text-white text-sm">${s.title}</p>
+                <span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold">CPT 97${110 + idx * 5}</span>
+              </div>
+              <p class="text-[11px] text-slate-400">${s.category} &bull; ${s.duration} &bull; Lead: ${s.therapist?.name || 'Faculty'}</p>
             </div>
-            <span class="font-bold text-teal-600">${s.price}</span>
+            <div class="text-right">
+              <span class="font-bold text-teal-700 dark:text-teal-400 text-sm block">${s.price}</span>
+              <span class="text-[10px] text-slate-400">per 1-on-1 session</span>
+            </div>
           </div>
         `).join('');
       }
@@ -382,6 +1068,26 @@
       renderAdminPatients();
       renderAdminFaculty();
       renderAdminServices();
+
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else if (urlParams.get('theme') === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.removeAttribute('data-theme');
+      }
+      const initTab = urlParams.get('tab');
+      if (initTab) switchAdminTab(initTab);
+      if (urlParams.get('modal') === 'chart') {
+        openPatientChartModal('Pravin Kumar', 'Lumbar Disc Bulge (L4-L5)', 6, 10, 78);
+      }
+      if (urlParams.get('modal') === 'intake') {
+        openNewAppointmentModal();
+      }
+      if (urlParams.get('modal') === 'new-patient') {
+        openNewPatientModal();
+      }
     });
   </script>
 </body>
