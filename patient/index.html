@@ -1541,30 +1541,79 @@
       const tbody = document.getElementById('patient-full-appointment-table');
       if (tbody) {
         if (list.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="6" class="py-6 text-center text-xs text-slate-400">No appointments on record. Click "Book New Session" to schedule.</td></tr>';
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="6" class="py-12 text-center">
+                <div class="max-w-xs mx-auto space-y-2">
+                  <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-800/60 flex items-center justify-center text-teal-600 dark:text-teal-400 mx-auto">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                  </div>
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white">No Appointments Scheduled</h4>
+                  <p class="text-xs text-slate-400">Click "+ Book Session" to book your next clinical rehabilitation appointment.</p>
+                </div>
+              </td>
+            </tr>`;
         } else {
-          tbody.innerHTML = list.map(a => `
-            <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
+          tbody.innerHTML = list.map(a => {
+            const isConfirmed = a.status === 'Confirmed';
+            const isScheduled = a.status === 'Scheduled';
+            const isCancelled = a.status === 'Cancelled';
+            const statusPill = isConfirmed 
+              ? `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 shadow-xs"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>Confirmed</span>`
+              : (isScheduled 
+                ? `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200/80 dark:border-sky-800/60 shadow-xs"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>Scheduled</span>`
+                : (isCancelled
+                  ? `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border border-rose-200/80 dark:border-rose-800/60 shadow-xs"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>Cancelled</span>`
+                  : `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-xs"><span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>Completed</span>`));
+
+            return `
+            <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
               <td class="py-3.5 px-4">
-                <span class="font-bold text-slate-900 dark:text-white">${a.service}</span>
-                <span class="block text-[10px] text-slate-400">CPT 97110/97140 • 45 Mins</span>
+                <div class="font-extrabold text-slate-900 dark:text-white text-xs group-hover:text-teal-600 transition-colors flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                  <span>${a.service}</span>
+                </div>
+                <div class="text-[11px] text-slate-400 dark:text-slate-500 pl-3 mt-0.5 font-medium">CPT 97110/97140 &bull; 45 Mins Care</div>
               </td>
-              <td class="py-3.5 px-4 font-semibold text-slate-700 dark:text-slate-300">${a.therapist}</td>
-              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">${a.date}</td>
-              <td class="py-3.5 px-4 text-slate-500">Suite 02 (${a.type || 'In-Person'})</td>
               <td class="py-3.5 px-4">
-                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold ${a.status === 'Confirmed' ? 'bg-teal-50 text-teal-700 dark:bg-teal-950 dark:text-teal-300 border border-teal-200' : (a.status === 'Cancelled' ? 'bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-400 border border-rose-200' : 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300')}">${a.status}</span>
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-teal-700 dark:text-teal-300 text-[10px] font-extrabold">PT</div>
+                  <div class="font-bold text-slate-800 dark:text-slate-200 text-xs">${a.therapist}</div>
+                </div>
               </td>
-              <td class="py-3.5 px-4 text-right space-x-2">
-                ${a.status === 'Confirmed' || a.status === 'Scheduled' ? `
-                  <button onclick="cancelAppointment('${a.id}')" class="text-rose-600 hover:text-rose-700 font-semibold hover:underline">Cancel</button>
-                  <button onclick="openBookingModal()" class="text-teal-700 dark:text-teal-400 font-semibold hover:underline">Reschedule</button>
-                ` : `
-                  <button onclick="openSuperbillModal('INV-9021', '${a.date}', '${a.service}', '${a.therapist}', '₹1,499')" class="text-teal-700 dark:text-teal-400 font-semibold hover:underline">Superbill</button>
-                `}
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-slate-900 dark:text-white text-xs flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span>${a.date}</span>
+                </div>
               </td>
-            </tr>
-          `).join('');
+              <td class="py-3.5 px-4">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                  Suite 02 (${a.type || 'In-Person'})
+                </span>
+              </td>
+              <td class="py-3.5 px-4">
+                ${statusPill}
+              </td>
+              <td class="py-3.5 px-4 text-right">
+                <div class="flex items-center justify-end gap-1.5">
+                  ${isConfirmed || isScheduled ? `
+                    <button onclick="openBookingModal()" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs">
+                      <span>Reschedule</span>
+                    </button>
+                    <button onclick="cancelAppointment('${a.id}')" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold text-rose-600 dark:text-rose-400 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/60 dark:hover:bg-rose-900/60 border border-rose-200/80 dark:border-rose-800/60 transition shadow-xs">
+                      <span>Cancel</span>
+                    </button>
+                  ` : `
+                    <button onclick="openSuperbillModal('INV-9021', '${a.date}', '${a.service}', '${a.therapist}', '₹1,499')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs">
+                      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                      <span>Superbill</span>
+                    </button>
+                  `}
+                </div>
+              </td>
+            </tr>`;
+          }).join('');
         }
       }
     }
@@ -1593,25 +1642,57 @@
       }
       const tbody = document.getElementById('patient-full-appointment-table');
       if (tbody) {
-        tbody.innerHTML = list.map(a => `
-          <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
+        tbody.innerHTML = list.map(a => {
+          const isConfirmed = a.status === 'Confirmed';
+          const isScheduled = a.status === 'Scheduled';
+          const isCancelled = a.status === 'Cancelled';
+          const statusPill = isConfirmed 
+            ? `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 shadow-xs"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>Confirmed</span>`
+            : (isScheduled 
+              ? `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200/80 dark:border-sky-800/60 shadow-xs"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>Scheduled</span>`
+              : (isCancelled
+                ? `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border border-rose-200/80 dark:border-rose-800/60 shadow-xs"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>Cancelled</span>`
+                : `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-xs"><span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>Completed</span>`));
+
+          return `
+          <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
             <td class="py-3.5 px-4">
-              <span class="font-bold text-slate-900 dark:text-white">${a.service}</span>
-              <span class="block text-[10px] text-slate-400">CPT 97110/97140 • 45 Mins</span>
+              <div class="font-extrabold text-slate-900 dark:text-white text-xs group-hover:text-teal-600 transition-colors flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                <span>${a.service}</span>
+              </div>
+              <div class="text-[11px] text-slate-400 dark:text-slate-500 pl-3 mt-0.5 font-medium">CPT 97110/97140 &bull; 45 Mins Care</div>
             </td>
-            <td class="py-3.5 px-4 font-semibold text-slate-700 dark:text-slate-300">${a.therapist}</td>
-            <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">${a.date}</td>
-            <td class="py-3.5 px-4 text-slate-500">Suite 02 (${a.type || 'In-Person'})</td>
             <td class="py-3.5 px-4">
-              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold ${a.status === 'Confirmed' ? 'bg-teal-50 text-teal-700 dark:bg-teal-950 dark:text-teal-300 border border-teal-200' : 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300'}">${a.status}</span>
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-teal-700 dark:text-teal-300 text-[10px] font-extrabold">PT</div>
+                <div class="font-bold text-slate-800 dark:text-slate-200 text-xs">${a.therapist}</div>
+              </div>
             </td>
-            <td class="py-3.5 px-4 text-right space-x-2">
-              <button onclick="openBookingModal()" class="text-teal-700 dark:text-teal-400 font-semibold hover:underline">Manage</button>
+            <td class="py-3.5 px-4">
+              <div class="font-bold text-slate-900 dark:text-white text-xs flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>${a.date}</span>
+              </div>
             </td>
-          </tr>
-        `).join('');
+            <td class="py-3.5 px-4">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                Suite 02 (${a.type || 'In-Person'})
+              </span>
+            </td>
+            <td class="py-3.5 px-4">
+              ${statusPill}
+            </td>
+            <td class="py-3.5 px-4 text-right">
+              <button onclick="openBookingModal()" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs">
+                <span>Manage</span>
+              </button>
+            </td>
+          </tr>`;
+        }).join('');
       }
     }
+
 
     // Render Prescribed Exercises
     let completedExerciseIds = new Set(['ex-1', 'ex-2']);
