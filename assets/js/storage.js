@@ -21,7 +21,8 @@
   function initSeedData() {
     if (!window.PhysioDemoData) return;
 
-    if (!localStorage.getItem(KEYS.SERVICES)) {
+    const storedServices = localStorage.getItem(KEYS.SERVICES);
+    if (!storedServices || storedServices.includes('photo-1629909613654') || !storedServices.includes('therapies')) {
       localStorage.setItem(KEYS.SERVICES, JSON.stringify(window.PhysioDemoData.services));
     }
     if (!localStorage.getItem(KEYS.THERAPISTS)) {
