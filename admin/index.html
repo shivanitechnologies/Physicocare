@@ -436,7 +436,7 @@
                     Turnover
                   </span>
                 </div>
-                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Dr. Sarah Jenkins, DPT</h4>
+                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Dr. Kimberly Adams, PT</h4>
                 <p class="text-[11px] text-slate-500">Patient: Arjun Nambiar • Next: 02:00 PM</p>
                 <div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
                   <div class="bg-amber-400 h-full rounded-full" style="width: 15%;"></div>
@@ -509,7 +509,7 @@
                 <option value="Dr. Marcus Chen">Dr. Marcus Chen</option>
                 <option value="Dr. Elena Vance">Dr. Elena Vance</option>
                 <option value="Dr. Priya Patel">Dr. Priya Patel</option>
-                <option value="Dr. Sarah Jenkins">Dr. Sarah Jenkins</option>
+                <option value="Dr. Kimberly Adams">Dr. Kimberly Adams</option>
               </select>
             </div>
 
@@ -749,7 +749,7 @@
               </div>
               <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 space-y-2">
                 <span class="font-bold text-slate-900 dark:text-white block">Suite 04 (Sports Rehab)</span>
-                <p class="text-slate-400 text-[11px]">Lead: Dr. Sarah Jenkins</p>
+                <p class="text-slate-400 text-[11px]">Lead: Dr. Kimberly Adams</p>
                 <p class="text-teal-600 font-semibold">Available: 10:00 AM – 07:00 PM</p>
               </div>
             </div>
@@ -1359,7 +1359,7 @@
             <option value="Dr. Elena Vance, DPT">Dr. Elena Vance, DPT (Spine &amp; Posture)</option>
             <option value="Dr. Marcus Chen, DPT">Dr. Marcus Chen, DPT (Orthopedic)</option>
             <option value="Dr. Priya Patel, MPT">Dr. Priya Patel, MPT (Neurological)</option>
-            <option value="Dr. Sarah Jenkins, DPT">Dr. Sarah Jenkins, DPT (Sports)</option>
+            <option value="Dr. Kimberly Adams, PT">Dr. Kimberly Adams, PT (Active Aging & Pelvic)</option>
           </select>
         </div>
 
@@ -1407,7 +1407,7 @@
             <option value="Dr. Marcus Chen, DPT">Dr. Marcus Chen, DPT (Suite 01)</option>
             <option value="Dr. Elena Vance, DPT">Dr. Elena Vance, DPT (Suite 02)</option>
             <option value="Dr. Priya Patel, MPT">Dr. Priya Patel, MPT (Suite 03)</option>
-            <option value="Dr. Sarah Jenkins, DPT">Dr. Sarah Jenkins, DPT (Suite 04)</option>
+            <option value="Dr. Kimberly Adams, PT">Dr. Kimberly Adams, PT (Suite 04)</option>
           </select>
         </div>
 
@@ -1754,27 +1754,33 @@
       }
     }
 
-    // Render Therapists
+    // Render Therapists (Same Clinical Specialists Faculty across Portal)
     function renderAdminFaculty() {
       const grid = document.getElementById('admin-therapists-grid');
-      if (grid && window.PhysioDemoData) {
-        grid.innerHTML = window.PhysioDemoData.therapists.map((t, idx) => `
-          <div class="bg-white dark:bg-[#151F2E] rounded-2xl border border-slate-200 dark:border-slate-800 p-4 space-y-3 shadow-sm">
-            <div class="h-44 rounded-xl overflow-hidden relative">
-              <img src="${t.photo}" class="w-full h-full object-cover">
-              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-slate-900/80 text-white font-bold text-[10px]">Suite 0${idx + 1}</span>
+      if (grid && window.PhysioDemoData && window.PhysioDemoData.therapists) {
+        grid.innerHTML = window.PhysioDemoData.therapists.map((t, idx) => {
+          const photoUrl = t.photo.startsWith('http') || t.photo.startsWith('/') || t.photo.startsWith('../')
+            ? t.photo
+            : '../' + t.photo;
+          const suiteLabel = t.suite || `Suite 0${idx + 1}`;
+          return `
+          <div class="bg-white dark:bg-[#151F2E] rounded-2xl border border-slate-200 dark:border-slate-800 p-4 space-y-3 shadow-sm hover:shadow-md transition">
+            <div class="h-48 rounded-xl overflow-hidden relative bg-slate-100 dark:bg-slate-800">
+              <img src="${photoUrl}" alt="${t.name}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='../assets/images/team/elena-vance.jpg';">
+              <span class="absolute top-2.5 right-2.5 px-2.5 py-1 rounded-full bg-slate-900/85 backdrop-blur-sm text-white font-extrabold text-[11px] shadow">${suiteLabel}</span>
             </div>
             <div>
-              <h4 class="text-sm font-bold text-slate-900 dark:text-white font-heading">${t.name}</h4>
-              <p class="text-xs text-teal-600 dark:text-teal-400 font-bold">${t.role}</p>
-              <p class="text-[11px] text-slate-400 mt-1">${t.availability}</p>
+              <h4 class="text-[15px] font-extrabold text-slate-900 dark:text-white font-heading">${t.name}</h4>
+              <p class="text-xs text-teal-700 dark:text-teal-400 font-bold">${t.role}</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">${t.availability} &bull; ${t.experience || '8+ Years Exp'}</p>
             </div>
-            <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px]">
-              <span class="text-slate-400">Caseload:</span>
-              <span class="font-bold text-slate-700 dark:text-slate-300">${20 + idx * 4} Active Patients</span>
+            <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+              <span class="text-slate-400 font-medium">Caseload:</span>
+              <span class="font-extrabold text-slate-800 dark:text-slate-200">${20 + idx * 4} Active Patients</span>
             </div>
           </div>
-        `).join('');
+        `;
+        }).join('');
       }
     }
 

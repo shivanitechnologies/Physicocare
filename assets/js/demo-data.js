@@ -526,29 +526,30 @@ window.PhysioDemoData = {
       ]
     }
   ],
-
   therapists: [
     {
       id: "t-1",
-      name: "Dr. Elena Vance, DPT",
-      role: "Lead Orthopedic Specialist",
-      qualifications: "Doctor of Physical Therapy (DPT), OCS",
-      experience: "12+ Years Clinical Practice",
-      specialty: "Spine & Joint Replacement",
-      photo: "assets/images/team/elena-vance.jpg",
-      rating: "4.98",
-      availability: "Mon – Thu"
-    },
-    {
-      id: "t-2",
       name: "Dr. Marcus Chen, PT",
       role: "Sports Rehabilitation Director",
       qualifications: "MSc Sports Medicine, CSCS, PT",
       experience: "9+ Years Athletic Care",
       specialty: "Knee, ACL & Rotator Cuff",
+      suite: "Suite 01",
       photo: "assets/images/team/marcus-chen.jpg",
       rating: "4.95",
-      availability: "Tue – Sat"
+      availability: "Mon – Fri"
+    },
+    {
+      id: "t-2",
+      name: "Dr. Elena Vance, DPT",
+      role: "Lead Orthopedic Specialist",
+      qualifications: "Doctor of Physical Therapy (DPT), OCS",
+      experience: "12+ Years Clinical Practice",
+      specialty: "Spine & Joint Replacement",
+      suite: "Suite 02",
+      photo: "assets/images/team/elena-vance.jpg",
+      rating: "4.98",
+      availability: "Mon – Thu"
     },
     {
       id: "t-3",
@@ -557,6 +558,7 @@ window.PhysioDemoData = {
       qualifications: "Master of Physiotherapy (Neuro), NCS",
       experience: "11+ Years Neurological Care",
       specialty: "Stroke Recovery & Vestibular",
+      suite: "Suite 03",
       photo: "assets/images/team/priya-patel.jpg",
       rating: "4.99",
       availability: "Mon – Fri"
@@ -568,6 +570,7 @@ window.PhysioDemoData = {
       qualifications: "DPT, GCS, Women's Health Certified",
       experience: "8+ Years Practice",
       specialty: "Active Aging & Mobility Support",
+      suite: "Suite 04",
       photo: "assets/images/team/kimberly-adams.jpg",
       rating: "4.94",
       availability: "Wed – Sun"
