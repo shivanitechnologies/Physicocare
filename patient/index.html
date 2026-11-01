@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Patient Portal — PhysioCare</title>
+  <title>Patient Portal – PhysioCare Rehabilitation</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -17,96 +17,204 @@
               800: '#115E59', 900: '#134E4A', 950: '#042F2E',
             },
             slate: {
-              750: '#243044', 800: '#1E293B', 850: '#151F30', 900: '#0F172A', 950: '#090D12'
+              750: '#243044', 800: '#1E293B', 850: '#151F30', 900: '#0F172A', 950: '#0B1220'
             }
           },
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+            heading: ['Outfit', '"Plus Jakarta Sans"', 'sans-serif'],
           }
         }
       }
     }
   </script>
+  <script>
+    (function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlTheme = urlParams.get('theme');
+      if (urlTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else if (urlTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark') document.documentElement.classList.add('dark');
+        else if (saved === 'light') document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="../assets/css/custom.css">
   <link rel="stylesheet" href="../assets/css/dashboard.css">
   <link rel="icon" type="image/svg+xml" href="../assets/images/logo-mark.svg">
-  <script src="../assets/js/theme.js"></script>
-  <script src="../assets/js/rtl.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Custom Scrollbar & Active Portal States */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.3); border-radius: 9999px; }
+    .portal-nav-item.active {
+      background-color: rgba(15, 118, 110, 0.12) !important;
+      color: #0F766E !important;
+      border-left: 3px solid #0F766E;
+    }
+    .dark .portal-nav-item.active {
+      background-color: rgba(45, 212, 191, 0.16) !important;
+      color: #2DD4BF !important;
+      border-left: 3px solid #2DD4BF;
+    }
+  </style>
 </head>
-<body class="bg-[#F8FAFC] dark:bg-[#090D12] text-slate-600 dark:text-slate-300 font-sans antialiased">
+<body class="bg-[#F8FAFC] dark:bg-[#0B1220] text-slate-600 dark:text-slate-300 font-sans antialiased">
 
   <div class="portal-layout min-h-screen flex">
     
-    <!-- Portal Sidebar -->
-    <aside class="portal-sidebar p-5 hidden md:flex flex-col justify-between w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 sticky top-0 h-screen">
-      <div class="space-y-6">
-        <!-- Logo -->
-        <a href="../index.html" class="flex items-center gap-2 group">
-          <img src="../assets/images/logo.svg" alt="PhysioCare" class="h-8 w-auto dark:hidden">
-          <img src="../assets/images/logo-white.svg" alt="PhysioCare" class="h-8 w-auto hidden dark:block">
-        </a>
+    <!-- Mobile Sidebar Drawer Backdrop -->
+    <div id="mobile-sidebar-backdrop" onclick="toggleMobileSidebar()" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden md:hidden"></div>
 
-        <!-- Patient Profile Badge -->
+    <!-- Patient Portal Sidebar (260px fixed width, structured categories) -->
+    <aside id="portal-sidebar" class="portal-sidebar fixed inset-y-0 left-0 z-50 w-[260px] bg-white dark:bg-[#151F2E] border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between transition-transform duration-300 -translate-x-full md:translate-x-0 md:sticky md:top-0 h-screen overflow-y-auto">
+      <div class="p-5 space-y-6">
+        <!-- Brand Logo -->
+        <div class="flex items-center justify-between">
+          <a href="../index.html" class="flex items-center gap-2 group">
+            <img src="../assets/images/logo.svg" alt="PhysioCare" class="h-8 w-auto dark:hidden">
+            <img src="../assets/images/logo-white.svg" alt="PhysioCare" class="h-8 w-auto hidden dark:block">
+          </a>
+          <button onclick="toggleMobileSidebar()" class="md:hidden text-slate-400 hover:text-slate-600 text-lg">&times;</button>
+        </div>
+
+        <!-- Patient Identity Badge -->
         <div class="p-3.5 rounded-2xl bg-teal-50/70 dark:bg-slate-800/80 border border-teal-100/80 dark:border-slate-700 flex items-center gap-3">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Pravin Kumar" class="w-10 h-10 rounded-xl object-cover ring-2 ring-teal-600/30">
+          <div class="w-10 h-10 rounded-xl bg-teal-700 text-white flex items-center justify-center font-bold shadow-sm flex-shrink-0">
+            PK
+          </div>
           <div class="min-w-0 flex-1">
             <h4 class="text-xs font-bold text-slate-900 dark:text-white truncate">Pravin Kumar</h4>
             <div class="flex items-center gap-1.5 mt-0.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              <p class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold tracking-wide">MRN #PAT-101</p>
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <p class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold tracking-wide">MRN #PAT-101 • Active</p>
             </div>
           </div>
         </div>
 
-        <!-- Sidebar Navigation (SVG Icons) -->
-        <nav class="space-y-1 text-xs">
-          <button onclick="switchTab('overview')" class="w-full portal-nav-item active flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold transition" id="tab-btn-overview">
-            <svg class="w-4 h-4 text-teal-700 dark:text-teal-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-            </svg>
-            <span>Overview</span>
-          </button>
+        <!-- Sidebar Navigation Sections (Grouped as per specifications) -->
+        <nav class="space-y-5 text-xs">
           
-          <button onclick="switchTab('appointments')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold transition" id="tab-btn-appointments">
-            <svg class="w-4 h-4 text-slate-500 dark:text-slate-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-            </svg>
-            <span>My Appointments</span>
-          </button>
+          <!-- SECTION 1: MAIN MENU -->
+          <div class="space-y-1">
+            <p class="px-3 text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">Main Menu</p>
+            
+            <button onclick="switchTab('overview')" class="w-full portal-nav-item active flex items-center gap-3 px-3 py-2 rounded-xl font-semibold transition" id="ptab-btn-overview">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+              </svg>
+              <span>Overview</span>
+            </button>
 
-          <button onclick="switchTab('plans')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold transition" id="tab-btn-plans">
-            <svg class="w-4 h-4 text-slate-500 dark:text-slate-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-            <span>Treatment Plan</span>
-          </button>
+            <button onclick="switchTab('appointments')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2 rounded-xl font-semibold transition" id="ptab-btn-appointments">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              <span>My Appointments</span>
+            </button>
 
-          <button onclick="switchTab('exercises')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold transition" id="tab-btn-exercises">
-            <svg class="w-4 h-4 text-slate-500 dark:text-slate-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-            <span>Home Exercises (HEP)</span>
-          </button>
+            <button onclick="switchTab('plans')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2 rounded-xl font-semibold transition" id="ptab-btn-plans">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              <span>My Treatment Plan</span>
+            </button>
 
-          <button onclick="switchTab('payments')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold transition" id="tab-btn-payments">
-            <svg class="w-4 h-4 text-slate-500 dark:text-slate-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z"/>
-            </svg>
-            <span>Billing &amp; Superbills</span>
-          </button>
+            <button onclick="switchTab('recovery')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2 rounded-xl font-semibold transition" id="ptab-btn-recovery">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+              <span>Recovery Progress</span>
+            </button>
+
+            <button onclick="switchTab('therapist')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2 rounded-xl font-semibold transition" id="ptab-btn-therapist">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+              <span>My Therapist</span>
+            </button>
+          </div>
+
+          <!-- SECTION 2: HEALTH & RECORDS -->
+          <div class="space-y-1">
+            <p class="px-3 text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">Health & Records</p>
+            
+            <button onclick="switchTab('records')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2 rounded-xl font-semibold transition" id="ptab-btn-records">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              <span>Medical Records</span>
+            </button>
+
+            <button onclick="switchTab('exercises')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2 rounded-xl font-semibold transition" id="ptab-btn-exercises">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>Exercise Programs</span>
+            </button>
+
+            <button onclick="switchTab('payments')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2 rounded-xl font-semibold transition" id="ptab-btn-payments">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+              </svg>
+              <span>Payments & Invoices</span>
+            </button>
+
+            <button onclick="switchTab('messages')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2 rounded-xl font-semibold transition" id="ptab-btn-messages">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+              </svg>
+              <div class="flex items-center justify-between flex-1">
+                <span>Messages</span>
+                <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-300">1</span>
+              </div>
+            </button>
+          </div>
+
+          <!-- SECTION 3: ACCOUNT & SUPPORT -->
+          <div class="space-y-1">
+            <p class="px-3 text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">Account</p>
+            
+            <button onclick="switchTab('profile')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2 rounded-xl font-semibold transition" id="ptab-btn-profile">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>My Profile</span>
+            </button>
+
+            <button onclick="switchTab('settings')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2 rounded-xl font-semibold transition" id="ptab-btn-settings">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <span>Settings</span>
+            </button>
+
+            <button onclick="switchTab('help')" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2 rounded-xl font-semibold transition" id="ptab-btn-help">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+              <span>Help & Support</span>
+            </button>
+          </div>
+
         </nav>
       </div>
 
-      <!-- Bottom Actions -->
-      <div class="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-1.5">
-        <a href="../index.html" class="portal-nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-xs text-slate-500 hover:text-slate-800 dark:hover:text-white transition">
+      <!-- Logout & Clinic Switch Link -->
+      <div class="p-4 border-t border-slate-200 dark:border-slate-800 space-y-2">
+        <a href="../admin/index.html" class="flex items-center gap-2 px-3 py-2 rounded-xl text-[11px] font-semibold text-slate-500 hover:text-teal-700 dark:hover:text-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition">
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
           </svg>
-          <span>Back to Main Site</span>
+          <span>Switch to Admin View</span>
         </a>
-        <button onclick="handleLogout()" class="w-full portal-nav-item flex items-center gap-3 px-3 py-2 rounded-xl text-xs text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition">
+        <button onclick="handleLogout()" class="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-[11px] font-semibold text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition">
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
           </svg>
@@ -115,511 +223,1248 @@
       </div>
     </aside>
 
-    <!-- Main Workspace -->
-    <div class="portal-main flex-1 flex flex-col min-w-0">
+    <!-- Main Portal Content -->
+    <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
       
-      <!-- Topbar -->
-      <header class="portal-topbar h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 flex items-center justify-between sticky top-0 z-20">
-        <div class="flex items-center gap-3">
-          <div class="md:hidden">
-            <a href="../index.html" class="inline-block">
-              <img src="../assets/images/logo-mark.svg" alt="PhysioCare" class="h-7 w-auto">
-            </a>
-          </div>
+      <!-- Top Header Navigation Bar (72px height, matching Admin Dashboard) -->
+      <header class="h-[72px] sticky top-0 z-30 bg-white/90 dark:bg-[#151F2E]/90 backdrop-blur border-b border-slate-200 dark:border-slate-800 px-6 flex items-center justify-between">
+        
+        <!-- Left: Mobile Menu Toggle & Title -->
+        <div class="flex items-center gap-4">
+          <button onclick="toggleMobileSidebar()" class="md:hidden p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
           <div>
-            <h2 class="text-base font-bold text-slate-900 dark:text-white font-heading" id="portal-tab-title">Patient Portal Overview</h2>
-            <p class="text-[11px] text-slate-400 hidden sm:block">Primary Care Physician: Dr. Elena Vance, DPT</p>
+            <h1 class="text-base md:text-lg font-bold text-slate-900 dark:text-white font-heading" id="portal-tab-title">Patient Portal Overview</h1>
+            <p class="text-[11px] text-slate-400 hidden sm:block">Personal Rehabilitation Records & Clinical Recovery Journey</p>
           </div>
         </div>
-        
+
+        <!-- Right: Actions & Profile -->
         <div class="flex items-center gap-3">
-          <!-- Mobile Tab Selector -->
-          <div class="md:hidden">
-            <select onchange="switchTab(this.value)" class="text-xs bg-slate-100 dark:bg-slate-800 border-0 rounded-lg px-2.5 py-1.5 font-semibold text-slate-800 dark:text-white">
-              <option value="overview">Overview</option>
-              <option value="appointments">Appointments</option>
-              <option value="plans">Treatment Plan</option>
-              <option value="exercises">Home Exercises</option>
-              <option value="payments">Billing & Superbills</option>
-            </select>
+          
+          <!-- Search input -->
+          <div class="relative hidden lg:block w-64">
+            <input type="text" placeholder="Search exercises, invoices..." class="w-full pl-9 pr-4 py-1.5 rounded-xl text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500">
+            <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
           </div>
 
-          <!-- Fresh Data Reset -->
-          <button onclick="resetToFreshData()" class="px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:text-teal-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-[11px] font-semibold transition hidden sm:flex items-center gap-1" title="Reset to clean demonstration records">
-            <svg class="w-3.5 h-3.5 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          <!-- Notification Bell -->
+          <div class="relative">
+            <button onclick="toggleNotifications()" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 relative transition">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+              </svg>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-teal-500 ring-2 ring-white dark:ring-slate-900"></span>
+            </button>
+            <div id="notifications-dropdown" class="hidden absolute right-0 mt-2 w-80 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-xl p-4 z-50 space-y-3">
+              <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/60 pb-2">
+                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Recent Clinical Alerts</h4>
+                <span class="text-[10px] text-teal-600 dark:text-teal-400 font-semibold">2 Unread</span>
+              </div>
+              <div class="space-y-2 text-xs">
+                <div class="p-2.5 rounded-xl bg-teal-50/60 dark:bg-slate-700/50 border border-teal-100 dark:border-slate-600 space-y-1">
+                  <p class="font-bold text-slate-900 dark:text-white">Upcoming Session Confirmed</p>
+                  <p class="text-slate-500 text-[11px]">Tomorrow at 10:30 AM with Dr. Elena Vance in Suite 02.</p>
+                  <span class="text-[10px] text-teal-700 dark:text-teal-400 font-medium">10 mins ago</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-700/30 border border-slate-100 dark:border-slate-700 space-y-1">
+                  <p class="font-bold text-slate-900 dark:text-white">HEP Routine Updated</p>
+                  <p class="text-slate-500 text-[11px]">Glute bridge hold increased to 3 seconds by Dr. Vance.</p>
+                  <span class="text-[10px] text-slate-400">Yesterday</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reset Data Button -->
+          <button onclick="resetDashboardData()" title="Reset to fresh demo data" class="px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.03 8.03 0 01-15.357-2m15.357 2H15"/>
             </svg>
-            <span>Fresh Data</span>
+            <span class="hidden sm:inline">Fresh Data</span>
           </button>
 
-          <!-- RTL Switcher -->
-          <button type="button" class="rtl-toggle-btn w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-xs transition" title="Toggle RTL">⇄</button>
-          
-          <!-- Theme Switcher -->
-          <button type="button" class="theme-toggle-btn w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-xs transition" aria-label="Toggle theme">
-            <span class="theme-icon-moon">🌙</span>
-            <span class="theme-icon-sun hidden">☀️</span>
+          <!-- Dark / Light Theme Toggle -->
+          <button onclick="togglePortalTheme()" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition" title="Toggle Dark/Light Mode">
+            <svg class="w-5 h-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+            <svg class="w-5 h-5 hidden dark:block text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
           </button>
 
-          <a href="../appointment.html" class="px-3.5 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
-            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <!-- Book Appointment Button -->
+          <button onclick="openBookingModal()" class="px-3.5 py-1.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm shadow-teal-700/20 transition flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
             </svg>
             <span>Book Session</span>
-          </a>
+          </button>
         </div>
       </header>
 
-      <!-- Content Area -->
-      <main class="p-6 lg:p-8 space-y-8 flex-grow">
-        
+      <!-- Dashboard Tab Views Container -->
+      <div class="p-6 md:p-8 space-y-8 max-w-7xl mx-auto w-full">
+
         <!-- ========================================== -->
-        <!-- TAB 1: CLINICAL OVERVIEW -->
+        <!-- TAB 1: OVERVIEW -->
         <!-- ========================================== -->
-        <div id="tab-overview" class="space-y-8">
+        <section id="ptab-overview" class="portal-tab-content space-y-8">
           
-          <!-- Clinical Vitals & Recovery Metric Cards -->
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="stat-card p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700">
-              <div class="flex items-center justify-between">
-                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Recovery Score</p>
-                <span class="text-xs px-2 py-0.5 rounded-full font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">↑ +14%</span>
+          <!-- Top Welcome Section -->
+          <div class="p-6 md:p-8 rounded-3xl bg-gradient-to-br from-teal-700 via-teal-800 to-slate-900 text-white shadow-xl relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="space-y-2 z-10 max-w-xl">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-teal-200 text-xs font-semibold">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Active Protocol • Spine & Posture Care</span>
               </div>
-              <h4 class="text-2xl lg:text-3xl font-black text-teal-700 dark:text-teal-400 font-heading mt-2">78%</h4>
-              <p class="text-[11px] text-slate-500 mt-1">Target 90%+ for discharge</p>
-            </div>
-
-            <div class="stat-card p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700">
-              <div class="flex items-center justify-between">
-                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Sessions Done</p>
-                <span class="text-xs text-slate-400 font-semibold">Care Plan</span>
+              <h2 class="text-2xl md:text-3xl font-extrabold font-heading text-white tracking-tight">Good morning, Pravin!</h2>
+              <p class="text-sm text-teal-100 leading-relaxed">Welcome back to your recovery journey. You've completed 8 of your 12 prescribed lumbar stabilization sessions. Objective straight-leg flexion has improved by +38° since evaluation.</p>
+              <div class="pt-2 flex flex-wrap items-center gap-4 text-xs font-medium text-teal-200">
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                  <span>Sunday, November 1, 2026</span>
+                </span>
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-teal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span>Next: Tomorrow, 10:30 AM (Suite 02)</span>
+                </span>
               </div>
-              <h4 class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2">6 <span class="text-base font-semibold text-slate-400">/ 10</span></h4>
-              <p class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold mt-1">4 sessions remaining</p>
             </div>
-
-            <div class="stat-card p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700">
-              <div class="flex items-center justify-between">
-                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Next Session</p>
-                <span class="w-2 h-2 rounded-full bg-teal-500"></span>
-              </div>
-              <h4 class="text-base lg:text-lg font-bold text-slate-900 dark:text-white font-heading mt-2 truncate">Tomorrow, 10:30 AM</h4>
-              <p class="text-[11px] text-slate-500 mt-1">Suite 02 • Dr. Elena Vance</p>
+            <div class="flex items-center gap-3 z-10">
+              <button onclick="openBookingModal()" class="px-5 py-3 rounded-2xl bg-white text-teal-900 font-bold text-xs hover:bg-teal-50 shadow-md transition flex items-center gap-2">
+                <svg class="w-4 h-4 text-teal-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                <span>Book New Appointment</span>
+              </button>
+              <button onclick="switchTab('plans')" class="px-4 py-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs backdrop-blur-md transition">
+                View Active Plan
+              </button>
             </div>
-
-            <div class="stat-card p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700">
-              <div class="flex items-center justify-between">
-                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Home Compliance</p>
-                <span class="text-xs text-emerald-600 font-bold" id="hep-logged-count">2/3 Logged</span>
-              </div>
-              <h4 class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2">67%</h4>
-              <p class="text-[11px] text-slate-500 mt-1">Daily home routine</p>
-            </div>
+            <!-- Decorative Background Graphic -->
+            <div class="absolute -right-10 -bottom-10 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
           </div>
 
-          <!-- 2 Columns: Appointments & Primary Clinician -->
-          <div class="grid lg:grid-cols-12 gap-8">
+          <!-- Four Summary Cards (As specified in prompt) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             
-            <!-- Column 1: Upcoming Appointments -->
-            <div class="lg:col-span-7 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-6 space-y-4">
-              <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-700/60">
-                <div class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                  </svg>
-                  <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Upcoming Appointments</h3>
+            <!-- Card 1: Upcoming Appointments -->
+            <div class="p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Upcoming Appointments</span>
+                <div class="w-8 h-8 rounded-xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                 </div>
-                <button onclick="switchTab('appointments')" class="text-xs text-teal-600 dark:text-teal-400 font-bold hover:underline">View All</button>
               </div>
-              <div class="space-y-3" id="patient-appointment-list">
-                <!-- Dynamically populated from LocalStorage -->
-              </div>
+              <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white" id="stat-upcoming-count">2</h3>
+              <p class="text-[11px] text-teal-700 dark:text-teal-400 font-medium">Next: Tomorrow, 10:30 AM</p>
             </div>
 
-            <!-- Column 2: Primary Clinician & Medical Notes -->
-            <div class="lg:col-span-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-6 space-y-4 flex flex-col justify-between">
-              <div class="space-y-4">
-                <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-700/60">
-                  <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Assigned Lead Clinician</h3>
-                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300">Doctor of Record</span>
+            <!-- Card 2: Completed Sessions -->
+            <div class="p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Completed Sessions</span>
+                <div class="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
-                
-                <div class="flex items-center gap-4">
-                  <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=300&q=80" alt="Dr. Elena Vance" class="w-16 h-16 rounded-2xl object-cover ring-2 ring-teal-600/30">
-                  <div class="space-y-0.5 min-w-0">
-                    <h4 class="text-sm font-bold text-slate-900 dark:text-white truncate">Dr. Elena Vance, DPT, OCS</h4>
-                    <p class="text-xs text-teal-700 dark:text-teal-400 font-semibold">Doctor of Physical Therapy</p>
-                    <p class="text-[11px] text-slate-400">Treatment Suite 02 • Mon–Thu Clinic Hours</p>
+              </div>
+              <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white">8 <span class="text-xs font-semibold text-slate-400">/ 12 planned</span></h3>
+              <p class="text-[11px] text-slate-500 font-medium">4 sessions to maintenance phase</p>
+            </div>
+
+            <!-- Card 3: Recovery Progress -->
+            <div class="p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Recovery Progress</span>
+                <div class="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                </div>
+              </div>
+              <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white">67%</h3>
+              <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
+                <span>↑ +14%</span>
+                <span class="text-slate-400 font-normal">Clinician verified</span>
+              </p>
+            </div>
+
+            <!-- Card 4: Pending Payments -->
+            <div class="p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Pending Payments</span>
+                <div class="w-8 h-8 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                </div>
+              </div>
+              <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white">₹0</h3>
+              <p class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">All sessions billed & settled</p>
+            </div>
+
+          </div>
+
+          <!-- Below Cards: Side-by-Side Focused Columns -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Left 2 Cols: Next Session + Recovery Chart + Activity -->
+            <div class="lg:col-span-2 space-y-8">
+              
+              <!-- Upcoming Session Spotlight Card -->
+              <div class="p-6 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Upcoming Appointment</h3>
+                    <p class="text-xs text-slate-500">Scheduled 1-on-1 rehabilitation session</p>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-teal-50 text-teal-700 dark:bg-teal-950/60 dark:text-teal-300 border border-teal-200 dark:border-teal-800">Confirmed</span>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div class="flex items-center gap-4">
+                    <img src="../assets/images/team/elena-vance.jpg" alt="Dr. Elena Vance" class="w-14 h-14 rounded-2xl object-cover ring-2 ring-teal-600">
+                    <div>
+                      <h4 class="text-sm font-bold text-slate-900 dark:text-white">Spine & Posture Care</h4>
+                      <p class="text-xs text-slate-500">Dr. Elena Vance, DPT, OCS • Senior Spine Specialist</p>
+                      <div class="flex items-center gap-3 mt-1 text-[11px] text-teal-700 dark:text-teal-400 font-semibold">
+                        <span>Suite 02 (Private Doctoral Suite)</span>
+                        <span>•</span>
+                        <span>45 Mins Care</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-left sm:text-right space-y-1">
+                    <p class="text-sm font-extrabold text-slate-900 dark:text-white">Tomorrow, Nov 02</p>
+                    <p class="text-xs font-semibold text-teal-600 dark:text-teal-400">10:30 AM – 11:15 AM</p>
                   </div>
                 </div>
 
-                <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 space-y-1.5">
-                  <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Latest Clinician Progress Note (Oct 28)</p>
-                  <p class="text-xs text-slate-600 dark:text-slate-300 italic leading-relaxed">
-                    "Pravin's lumbar stabilization is progressing smoothly. Lumbar extension pain has resolved from 6/10 to 1.5/10. Focus on core multifidus engagement during morning Bird-Dog sets. Avoid prolonged forward slouching."
-                  </p>
+                <div class="flex items-center justify-between pt-2">
+                  <button onclick="switchTab('appointments')" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline flex items-center gap-1">
+                    <span>Manage all appointments</span>
+                    <span>→</span>
+                  </button>
+                  <div class="flex items-center gap-2">
+                    <button onclick="switchTab('messages')" class="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition">
+                      Message Doctor
+                    </button>
+                    <button onclick="openBookingModal()" class="px-3 py-1.5 rounded-xl bg-teal-700 text-white text-xs font-bold hover:bg-teal-800 transition">
+                      Book Another
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              <div class="pt-3 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between text-xs">
-                <span class="text-slate-400 text-[11px]">Need to adjust care plan?</span>
-                <a href="../contact.html" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">Message Clinic Coordinator →</a>
+              <!-- Recovery Progress Chart (Chart.js) -->
+              <div class="p-6 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Recovery Trajectory</h3>
+                    <p class="text-xs text-slate-500">Clinician-measured mobility score vs. subjective pain scale</p>
+                  </div>
+                  <div class="flex items-center gap-3 text-xs">
+                    <span class="flex items-center gap-1.5">
+                      <span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span>
+                      <span class="text-slate-600 dark:text-slate-400 font-medium">Mobility Index (%)</span>
+                    </span>
+                    <span class="flex items-center gap-1.5">
+                      <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                      <span class="text-slate-600 dark:text-slate-400 font-medium">VAS Pain Score</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="h-64 relative">
+                  <canvas id="overviewRecoveryChart"></canvas>
+                </div>
               </div>
+
+              <!-- Recent Treatment Activity -->
+              <div class="p-6 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+                <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Recent Treatment Activity</h3>
+                <div class="space-y-3 text-xs">
+                  <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-xl bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-300 flex items-center justify-center font-bold flex-shrink-0">
+                      ✓
+                    </div>
+                    <div class="flex-1 space-y-0.5">
+                      <div class="flex items-center justify-between">
+                        <p class="font-bold text-slate-900 dark:text-white">Lumbar Extension Mobilization Completed</p>
+                        <span class="text-[10px] text-slate-400">Oct 30, 2026</span>
+                      </div>
+                      <p class="text-slate-500 text-[11px]">Dr. Elena Vance noted significant reduction in lower back muscle guarding. Straight leg lift achieved 80° flexion.</p>
+                    </div>
+                  </div>
+
+                  <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 flex items-center justify-center font-bold flex-shrink-0">
+                      HEP
+                    </div>
+                    <div class="flex-1 space-y-0.5">
+                      <div class="flex items-center justify-between">
+                        <p class="font-bold text-slate-900 dark:text-white">Home Exercise Compliance Logged</p>
+                        <span class="text-[10px] text-slate-400">Oct 29, 2026</span>
+                      </div>
+                      <p class="text-slate-500 text-[11px]">Completed Bird-Dog Core Stabilization (3 sets x 10 reps) and Cat-Cow mobility routine.</p>
+                    </div>
+                  </div>
+
+                  <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-xl bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 flex items-center justify-center font-bold flex-shrink-0">
+                      DOC
+                    </div>
+                    <div class="flex-1 space-y-0.5">
+                      <div class="flex items-center justify-between">
+                        <p class="font-bold text-slate-900 dark:text-white">Superbill #INV-9028 Generated</p>
+                        <span class="text-[10px] text-slate-400">Oct 28, 2026</span>
+                      </div>
+                      <p class="text-slate-500 text-[11px]">CPT 97110 / 97140 settled via saved payment method. Zero balance due.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right 1 Col: Lead Clinician + Progress Note + Exercise Preview -->
+            <div class="space-y-8">
+              
+              <!-- Assigned Lead Clinician Card -->
+              <div class="p-6 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Treating Specialist</h3>
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400">Active Care</span>
+                </div>
+                
+                <div class="text-center space-y-3">
+                  <div class="relative inline-block">
+                    <img src="../assets/images/team/elena-vance.jpg" alt="Dr. Elena Vance" class="w-24 h-24 rounded-3xl object-cover mx-auto ring-4 ring-teal-500/20 shadow-md">
+                    <span class="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-slate-800"></span>
+                  </div>
+                  <div>
+                    <h4 class="text-base font-bold text-slate-900 dark:text-white">Dr. Elena Vance</h4>
+                    <p class="text-xs font-semibold text-teal-700 dark:text-teal-400">DPT, OCS • Senior Spine Specialist</p>
+                    <p class="text-[11px] text-slate-400 mt-1">12+ Yrs Clinical Experience • Suite 02</p>
+                  </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-teal-50/60 dark:bg-slate-800/60 border border-teal-100 dark:border-slate-700 space-y-2">
+                  <span class="text-[10px] font-bold text-teal-800 dark:text-teal-300 uppercase tracking-wider">Clinician Progress Note</span>
+                  <p class="text-xs text-slate-700 dark:text-slate-300 italic leading-relaxed">
+                    "Pravin exhibits notable reduction in radiating leg discomfort. Lumbar flexion has improved from baseline 42° to 80°. Continue daily prescribed core stability exercises prior to Tuesday's progressive loading session."
+                  </p>
+                  <p class="text-[10px] text-slate-400 text-right">— Dr. Vance (Signed Oct 30, 2026)</p>
+                </div>
+
+                <button onclick="switchTab('messages')" class="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs transition flex items-center justify-center gap-2">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+                  <span>Send Message to Dr. Vance</span>
+                </button>
+              </div>
+
+              <!-- Recommended Exercise Preview -->
+              <div class="p-6 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Recommended Exercises</h3>
+                  <button onclick="switchTab('exercises')" class="text-[11px] text-teal-700 dark:text-teal-400 font-bold hover:underline">View All →</button>
+                </div>
+                
+                <div class="space-y-2.5">
+                  <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=200&q=80" alt="Bird-Dog" class="w-12 h-12 rounded-xl object-cover flex-shrink-0">
+                    <div class="min-w-0 flex-1">
+                      <h4 class="text-xs font-bold text-slate-900 dark:text-white truncate">Bird-Dog Core Stabilization</h4>
+                      <p class="text-[10px] text-slate-400">3 sets × 10 reps per side</p>
+                    </div>
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">Daily</span>
+                  </div>
+
+                  <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=200&q=80" alt="Cat-Cow" class="w-12 h-12 rounded-xl object-cover flex-shrink-0">
+                    <div class="min-w-0 flex-1">
+                      <h4 class="text-xs font-bold text-slate-900 dark:text-white truncate">Cat-Cow Spinal Mobilization</h4>
+                      <p class="text-[10px] text-slate-400">2 sets × 12 smooth cycles</p>
+                    </div>
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">Daily</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
           </div>
 
-        </div>
+        </section>
+
 
         <!-- ========================================== -->
         <!-- TAB 2: MY APPOINTMENTS -->
         <!-- ========================================== -->
-        <div id="tab-appointments" class="hidden space-y-6">
-          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-6 space-y-4">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-slate-700/60">
-              <div>
-                <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Clinical Session Schedule &amp; History</h3>
-                <p class="text-xs text-slate-400">All sessions take place 1-on-1 in private clinical suites.</p>
-              </div>
-              <a href="../appointment.html" class="px-3.5 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm">
-                <span>+ Schedule New Session</span>
-              </a>
+        <section id="ptab-appointments" class="portal-tab-content hidden space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">My Appointments</h2>
+              <p class="text-xs text-slate-500">Manage your private suite rehabilitation sessions</p>
             </div>
+            <div class="flex items-center gap-3">
+              <button onclick="openBookingModal()" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm transition flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                <span>Book New Session</span>
+              </button>
+            </div>
+          </div>
 
+          <!-- Filter Pills -->
+          <div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs font-semibold">
+            <button onclick="filterAppointments('all')" class="px-3.5 py-1.5 rounded-full bg-teal-700 text-white font-bold transition">All Appointments</button>
+            <button onclick="filterAppointments('upcoming')" class="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition">Upcoming</button>
+            <button onclick="filterAppointments('completed')" class="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition">Completed</button>
+          </div>
+
+          <!-- Appointments Table Card -->
+          <div class="bg-white dark:bg-[#151F2E] rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
             <div class="overflow-x-auto">
               <table class="w-full text-left text-xs">
-                <thead>
-                  <tr class="border-b border-slate-200 dark:border-slate-700 text-slate-400 uppercase tracking-wider text-[10px]">
-                    <th class="py-3 px-3">Service &amp; Protocol</th>
-                    <th class="py-3 px-3">Treating Doctor</th>
-                    <th class="py-3 px-3">Date &amp; Time</th>
-                    <th class="py-3 px-3">Suite / Format</th>
-                    <th class="py-3 px-3">Status</th>
-                    <th class="py-3 px-3 text-right">Actions</th>
+                <thead class="bg-slate-50 dark:bg-slate-900/60 text-slate-400 font-extrabold uppercase tracking-wider text-[10px] border-b border-slate-100 dark:border-slate-800">
+                  <tr>
+                    <th class="py-4 px-4">Service & Focus</th>
+                    <th class="py-4 px-4">Therapist</th>
+                    <th class="py-4 px-4">Scheduled Date & Time</th>
+                    <th class="py-4 px-4">Suite / Format</th>
+                    <th class="py-4 px-4">Status</th>
+                    <th class="py-4 px-4 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody id="full-appointment-table" class="divide-y divide-slate-100 dark:divide-slate-800">
-                  <!-- Populated from storage -->
+                <tbody class="divide-y divide-slate-100 dark:divide-slate-800" id="patient-full-appointment-table">
+                  <!-- Injected via JavaScript -->
                 </tbody>
               </table>
             </div>
           </div>
-        </div>
+        </section>
+
 
         <!-- ========================================== -->
-        <!-- TAB 3: TREATMENT PLAN & MILESTONES -->
+        <!-- TAB 3: MY TREATMENT PLAN -->
         <!-- ========================================== -->
-        <div id="tab-plans" class="hidden space-y-6">
-          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-6 lg:p-8 space-y-6">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-slate-700/60">
-              <div>
-                <span class="text-[11px] font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider">PROTOCOL #TP-101 • LUMBAR SPINE</span>
-                <h3 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Spinal Mobility &amp; Multifidus Stabilization Protocol</h3>
-                <p class="text-xs text-slate-400 mt-0.5">Diagnosing Clinician: Dr. Elena Vance, DPT • Evaluation Date: Oct 12, 2026</p>
+        <section id="ptab-plans" class="portal-tab-content hidden space-y-6">
+          <div class="p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="space-y-1">
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-300">Phase 2: Core Kinetic Stabilization</span>
+                <h2 class="text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white font-heading">Lower Back Rehabilitation & Postural Restoration</h2>
+                <p class="text-xs text-slate-500">Lead Clinician: Dr. Elena Vance, DPT, OCS • Diagnosis: L4-L5 Lumbar Radiculopathy</p>
               </div>
-              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300">
-                <span class="w-2 h-2 rounded-full bg-teal-600 animate-pulse"></span>
-                Phase 2 Active (Session 6 of 10)
+              <div class="text-right">
+                <p class="text-xs text-slate-400">Overall Protocol Completion</p>
+                <p class="text-3xl font-extrabold text-teal-700 dark:text-teal-400">67%</p>
               </div>
             </div>
 
-            <!-- Overall Protocol Progress Bar -->
+            <!-- Progress Bar -->
             <div class="space-y-2">
-              <div class="flex justify-between text-xs font-bold">
-                <span class="text-slate-700 dark:text-slate-300">Total Protocol Completion</span>
-                <span class="text-teal-600 dark:text-teal-400">78% Achieved</span>
+              <div class="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300">
+                <span>8 of 12 Sessions Completed</span>
+                <span>4 Remaining</span>
               </div>
-              <div class="w-full bg-slate-100 dark:bg-slate-900 h-3 rounded-full overflow-hidden">
-                <div class="bg-teal-600 h-full rounded-full transition-all duration-500" style="width: 78%;"></div>
-              </div>
-            </div>
-
-            <!-- 3 Phased Stages Timeline -->
-            <div class="grid md:grid-cols-3 gap-4 pt-2">
-              <div class="p-4 rounded-xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/50 dark:bg-emerald-950/20 space-y-2">
-                <div class="flex items-center justify-between">
-                  <span class="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 uppercase">Phase 01</span>
-                  <span class="text-xs text-emerald-600 font-bold">✓ Complete</span>
-                </div>
-                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Acute Pain &amp; Decompression</h4>
-                <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                  Gentle joint traction and soft-tissue release to alleviate lumbar nerve compression and reduce inflammation.
-                </p>
-              </div>
-
-              <div class="p-4 rounded-xl border-2 border-teal-500 bg-teal-50/30 dark:bg-teal-950/30 space-y-2 shadow-sm">
-                <div class="flex items-center justify-between">
-                  <span class="text-[10px] font-bold text-teal-700 dark:text-teal-300 uppercase">Phase 02 (Current)</span>
-                  <span class="text-xs text-teal-600 dark:text-teal-400 font-bold">● In Progress</span>
-                </div>
-                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Core Endurance &amp; Dynamic ROM</h4>
-                <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                  Progressive neuromuscular core recruitment, Bird-Dog isometric holds, and pelvic neutral postural retraining.
-                </p>
-              </div>
-
-              <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/40 space-y-2 opacity-70">
-                <div class="flex items-center justify-between">
-                  <span class="text-[10px] font-bold text-slate-400 uppercase">Phase 03</span>
-                  <span class="text-xs text-slate-400 font-medium">Pending Phase 2</span>
-                </div>
-                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Functional Load &amp; Return-to-Sport</h4>
-                <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                  High-load rotational resistance, deadlift biomechanics coaching, and long-term re-injury prevention.
-                </p>
+              <div class="w-full h-3 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                <div class="h-full rounded-full bg-teal-600 transition-all duration-500" style="width: 67%"></div>
               </div>
             </div>
 
-            <!-- Objective Clinical Milestones -->
-            <div class="space-y-3 pt-3 border-t border-slate-100 dark:border-slate-700/60">
-              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Objective Milestone Targets &amp; Outcomes:</h4>
-              <div class="space-y-2 text-xs">
-                <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800">
-                  <span class="text-emerald-500 font-bold text-sm">✓</span>
-                  <div>
-                    <p class="font-bold text-slate-900 dark:text-white">Eliminate morning lumbar radicular stiffness</p>
-                    <p class="text-[11px] text-slate-400">Baseline VAS pain: 6.5/10 &rarr; Current VAS pain: 1.5/10. Clinician sign-off verified on Oct 24.</p>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800">
-                  <span class="text-emerald-500 font-bold text-sm">✓</span>
-                  <div>
-                    <p class="font-bold text-slate-900 dark:text-white">Restore &gt;70° active straight leg raise (ROM)</p>
-                    <p class="text-[11px] text-slate-400">Evaluation: 48° &rarr; Current: 76°. Restored hamstring-pelvic rhythm.</p>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800">
-                  <span class="text-amber-500 font-bold text-sm">⏳</span>
-                  <div>
-                    <p class="font-bold text-slate-900 dark:text-white">Sustain 45-minute continuous ergonomic sitting without flare-up</p>
-                    <p class="text-[11px] text-slate-400">Current tolerance: 30 minutes. Ergonomic lumbar roll supplied for home office use.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ========================================== -->
-        <!-- TAB 4: HOME EXERCISES (HEP) -->
-        <!-- ========================================== -->
-        <div id="tab-exercises" class="hidden space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div>
-              <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Prescribed Home Exercise Program (HEP)</h3>
-              <p class="text-xs text-slate-400">Custom video-guided routine prescribed by Dr. Elena Vance. Complete once daily.</p>
-            </div>
-            <div class="text-xs font-semibold px-3 py-1.5 rounded-xl bg-teal-50 dark:bg-slate-800 border border-teal-200 dark:border-slate-700 text-teal-700 dark:text-teal-300">
-              Protocol: Lumbar Care • 3 Exercises Active
-            </div>
-          </div>
-
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="patient-exercise-grid">
-            <!-- Populated from demo data & interactive -->
-          </div>
-        </div>
-
-        <!-- ========================================== -->
-        <!-- TAB 5: BILLING & SUPERBILLS -->
-        <!-- ========================================== -->
-        <div id="tab-payments" class="hidden space-y-6">
-          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-6 space-y-6">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-slate-700/60">
-              <div>
-                <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Itemized Superbills &amp; Invoices</h3>
-                <p class="text-xs text-slate-400">Official medical invoices with standard CPT and ICD-10 codes for HSA/FSA reimbursement.</p>
-              </div>
-              <div class="text-xs text-slate-500">
-                Patient Account Balance: <span class="font-bold text-emerald-600">₹0.00 (All Paid)</span>
-              </div>
-            </div>
-
-            <!-- Invoices List -->
-            <div class="space-y-3 text-xs">
+            <!-- 3-Phase Roadmap -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
               
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div class="space-y-1">
-                  <div class="flex items-center gap-2">
-                    <span class="font-bold text-slate-900 dark:text-white text-sm">Invoice #INV-9021 • Spine &amp; Posture Care</span>
-                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">Paid</span>
-                  </div>
-                  <p class="text-slate-400 text-[11px]">
-                    Date: Oct 24, 2026 • Provider: Dr. Elena Vance, DPT (NPI #1841390291) • Paid via Visa / HSA
-                  </p>
-                  <p class="text-slate-500 text-[11px]">
-                    CPT 97110 (Therapeutic Exercise) + CPT 97140 (Manual Therapy) • Diagnosis: M54.50 (Low back pain)
-                  </p>
+              <!-- Phase 1 -->
+              <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Phase 01 • Completed</span>
+                  <span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-bold">✓</span>
                 </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-base font-bold text-slate-900 dark:text-white">₹1,499</span>
-                  <button onclick="openSuperbillModal('INV-9021', 'Oct 24, 2026', 'Spine & Posture Care', 'Dr. Elena Vance, DPT', '₹1,499')" class="px-3 py-1.5 rounded-lg bg-teal-700 hover:bg-teal-800 text-white font-semibold transition text-xs flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                    </svg>
-                    <span>View Superbill</span>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white">Acute Decompression & Relief</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">Reduce acute radiating sciatic pain and decompress L4-L5 disc spaces using gentle manual mobilization.</p>
+                <p class="text-[10px] text-slate-400">Sessions 1 – 4 • Completed Oct 2026</p>
+              </div>
+
+              <!-- Phase 2 -->
+              <div class="p-5 rounded-2xl bg-teal-50/60 dark:bg-slate-800/80 border-2 border-teal-600 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">Phase 02 • Active</span>
+                  <span class="w-2 h-2 rounded-full bg-teal-500 animate-ping"></span>
+                </div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white">Core Kinetic Stabilization</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Rebuild deep abdominal wall endurance (transversus abdominis & multifidus) to support normal spinal lordosis.</p>
+                <p class="text-[10px] text-teal-700 dark:text-teal-400 font-bold">Sessions 5 – 8 • In Progress</p>
+              </div>
+
+              <!-- Phase 3 -->
+              <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 opacity-70 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Phase 03 • Upcoming</span>
+                  <span class="text-[10px] text-slate-400">⏳</span>
+                </div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white">Dynamic Functional Loading</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">Progressive rotational strength, return-to-sport drills, and heavy lift ergonomics guarding against reinjury.</p>
+                <p class="text-[10px] text-slate-400">Sessions 9 – 12 • Target: Dec 2026</p>
+              </div>
+
+            </div>
+
+            <!-- Clinical Milestones -->
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
+              <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Clinical Milestones & Objectives</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/40">
+                  <span class="text-emerald-500 font-bold">✓</span>
+                  <span class="text-slate-700 dark:text-slate-300">Elimination of peripheral sciatica into right foot</span>
+                </div>
+                <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/40">
+                  <span class="text-emerald-500 font-bold">✓</span>
+                  <span class="text-slate-700 dark:text-slate-300">Lumbar straight leg flexion restored past 75°</span>
+                </div>
+                <div class="flex items-center gap-2.5 p-3 rounded-xl bg-teal-50 dark:bg-teal-950/30 border border-teal-200 dark:border-teal-800">
+                  <span class="text-teal-600 font-bold">⚡</span>
+                  <span class="text-teal-900 dark:text-teal-200 font-semibold">Sustain 60-second isometric prone plank hold</span>
+                </div>
+                <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/40">
+                  <span class="text-slate-400">○</span>
+                  <span class="text-slate-500">Unrestricted return to recreational running (5k)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- TAB 4: RECOVERY PROGRESS -->
+        <!-- ========================================== -->
+        <section id="ptab-recovery" class="portal-tab-content hidden space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Objective Recovery Progress</h2>
+              <p class="text-xs text-slate-500">Clinician-measured range of motion & pain reduction telemetry</p>
+            </div>
+            <div class="p-2 rounded-xl bg-teal-50 dark:bg-teal-950 text-teal-800 dark:text-teal-300 text-[11px] font-semibold border border-teal-200 dark:border-teal-800 flex items-center gap-2">
+              <svg class="w-4 h-4 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              <span>Clinician Certified Medical Evaluation</span>
+            </div>
+          </div>
+
+          <!-- Recovery Metrics Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-1">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Lumbar Straight-Leg Flexion</span>
+              <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white">80° <span class="text-xs text-emerald-600 font-bold">+38° gain</span></h3>
+              <p class="text-[11px] text-slate-500">Baseline was 42° on initial consult</p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-1">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Visual Analogue Pain (VAS)</span>
+              <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white">1.5 / 10 <span class="text-xs text-emerald-600 font-bold">-5.0 drop</span></h3>
+              <p class="text-[11px] text-slate-500">Baseline was 6.5 / 10 with radiculopathy</p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-1">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Pelvic Weight Symmetry</span>
+              <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white">91% <span class="text-xs text-emerald-600 font-bold">+29% shift</span></h3>
+              <p class="text-[11px] text-slate-500">Baseline was 62% leaning left side</p>
+            </div>
+          </div>
+
+          <!-- Chart Card -->
+          <div class="p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Weekly Recovery Telemetry</h3>
+                <p class="text-xs text-slate-500">Tracked over 6 consecutive weekly clinical evaluations</p>
+              </div>
+            </div>
+            <div class="h-72 relative">
+              <canvas id="detailedRecoveryChart"></canvas>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- TAB 5: MY THERAPIST -->
+        <!-- ========================================== -->
+        <section id="ptab-therapist" class="portal-tab-content hidden space-y-6">
+          <div class="p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+              
+              <!-- Photo & Badges -->
+              <div class="text-center space-y-4">
+                <div class="relative inline-block">
+                  <img src="../assets/images/team/elena-vance.jpg" alt="Dr. Elena Vance" class="w-44 h-44 rounded-3xl object-cover mx-auto ring-4 ring-teal-500/20 shadow-xl">
+                  <span class="absolute bottom-2 right-2 px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500 text-white shadow">In Clinic</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Dr. Elena Vance</h3>
+                  <p class="text-xs font-bold text-teal-700 dark:text-teal-400">DPT, OCS • Senior Spine Specialist</p>
+                  <p class="text-[11px] text-slate-500 mt-1">12+ Years Clinical Experience</p>
+                </div>
+                <div class="flex justify-center gap-2">
+                  <button onclick="switchTab('messages')" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm transition">
+                    Send Message
+                  </button>
+                  <button onclick="openBookingModal()" class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 font-bold text-xs transition">
+                    Book Session
                   </button>
                 </div>
               </div>
 
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div class="space-y-1">
-                  <div class="flex items-center gap-2">
-                    <span class="font-bold text-slate-900 dark:text-white text-sm">Invoice #INV-8842 • Initial Diagnostic Evaluation</span>
-                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">Paid</span>
-                  </div>
-                  <p class="text-slate-400 text-[11px]">
-                    Date: Oct 12, 2026 • Provider: Dr. Elena Vance, DPT • Paid via UPI
-                  </p>
-                  <p class="text-slate-500 text-[11px]">
-                    CPT 97161 (Physical Therapy Evaluation: Low Complexity) • Baseline Assessment
+              <!-- Details & Credentials -->
+              <div class="md:col-span-2 space-y-6">
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">Clinical Bio & Background</h4>
+                  <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Dr. Elena Vance is our Senior Clinical Specialist leading spinal restoration, disc decompression protocols, and rotational athletic mechanics. She holds a Doctorate in Physical Therapy and Board Certification in Orthopedic Physical Therapy (OCS). Dr. Vance manages all sessions directly in Private Doctoral Suite 02.
                   </p>
                 </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-base font-bold text-slate-900 dark:text-white">₹1,999</span>
-                  <button onclick="openSuperbillModal('INV-8842', 'Oct 12, 2026', 'Comprehensive Evaluation', 'Dr. Elena Vance, DPT', '₹1,999')" class="px-3 py-1.5 rounded-lg bg-teal-700 hover:bg-teal-800 text-white font-semibold transition text-xs flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                    </svg>
-                    <span>View Superbill</span>
-                  </button>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                  <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 space-y-1">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase">Consulting Suite</span>
+                    <p class="font-bold text-slate-900 dark:text-white">Suite 02 (Private 1-on-1 Suite)</p>
+                    <p class="text-[11px] text-slate-500">Fully equipped with medical spine traction table</p>
+                  </div>
+
+                  <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 space-y-1">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase">Next Availability</span>
+                    <p class="font-bold text-teal-700 dark:text-teal-400">Tomorrow, 10:30 AM</p>
+                    <p class="text-[11px] text-slate-500">Pre-booked for your follow-up check</p>
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Clinical Specializations</h4>
+                  <div class="flex flex-wrap gap-2 text-[11px]">
+                    <span class="px-3 py-1 rounded-xl bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 font-semibold border border-teal-200 dark:border-teal-800">Spinal Disc Decompression</span>
+                    <span class="px-3 py-1 rounded-xl bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 font-semibold border border-teal-200 dark:border-teal-800">Lumbar Radiculopathy</span>
+                    <span class="px-3 py-1 rounded-xl bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 font-semibold border border-teal-200 dark:border-teal-800">Mulligan & Maitland Joint Mobilization</span>
+                    <span class="px-3 py-1 rounded-xl bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 font-semibold border border-teal-200 dark:border-teal-800">Kinetic Chain Posture Realignment</span>
+                  </div>
                 </div>
               </div>
 
             </div>
           </div>
-        </div>
+        </section>
 
-      </main>
 
-    </div>
+        <!-- ========================================== -->
+        <!-- TAB 6: MEDICAL RECORDS -->
+        <!-- ========================================== -->
+        <section id="ptab-records" class="portal-tab-content hidden space-y-6">
+          <div class="p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Confidential Medical Records</h2>
+                <p class="text-xs text-slate-500">Authorized clinical diagnostic assessments and SOAP progress documentation</p>
+              </div>
+              <div class="px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-xs font-bold border border-emerald-200 dark:border-emerald-800 flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                <span>HIPAA Encrypted Patient Record</span>
+              </div>
+            </div>
+
+            <!-- Medical Summary Box -->
+            <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+              <div>
+                <span class="text-slate-400 font-bold uppercase text-[10px]">Primary Diagnosis</span>
+                <p class="font-bold text-slate-900 dark:text-white mt-0.5">ICD-10 M54.50 (Low Back Pain) / M51.26</p>
+              </div>
+              <div>
+                <span class="text-slate-400 font-bold uppercase text-[10px]">Evaluation Date</span>
+                <p class="font-bold text-slate-900 dark:text-white mt-0.5">October 24, 2026</p>
+              </div>
+              <div>
+                <span class="text-slate-400 font-bold uppercase text-[10px]">Attending Clinician</span>
+                <p class="font-bold text-teal-700 dark:text-teal-400 mt-0.5">Dr. Elena Vance, DPT, OCS (#1841390291)</p>
+              </div>
+            </div>
+
+            <!-- SOAP Note Section -->
+            <div class="space-y-4">
+              <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">Clinical SOAP Progress Note</h3>
+              <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-4 text-xs leading-relaxed">
+                <div>
+                  <span class="font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wide text-[10px]">Subjective (S)</span>
+                  <p class="text-slate-700 dark:text-slate-300 mt-1">Patient reports significant easing of morning stiffness. Able to sit at office workstation for 45 consecutive minutes without radiating symptoms down right posterior thigh.</p>
+                </div>
+                <div>
+                  <span class="font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wide text-[10px]">Objective (O)</span>
+                  <p class="text-slate-700 dark:text-slate-300 mt-1">Straight-leg raise (SLR) positive on right at 80° (baseline was 42°). Myotomes L4, L5, S1 intact 5/5 bilaterally. Lumbar extension passive glide tolerated without pain referral.</p>
+                </div>
+                <div>
+                  <span class="font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wide text-[10px]">Assessment (A)</span>
+                  <p class="text-slate-700 dark:text-slate-300 mt-1">Patient progressing smoothly along Phase 2 core kinetic stabilization timeline. Good compliance with home Bird-Dog and Cat-Cow regimens.</p>
+                </div>
+                <div>
+                  <span class="font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wide text-[10px]">Plan (P)</span>
+                  <p class="text-slate-700 dark:text-slate-300 mt-1">Progress to dynamic quadruped loading with resistance bands in next session. Maintain daily prescribed home HEP routine.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Diagnostic Documents Table -->
+            <div class="space-y-3">
+              <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">Uploaded Documents & Diagnostic Imaging</h3>
+              <div class="divide-y divide-slate-100 dark:divide-slate-800 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden text-xs">
+                <div class="p-4 flex items-center justify-between hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition">
+                  <div class="flex items-center gap-3">
+                    <span class="text-rose-500 font-bold text-lg">📄</span>
+                    <div>
+                      <p class="font-bold text-slate-900 dark:text-white">Lumbar Spine MRI Diagnostic Report.pdf</p>
+                      <p class="text-[10px] text-slate-400">Diagnostic Imaging Center • Uploaded Oct 24, 2026 • 2.4 MB</p>
+                    </div>
+                  </div>
+                  <button class="px-3 py-1 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold text-[11px] transition">Download</button>
+                </div>
+                <div class="p-4 flex items-center justify-between hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition">
+                  <div class="flex items-center gap-3">
+                    <span class="text-blue-500 font-bold text-lg">📊</span>
+                    <div>
+                      <p class="font-bold text-slate-900 dark:text-white">Biomechanical Computerized Gait Screen.pdf</p>
+                      <p class="text-[10px] text-slate-400">PhysioCare Clinical Lab • Uploaded Oct 26, 2026 • 1.1 MB</p>
+                    </div>
+                  </div>
+                  <button class="px-3 py-1 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold text-[11px] transition">Download</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- TAB 7: EXERCISE PROGRAMS -->
+        <!-- ========================================== -->
+        <section id="ptab-exercises" class="portal-tab-content hidden space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Prescribed Home Exercise Program (HEP)</h2>
+              <p class="text-xs text-slate-500">Custom exercises prescribed by Dr. Elena Vance to maintain spinal alignment</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-semibold text-slate-500">Today's Adherence:</span>
+              <span id="hep-adherence-badge" class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">100% Completed</span>
+            </div>
+          </div>
+
+          <!-- Exercises Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="patient-exercise-grid">
+            <!-- Dynamically populated via renderExercises() -->
+          </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- TAB 8: PAYMENTS & INVOICES -->
+        <!-- ========================================== -->
+        <section id="ptab-payments" class="portal-tab-content hidden space-y-6">
+          <div class="p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Payments & Invoices</h2>
+                <p class="text-xs text-slate-500">CMS-1500 compliant superbills for reimbursement and direct billing receipts</p>
+              </div>
+              <div class="text-right">
+                <span class="text-xs text-slate-400">Outstanding Balance</span>
+                <h3 class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400">₹0.00</h3>
+              </div>
+            </div>
+
+            <!-- Invoices Table -->
+            <div class="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden">
+              <table class="w-full text-left text-xs">
+                <thead class="bg-slate-50 dark:bg-slate-900/60 text-slate-400 font-extrabold uppercase tracking-wider text-[10px] border-b border-slate-100 dark:border-slate-800">
+                  <tr>
+                    <th class="py-3 px-4">Invoice #</th>
+                    <th class="py-3 px-4">Service Description</th>
+                    <th class="py-3 px-4">Date</th>
+                    <th class="py-3 px-4">Amount</th>
+                    <th class="py-3 px-4">Status</th>
+                    <th class="py-3 px-4 text-right">Superbill</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
+                    <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">#INV-9028</td>
+                    <td class="py-3.5 px-4">Spine & Posture Care (CPT 97110/97140)</td>
+                    <td class="py-3.5 px-4 text-slate-500">Oct 30, 2026</td>
+                    <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">₹1,499</td>
+                    <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300">Paid</span></td>
+                    <td class="py-3.5 px-4 text-right">
+                      <button onclick="openSuperbillModal('INV-9028', 'Oct 30, 2026', 'Spine & Posture Care', 'Dr. Elena Vance, DPT', '₹1,499')" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">View Superbill</button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
+                    <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">#INV-9025</td>
+                    <td class="py-3.5 px-4">Guided Therapeutic Exercise (CPT 97110)</td>
+                    <td class="py-3.5 px-4 text-slate-500">Oct 28, 2026</td>
+                    <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">₹1,499</td>
+                    <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300">Paid</span></td>
+                    <td class="py-3.5 px-4 text-right">
+                      <button onclick="openSuperbillModal('INV-9025', 'Oct 28, 2026', 'Guided Therapeutic Exercise', 'Dr. Elena Vance, DPT', '₹1,499')" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">View Superbill</button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
+                    <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">#INV-9021</td>
+                    <td class="py-3.5 px-4">Orthopedic Initial Assessment (CPT 97161)</td>
+                    <td class="py-3.5 px-4 text-slate-500">Oct 24, 2026</td>
+                    <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">₹1,499</td>
+                    <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300">Paid</span></td>
+                    <td class="py-3.5 px-4 text-right">
+                      <button onclick="openSuperbillModal('INV-9021', 'Oct 24, 2026', 'Orthopedic Initial Assessment', 'Dr. Elena Vance, DPT', '₹1,499')" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">View Superbill</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Payment Method on File -->
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+              <div class="flex items-center gap-3">
+                <span class="text-2xl">💳</span>
+                <div>
+                  <p class="font-bold text-slate-900 dark:text-white">Visa ending in •••• 4242</p>
+                  <p class="text-[10px] text-slate-400">Expires 08/29 • Default billing method</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-teal-50 text-teal-700 dark:bg-teal-950 dark:text-teal-300">Auto-Pay Enabled</span>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- TAB 9: MESSAGES -->
+        <!-- ========================================== -->
+        <section id="ptab-messages" class="portal-tab-content hidden space-y-6">
+          <div class="p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col h-[600px]">
+            
+            <!-- Message Header -->
+            <div class="pb-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between flex-shrink-0">
+              <div class="flex items-center gap-3">
+                <img src="../assets/images/team/elena-vance.jpg" alt="Dr. Elena Vance" class="w-10 h-10 rounded-full object-cover ring-2 ring-teal-500">
+                <div>
+                  <h3 class="text-xs font-bold text-slate-900 dark:text-white">Dr. Elena Vance, DPT, OCS</h3>
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <p class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold">Active in Suite 02 • Average response &lt; 15 mins</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Messages Stream -->
+            <div class="flex-1 overflow-y-auto py-4 space-y-4 text-xs" id="messages-container">
+              <div class="flex items-start gap-2.5 max-w-md">
+                <img src="../assets/images/team/elena-vance.jpg" class="w-7 h-7 rounded-full object-cover">
+                <div class="p-3.5 rounded-2xl rounded-tl-none bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 space-y-1">
+                  <p>Hello Pravin, hope your lower back felt comfortable following Friday's session. Did you experience any soreness during the bridge holds?</p>
+                  <span class="text-[9px] text-slate-400 block text-right">Oct 30, 04:15 PM</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 max-w-md ml-auto justify-end">
+                <div class="p-3.5 rounded-2xl rounded-tr-none bg-teal-700 text-white space-y-1">
+                  <p>Hi Dr. Vance, no acute pain at all! Just mild hamstring fatigue which settled after 20 minutes with a cold pack. The Bird-Dog exercises feel much steadier now.</p>
+                  <span class="text-[9px] text-teal-200 block text-right">Oct 30, 05:02 PM</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 max-w-md">
+                <img src="../assets/images/team/elena-vance.jpg" class="w-7 h-7 rounded-full object-cover">
+                <div class="p-3.5 rounded-2xl rounded-tl-none bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 space-y-1">
+                  <p>That's excellent progression. Make sure to keep your pelvis neutral and hold each extension for 3 seconds. I'll see you tomorrow at 10:30 AM in Suite 02!</p>
+                  <span class="text-[9px] text-slate-400 block text-right">Oct 31, 09:30 AM</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Input Box -->
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 flex-shrink-0">
+              <input type="text" id="patient-message-input" placeholder="Type a message to Dr. Elena Vance..." class="flex-1 px-4 py-2.5 rounded-xl text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500">
+              <button onclick="sendPatientMessage()" class="px-5 py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs transition flex items-center gap-1.5">
+                <span>Send</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- TAB 10: MY PROFILE -->
+        <!-- ========================================== -->
+        <section id="ptab-profile" class="portal-tab-content hidden space-y-6">
+          <div class="p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+            <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Personal Patient Profile</h2>
+            
+            <form onsubmit="event.preventDefault(); alert('Profile updated successfully!');" class="space-y-4 text-xs">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Full Name</label>
+                  <input type="text" value="Pravin Kumar" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Medical Record Number (MRN)</label>
+                  <input type="text" value="PAT-101" readonly class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 text-slate-500 cursor-not-allowed">
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Email Address</label>
+                  <input type="email" value="pravin.kumar@example.com" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Phone Number</label>
+                  <input type="tel" value="+91 98765 43210" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Date of Birth</label>
+                  <input type="date" value="1992-06-15" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Emergency Contact</label>
+                  <input type="text" value="Sunita Kumar (+91 98765 43219, Spouse)" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Residential Address</label>
+                <input type="text" value="Flat 402, Green Meadows, Indiranagar, Bengaluru, KA" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+              </div>
+
+              <div class="pt-2">
+                <button type="submit" class="px-5 py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm transition">
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- TAB 11: SETTINGS -->
+        <!-- ========================================== -->
+        <section id="ptab-settings" class="portal-tab-content hidden space-y-6">
+          <div class="p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-6 text-xs">
+            <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Portal Settings & Preferences</h2>
+            
+            <div class="space-y-4">
+              <h3 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Communication Preferences</h3>
+              <div class="space-y-2">
+                <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 cursor-pointer">
+                  <input type="checkbox" checked class="w-4 h-4 text-teal-600 rounded">
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">SMS Appointment Reminders (24h before)</p>
+                    <p class="text-[10px] text-slate-400">Receive text notifications directly to +91 98765 43210</p>
+                  </div>
+                </label>
+                <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 cursor-pointer">
+                  <input type="checkbox" checked class="w-4 h-4 text-teal-600 rounded">
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">WhatsApp Session Confirmations</p>
+                    <p class="text-[10px] text-slate-400">Instant confirmation with calendar add link</p>
+                  </div>
+                </label>
+                <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 cursor-pointer">
+                  <input type="checkbox" checked class="w-4 h-4 text-teal-600 rounded">
+                  <div>
+                    <p class="font-bold text-slate-900 dark:text-white">HEP Daily Compliance Notification</p>
+                    <p class="text-[10px] text-slate-400">Morning 8:30 AM nudge to complete prescribed exercises</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-4">
+              <h3 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Theme & Visual Mode</h3>
+              <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800">
+                <div>
+                  <p class="font-bold text-slate-900 dark:text-white">Dark Mode Appearance</p>
+                  <p class="text-[10px] text-slate-400">Toggle between Light Healthcare Grey and Dark Charcoal theme</p>
+                </div>
+                <button onclick="togglePortalTheme()" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs transition">
+                  Toggle Mode
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- TAB 12: HELP & SUPPORT -->
+        <!-- ========================================== -->
+        <section id="ptab-help" class="portal-tab-content hidden space-y-6">
+          <div class="p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Clinic Support & Patient Care</h2>
+              <p class="text-xs text-slate-500">Immediate access to our clinical reception and care coordinators</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+              <div class="p-5 rounded-2xl bg-teal-50/70 dark:bg-slate-900/60 border border-teal-100 dark:border-slate-800 space-y-2">
+                <span class="text-2xl">📞</span>
+                <h4 class="font-bold text-slate-900 dark:text-white">Direct Clinic Hotline</h4>
+                <p class="text-slate-500">+91 80 4567 8900</p>
+                <p class="text-[10px] text-teal-700 dark:text-teal-400 font-semibold">Mon – Sat (08:00 AM – 08:00 PM)</p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-emerald-50/70 dark:bg-slate-900/60 border border-emerald-100 dark:border-slate-800 space-y-2">
+                <span class="text-2xl">💬</span>
+                <h4 class="font-bold text-slate-900 dark:text-white">WhatsApp Care Desk</h4>
+                <p class="text-slate-500">+91 98765 00000</p>
+                <p class="text-[10px] text-emerald-700 dark:text-emerald-400 font-semibold">Instant scheduling assistance</p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-blue-50/70 dark:bg-slate-900/60 border border-blue-100 dark:border-slate-800 space-y-2">
+                <span class="text-2xl">📍</span>
+                <h4 class="font-bold text-slate-900 dark:text-white">Facility Address</h4>
+                <p class="text-slate-500">Suites 01–04, Medical Arts Pavilion</p>
+                <p class="text-[10px] text-blue-700 dark:text-blue-400 font-semibold">Indiranagar, Bengaluru</p>
+              </div>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+              <h3 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Frequently Asked Questions</h3>
+              
+              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800 space-y-1 text-xs">
+                <h4 class="font-bold text-slate-900 dark:text-white">What should I wear to my therapy session?</h4>
+                <p class="text-slate-500 leading-relaxed">Please wear comfortable athletic or gym clothing that allows easy assessment of your lumbar spine and hips.</p>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800 space-y-1 text-xs">
+                <h4 class="font-bold text-slate-900 dark:text-white">How do I reschedule an appointment?</h4>
+                <p class="text-slate-500 leading-relaxed">You can reschedule with up to 12 hours advance notice directly through the "My Appointments" tab or by messaging Dr. Vance.</p>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800 space-y-1 text-xs">
+                <h4 class="font-bold text-slate-900 dark:text-white">Can I claim insurance with my Superbill?</h4>
+                <p class="text-slate-500 leading-relaxed">Yes! All invoices include CPT codes (97110, 97140) and our clinician's NPI number for seamless health insurance reimbursement.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
 
   </div>
 
+
   <!-- ========================================== -->
-  <!-- MODAL: MEDICAL SUPERBILL RECEIPT -->
+  <!-- MODALS -->
   <!-- ========================================== -->
-  <div id="superbill-modal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-6 shadow-2xl border border-slate-200 dark:border-slate-800 max-h-[90vh] overflow-y-auto">
-      
-      <!-- Superbill Header -->
-      <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
-        <div class="flex items-center gap-2">
-          <img src="../assets/images/logo-mark.svg" alt="PhysioCare" class="h-6 w-auto">
-          <span class="text-sm font-black text-slate-900 dark:text-white font-heading">PhysioCare Clinical Superbill</span>
+
+  <!-- 1. Book New Appointment Modal -->
+  <div id="booking-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 rounded-3xl max-w-lg w-full p-6 md:p-8 space-y-5 shadow-2xl relative">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-teal-50 text-teal-700 dark:bg-teal-950 dark:text-teal-300">Fast Intake</span>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading mt-1">Book Rehabilitation Session</h3>
         </div>
-        <button onclick="closeSuperbillModal()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-white flex items-center justify-center text-sm font-bold">&times;</button>
+        <button onclick="closeBookingModal()" class="text-slate-400 hover:text-slate-600 text-xl font-bold">&times;</button>
       </div>
 
-      <!-- Superbill Details -->
+      <form onsubmit="handlePatientBooking(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Patient Full Name</label>
+          <input type="text" id="bk-name" value="Pravin Kumar" readonly class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-500">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Select Treatment Service</label>
+          <select id="bk-service" onchange="updateBookingDoctor()" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+            <option value="Spine & Posture Care">Spine & Posture Care (Dr. Elena Vance) - ₹1,499</option>
+            <option value="Orthopedic Physiotherapy">Orthopedic Physiotherapy (Dr. Marcus Chen) - ₹1,499</option>
+            <option value="Neurological Rehabilitation">Neurological Rehabilitation (Dr. Priya Patel) - ₹1,499</option>
+            <option value="Sports Physiotherapy">Sports Physiotherapy (Dr. Sarah Jenkins) - ₹1,499</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Specialist Clinician (Auto-Assigned)</label>
+          <input type="text" id="bk-doctor" value="Dr. Elena Vance, DPT" readonly class="w-full px-3 py-2 rounded-xl bg-teal-50 dark:bg-slate-900 border border-teal-200 dark:border-slate-700 text-teal-800 dark:text-teal-300 font-bold">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Appointment Date</label>
+            <input type="date" id="bk-date" required class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Preferred Time Slot</label>
+            <select id="bk-time" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+              <option value="09:30 AM">09:30 AM</option>
+              <option value="10:30 AM">10:30 AM</option>
+              <option value="11:45 AM">11:45 AM</option>
+              <option value="02:30 PM">02:30 PM</option>
+              <option value="04:00 PM">04:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px]">
+          <span class="text-slate-500">Private Suite 02 • Doctoral 1-on-1</span>
+          <span class="font-bold text-slate-900 dark:text-white">Fee: ₹1,499</span>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-2xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
+          Confirm Appointment
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. Superbill CMS-1500 Modal -->
+  <div id="superbill-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 rounded-3xl max-w-xl w-full p-6 md:p-8 space-y-6 shadow-2xl relative">
+      <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+        <div>
+          <span class="text-[10px] font-bold text-teal-700 dark:text-teal-400 uppercase tracking-widest">Medical Superbill / Insurance Claim</span>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading mt-0.5" id="sb-invoice-no">#INV-9028</h3>
+        </div>
+        <button onclick="closeSuperbillModal()" class="text-slate-400 hover:text-slate-600 text-xl font-bold">&times;</button>
+      </div>
+
       <div class="space-y-4 text-xs">
-        <div class="grid grid-cols-2 gap-3 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+        <div class="grid grid-cols-2 gap-4">
           <div>
-            <p class="text-[10px] uppercase font-bold text-slate-400">Invoice Number</p>
-            <p class="font-bold text-slate-900 dark:text-white" id="sb-invoice-no">#INV-9021</p>
+            <span class="text-slate-400 uppercase text-[10px] font-bold">Patient Details</span>
+            <p class="font-bold text-slate-900 dark:text-white mt-0.5">Pravin Kumar (MRN #PAT-101)</p>
+            <p class="text-slate-500 text-[11px]">DOB: 15-Jun-1992</p>
           </div>
           <div>
-            <p class="text-[10px] uppercase font-bold text-slate-400">Date of Service</p>
-            <p class="font-bold text-slate-900 dark:text-white" id="sb-date">Oct 24, 2026</p>
-          </div>
-          <div>
-            <p class="text-[10px] uppercase font-bold text-slate-400">Patient Name</p>
-            <p class="font-bold text-slate-900 dark:text-white">Pravin Kumar (MRN #PAT-101)</p>
-          </div>
-          <div>
-            <p class="text-[10px] uppercase font-bold text-slate-400">Provider &amp; NPI</p>
-            <p class="font-bold text-slate-900 dark:text-white" id="sb-provider">Dr. Elena Vance, DPT (#1841390291)</p>
+            <span class="text-slate-400 uppercase text-[10px] font-bold">Treating Provider</span>
+            <p class="font-bold text-slate-900 dark:text-white mt-0.5" id="sb-provider">Dr. Elena Vance, DPT, OCS</p>
+            <p class="text-slate-500 text-[11px]">NPI #1841390291 • Suite 02</p>
           </div>
         </div>
 
-        <div class="space-y-2">
-          <p class="font-bold text-slate-900 dark:text-white">Diagnostic &amp; Procedure Coding (CMS-1500 Compliant)</p>
-          <div class="border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
-            <table class="w-full text-left text-[11px]">
-              <thead class="bg-slate-50 dark:bg-slate-800 text-slate-500 uppercase text-[9px] border-b border-slate-200 dark:border-slate-700">
-                <tr>
-                  <th class="p-2">Code</th>
-                  <th class="p-2">Description</th>
-                  <th class="p-2 text-right">Units / Fee</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                <tr>
-                  <td class="p-2 font-mono font-bold text-teal-700 dark:text-teal-400">ICD-10 M54.50</td>
-                  <td class="p-2">Low back pain, unspecified lumbar origin</td>
-                  <td class="p-2 text-right text-slate-400">Primary Dx</td>
-                </tr>
-                <tr>
-                  <td class="p-2 font-mono font-bold text-slate-800 dark:text-slate-200">CPT 97110</td>
-                  <td class="p-2">Therapeutic Exercise (1-on-1 kinetic stabilization)</td>
-                  <td class="p-2 text-right font-semibold">2 Units</td>
-                </tr>
-                <tr>
-                  <td class="p-2 font-mono font-bold text-slate-800 dark:text-slate-200">CPT 97140</td>
-                  <td class="p-2">Manual Therapy Techniques (Joint mobilization)</td>
-                  <td class="p-2 text-right font-semibold">1 Unit</td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-slate-900 dark:text-white">ICD-10 Primary Diagnosis:</span>
+            <span class="font-mono text-teal-700 dark:text-teal-400 font-bold">M54.50 (Low Back Pain)</span>
+          </div>
+          <div class="flex items-center justify-between border-t border-slate-200/50 dark:border-slate-800 pt-2">
+            <div>
+              <p class="font-bold text-slate-900 dark:text-white" id="sb-service-name">Spine & Posture Care</p>
+              <p class="text-[10px] text-slate-400">CPT 97110 (Therapeutic Exercise) + CPT 97140 (Manual Therapy)</p>
+            </div>
+            <p class="font-extrabold text-slate-900 dark:text-white" id="sb-amount">₹1,499</p>
           </div>
         </div>
 
-        <div class="flex items-center justify-between p-3.5 rounded-xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 text-teal-900 dark:text-teal-200 font-bold">
-          <span>Total Paid (HSA / Insurance Claimable)</span>
-          <span class="text-base font-extrabold text-teal-700 dark:text-teal-300" id="sb-amount">₹1,499</span>
+        <div class="flex items-center justify-between text-[11px] text-slate-400">
+          <span>Date of Service: <strong class="text-slate-700 dark:text-slate-300" id="sb-date">Oct 30, 2026</strong></span>
+          <span class="text-emerald-600 font-bold">Paid in Full (Zero Patient Due)</span>
         </div>
-
-        <p class="text-[10px] text-slate-400 text-center leading-relaxed">
-          Official receipt generated by PhysioCare Rehabilitation Clinic. Submit directly to your medical insurer or HSA/FSA plan administrator for reimbursement.
-        </p>
       </div>
 
-      <!-- Superbill Actions -->
-      <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
-        <button onclick="closeSuperbillModal()" class="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition">Close</button>
-        <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
-          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
-          </svg>
-          <span>Print / Download PDF</span>
+      <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+        <button onclick="window.print()" class="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition">
+          Print / PDF
+        </button>
+        <button onclick="closeSuperbillModal()" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition">
+          Done
         </button>
       </div>
-
     </div>
   </div>
 
+
+  <!-- Scripts -->
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
   <script src="../assets/js/demo-data.js"></script>
   <script src="../assets/js/storage.js"></script>
   <script src="../assets/js/app.js"></script>
+
   <script>
-    // Tab switching logic for the 5 streamlined human tabs
+    // Tab switching for all 11 patient portal sections
+    const PATIENT_TABS = [
+      'overview', 'appointments', 'plans', 'recovery', 'therapist', 
+      'records', 'exercises', 'payments', 'messages', 'profile', 
+      'settings', 'help'
+    ];
+
+    const TAB_TITLES = {
+      overview: 'Patient Portal Overview',
+      appointments: 'My Appointments & Sessions',
+      plans: 'Active Treatment Plan',
+      recovery: 'Objective Recovery Progress',
+      therapist: 'My Assigned Therapist',
+      records: 'Confidential Medical Records',
+      exercises: 'Prescribed Home Exercises (HEP)',
+      payments: 'Payments & Itemized Invoices',
+      messages: 'Direct Clinician Messages',
+      profile: 'My Profile & Patient Records',
+      settings: 'Communication & Theme Settings',
+      help: 'Help, FAQ & Clinic Support'
+    };
+
     function switchTab(tabId) {
-      const tabs = ['overview', 'appointments', 'plans', 'exercises', 'payments'];
-      tabs.forEach(t => {
-        const el = document.getElementById('tab-' + t);
-        const btn = document.getElementById('tab-btn-' + t);
+      if (!PATIENT_TABS.includes(tabId)) tabId = 'overview';
+      
+      PATIENT_TABS.forEach(t => {
+        const section = document.getElementById('ptab-' + t);
+        const button = document.getElementById('ptab-btn-' + t);
         if (t === tabId) {
-          if (el) el.classList.remove('hidden');
-          if (btn) btn.classList.add('active');
+          if (section) section.classList.remove('hidden');
+          if (button) button.classList.add('active');
         } else {
-          if (el) el.classList.add('hidden');
-          if (btn) btn.classList.remove('active');
+          if (section) section.classList.add('hidden');
+          if (button) button.classList.remove('active');
         }
       });
-      const titles = {
-        overview: 'Patient Portal Overview',
-        appointments: 'My Appointments & Sessions',
-        plans: 'Active Treatment Protocol',
-        exercises: 'Prescribed Home Exercise Program (HEP)',
-        payments: 'Itemized Superbills & Invoices'
-      };
+
       const titleEl = document.getElementById('portal-tab-title');
-      if (titleEl) titleEl.textContent = titles[tabId] || 'Patient Portal';
+      if (titleEl) titleEl.textContent = TAB_TITLES[tabId] || 'Patient Portal';
+
+      // Re-trigger chart render on tab view
+      if (tabId === 'overview') {
+        setTimeout(initOverviewChart, 50);
+      } else if (tabId === 'recovery') {
+        setTimeout(initDetailedRecoveryChart, 50);
+      }
+      
+      // Close mobile sidebar if open
+      const sidebar = document.getElementById('portal-sidebar');
+      const backdrop = document.getElementById('mobile-sidebar-backdrop');
+      if (sidebar && backdrop && !sidebar.classList.contains('-translate-x-full') && window.innerWidth < 768) {
+        toggleMobileSidebar();
+      }
     }
 
-    // Render appointments from LocalStorage (Patient-Isolated & Deduplicated)
-    function renderAppointments() {
+    // Toggle Mobile Sidebar Drawer
+    function toggleMobileSidebar() {
+      const sidebar = document.getElementById('portal-sidebar');
+      const backdrop = document.getElementById('mobile-sidebar-backdrop');
+      if (sidebar && backdrop) {
+        sidebar.classList.toggle('-translate-x-full');
+        backdrop.classList.toggle('hidden');
+      }
+    }
+
+    // Toggle Notification Dropdown
+    function toggleNotifications() {
+      const drop = document.getElementById('notifications-dropdown');
+      if (drop) drop.classList.toggle('hidden');
+    }
+
+    // Render Patient Isolated Appointments
+    function renderPatientAppointments() {
       if (!window.PhysioStorage) return;
       const allList = window.PhysioStorage.get(window.PhysioStorage.KEYS.APPOINTMENTS, []);
       
@@ -630,50 +1475,41 @@
         return name.includes('pravin') || email.includes('pravin') || (!name && !email);
       });
 
-      // If no records found matching Pravin, fallback to first 3 clean records
+      // Fallback to top items if none specifically matched
       if (list.length === 0 && allList.length > 0) {
         list = allList.slice(0, 3);
       }
-      
-      // Overview list (Top 3)
-      const overviewList = document.getElementById('patient-appointment-list');
-      if (overviewList) {
-        if (list.length === 0) {
-          overviewList.innerHTML = '<p class="text-xs text-slate-400 py-3">No upcoming appointments scheduled.</p>';
-        } else {
-          overviewList.innerHTML = list.slice(0, 3).map(a => `
-            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs">
-              <div class="space-y-0.5">
-                <p class="font-bold text-slate-900 dark:text-white">${a.service}</p>
-                <p class="text-slate-500 text-[11px]">${a.therapist} &bull; <span class="font-semibold text-slate-700 dark:text-slate-300">${a.date}</span></p>
-                <p class="text-[10px] text-teal-600 dark:text-teal-400 font-medium">Suite 02 • 1-on-1 Private Care</p>
-              </div>
-              <span class="px-2.5 py-1 rounded-full font-bold text-[10px] ${a.status === 'Confirmed' ? 'badge-status-confirmed' : (a.status === 'Cancelled' ? 'bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-400 border border-rose-200' : 'badge-status-completed')}">${a.status}</span>
-            </div>
-          `).join('');
-        }
-      }
 
-      // Full table
-      const fullTable = document.getElementById('full-appointment-table');
-      if (fullTable) {
+      // Update stat counter
+      const upcoming = list.filter(a => a.status === 'Confirmed' || a.status === 'Scheduled');
+      const countEl = document.getElementById('stat-upcoming-count');
+      if (countEl) countEl.textContent = upcoming.length;
+
+      // Full table in My Appointments
+      const tbody = document.getElementById('patient-full-appointment-table');
+      if (tbody) {
         if (list.length === 0) {
-          fullTable.innerHTML = '<tr><td colspan="6" class="py-6 text-center text-xs text-slate-400">No appointments recorded.</td></tr>';
+          tbody.innerHTML = '<tr><td colspan="6" class="py-6 text-center text-xs text-slate-400">No appointments on record. Click "Book New Session" to schedule.</td></tr>';
         } else {
-          fullTable.innerHTML = list.map(a => `
+          tbody.innerHTML = list.map(a => `
             <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
-              <td class="py-3 px-3">
+              <td class="py-3.5 px-4">
                 <span class="font-bold text-slate-900 dark:text-white">${a.service}</span>
-                <span class="block text-[10px] text-slate-400">CPT 97110/97140</span>
+                <span class="block text-[10px] text-slate-400">CPT 97110/97140 • 45 Mins</span>
               </td>
-              <td class="py-3 px-3 font-medium text-slate-700 dark:text-slate-300">${a.therapist}</td>
-              <td class="py-3 px-3 font-semibold text-slate-900 dark:text-white">${a.date}</td>
-              <td class="py-3 px-3 text-slate-500">Suite 02 (${a.type || 'In-Person'})</td>
-              <td class="py-3 px-3">
-                <span class="px-2 py-0.5 rounded text-[10px] font-bold ${a.status === 'Confirmed' ? 'badge-status-confirmed' : (a.status === 'Cancelled' ? 'bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-400 border border-rose-200' : 'badge-status-completed')}">${a.status}</span>
+              <td class="py-3.5 px-4 font-semibold text-slate-700 dark:text-slate-300">${a.therapist}</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">${a.date}</td>
+              <td class="py-3.5 px-4 text-slate-500">Suite 02 (${a.type || 'In-Person'})</td>
+              <td class="py-3.5 px-4">
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold ${a.status === 'Confirmed' ? 'bg-teal-50 text-teal-700 dark:bg-teal-950 dark:text-teal-300 border border-teal-200' : (a.status === 'Cancelled' ? 'bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-400 border border-rose-200' : 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300')}">${a.status}</span>
               </td>
-              <td class="py-3 px-3 text-right">
-                ${a.status === 'Confirmed' ? `<button onclick="cancelAppointment('${a.id}')" class="text-rose-600 hover:text-rose-700 font-semibold hover:underline">Cancel</button>` : `<span class="text-slate-400">Completed</span>`}
+              <td class="py-3.5 px-4 text-right space-x-2">
+                ${a.status === 'Confirmed' || a.status === 'Scheduled' ? `
+                  <button onclick="cancelAppointment('${a.id}')" class="text-rose-600 hover:text-rose-700 font-semibold hover:underline">Cancel</button>
+                  <button onclick="openBookingModal()" class="text-teal-700 dark:text-teal-400 font-semibold hover:underline">Reschedule</button>
+                ` : `
+                  <button onclick="openSuperbillModal('INV-9021', '${a.date}', '${a.service}', '${a.therapist}', '₹1,499')" class="text-teal-700 dark:text-teal-400 font-semibold hover:underline">Superbill</button>
+                `}
               </td>
             </tr>
           `).join('');
@@ -681,110 +1517,261 @@
       }
     }
 
-    // Reset Dashboard to pristine fresh state
-    function resetToFreshData() {
-      if (!confirm('Reset dashboard to fresh, clean clinical records? This will clear duplicate test data.')) return;
-      if (window.PhysioStorage) {
-        window.PhysioStorage.resetDemoData();
-        renderAppointments();
-        renderExercises();
-        updateComplianceCounters();
-        if (typeof showToast === 'function') showToast('Dashboard reset to fresh clinical records.');
-      }
-    }
-
+    // Cancel appointment helper
     function cancelAppointment(id) {
-      if (!confirm('Are you sure you want to cancel this appointment session?')) return;
-      if (window.PhysioStorage) {
-        const list = window.PhysioStorage.get(window.PhysioStorage.KEYS.APPOINTMENTS, []);
-        const item = list.find(a => a.id === id);
-        if (item) {
-          item.status = 'Cancelled';
-          window.PhysioStorage.set(window.PhysioStorage.KEYS.APPOINTMENTS, list);
-          renderAppointments();
-          if (typeof showToast === 'function') showToast('Appointment session marked as cancelled.');
-        }
+      if (!confirm('Are you sure you want to cancel this scheduled rehabilitation session?')) return;
+      if (!window.PhysioStorage) return;
+      const all = window.PhysioStorage.get(window.PhysioStorage.KEYS.APPOINTMENTS, []);
+      const updated = all.map(a => a.id === id ? { ...a, status: 'Cancelled' } : a);
+      window.PhysioStorage.set(window.PhysioStorage.KEYS.APPOINTMENTS, updated);
+      renderPatientAppointments();
+    }
+
+    // Filter appointments helper
+    function filterAppointments(filter) {
+      const all = window.PhysioStorage.get(window.PhysioStorage.KEYS.APPOINTMENTS, []);
+      let list = all.filter(a => {
+        const name = (a.patientName || '').toLowerCase();
+        return name.includes('pravin') || (!name);
+      });
+      if (filter === 'upcoming') {
+        list = list.filter(a => a.status === 'Confirmed' || a.status === 'Scheduled');
+      } else if (filter === 'completed') {
+        list = list.filter(a => a.status === 'Completed');
+      }
+      const tbody = document.getElementById('patient-full-appointment-table');
+      if (tbody) {
+        tbody.innerHTML = list.map(a => `
+          <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
+            <td class="py-3.5 px-4">
+              <span class="font-bold text-slate-900 dark:text-white">${a.service}</span>
+              <span class="block text-[10px] text-slate-400">CPT 97110/97140 • 45 Mins</span>
+            </td>
+            <td class="py-3.5 px-4 font-semibold text-slate-700 dark:text-slate-300">${a.therapist}</td>
+            <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">${a.date}</td>
+            <td class="py-3.5 px-4 text-slate-500">Suite 02 (${a.type || 'In-Person'})</td>
+            <td class="py-3.5 px-4">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold ${a.status === 'Confirmed' ? 'bg-teal-50 text-teal-700 dark:bg-teal-950 dark:text-teal-300 border border-teal-200' : 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300'}">${a.status}</span>
+            </td>
+            <td class="py-3.5 px-4 text-right space-x-2">
+              <button onclick="openBookingModal()" class="text-teal-700 dark:text-teal-400 font-semibold hover:underline">Manage</button>
+            </td>
+          </tr>
+        `).join('');
       }
     }
 
-    // Interactive Exercise Compliance Tracking
-    const completedExercises = new Set(['ex-1', 'ex-2']); // Default 2 completed for realistic state
-
-    function toggleExerciseComplete(exId) {
-      if (completedExercises.has(exId)) {
-        completedExercises.delete(exId);
-      } else {
-        completedExercises.add(exId);
-      }
-      renderExercises();
-      updateComplianceCounters();
-    }
-
-    function updateComplianceCounters() {
-      const el = document.getElementById('hep-logged-count');
-      if (el) el.textContent = `${completedExercises.size}/3 Logged`;
-    }
-
+    // Render Prescribed Exercises
+    let completedExerciseIds = new Set(['ex-1', 'ex-2']);
     function renderExercises() {
       const grid = document.getElementById('patient-exercise-grid');
-      const quicklist = document.getElementById('overview-exercise-quicklist');
-      
-      if (window.PhysioDemoData && window.PhysioDemoData.exercises) {
-        const exList = window.PhysioDemoData.exercises;
+      if (!grid || !window.PhysioDemoData || !window.PhysioDemoData.exercises) return;
 
-        // Render full grid
-        if (grid) {
-          grid.innerHTML = exList.map(ex => {
-            const isDone = completedExercises.has(ex.id);
-            return `
-              <div class="bg-white dark:bg-slate-800 rounded-2xl border ${isDone ? 'border-emerald-300 dark:border-emerald-800' : 'border-slate-200 dark:border-slate-700'} overflow-hidden flex flex-col justify-between shadow-sm transition">
-                <div class="h-44 overflow-hidden relative">
-                  <img src="${ex.image}" alt="${ex.name}" class="w-full h-full object-cover">
-                  ${isDone ? `
-                    <div class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-emerald-500 text-white font-bold text-[10px] flex items-center gap-1 shadow">
-                      ✓ Done Today
-                    </div>
-                  ` : ''}
+      const exercises = window.PhysioDemoData.exercises;
+      grid.innerHTML = exercises.map(ex => {
+        const isDone = completedExerciseIds.has(ex.id);
+        return `
+          <div class="bg-white dark:bg-[#151F2E] rounded-3xl border ${isDone ? 'border-emerald-300 dark:border-emerald-700' : 'border-slate-200 dark:border-slate-800'} overflow-hidden shadow-sm flex flex-col justify-between transition">
+            <div class="h-44 overflow-hidden relative">
+              <img src="${ex.image}" alt="${ex.name}" class="w-full h-full object-cover">
+              ${isDone ? `
+                <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-emerald-500 text-white font-bold text-[10px] flex items-center gap-1 shadow-md">
+                  ✓ Completed Today
                 </div>
-                <div class="p-5 space-y-3 flex-1 flex flex-col justify-between">
-                  <div class="space-y-1.5">
-                    <span class="text-[10px] font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider">${ex.target}</span>
-                    <h4 class="text-sm font-bold text-slate-900 dark:text-white font-heading">${ex.name}</h4>
-                    <p class="text-xs text-slate-500 font-medium">${ex.reps} &bull; ${ex.frequency}</p>
-                    <p class="text-[11px] text-slate-600 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-700/60 leading-relaxed">${ex.instructions}</p>
-                  </div>
-                  <button onclick="toggleExerciseComplete('${ex.id}')" class="w-full py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 ${isDone ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800' : 'bg-slate-100 dark:bg-slate-700 hover:bg-teal-50 dark:hover:bg-teal-950 hover:text-teal-700 text-slate-700 dark:text-slate-200'}">
-                    <span>${isDone ? '✓ Completed Today (Undo)' : 'Mark Completed Today'}</span>
-                  </button>
-                </div>
+              ` : ''}
+            </div>
+            <div class="p-5 space-y-3 flex-1 flex flex-col justify-between">
+              <div class="space-y-1.5">
+                <span class="text-[10px] font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">${ex.target}</span>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white font-heading">${ex.name}</h4>
+                <p class="text-xs text-slate-500 font-medium">${ex.reps} • ${ex.frequency}</p>
+                <p class="text-[11px] text-slate-600 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800 leading-relaxed">${ex.instructions}</p>
               </div>
-            `;
-          }).join('');
-        }
+              <button onclick="toggleExercise('${ex.id}')" class="w-full py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 ${isDone ? 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800' : 'bg-slate-100 dark:bg-slate-800 hover:bg-teal-50 hover:text-teal-700 text-slate-700 dark:text-slate-300'}">
+                <span>${isDone ? '✓ Completed Today (Undo)' : 'Mark Completed Today'}</span>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
 
-        // Render overview quick checklist
-        if (quicklist) {
-          quicklist.innerHTML = exList.map(ex => {
-            const isDone = completedExercises.has(ex.id);
-            return `
-              <div onclick="toggleExerciseComplete('${ex.id}')" class="p-3.5 rounded-xl border ${isDone ? 'border-emerald-200 bg-emerald-50/50 dark:border-emerald-900 dark:bg-emerald-950/20' : 'border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60'} cursor-pointer flex items-center gap-3 transition">
-                <input type="checkbox" ${isDone ? 'checked' : ''} class="w-4 h-4 text-teal-600 rounded cursor-pointer pointer-events-none">
-                <div class="min-w-0 flex-1">
-                  <p class="text-xs font-bold text-slate-900 dark:text-white truncate">${ex.name}</p>
-                  <p class="text-[10px] text-slate-400 truncate">${ex.reps}</p>
-                </div>
-              </div>
-            `;
-          }).join('');
-        }
+    function toggleExercise(id) {
+      if (completedExerciseIds.has(id)) {
+        completedExerciseIds.delete(id);
+      } else {
+        completedExerciseIds.add(id);
       }
+      renderExercises();
+    }
+
+    // Chart.js Overview Chart
+    let overviewChartInstance = null;
+    function initOverviewChart() {
+      const ctx = document.getElementById('overviewRecoveryChart');
+      if (!ctx) return;
+      if (overviewChartInstance) overviewChartInstance.destroy();
+
+      overviewChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Wk 1 (Initial)', 'Wk 2', 'Wk 3', 'Wk 4', 'Wk 5', 'Wk 6 (Current)'],
+          datasets: [
+            {
+              label: 'Mobility Index (%)',
+              data: [35, 42, 54, 60, 68, 78],
+              borderColor: '#0F766E',
+              backgroundColor: 'rgba(15, 118, 110, 0.08)',
+              fill: true,
+              tension: 0.35,
+              borderWidth: 2.5,
+              pointRadius: 4,
+              pointBackgroundColor: '#0F766E'
+            },
+            {
+              label: 'Pain Score (VAS 1-10)',
+              data: [6.5, 5.0, 4.0, 3.2, 2.0, 1.5],
+              borderColor: '#F43F5E',
+              backgroundColor: 'transparent',
+              borderDash: [5, 5],
+              tension: 0.35,
+              borderWidth: 2,
+              pointRadius: 3,
+              pointBackgroundColor: '#F43F5E'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: { color: 'rgba(148, 163, 184, 0.1)' }
+            },
+            x: {
+              grid: { display: false }
+            }
+          }
+        }
+      });
+    }
+
+    // Detailed Recovery Progress Chart
+    let detailedChartInstance = null;
+    function initDetailedRecoveryChart() {
+      const ctx = document.getElementById('detailedRecoveryChart');
+      if (!ctx) return;
+      if (detailedChartInstance) detailedChartInstance.destroy();
+
+      detailedChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Baseline (Wk 1)', 'Mid-Point (Wk 3)', 'Current (Wk 6)', 'Target Goal (Wk 12)'],
+          datasets: [
+            {
+              label: 'Lumbar Straight-Leg Flexion (° degrees)',
+              data: [42, 58, 80, 90],
+              backgroundColor: '#0F766E',
+              borderRadius: 8
+            },
+            {
+              label: 'Thoracic Rotation (° degrees)',
+              data: [25, 34, 45, 50],
+              backgroundColor: '#14B8A6',
+              borderRadius: 8
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'top' }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: { color: 'rgba(148, 163, 184, 0.1)' }
+            },
+            x: {
+              grid: { display: false }
+            }
+          }
+        }
+      });
+    }
+
+    // Booking Modal logic
+    function openBookingModal() {
+      const modal = document.getElementById('booking-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        // Default tomorrow
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const dateInput = document.getElementById('bk-date');
+        if (dateInput) dateInput.value = tomorrow.toISOString().split('T')[0];
+      }
+    }
+
+    function closeBookingModal() {
+      const modal = document.getElementById('booking-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function updateBookingDoctor() {
+      const service = document.getElementById('bk-service').value;
+      const doctorInput = document.getElementById('bk-doctor');
+      if (!doctorInput) return;
+      if (service.includes('Spine')) doctorInput.value = 'Dr. Elena Vance, DPT';
+      else if (service.includes('Orthopedic')) doctorInput.value = 'Dr. Marcus Chen, DPT';
+      else if (service.includes('Neurological')) doctorInput.value = 'Dr. Priya Patel, MPT';
+      else if (service.includes('Sports')) doctorInput.value = 'Dr. Sarah Jenkins, DPT';
+      else doctorInput.value = 'Dr. Elena Vance, DPT';
+    }
+
+    function handlePatientBooking(e) {
+      e.preventDefault();
+      const service = document.getElementById('bk-service').value;
+      const doctor = document.getElementById('bk-doctor').value;
+      const date = document.getElementById('bk-date').value;
+      const time = document.getElementById('bk-time').value;
+
+      const newApt = {
+        id: 'apt-' + Date.now().toString().slice(-4),
+        patientName: 'Pravin Kumar',
+        patientEmail: 'pravin.kumar@example.com',
+        service: service,
+        therapist: doctor,
+        suite: 'Suite 02',
+        date: `${date}, ${time}`,
+        type: 'In-Person (Private Suite)',
+        status: 'Confirmed',
+        notes: 'Patient self-booked via Patient Portal.'
+      };
+
+      if (window.PhysioStorage) {
+        const all = window.PhysioStorage.get(window.PhysioStorage.KEYS.APPOINTMENTS, []);
+        // Prepend new appointment
+        window.PhysioStorage.set(window.PhysioStorage.KEYS.APPOINTMENTS, [newApt, ...all]);
+      }
+
+      closeBookingModal();
+      alert(`Rehabilitation session confirmed for ${date} at ${time} with ${doctor}!`);
+      renderPatientAppointments();
+      switchTab('appointments');
     }
 
     // Modal Superbill Functionality
     function openSuperbillModal(invoiceNo, date, service, provider, amount) {
       document.getElementById('sb-invoice-no').textContent = '#' + invoiceNo;
       document.getElementById('sb-date').textContent = date;
-      document.getElementById('sb-provider').textContent = provider + ' (#1841390291)';
+      document.getElementById('sb-provider').textContent = provider;
+      document.getElementById('sb-service-name').textContent = service;
       document.getElementById('sb-amount').textContent = amount;
       document.getElementById('superbill-modal').classList.remove('hidden');
     }
@@ -793,26 +1780,83 @@
       document.getElementById('superbill-modal').classList.add('hidden');
     }
 
+    // Direct Messaging Functionality
+    function sendPatientMessage() {
+      const input = document.getElementById('patient-message-input');
+      const text = input ? input.value.trim() : '';
+      if (!text) return;
+
+      const container = document.getElementById('messages-container');
+      if (container) {
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const bubble = document.createElement('div');
+        bubble.className = 'flex items-start gap-2.5 max-w-md ml-auto justify-end';
+        bubble.innerHTML = `
+          <div class="p-3.5 rounded-2xl rounded-tr-none bg-teal-700 text-white space-y-1">
+            <p>${text}</p>
+            <span class="text-[9px] text-teal-200 block text-right">Just now (${timeStr})</span>
+          </div>
+        `;
+        container.appendChild(bubble);
+        container.scrollTop = container.scrollHeight;
+      }
+      if (input) input.value = '';
+    }
+
+    // Dark / Light Theme Toggle
+    function togglePortalTheme() {
+      if (typeof window.toggleTheme === 'function') {
+        window.toggleTheme();
+      } else {
+        const html = document.documentElement;
+        const isDark = html.classList.contains('dark');
+        if (isDark) {
+          html.classList.remove('dark');
+          localStorage.setItem('physiocare_theme', 'light');
+        } else {
+          html.classList.add('dark');
+          localStorage.setItem('physiocare_theme', 'dark');
+        }
+      }
+    }
+
+    // Reset Dashboard to pristine demo data
+    function resetDashboardData() {
+      if (confirm('Reset your dashboard demonstration data to fresh state?')) {
+        if (window.PhysioStorage && window.PhysioStorage.resetDemoData) {
+          window.PhysioStorage.resetDemoData();
+        } else {
+          localStorage.clear();
+        }
+        window.location.reload();
+      }
+    }
+
     function handleLogout() {
       if (window.PhysioStorage) window.PhysioStorage.logout();
       window.location.href = '../auth/login.html';
     }
 
+    // Initialization
     document.addEventListener('DOMContentLoaded', () => {
-      renderAppointments();
-      renderExercises();
-      updateComplianceCounters();
-
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('theme') === 'dark') {
+      // Check stored theme
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
         document.documentElement.classList.add('dark');
-        document.documentElement.setAttribute('data-theme', 'dark');
-      } else if (urlParams.get('theme') === 'light') {
+      } else if (savedTheme === 'light') {
         document.documentElement.classList.remove('dark');
-        document.documentElement.removeAttribute('data-theme');
       }
+
+      renderPatientAppointments();
+      renderExercises();
+      initOverviewChart();
+
+      // Check URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
       const initTab = urlParams.get('tab');
       if (initTab) switchTab(initTab);
+
       if (urlParams.get('modal') === 'superbill') {
         openSuperbillModal('INV-9021', 'Oct 24, 2026', 'Spine & Posture Care', 'Dr. Elena Vance, DPT', '₹1,499');
       }

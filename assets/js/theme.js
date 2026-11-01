@@ -7,6 +7,14 @@
   const THEME_KEY = 'physiocare_theme';
 
   function getPreferredTheme() {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlTheme = urlParams.get('theme');
+      if (urlTheme === 'light' || urlTheme === 'dark') {
+        localStorage.setItem(THEME_KEY, urlTheme);
+        return urlTheme;
+      }
+    } catch (e) {}
     const saved = localStorage.getItem(THEME_KEY);
     if (saved) return saved;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
