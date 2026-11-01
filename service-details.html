@@ -840,13 +840,23 @@
       const priceEl = document.getElementById('sidebar-price');
       if (priceEl) priceEl.textContent = s.price;
 
-      // Specialist Details (Prominent Right-Side Display)
-      if (s.therapist) {
+      // Specialist Details (Prominent Right-Side Display with URL Doctor Override)
+      const doctorParam = params.get('doctor');
+      if (doctorParam) {
+        const docName = document.getElementById('sd-therapist-name');
+        if (docName) docName.textContent = doctorParam;
+        
+        const docRole = document.getElementById('sd-therapist-role');
+        if (docRole) docRole.textContent = 'Treating Clinical Specialist · ' + s.title.replace(' Physiotherapy', '') + ' Care';
+
+        const docBadge = document.getElementById('sd-therapist-badge');
+        if (docBadge) docBadge.textContent = 'Selected Specialist';
+      } else if (s.therapist) {
         const docName = document.getElementById('sd-therapist-name');
         if (docName) docName.textContent = s.therapist.name;
         
         const docRole = document.getElementById('sd-therapist-role');
-        if (docRole) docRole.textContent = `${s.therapist.role || 'Senior Physiotherapist'} • ${s.title.replace(' Physiotherapy', '')} Rehabilitation`;
+        if (docRole) docRole.textContent = (s.therapist.role || 'Senior Physiotherapist') + ' · ' + s.title.replace(' Physiotherapy', '') + ' Rehabilitation';
         
         const docImg = document.getElementById('sd-therapist-img');
         if (docImg && s.therapist.photo) docImg.src = s.therapist.photo;
@@ -898,8 +908,14 @@
 
       const modalDoc = document.getElementById('modal-selected-doctor');
       if (modalDoc) {
-        const docName = s.therapist ? `${s.therapist.name}, PT` : 'Dr. Marcus Chen, PT';
-        modalDoc.value = docName;
+        const params = new URLSearchParams(window.location.search);
+        const doctorParam = params.get('doctor');
+        if (doctorParam) {
+          modalDoc.value = doctorParam.includes('PT') ? doctorParam : `${doctorParam}, PT`;
+        } else {
+          const docName = s.therapist ? `${s.therapist.name}, PT` : 'Dr. Marcus Chen, PT';
+          modalDoc.value = docName;
+        }
       }
 
       const modalFee = document.getElementById('modal-fee-display');
