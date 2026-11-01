@@ -215,79 +215,63 @@
       </a>
     </div>
   </div>
-  <main class="flex-grow pt-20" id="service-detail-container">
+    <main class="flex-grow pt-20" id="service-detail-container">
     
-    <!-- Hero Section with Realistic Clinical Representation -->
-    <section class="py-12 lg:py-16 bg-gradient-to-b from-teal-50/60 via-white to-slate-50 dark:from-[#0d1620] dark:via-[#090D12] dark:to-[#090D12] relative">
+    <!-- 1. Hero Section - Simplified, Elegant & Focused -->
+    <section class="py-12 lg:py-16 bg-gradient-to-b from-teal-50/50 via-white to-[#F5F7FA] dark:from-[#0c141d] dark:via-[#090D12] dark:to-[#090D12] border-b border-slate-100 dark:border-slate-800/80">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          <!-- Hero Text & Pricing Highlights -->
-          <div class="lg:col-span-7 space-y-4">
-            <a href="services.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline">
-              <span>&larr; Back to All Services</span>
-            </a>
-            
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-500/10 dark:bg-teal-400/10 border border-teal-600/20 dark:border-teal-400/20 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider">
-              <span class="w-2 h-2 rounded-full bg-teal-600 dark:bg-teal-400 animate-pulse"></span>
-              <span id="sd-category">Musculoskeletal Care</span> &bull; <span>Doctor-Led 1-on-1</span>
-            </div>
+          <!-- Hero Text & Primary Action (60% width) -->
+          <div class="lg:col-span-7 space-y-5">
+            <!-- Breadcrumb Navigation -->
+            <nav class="flex items-center gap-2 text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-widest" aria-label="Breadcrumb">
+              <a href="index.html" class="hover:underline">PhysioCare</a>
+              <span class="text-slate-400">/</span>
+              <a href="services.html" class="hover:underline">Services</a>
+              <span class="text-slate-400">/</span>
+              <span class="text-slate-600 dark:text-slate-300" id="sd-breadcrumb-current">Orthopedic</span>
+            </nav>
 
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-heading tracking-tight" id="sd-title">
+            <!-- Main Heading (36-44px desktop) -->
+            <h1 class="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 dark:text-white font-heading tracking-tight leading-tight" id="sd-title">
               Orthopedic Physiotherapy
             </h1>
             
-            <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl" id="sd-subtitle">
-              Comprehensive joint, muscle, and bone rehabilitation for acute trauma, arthritis, and post-surgical recovery.
+            <!-- Clear Description (15-16px) -->
+            <p class="text-[15px] sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl" id="sd-subtitle">
+              Personalized care for joint pain, muscle injuries and movement difficulties. Our physiotherapy approach focuses on improving mobility, strength and everyday function.
             </p>
 
-            <!-- Price & Duration Pill -->
-            <div class="pt-2 flex flex-wrap items-center gap-4">
-              <div class="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-800 shadow-2xs text-xs font-semibold">
-                <span class="text-slate-500 dark:text-slate-400">Duration:</span>
-                <span id="sd-duration" class="font-bold text-slate-900 dark:text-white">45–60 mins</span>
-                <span class="text-slate-300 dark:text-slate-700">|</span>
-                <span class="text-slate-500 dark:text-slate-400">Price:</span>
-                <span id="sd-hero-price" class="font-black text-teal-700 dark:text-teal-400 text-sm">₹1,499</span>
-                <span class="text-slate-400 text-[11px]">/ session</span>
+            <!-- Key Feature Highlights (clean text, no clutter) -->
+            <div class="flex flex-wrap items-center gap-y-2 gap-x-6 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 pt-1">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-teal-600 dark:bg-teal-400"></span>
+                <span id="sd-duration">45–60 min session</span>
               </div>
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-teal-600 dark:bg-teal-400"></span>
+                <span>One-on-one care</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-teal-600 dark:bg-teal-400"></span>
+                <span>Personalized treatment</span>
+              </div>
+            </div>
 
-              <a href="appointment.html" id="sd-hero-book-btn" class="btn-primary shadow-sm">
-                <span>Book this Treatment</span>
+            <!-- Single Clean Hero CTA Button -->
+            <div class="pt-2">
+              <a href="appointment.html?service=orthopedic&doctor=Dr.+Marcus+Chen" id="sd-hero-book-btn" class="btn-primary inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-bold shadow-sm transition">
+                <span>Book an Assessment</span>
                 <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
               </a>
             </div>
           </div>
 
-          <!-- Hero Image with Verified Physiotherapy Care Representation -->
+          <!-- Hero Image: Larger with Consistent Aspect Ratio (no stickers/badges) -->
           <div class="lg:col-span-5">
-            <div class="relative group">
-              <div class="absolute -inset-1.5 bg-gradient-to-tr from-teal-500/20 to-teal-100/10 dark:from-teal-500/10 dark:to-transparent rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition duration-500 pointer-events-none"></div>
-              
-              <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-800">
-                <img id="sd-img" src="assets/images/services/orthopedic-pathway.jpg" alt="Physiotherapy Treatment" class="w-full h-72 sm:h-80 object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-80"></div>
-                
-                <!-- Floating Clinical Badge Top -->
-                <div class="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-700 text-[11px] font-bold text-slate-900 dark:text-white shadow-sm">
-                  <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
-                  <span id="sd-img-badge">Clinical Specialist Led</span>
-                </div>
-
-                <!-- Floating Outcome Pill Bottom -->
-                <div class="absolute bottom-4 left-4 right-4 inline-flex items-center justify-between px-3.5 py-2 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/80 dark:border-slate-800 shadow-md">
-                  <div class="flex items-center gap-2">
-                    <div class="w-6 h-6 rounded-lg bg-teal-100 dark:bg-teal-950/80 text-teal-700 dark:text-teal-400 flex items-center justify-center font-bold text-xs">
-                      ✓
-                    </div>
-                    <div>
-                      <p class="text-xs font-bold text-slate-900 dark:text-white">Private Treatment Suite</p>
-                      <p class="text-[10px] text-slate-500 dark:text-slate-400">Zero Wait Time Guarantee</p>
-                    </div>
-                  </div>
-                  <span class="text-[11px] font-bold text-teal-700 dark:text-teal-400">Verified &bull; 1-on-1</span>
-                </div>
-              </div>
+            <div class="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 aspect-[4/3] sm:aspect-[16/11]">
+              <img id="sd-img" src="assets/images/services/orthopedic-pathway.jpg" alt="Orthopedic Physiotherapy" class="w-full h-full object-cover object-center transition duration-500 hover:scale-105">
             </div>
           </div>
 
@@ -295,188 +279,236 @@
       </div>
     </section>
 
-    <!-- Details Breakdown: Therapies, Steps & Pricing -->
-    <section class="py-16 lg:py-20 bg-[#F5F7FA] dark:bg-[#090D12]">
+    <!-- 2. Main Content & Right-Side Booking Card -->
+    <section class="py-12 lg:py-16 bg-[#F5F7FA] dark:bg-[#090D12]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-10 lg:gap-12">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
-          <!-- Left Column: Detailed Clinical Pathway -->
-          <div class="lg:col-span-8 space-y-8">
+          <!-- Left Column: Clean Layout with 4 Sections + Specialist (65-70% width) -->
+          <div class="lg:col-span-8 bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200/70 dark:border-slate-800/80 shadow-xs space-y-12">
             
-            <!-- What is This Treatment Card -->
-            <div class="card-base p-6 sm:p-8 space-y-4">
-              <div class="inline-flex items-center gap-2 text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">
-                <span>Clinical Overview</span>
-              </div>
-              <h2 class="text-2xl font-bold text-slate-900 dark:text-white font-heading">What is This Treatment?</h2>
-              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" id="sd-desc">
-                Orthopedic physiotherapy focuses on restoring structural alignment and painless mobility to bones, joints, ligaments, tendons, and surrounding myofascial tissues. Using manual joint mobilization combined with targeted neurological muscle retraining, we accelerate your body's natural regenerative timeline in private suites.
+            <!-- Section 01 – Treatment Overview -->
+            <div class="space-y-4">
+              <h2 class="text-2xl sm:text-[26px] font-bold text-slate-900 dark:text-white font-heading" id="sd-overview-heading">
+                What Is Orthopedic Physiotherapy?
+              </h2>
+              <p class="text-[15px] sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed" id="sd-desc">
+                Orthopedic physiotherapy helps manage conditions affecting muscles, joints, bones and soft tissues. Treatment focuses on restoring movement, improving strength and supporting everyday activities.
               </p>
               
-              <!-- Quick Value Indicators -->
-              <div class="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-center gap-2">
-                  <span class="text-teal-600 dark:text-teal-400">✓</span>
-                  <span>100% Doctor-Led Care</span>
+              <!-- Three simple benefits in one horizontal row -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
+                <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-1">
+                  <div class="w-8 h-8 rounded-lg bg-teal-100 dark:bg-teal-950/80 text-teal-700 dark:text-teal-400 flex items-center justify-center font-bold text-sm">
+                    ✓
+                  </div>
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Better Mobility</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Restore joint range and smooth, fluid movement.</p>
                 </div>
-                <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-center gap-2">
-                  <span class="text-teal-600 dark:text-teal-400">✓</span>
-                  <span>Hands-On Manual Therapy</span>
+
+                <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-1">
+                  <div class="w-8 h-8 rounded-lg bg-teal-100 dark:bg-teal-950/80 text-teal-700 dark:text-teal-400 flex items-center justify-center font-bold text-sm">
+                    ✓
+                  </div>
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Pain Management</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Target root mechanical causes of discomfort.</p>
                 </div>
-                <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-center gap-2">
-                  <span class="text-teal-600 dark:text-teal-400">✓</span>
-                  <span>98.4% Outcome Success</span>
+
+                <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-1">
+                  <div class="w-8 h-8 rounded-lg bg-teal-100 dark:bg-teal-950/80 text-teal-700 dark:text-teal-400 flex items-center justify-center font-bold text-sm">
+                    ✓
+                  </div>
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Improved Strength</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Build joint stability and everyday endurance.</p>
                 </div>
               </div>
             </div>
 
-            <!-- Therapies & Modalities Included Card -->
-            <div class="card-base p-6 sm:p-8 space-y-5">
-              <div class="space-y-1">
-                <div class="inline-flex items-center gap-2 text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">
-                  <span>Targeted Modalities</span>
-                </div>
-                <h2 class="text-2xl font-bold text-slate-900 dark:text-white font-heading">Therapies &amp; Modalities Included</h2>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-                  Each session combines evidence-based physical techniques to relieve pressure and activate cellular repair:
-                </p>
-              </div>
-
-              <!-- Therapies Grid (Populated via JS) -->
-              <div class="grid sm:grid-cols-2 gap-4" id="sd-therapies-grid">
-                <!-- Injected dynamically -->
-              </div>
-            </div>
-
-            <!-- Step-by-Step Protocol Stages Card -->
-            <div class="card-base p-6 sm:p-8 space-y-6">
-              <div class="space-y-1">
-                <div class="inline-flex items-center gap-2 text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">
-                  <span>Structured Recovery Steps</span>
-                </div>
-                <h2 class="text-2xl font-bold text-slate-900 dark:text-white font-heading">Rehabilitation Protocol Stages</h2>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-                  How our doctoral physical therapists systematically take you from pain to full functional independence:
-                </p>
-              </div>
-
-              <!-- Steps Timeline Container (Populated via JS) -->
-              <div class="space-y-4" id="sd-steps-container">
-                <!-- Injected dynamically -->
-              </div>
-            </div>
-
-            <!-- Conditions This May Help With Card -->
-            <div class="card-base p-6 sm:p-8 space-y-5">
-              <div class="space-y-1">
-                <h2 class="text-2xl font-bold text-slate-900 dark:text-white font-heading">Conditions This May Help With</h2>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-                  Common diagnoses and musculoskeletal complaints resolved through this treatment protocol:
-                </p>
-              </div>
+            <!-- Section 02 – Treatments Included (Simple Two-Column List) -->
+            <div class="space-y-4 pt-8 border-t border-slate-100 dark:border-slate-800">
+              <h2 class="text-2xl sm:text-[26px] font-bold text-slate-900 dark:text-white font-heading">
+                Therapies &amp; Treatment Techniques
+              </h2>
               
-              <!-- Conditions Grid (Populated via JS) -->
-              <div class="grid sm:grid-cols-2 gap-3" id="sd-conditions-grid">
-                <!-- Injected dynamically -->
-              </div>
-            </div>
-
-            <!-- Treating Physical Therapist Profile Card -->
-            <div class="card-base p-6 sm:p-8 space-y-4 bg-gradient-to-r from-teal-50/40 via-white to-white dark:from-slate-900/90 dark:via-slate-900 dark:to-slate-900" id="sd-therapist-card">
-              <div class="text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">Your Treating Clinical Specialist</div>
-              <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
-                <div class="flex items-center gap-4">
-                  <img id="sd-therapist-img" src="assets/images/team/marcus-chen.jpg" alt="Doctor" class="w-16 h-16 rounded-2xl object-cover border-2 border-teal-500/40 shadow-sm">
+              <!-- Two-column clean list without large separate cards -->
+              <div class="grid sm:grid-cols-2 gap-x-8 gap-y-4 pt-1" id="sd-therapies-grid">
+                <div class="flex items-start gap-3">
+                  <span class="w-5 h-5 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</span>
                   <div>
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading" id="sd-therapist-name">Dr. Marcus Chen, DPT, OCS</h3>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium" id="sd-therapist-role">Senior Orthopedic Physical Therapist</p>
-                    <p class="text-[11px] text-teal-700 dark:text-teal-400 font-semibold mt-1">Direct 1-on-1 Doctoral Oversight &bull; Verified Specialist</p>
+                    <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">Manual Mobilization</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Hands-on joint glide and myofascial easing.</p>
                   </div>
                 </div>
-                <a href="appointment.html" id="sd-therapist-book-btn" class="btn-primary btn-sm shrink-0">
-                  <span>Book With Doctor &rarr;</span>
-                </a>
+
+                <div class="flex items-start gap-3">
+                  <span class="w-5 h-5 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</span>
+                  <div>
+                    <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">Therapeutic Exercise</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Active kinesiology resistance to rebuild stabilizing muscle groups.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <span class="w-5 h-5 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</span>
+                  <div>
+                    <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">Biomechanical Assessment</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Computerized posture and dynamic movement screening.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <span class="w-5 h-5 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</span>
+                  <div>
+                    <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">Joint &amp; Muscle Rehabilitation</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Structured reconditioning guarding against future re-injury.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 03 – Your Treatment Process (Simple Vertical Timeline) -->
+            <div class="space-y-5 pt-8 border-t border-slate-100 dark:border-slate-800">
+              <h2 class="text-2xl sm:text-[26px] font-bold text-slate-900 dark:text-white font-heading">
+                How Your Treatment Progresses
+              </h2>
+              
+              <!-- Clean Vertical Timeline -->
+              <div class="relative pl-7 sm:pl-8 border-l-2 border-teal-600/20 dark:border-teal-500/30 space-y-7 pt-1 ml-3" id="sd-steps-container">
+                
+                <div class="relative">
+                  <span class="absolute -left-[35px] sm:-left-[39px] top-0 w-6 h-6 rounded-full bg-teal-700 text-white flex items-center justify-center text-xs font-bold">1</span>
+                  <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">Initial Assessment</h4>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                    Understand your symptoms, medical history and movement limitations.
+                  </p>
+                </div>
+
+                <div class="relative">
+                  <span class="absolute -left-[35px] sm:-left-[39px] top-0 w-6 h-6 rounded-full bg-teal-700 text-white flex items-center justify-center text-xs font-bold">2</span>
+                  <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">Personalized Treatment</h4>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                    Develop an appropriate treatment plan based on your assessment.
+                  </p>
+                </div>
+
+                <div class="relative">
+                  <span class="absolute -left-[35px] sm:-left-[39px] top-0 w-6 h-6 rounded-full bg-teal-700 text-white flex items-center justify-center text-xs font-bold">3</span>
+                  <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">Guided Rehabilitation</h4>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                    Follow supervised exercises and suitable therapy techniques.
+                  </p>
+                </div>
+
+                <div class="relative">
+                  <span class="absolute -left-[35px] sm:-left-[39px] top-0 w-6 h-6 rounded-full bg-teal-700 text-white flex items-center justify-center text-xs font-bold">4</span>
+                  <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">Progress Review</h4>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                    Review your progress and adjust your treatment plan when needed.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Section 04 – Conditions We Help Manage (Clean 2-Column Text List) -->
+            <div class="space-y-4 pt-8 border-t border-slate-100 dark:border-slate-800">
+              <h2 class="text-2xl sm:text-[26px] font-bold text-slate-900 dark:text-white font-heading">
+                Conditions This Treatment May Help With
+              </h2>
+              
+              <!-- 2 columns on desktop, 1 column on mobile -->
+              <div class="grid sm:grid-cols-2 gap-y-3.5 gap-x-6 pt-1" id="sd-conditions-grid">
+                <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
+                  <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0"></span>
+                  <span>Shoulder pain and stiffness</span>
+                </div>
+                <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
+                  <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0"></span>
+                  <span>Knee and joint discomfort</span>
+                </div>
+                <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
+                  <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0"></span>
+                  <span>Back and neck pain</span>
+                </div>
+                <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
+                  <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0"></span>
+                  <span>Sports-related injuries</span>
+                </div>
+                <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
+                  <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0"></span>
+                  <span>Muscle strains and sprains</span>
+                </div>
+                <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
+                  <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0"></span>
+                  <span>Post-surgical mobility limitations</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 05 – Therapist Information (Prominent Doctor Profile, No Duplicate Button) -->
+            <div class="pt-8 border-t border-slate-100 dark:border-slate-800" id="sd-therapist-card">
+              <span class="text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider block mb-3">Treating Clinical Specialist</span>
+              <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 p-5 sm:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <img id="sd-therapist-img" src="assets/images/team/marcus-chen.jpg" alt="Dr. Marcus Chen" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover object-top border-2 border-teal-600/30 shadow-sm shrink-0">
+                <div class="space-y-1 text-center sm:text-left">
+                  <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white font-heading" id="sd-therapist-name">Dr. Marcus Chen</h3>
+                    <span class="text-[11px] font-semibold text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/80 px-2.5 py-0.5 rounded-full border border-teal-200/60 dark:border-teal-800">Verified Specialist</span>
+                  </div>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-medium" id="sd-therapist-role">Senior Physiotherapist &bull; Orthopedic Rehabilitation</p>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 pt-0.5">Direct 1-on-1 doctoral care in private suites. No overlapping patients.</p>
+                </div>
               </div>
             </div>
 
           </div>
 
-          <!-- Right Column: Sidebar Booking & Pricing Card -->
+          <!-- 3. Right-Side Booking Card (Clean, Focused, Sticky on Desktop - 30-35% width) -->
           <div class="lg:col-span-4 space-y-6">
-            <div class="card-base p-6 sm:p-7 space-y-5 sticky top-28 shadow-xl border border-slate-200/90 dark:border-slate-800">
+            <div class="card-base p-6 sm:p-8 space-y-6 sticky top-28 shadow-xl border border-slate-200/80 dark:border-slate-800">
               
               <div class="space-y-1">
-                <h3 class="text-xl font-black text-slate-900 dark:text-white font-heading">Schedule Evaluation</h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400">Same-week openings with licensed doctoral faculty.</p>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white font-heading">Schedule Your Assessment</h3>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Start with an individual consultation.</p>
               </div>
 
-              <!-- Prominent Transparent Pricing Box -->
-              <div class="p-4 sm:p-5 rounded-2xl bg-teal-50/80 dark:bg-teal-950/40 border border-teal-100 dark:border-teal-900/60 space-y-1.5">
-                <span class="text-[10px] font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300">Transparent Pricing</span>
-                <div class="flex items-baseline gap-2">
-                  <span class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white" id="sidebar-price">₹1,499</span>
-                  <span class="text-xs text-slate-600 dark:text-slate-400 font-medium">/ 1-on-1 session</span>
-                </div>
-                <p class="text-xs text-teal-700 dark:text-teal-300 font-semibold" id="sidebar-package">
-                  Save 15% with 3-Session Care Plan: ₹3,999
-                </p>
+              <!-- Starting From Price -->
+              <div class="p-4 sm:p-5 rounded-2xl bg-teal-50/80 dark:bg-teal-950/40 border border-teal-100 dark:border-teal-900/60 space-y-1">
+                <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Starting from</span>
+                <div class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white" id="sidebar-price">₹1,499</div>
+                <p class="text-[11px] text-teal-800 dark:text-teal-300 font-medium">Illustrative demo price / session</p>
               </div>
 
-              <!-- What's Included Checklist -->
-              <div class="space-y-2.5 text-xs text-slate-700 dark:text-slate-300 pt-1">
-                <div class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-[11px]">Included in Your Session:</div>
-                <div class="flex items-start gap-2">
+              <!-- What's Included -->
+              <div class="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300 pt-1">
+                <div class="font-bold text-slate-900 dark:text-white text-xs uppercase tracking-wider">What's included</div>
+                <div class="flex items-center gap-2.5">
                   <span class="text-teal-600 dark:text-teal-400 font-bold">✓</span>
-                  <span>Full Biomechanical Diagnostic Assessment</span>
+                  <span>Initial consultation</span>
                 </div>
-                <div class="flex items-start gap-2">
+                <div class="flex items-center gap-2.5">
                   <span class="text-teal-600 dark:text-teal-400 font-bold">✓</span>
-                  <span>1-on-1 Hands-On Manual Therapy &amp; Mobilization</span>
+                  <span>Movement assessment</span>
                 </div>
-                <div class="flex items-start gap-2">
+                <div class="flex items-center gap-2.5">
                   <span class="text-teal-600 dark:text-teal-400 font-bold">✓</span>
-                  <span>Private Treatment Suite (Guaranteed Zero Wait)</span>
-                </div>
-                <div class="flex items-start gap-2">
-                  <span class="text-teal-600 dark:text-teal-400 font-bold">✓</span>
-                  <span>Custom Digital Video Home Exercise Program</span>
-                </div>
-                <div class="flex items-start gap-2">
-                  <span class="text-teal-600 dark:text-teal-400 font-bold">✓</span>
-                  <span>Direct Insurance Receipt &amp; Superbill Provided</span>
+                  <span>Treatment recommendations</span>
                 </div>
               </div>
 
-              <!-- Quick Specs Table -->
-              <div class="space-y-2 text-xs border-y border-slate-100 dark:border-slate-800 py-3 text-slate-600 dark:text-slate-300">
-                <div class="flex justify-between">
-                  <span class="text-slate-500">Duration:</span>
-                  <span class="font-bold text-slate-900 dark:text-white" id="sidebar-duration">45–60 mins</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate-500">Format:</span>
-                  <span class="font-bold text-slate-900 dark:text-white">1-on-1 Private Suite</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate-500">Specialist:</span>
-                  <span class="font-bold text-slate-900 dark:text-white" id="sidebar-doc">Doctor-Led</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate-500">Referral:</span>
-                  <span class="font-bold text-teal-600 dark:text-teal-400">Not Required</span>
-                </div>
+              <!-- One Primary Booking Card Button -->
+              <div class="pt-2">
+                <a href="appointment.html?service=orthopedic&doctor=Dr.+Marcus+Chen" id="sidebar-book-btn" class="btn-primary w-full justify-center py-4 text-sm font-bold shadow-md">
+                  <span>Book This Treatment</span>
+                  <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
               </div>
 
-              <!-- Primary Action CTA -->
-              <a href="appointment.html" id="sidebar-book-btn" class="btn-primary w-full justify-center py-3.5 shadow-md">
-                <span>Book This Treatment</span>
-                <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-              </a>
-
-              <!-- Central Phone Support -->
-              <div class="text-center pt-1">
-                <p class="text-[11px] text-slate-500 dark:text-slate-400">
-                  Questions? Call clinic coordinator: <strong class="text-slate-800 dark:text-slate-200">(415) 890-3321</strong>
+              <!-- Privacy Reassurance Note -->
+              <div class="text-center pt-1 border-t border-slate-100 dark:border-slate-800">
+                <p class="text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1.5 pt-3">
+                  <svg class="w-3.5 h-3.5 text-teal-600 dark:text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                  <span>Your information is handled privately</span>
                 </p>
               </div>
 
@@ -488,21 +520,6 @@
     </section>
 
   </main>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      const id = params.get('id') || 'orthopedic';
-      if (window.PhysioDemoData) {
-        const s = window.PhysioDemoData.services.find(item => item.id === id) || window.PhysioDemoData.services[0];
-        document.getElementById('sd-title').textContent = s.title;
-        document.getElementById('sd-subtitle').textContent = s.subtitle;
-        document.getElementById('sd-price').textContent = `${s.duration} &bull; ${s.price}`;
-        document.getElementById('sd-img').src = s.image;
-        document.getElementById('sd-desc').textContent = s.shortDesc;
-      }
-    });
-  </script>
 
   <!-- Site Footer -->
   <footer class="bg-slate-900 text-slate-300 border-t border-slate-800 transition-colors mt-auto">
@@ -597,82 +614,106 @@
       
       const s = window.PhysioDemoData.services.find(item => item.id === id) || window.PhysioDemoData.services[0];
       
-      // Hero Elements
-      document.getElementById('sd-title').textContent = s.title;
-      document.getElementById('sd-subtitle').textContent = s.subtitle;
-      document.getElementById('sd-category').textContent = s.category;
-      document.getElementById('sd-duration').textContent = s.duration;
-      document.getElementById('sd-hero-price').textContent = s.price;
-      document.getElementById('sd-img').src = s.image;
-      document.getElementById('sd-img').alt = s.title;
-      document.getElementById('sd-desc').textContent = s.fullDesc || s.shortDesc;
+      // Update Hero Elements
+      const titleEl = document.getElementById('sd-title');
+      if (titleEl) titleEl.textContent = s.title;
       
+      const breadcrumbCurrent = document.getElementById('sd-breadcrumb-current');
+      if (breadcrumbCurrent) {
+        breadcrumbCurrent.textContent = s.title.replace(' Physiotherapy', '').replace(' Rehabilitation', '').replace(' Therapy', '');
+      }
+
+      const subtitleEl = document.getElementById('sd-subtitle');
+      if (subtitleEl) {
+        if (s.id === 'orthopedic') {
+          subtitleEl.textContent = 'Personalized care for joint pain, muscle injuries and movement difficulties. Our physiotherapy approach focuses on improving mobility, strength and everyday function.';
+        } else {
+          subtitleEl.textContent = s.shortDesc || s.subtitle;
+        }
+      }
+
+      const durationEl = document.getElementById('sd-duration');
+      if (durationEl) durationEl.textContent = `${s.duration} session`;
+
+      const imgEl = document.getElementById('sd-img');
+      if (imgEl && s.image) {
+        imgEl.src = s.image;
+        imgEl.alt = s.title;
+      }
+
+      // Update Overview Heading & Text if other service
+      const overviewHeading = document.getElementById('sd-overview-heading');
+      if (overviewHeading && s.id !== 'orthopedic') {
+        overviewHeading.textContent = `What Is ${s.title}?`;
+      }
+      const descEl = document.getElementById('sd-desc');
+      if (descEl && s.id !== 'orthopedic') {
+        descEl.textContent = s.fullDesc || s.shortDesc;
+      }
+
+      // Update Booking URLs for the Two Main CTAs (Hero & Sticky Sidebar)
       const docQuery = s.therapist ? `&doctor=${encodeURIComponent(s.therapist.name)}` : '';
       const bookUrl = `appointment.html?service=${encodeURIComponent(s.id)}${docQuery}`;
+      
       const heroBtn = document.getElementById('sd-hero-book-btn');
       if (heroBtn) heroBtn.href = bookUrl;
+      
       const sidebarBtn = document.getElementById('sidebar-book-btn');
       if (sidebarBtn) sidebarBtn.href = bookUrl;
-      const therapistBtn = document.getElementById('sd-therapist-book-btn');
-      if (therapistBtn) therapistBtn.href = bookUrl;
 
-      // Sidebar Elements
-      document.getElementById('sidebar-price').textContent = s.price;
-      document.getElementById('sidebar-package').textContent = s.packagePrice ? `Save 15% with 3-Session Care Plan: ${s.packagePrice}` : 'Care package options available';
-      document.getElementById('sidebar-duration').textContent = s.duration;
+      // Sidebar Price
+      const priceEl = document.getElementById('sidebar-price');
+      if (priceEl) priceEl.textContent = s.price;
+
+      // Specialist Details (Compact, Big Picture)
       if (s.therapist) {
-        document.getElementById('sidebar-doc').textContent = s.therapist.name;
-        document.getElementById('sd-therapist-name').textContent = `${s.therapist.name}, ${s.therapist.qualifications}`;
-        document.getElementById('sd-therapist-role').textContent = s.therapist.role;
-        document.getElementById('sd-therapist-img').src = s.therapist.photo;
+        const docName = document.getElementById('sd-therapist-name');
+        if (docName) docName.textContent = s.therapist.name;
+        
+        const docRole = document.getElementById('sd-therapist-role');
+        if (docRole) docRole.textContent = `${s.therapist.role || 'Senior Physiotherapist'} • ${s.title.replace(' Physiotherapy', '')} Rehabilitation`;
+        
+        const docImg = document.getElementById('sd-therapist-img');
+        if (docImg && s.therapist.photo) docImg.src = s.therapist.photo;
       }
 
-      // Render Therapies / Modalities Included
+      // Dynamic Therapies List (if custom therapies exist and not default orthopedic)
       const therapiesGrid = document.getElementById('sd-therapies-grid');
-      if (therapiesGrid && s.therapies) {
+      if (therapiesGrid && s.id !== 'orthopedic' && s.therapies) {
         therapiesGrid.innerHTML = s.therapies.map(t => `
-          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-800 shadow-2xs space-y-1.5 hover:border-teal-500/40 transition">
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-teal-500"></span>
-              <h4 class="text-sm font-bold text-slate-900 dark:text-white font-heading">${t.name}</h4>
-            </div>
-            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">${t.desc}</p>
-          </div>
-        `).join('');
-      }
-
-      // Render Step-by-Step Recovery Protocol Stages
-      const stepsContainer = document.getElementById('sd-steps-container');
-      if (stepsContainer && s.protocolSteps) {
-        stepsContainer.innerHTML = s.protocolSteps.map(step => `
-          <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-800 shadow-2xs flex items-start gap-4 hover:border-teal-500/50 transition group">
-            <div class="w-10 h-10 rounded-xl bg-teal-700 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
-              ${step.num}
-            </div>
-            <div class="space-y-1.5 flex-grow">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">${step.title}</h4>
-                <span class="text-[11px] font-semibold text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/80 px-2.5 py-0.5 rounded-full border border-teal-200/60 dark:border-teal-800 self-start sm:self-auto">${step.goal}</span>
-              </div>
-              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">${step.desc}</p>
+          <div class="flex items-start gap-3">
+            <span class="w-5 h-5 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</span>
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">${t.name}</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">${t.desc}</p>
             </div>
           </div>
         `).join('');
       }
 
-      // Render Conditions This May Help With
+      // Dynamic Conditions List (if not default orthopedic)
       const conditionsGrid = document.getElementById('sd-conditions-grid');
-      if (conditionsGrid && s.conditions) {
+      if (conditionsGrid && s.id !== 'orthopedic' && s.conditions) {
         conditionsGrid.innerHTML = s.conditions.map(c => `
-          <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/70 dark:border-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-200 flex items-center gap-2.5 shadow-2xs">
-            <span class="w-5 h-5 rounded-lg bg-teal-100 dark:bg-teal-950/80 text-teal-700 dark:text-teal-400 flex items-center justify-center font-bold text-xs shrink-0">✓</span>
+          <div class="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0"></span>
             <span>${c}</span>
+          </div>
+        `).join('');
+      }
+
+      // Dynamic Protocol Timeline (if not default orthopedic)
+      const stepsContainer = document.getElementById('sd-steps-container');
+      if (stepsContainer && s.id !== 'orthopedic' && s.protocolSteps) {
+        stepsContainer.innerHTML = s.protocolSteps.map((step, idx) => `
+          <div class="relative">
+            <span class="absolute -left-[35px] sm:-left-[39px] top-0 w-6 h-6 rounded-full bg-teal-700 text-white flex items-center justify-center text-xs font-bold">${step.num || (idx + 1)}</span>
+            <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">${step.title}</h4>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">${step.desc}</p>
           </div>
         `).join('');
       }
     });
   </script>
-
-
 </body>
 </html>
