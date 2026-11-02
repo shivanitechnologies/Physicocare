@@ -1559,3 +1559,13 @@ html.dark .home1-main-slider,
 .program-subcard:hover .arrow-icon {
   transform: translateX(4px);
 }
+
+/* ==========================================================================
+   Executive Dark CTA Card Heading & Color Safety
+   ========================================================================== */
+.cta-dark-card h1,
+.cta-dark-card h2,
+.cta-dark-card h3,
+.cta-dark-card h4 {
+  color: #FFFFFF !important;
+}
