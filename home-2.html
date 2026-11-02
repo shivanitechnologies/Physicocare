@@ -823,61 +823,267 @@
       </div>
     </section>
 
-    <!-- 9. Pricing: Choose a Treatment Plan -->
-    <section class="py-16 lg:py-24 bg-[#F5F7FA] dark:bg-[#090D12]">
+    <!-- 9. Pricing: Choose a Treatment Package (High-Value Care Plans) -->
+    <section class="py-16 lg:py-24 bg-[#F5F7FA] dark:bg-[#090D12] relative transition-colors">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
-          <span class="text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">UPFRONT PRICING</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto space-y-3 mb-14 sm:mb-16">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-bold uppercase tracking-widest shadow-2xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400"></span>
+            UPFRONT PRICING
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
             Choose a Treatment Package
           </h2>
-          <p class="text-slate-600 dark:text-slate-400 text-sm">
-            All plans include digital exercise prescription and patient portal record access.
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            Transparent clinical rates with zero hidden facility fees. All plans include digital exercise prescriptions and 24/7 patient portal access.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
+        <!-- 3 Modern Pricing Cards Grid -->
+        <div class="grid md:grid-cols-3 gap-8 items-stretch">
           
-          <div class="p-8 rounded-3xl card-base space-y-5">
-            <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Basic Assessment</span>
-            <div class="flex items-baseline gap-1">
-              <span class="text-4xl font-black text-slate-900 dark:text-white font-heading">₹499</span>
-              <span class="text-xs text-slate-400">/ evaluation</span>
+          <!-- Card 1: Basic Assessment -->
+          <div class="rounded-3xl card-base p-7 sm:p-8 flex flex-col justify-between border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+            <div class="space-y-6">
+              
+              <!-- Card Header -->
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400">
+                    Triage &amp; Screening
+                  </span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] font-semibold text-slate-600 dark:text-slate-300">
+                    30 Mins
+                  </span>
+                </div>
+                <h3 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">
+                  Basic Assessment
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed min-h-[36px]">
+                  Targeted physical examination and diagnostic movement screen for new symptoms.
+                </p>
+              </div>
+
+              <!-- Price Display -->
+              <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-baseline gap-1.5">
+                <span class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white font-heading tracking-tight">₹499</span>
+                <span class="text-xs font-medium text-slate-500 dark:text-slate-400">/ evaluation</span>
+              </div>
+
+              <!-- Feature Checklist -->
+              <div class="space-y-3 pt-2">
+                <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">What's Included</p>
+                <ul class="space-y-2.5 text-xs text-slate-700 dark:text-slate-300 font-medium">
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span>30-minute 1-on-1 doctoral consultation</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span>Range-of-motion &amp; mobility screening</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span>Symptom triage &amp; initial clinical report</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span>Digital Patient Portal record access</span>
+                  </li>
+                  <li class="flex items-start gap-2.5 text-slate-400 dark:text-slate-600">
+                    <svg class="w-4 h-4 text-slate-300 dark:text-slate-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    <span class="line-through">Hands-on manual joint therapy</span>
+                  </li>
+                </ul>
+              </div>
+
             </div>
-            <p class="text-xs text-slate-500">Initial physical screening and diagnostic triage.</p>
-            <a href="appointment.html?plan=basic" class="btn-secondary w-full justify-center">
-              <span>Select Basic</span>
-            </a>
+
+            <!-- CTA Button -->
+            <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 space-y-2">
+              <a href="appointment.html?plan=basic" class="btn-secondary w-full py-3.5 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 group-hover:border-teal-500/50 transition-all">
+                <span>Select Basic</span>
+                <svg class="w-3.5 h-3.5 rtl-flip transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <p class="text-[11px] text-center text-slate-400">Direct booking • No referral needed</p>
+            </div>
           </div>
 
-          <div class="p-8 rounded-3xl bg-teal-50/70 dark:bg-slate-800 border-2 border-teal-600 space-y-5 shadow-xl relative">
-            <span class="absolute -top-3 right-6 px-3 py-1 rounded-full bg-teal-700 text-white text-[10px] font-black uppercase">
-              Recommended
+          <!-- Card 2: Standard Plan (Recommended / Highlighted) -->
+          <div class="rounded-3xl card-base p-7 sm:p-8 flex flex-col justify-between border-2 border-teal-600 dark:border-teal-500 shadow-2xl shadow-teal-900/10 dark:shadow-teal-950/40 relative lg:-translate-y-2 bg-gradient-to-b from-teal-50/40 via-white to-white dark:from-slate-800/90 dark:via-slate-800 dark:to-slate-850 transition-all duration-300 group">
+            
+            <!-- Floating Recommended Pill Badge -->
+            <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-teal-700 text-white text-[11px] font-black uppercase tracking-wider shadow-md flex items-center gap-1.5 shrink-0">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal-300 animate-pulse"></span>
+              Recommended Plan
             </span>
-            <span class="text-xs font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300">Standard Plan</span>
-            <div class="flex items-baseline gap-1">
-              <span class="text-4xl font-black text-slate-900 dark:text-white font-heading">₹1,499</span>
-              <span class="text-xs text-slate-400">/ session</span>
+
+            <div class="space-y-6 pt-1">
+              
+              <!-- Card Header -->
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300">
+                    Comprehensive Care
+                  </span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-teal-100 dark:bg-teal-950 text-[11px] font-bold text-teal-800 dark:text-teal-300">
+                    45–60 Mins
+                  </span>
+                </div>
+                <h3 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">
+                  Standard Plan
+                </h3>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed min-h-[36px]">
+                  Complete doctoral exam, targeted hands-on manual care, and custom recovery plan.
+                </p>
+              </div>
+
+              <!-- Price Display -->
+              <div class="pt-4 border-t border-teal-100 dark:border-slate-700 flex items-baseline gap-1.5">
+                <span class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white font-heading tracking-tight">₹1,499</span>
+                <span class="text-xs font-medium text-slate-500 dark:text-slate-400">/ session</span>
+              </div>
+
+              <!-- Feature Checklist -->
+              <div class="space-y-3 pt-2">
+                <p class="text-[11px] font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400">What's Included</p>
+                <ul class="space-y-2.5 text-xs text-slate-800 dark:text-slate-100 font-medium">
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span><strong>Full 45–60 min</strong> 1-on-1 doctoral session</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span><strong>Manual therapy</strong>: joint &amp; soft-tissue release</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span>Doctor-guided tailored exercise prescription</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span>HD video exercise home routine in app</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span>Direct messaging with your physiotherapist</span>
+                  </li>
+                </ul>
+              </div>
+
             </div>
-            <p class="text-xs text-slate-500 dark:text-slate-400">Complete doctoral exam, manual care, and exercise plan.</p>
-            <a href="appointment.html?plan=standard" class="btn-primary w-full justify-center">
-              <span>Select Standard</span>
-            </a>
+
+            <!-- CTA Button -->
+            <div class="pt-6 mt-6 border-t border-teal-100 dark:border-slate-700 space-y-2">
+              <a href="appointment.html?plan=standard" class="btn-primary w-full py-3.5 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-teal-700/25 hover:shadow-teal-600/35 transition-all">
+                <span>Select Standard</span>
+                <svg class="w-3.5 h-3.5 rtl-flip transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <p class="text-[11px] text-center text-teal-700 dark:text-teal-400 font-semibold">Most chosen for pain relief &amp; posture</p>
+            </div>
           </div>
 
-          <div class="p-8 rounded-3xl card-base space-y-5">
-            <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Comprehensive Premium</span>
-            <div class="flex items-baseline gap-1">
-              <span class="text-4xl font-black text-slate-900 dark:text-white font-heading">₹2,999</span>
-              <span class="text-xs text-slate-400">/ multi-care</span>
+          <!-- Card 3: Comprehensive Premium -->
+          <div class="rounded-3xl card-base p-7 sm:p-8 flex flex-col justify-between border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+            <div class="space-y-6">
+              
+              <!-- Card Header -->
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400">
+                    Full Rehabilitation
+                  </span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] font-semibold text-slate-600 dark:text-slate-300">
+                    Multi-Session
+                  </span>
+                </div>
+                <h3 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">
+                  Comprehensive Premium
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed min-h-[36px]">
+                  Structured multi-session rehabilitation program with continuous tracking.
+                </p>
+              </div>
+
+              <!-- Price Display -->
+              <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-baseline gap-1.5">
+                <span class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white font-heading tracking-tight">₹2,999</span>
+                <span class="text-xs font-medium text-slate-500 dark:text-slate-400">/ multi-care</span>
+              </div>
+
+              <!-- Feature Checklist -->
+              <div class="space-y-3 pt-2">
+                <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">What's Included</p>
+                <ul class="space-y-2.5 text-xs text-slate-700 dark:text-slate-300 font-medium">
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span>Multi-session comprehensive recovery protocol</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span>Advanced manual therapy &amp; modalities</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span>Biomechanical gait &amp; posture assessment</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span>Continuous progress milestones &amp; re-tests</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    <span>Priority same-week scheduling &amp; messaging</span>
+                  </li>
+                </ul>
+              </div>
+
             </div>
-            <p class="text-xs text-slate-500">Multiple sessions with direct clinician portal messaging.</p>
-            <a href="appointment.html?plan=premium" class="btn-secondary w-full justify-center">
-              <span>Select Premium</span>
-            </a>
+
+            <!-- CTA Button -->
+            <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 space-y-2">
+              <a href="appointment.html?plan=premium" class="btn-secondary w-full py-3.5 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 group-hover:border-teal-500/50 transition-all">
+                <span>Select Premium</span>
+                <svg class="w-3.5 h-3.5 rtl-flip transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <p class="text-[11px] text-center text-slate-400">Best for surgery recovery &amp; complex rehab</p>
+            </div>
           </div>
 
+        </div>
+
+        <!-- Trust & Payment Transparency Strip -->
+        <div class="mt-12 sm:mt-14 p-6 sm:p-7 rounded-3xl bg-white dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/80 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/60 border border-teal-200/80 dark:border-teal-800 text-teal-700 dark:text-teal-300 flex items-center justify-center shrink-0 shadow-2xs">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white font-heading">
+                100% Transparent Healthcare Pricing
+              </h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Zero surprise facility fees. Itemized superbills and receipts provided for insurance reimbursement.
+              </p>
+            </div>
+          </div>
+          
+          <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 shrink-0 text-xs font-semibold text-slate-700 dark:text-slate-200">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+              <svg class="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Direct Insurance Billing</span>
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+              <svg class="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>HSA / FSA Accepted</span>
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+              <svg class="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Free 24h Rescheduling</span>
+            </span>
+          </div>
         </div>
 
       </div>
