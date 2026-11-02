@@ -95,6 +95,19 @@
                 </svg>
                 <span>Services</span>
               </button>
+              <button onclick="switchAdminTab('enquiries')" class="w-full portal-nav-item flex items-center gap-3.5 px-3.5 rounded-xl transition text-[15px]" id="atab-btn-enquiries">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                <span>Enquiries</span>
+              </button>
+              <button onclick="switchAdminTab('settings')" class="w-full portal-nav-item flex items-center gap-3.5 px-3.5 rounded-xl transition text-[15px]" id="atab-btn-settings">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span>Settings</span>
+              </button>
             </div>
           </div>
         </div>
@@ -897,21 +910,130 @@
         <!-- ========================================== -->
         <!-- TAB 15: CLINIC SETTINGS -->
         <!-- ========================================== -->
-        <div id="atab-settings" class="hidden space-y-8">
-          
-          <!-- Header / Action Bar (Single header maintained at top) -->
-          <div class="flex items-center justify-end gap-2">
-            <div class="flex items-center gap-2">
-              <button onclick="resetClinicSettingsDefaults()" class="px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition">
-                Reset Defaults
-              </button>
-              <button onclick="saveAllClinicSettings()" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm transition flex items-center gap-1.5">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span>Save All Settings</span>
-              </button>
+                <!-- ========================================== -->
+        <!-- TAB: ENQUIRIES -->
+        <!-- ========================================== -->
+        <div id="atab-enquiries" class="hidden space-y-6">
+          <div class="bg-white dark:bg-[#151F2E] rounded-3xl border border-slate-200/80 dark:border-slate-800 p-6 md:p-8 space-y-6 shadow-sm">
+            
+            <!-- Filter Pills & Search Bar -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-slate-800">
+              <div class="flex items-center gap-2 flex-wrap" id="enq-filter-group">
+                <button onclick="filterEnquiries('all')" id="enq-filter-all" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#fdf2f8] dark:bg-pink-950/60 text-[#db2777] dark:text-pink-300 border border-pink-200 dark:border-pink-900/60 transition">
+                  All (<span id="enq-count-all">0</span>)
+                </button>
+                <button onclick="filterEnquiries('New')" id="enq-filter-new" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                  New (<span id="enq-count-new">0</span>)
+                </button>
+                <button onclick="filterEnquiries('In Review')" id="enq-filter-review" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                  In Review (<span id="enq-count-review">0</span>)
+                </button>
+                <button onclick="filterEnquiries('Resolved')" id="enq-filter-resolved" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                  Resolved (<span id="enq-count-resolved">0</span>)
+                </button>
+              </div>
+
+              <!-- Search -->
+              <div class="relative w-full sm:w-72">
+                <input type="text" id="enquiry-search-input" oninput="searchEnquiries(this.value)" placeholder="Search inquiries or sender..." class="w-full pl-9 pr-4 py-2 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+              </div>
             </div>
+
+            <!-- Table -->
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-slate-100 dark:border-slate-800 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                    <th class="py-3.5 px-4 font-bold">FROM</th>
+                    <th class="py-3.5 px-4 font-bold w-5/12">MESSAGE</th>
+                    <th class="py-3.5 px-4 font-bold whitespace-nowrap">DATE</th>
+                    <th class="py-3.5 px-4 font-bold">STATUS</th>
+                    <th class="py-3.5 px-4 font-bold text-right">UPDATE</th>
+                  </tr>
+                </thead>
+                <tbody id="enquiries-tbody" class="divide-y divide-slate-100 dark:divide-slate-800/60 text-xs">
+                  <!-- Generated by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+
+<div id="atab-settings" class="hidden space-y-8">
+          
+          <!-- Top 2-Card Layout Matching Specification -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+            <!-- Card 1: Studio / Clinic Preferences -->
+            <div class="p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-5">
+              <div class="pb-3 border-b border-slate-100 dark:border-slate-800">
+                <h3 class="text-base md:text-lg font-bold text-slate-900 dark:text-white font-heading">Studio Settings</h3>
+                <p class="text-xs text-slate-400 mt-0.5">These preferences apply to the demo store.</p>
+              </div>
+
+              <div class="space-y-3 pt-1">
+                <!-- Toggle 1: Advance payment required -->
+                <label class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer transition hover:border-slate-300 dark:hover:border-slate-700">
+                  <div class="pr-4">
+                    <p class="font-bold text-slate-900 dark:text-white text-xs sm:text-sm">Advance payment required</p>
+                    <p class="text-[11px] text-slate-400 mt-0.5">50% advance to confirm bookings</p>
+                  </div>
+                  <div class="relative inline-flex items-center cursor-pointer shrink-0">
+                    <input type="checkbox" id="setting-advance-payment" checked onchange="autoSaveClinicToggle('advance_payment', this.checked)" class="sr-only peer">
+                    <div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-[#d946ef] dark:peer-checked:bg-[#c026d3]"></div>
+                  </div>
+                </label>
+
+                <!-- Toggle 2: Email notifications -->
+                <label class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer transition hover:border-slate-300 dark:hover:border-slate-700">
+                  <div class="pr-4">
+                    <p class="font-bold text-slate-900 dark:text-white text-xs sm:text-sm">Email notifications</p>
+                    <p class="text-[11px] text-slate-400 mt-0.5">Send booking &amp; payment emails</p>
+                  </div>
+                  <div class="relative inline-flex items-center cursor-pointer shrink-0">
+                    <input type="checkbox" id="setting-email-notify" checked onchange="autoSaveClinicToggle('email_notify', this.checked)" class="sr-only peer">
+                    <div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-[#d946ef] dark:peer-checked:bg-[#c026d3]"></div>
+                  </div>
+                </label>
+
+                <!-- Toggle 3: SMS & WhatsApp Reminders -->
+                <label class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 cursor-pointer transition hover:border-slate-300 dark:hover:border-slate-700">
+                  <div class="pr-4">
+                    <p class="font-bold text-slate-900 dark:text-white text-xs sm:text-sm">Session reminder alerts</p>
+                    <p class="text-[11px] text-slate-400 mt-0.5">Send automated 24-hr reminder notifications</p>
+                  </div>
+                  <div class="relative inline-flex items-center cursor-pointer shrink-0">
+                    <input type="checkbox" id="setting-sms-remind" checked onchange="autoSaveClinicToggle('sms_remind', this.checked)" class="sr-only peer">
+                    <div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-[#d946ef] dark:peer-checked:bg-[#c026d3]"></div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Card 2: Demo Data Reset -->
+            <div class="p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-6">
+              <div>
+                <h3 class="text-base md:text-lg font-bold text-slate-900 dark:text-white font-heading">Demo Data</h3>
+                <p class="text-xs text-slate-400 mt-1">Reset all localStorage data back to the original demo seed. This cannot be undone.</p>
+              </div>
+
+              <div class="pt-4">
+                <button onclick="resetDemoDataToOriginal()" class="px-6 py-3 rounded-full border-2 border-rose-400 hover:border-rose-600 text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-xs sm:text-sm font-bold flex items-center gap-2.5 transition cursor-pointer shadow-xs">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                  </svg>
+                  <span>Reset Demo Data</span>
+                </button>
+              </div>
+            </div>
+
           </div>
 
+          <!-- Advanced Settings Cards -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
             <!-- Card 1: Clinic Profile & Legal Identity -->
@@ -1349,7 +1471,7 @@
   <script>
     // Tab switching for all 15 clinical administration sections
     const allAdminTabs = [
-      'overview', 'appointments', 'patients', 'therapists', 'services'
+      'overview', 'appointments', 'patients', 'therapists', 'services', 'enquiries', 'settings'
     ];
 
     function switchAdminTab(tabId) {
@@ -1387,6 +1509,14 @@
           title: 'Clinical Services & Pricing',
           subtitle: 'Evidence-based treatment catalog & official CPT billing fee schedule'
         },
+        enquiries: {
+          title: 'Enquiries',
+          subtitle: 'Manage bookings, packages, slots and more.'
+        },
+        settings: {
+          title: 'Settings',
+          subtitle: 'Manage bookings, packages, slots and more.'
+        },
         'treatment-plans': {
           title: 'Clinical Treatment Plans',
           subtitle: 'Treatment goals, session progression, and clinical milestones'
@@ -1422,10 +1552,6 @@
         roles: {
           title: 'Role-Based Access Control (RBAC)',
           subtitle: 'Clinical permission tiers ensuring patient HIPAA privacy and audit logging'
-        },
-        settings: {
-          title: 'Clinic Configuration & Settings',
-          subtitle: 'Real-time parameters, automated patient notifications, scheduling constraints'
         }
       };
 
@@ -2250,6 +2376,203 @@
         toast.classList.add('translate-y-20', 'opacity-0');
       }, 3500);
     }
+
+    // ==========================================
+    // ENQUIRIES DATA MANAGEMENT
+    // ==========================================
+    const ENQUIRIES_STORAGE_KEY = 'physiocare_admin_enquiries';
+
+    const SEED_ENQUIRIES = [
+      {
+        id: 'enq-101',
+        fromName: 'Nikhil Bose',
+        fromEmail: 'nikhil@example.com',
+        message: 'Do you offer outdoor sessions? Planning a garden birthday in November.',
+        date: '26 Oct 2026',
+        status: 'New'
+      },
+      {
+        id: 'enq-102',
+        fromName: 'Meera Joshi',
+        fromEmail: 'meera.j@example.com',
+        message: 'My daughter is 14 months — is she still in the ideal age window for a cake smash?',
+        date: '24 Oct 2026',
+        status: 'New'
+      },
+      {
+        id: 'enq-103',
+        fromName: 'Sameer Gupta',
+        fromEmail: 'sameer.g@example.com',
+        message: 'Can we book the Superhero theme plus an extra family portrait set on the same day?',
+        date: '22 Oct 2026',
+        status: 'Resolved'
+      },
+      {
+        id: 'enq-104',
+        fromName: 'Lakshmi Iyer',
+        fromEmail: 'lakshmi.i@example.com',
+        message: 'What is the difference between the Teddy Bear and Minimalist packages?',
+        date: '19 Oct 2026',
+        status: 'Resolved'
+      },
+      {
+        id: 'enq-105',
+        fromName: 'Vikram Shetty',
+        fromEmail: 'vikram.s@example.com',
+        message: 'Looking for a corporate-style bulk order of 15 album covers — do you handle that?',
+        date: '27 Oct 2026',
+        status: 'New'
+      }
+    ];
+
+    let currentEnquiriesFilter = 'all';
+    let currentEnquiriesSearch = '';
+
+    function getEnquiries() {
+      try {
+        const stored = localStorage.getItem(ENQUIRIES_STORAGE_KEY);
+        if (stored) return JSON.parse(stored);
+      } catch (e) {}
+      localStorage.setItem(ENQUIRIES_STORAGE_KEY, JSON.stringify(SEED_ENQUIRIES));
+      return SEED_ENQUIRIES;
+    }
+
+    function saveEnquiries(data) {
+      localStorage.setItem(ENQUIRIES_STORAGE_KEY, JSON.stringify(data));
+      renderEnquiries();
+    }
+
+    function renderEnquiries() {
+      const all = getEnquiries();
+      const tbody = document.getElementById('enquiries-tbody');
+      if (!tbody) return;
+
+      // Update counts
+      const countAll = all.length;
+      const countNew = all.filter(e => e.status === 'New').length;
+      const countReview = all.filter(e => e.status === 'In Review').length;
+      const countResolved = all.filter(e => e.status === 'Resolved').length;
+
+      const elAll = document.getElementById('enq-count-all');
+      const elNew = document.getElementById('enq-count-new');
+      const elRev = document.getElementById('enq-count-review');
+      const elRes = document.getElementById('enq-count-resolved');
+      if (elAll) elAll.textContent = countAll;
+      if (elNew) elNew.textContent = countNew;
+      if (elRev) elRev.textContent = countReview;
+      if (elRes) elRes.textContent = countResolved;
+
+      // Filter
+      let filtered = all;
+      if (currentEnquiriesFilter !== 'all') {
+        filtered = filtered.filter(e => e.status.toLowerCase() === currentEnquiriesFilter.toLowerCase());
+      }
+      if (currentEnquiriesSearch) {
+        const q = currentEnquiriesSearch.toLowerCase();
+        filtered = filtered.filter(e => 
+          e.fromName.toLowerCase().includes(q) ||
+          e.fromEmail.toLowerCase().includes(q) ||
+          e.message.toLowerCase().includes(q)
+        );
+      }
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="5" class="py-12 text-center text-slate-400 dark:text-slate-500">
+              <svg class="w-8 h-8 mx-auto mb-2 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <p class="font-bold">No enquiries found</p>
+              <p class="text-[11px] mt-0.5">Try adjusting your filter or search criteria</p>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(item => {
+        let badgeHtml = '';
+        if (item.status === 'New') {
+          badgeHtml = `<span class="inline-block px-3 py-1 rounded-full text-[11px] font-bold bg-[#db2777] text-white shadow-xs">New</span>`;
+        } else if (item.status === 'Resolved') {
+          badgeHtml = `<span class="inline-block px-3 py-1 rounded-full text-[11px] font-bold bg-[#dcfce7] text-[#16a34a] dark:bg-emerald-950/60 dark:text-emerald-300">Resolved</span>`;
+        } else {
+          badgeHtml = `<span class="inline-block px-3 py-1 rounded-full text-[11px] font-bold bg-[#fefce8] text-[#ca8a04] dark:bg-amber-950/60 dark:text-amber-300">In Review</span>`;
+        }
+
+        return `
+          <tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition">
+            <td class="py-4 px-4 align-top">
+              <p class="font-bold text-slate-900 dark:text-white text-xs">${item.fromName}</p>
+              <p class="text-[11px] text-slate-400 mt-0.5">${item.fromEmail}</p>
+            </td>
+            <td class="py-4 px-4 text-slate-700 dark:text-slate-300 leading-relaxed align-top">
+              ${item.message}
+            </td>
+            <td class="py-4 px-4 text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap align-top">
+              ${item.date}
+            </td>
+            <td class="py-4 px-4 align-top">
+              ${badgeHtml}
+            </td>
+            <td class="py-4 px-4 text-right align-top">
+              <select onchange="updateEnquiryStatus('${item.id}', this.value)" class="text-xs font-semibold px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 cursor-pointer shadow-xs">
+                <option value="New" ${item.status === 'New' ? 'selected' : ''}>New</option>
+                <option value="In Review" ${item.status === 'In Review' ? 'selected' : ''}>In Review</option>
+                <option value="Resolved" ${item.status === 'Resolved' ? 'selected' : ''}>Resolved</option>
+              </select>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filterEnquiries(status) {
+      currentEnquiriesFilter = status;
+      const btns = ['all', 'new', 'review', 'resolved'];
+      btns.forEach(b => {
+        const btnEl = document.getElementById('enq-filter-' + b);
+        if (!btnEl) return;
+        const matches = (b === 'all' && status === 'all') || (b.toLowerCase() === status.toLowerCase().replace(' ', ''));
+        if (matches) {
+          btnEl.className = 'px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#fdf2f8] dark:bg-pink-950/60 text-[#db2777] dark:text-pink-300 border border-pink-200 dark:border-pink-900/60 transition';
+        } else {
+          btnEl.className = 'px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition';
+        }
+      });
+      renderEnquiries();
+    }
+
+    function searchEnquiries(val) {
+      currentEnquiriesSearch = val.trim();
+      renderEnquiries();
+    }
+
+    function updateEnquiryStatus(id, newStatus) {
+      const all = getEnquiries();
+      const item = all.find(e => e.id === id);
+      if (item) {
+        item.status = newStatus;
+        saveEnquiries(all);
+        showSettingsToast('Enquiry Updated', `Status changed to "${newStatus}" for ${item.fromName}`);
+      }
+    }
+
+    function resetDemoDataToOriginal() {
+      if (confirm('Reset all demo data back to the original demo seed? This will restore enquiries, bookings, and clinic settings.')) {
+        localStorage.removeItem(ENQUIRIES_STORAGE_KEY);
+        localStorage.removeItem('physiocare_clinic_settings');
+        localStorage.removeItem('physiocare_appointments');
+        saveEnquiries(SEED_ENQUIRIES);
+        showSettingsToast('Demo Data Restored', 'All clinic data and settings successfully reset to factory demo seed.');
+        setTimeout(() => window.location.reload(), 600);
+      }
+    }
+
+    // Initialize enquiries on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderEnquiries();
+    });
+
 </script>
 </body>
 </html>
