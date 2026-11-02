@@ -444,7 +444,7 @@
               </div>
               <div class="space-y-4 pt-6">
                 <img src="https://images.unsplash.com/photo-1519494080410-f9aa76cb4283?auto=format&fit=crop&w=600&q=80" alt="Clinic interior" class="rounded-2xl object-cover h-40 w-full shadow-md">
-                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80" alt="Manual joint therapy" class="rounded-2xl object-cover h-56 w-full shadow-md">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80" alt="Manual joint therapy" class="rounded-2xl object-cover object-top h-56 w-full shadow-md">
               </div>
             </div>
           </div>
@@ -460,7 +460,7 @@
           
           <div class="lg:col-span-6 order-2 lg:order-1">
             <div class="rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800">
-              <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80" alt="Physiotherapist performing gentle joint mobilization" class="w-full h-[440px] object-cover">
+              <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80" alt="Physiotherapist performing gentle joint mobilization" class="w-full h-[440px] object-cover object-top">
             </div>
           </div>
 
@@ -693,54 +693,69 @@
 
         <div class="grid md:grid-cols-3 gap-8">
           
-          <div class="card-base card-hover overflow-hidden rounded-3xl">
-            <img src="assets/images/team/elena-vance.jpg" alt="Dr. Elena Vance" class="h-72 w-full object-cover">
-            <div class="p-6 space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold text-teal-700 dark:text-teal-400 uppercase">Spine Specialty</span>
-                <span class="text-[11px] bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded font-bold">Available Mon-Thu</span>
+          <div class="card-base card-hover overflow-hidden rounded-3xl flex flex-col justify-between group">
+            <div>
+              <div class="h-80 w-full overflow-hidden relative bg-slate-100 dark:bg-slate-800">
+                <img src="assets/images/team/elena-vance.jpg" alt="Dr. Elena Vance" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
               </div>
-              <h4 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Dr. Elena Vance, DPT</h4>
-              <p class="text-xs text-slate-500 dark:text-slate-400">Doctor of Physical Therapy, Board Certified Orthopedic Specialist (OCS).</p>
-              <div class="pt-2">
-                <a href="appointment.html?therapist=elena" class="btn-primary btn-sm w-full justify-center">
-                  <span>Book with Dr. Elena</span>
-                </a>
+              <div class="p-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-bold text-teal-700 dark:text-teal-400 uppercase">Spine Specialty</span>
+                  <span class="text-[11px] bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded font-bold">Available Mon-Thu</span>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Dr. Elena Vance, DPT</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Doctor of Physical Therapy, Board Certified Orthopedic Specialist (OCS).</p>
               </div>
+            </div>
+            <div class="p-6 pt-0">
+              <a href="appointment.html?therapist=elena" class="btn-primary btn-sm w-full justify-center">
+                <span>Book with Dr. Elena</span>
+              </a>
             </div>
           </div>
 
-          <div class="card-base card-hover overflow-hidden rounded-3xl">
-            <img src="assets/images/team/marcus-chen.jpg" alt="Dr. Marcus Chen" class="h-72 w-full object-cover">
-            <div class="p-6 space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold text-teal-700 dark:text-teal-400 uppercase">Sports Medicine</span>
-                <span class="text-[11px] bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded font-bold">Available Tue-Sat</span>
+          <div class="card-base card-hover overflow-hidden rounded-3xl flex flex-col justify-between group">
+            <div>
+              <div class="h-80 w-full overflow-hidden relative bg-slate-100 dark:bg-slate-800">
+                <img src="assets/images/team/marcus-chen.jpg" alt="Dr. Marcus Chen" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
               </div>
-              <h4 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Dr. Marcus Chen, PT</h4>
-              <p class="text-xs text-slate-500 dark:text-slate-400">MSc Sports Physical Therapy, CSCS, former collegiate team rehabilitation director.</p>
-              <div class="pt-2">
-                <a href="appointment.html?therapist=marcus" class="btn-primary btn-sm w-full justify-center">
-                  <span>Book with Dr. Marcus</span>
-                </a>
+              <div class="p-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-bold text-teal-700 dark:text-teal-400 uppercase">Sports Medicine</span>
+                  <span class="text-[11px] bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded font-bold">Available Tue-Sat</span>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Dr. Marcus Chen, PT</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">MSc Sports Physical Therapy, CSCS, former collegiate team rehabilitation director.</p>
               </div>
+            </div>
+            <div class="p-6 pt-0">
+              <a href="appointment.html?therapist=marcus" class="btn-primary btn-sm w-full justify-center">
+                <span>Book with Dr. Marcus</span>
+              </a>
             </div>
           </div>
 
-          <div class="card-base card-hover overflow-hidden rounded-3xl">
-            <img src="assets/images/team/priya-patel.jpg" alt="Dr. Priya Patel" class="h-72 w-full object-cover">
-            <div class="p-6 space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold text-teal-700 dark:text-teal-400 uppercase">Neuro-Rehab</span>
-                <span class="text-[11px] bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded font-bold">Available Mon-Fri</span>
+          <div class="card-base card-hover overflow-hidden rounded-3xl flex flex-col justify-between group">
+            <div>
+              <div class="h-80 w-full overflow-hidden relative bg-slate-100 dark:bg-slate-800">
+                <img src="assets/images/team/priya-patel.jpg" alt="Dr. Priya Patel" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
               </div>
-              <h4 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Dr. Priya Patel, MPT</h4>
-              <p class="text-xs text-slate-500 dark:text-slate-400">Master of Physical Therapy (Neurology), certified in Vestibular &amp; Concussion Care.</p>
-              <div class="pt-2">
-                <a href="appointment.html?therapist=priya" class="btn-primary btn-sm w-full justify-center">
-                  <span>Book with Dr. Priya</span>
-                </a>
+              <div class="p-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-bold text-teal-700 dark:text-teal-400 uppercase">Neuro-Rehab</span>
+                  <span class="text-[11px] bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded font-bold">Available Mon-Fri</span>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Dr. Priya Patel, MPT</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Master of Physical Therapy (Neurology), certified in Vestibular &amp; Concussion Care.</p>
               </div>
+            </div>
+            <div class="p-6 pt-0">
+              <a href="appointment.html?therapist=priya" class="btn-primary btn-sm w-full justify-center">
+                <span>Book with Dr. Priya</span>
+              </a>
             </div>
           </div>
 

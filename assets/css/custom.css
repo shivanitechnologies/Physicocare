@@ -410,8 +410,8 @@ header.nav-scrolled {
 .flip-card-container {
   perspective: 1200px;
   -webkit-perspective: 1200px;
-  min-height: 385px;
-  height: 385px;
+  min-height: 405px;
+  height: 405px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
@@ -1568,4 +1568,29 @@ html.dark .home1-main-slider,
 .cta-dark-card h3,
 .cta-dark-card h4 {
   color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   Card Image Framing & Portrait Positioning (Head Preservation)
+   ========================================================================== */
+.card-portrait-img,
+.therapist-card-img,
+img[src*="/team/"],
+img[src*="therapist"],
+img[src*="doctor"],
+img[src*="elena-vance"],
+img[src*="marcus-chen"],
+img[src*="priya-patel"],
+img[src*="kimberly-adams"],
+img[src*="lead_"],
+img[src*="spec_"],
+.flip-card-front img,
+.spec-tile img {
+  object-position: center top !important;
+}
+
+.spec-tile .overflow-hidden,
+.flip-card-front .overflow-hidden {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 }

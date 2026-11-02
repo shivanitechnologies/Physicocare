@@ -351,7 +351,7 @@
         <div class="card-base card-hover overflow-hidden flex flex-col justify-between">
           <div>
             <div class="h-48 overflow-hidden">
-              <img src="${s.image}" alt="${s.title}" class="w-full h-full object-cover">
+              <img src="${s.image}" alt="${s.title}" class="w-full h-full object-cover object-top">
             </div>
             <div class="p-6 space-y-3">
               <span class="text-[10px] font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">${s.category}</span>
@@ -574,7 +574,7 @@
             <div class="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-slate-100 dark:border-slate-800/80">
               <!-- Therapist mini card -->
               <div class="flex items-center gap-2.5">
-                <img src="${item.therapist.avatar}" alt="${item.therapist.name}" class="w-9 h-9 rounded-full object-cover border border-teal-500/40">
+                <img src="${item.therapist.avatar}" alt="${item.therapist.name}" class="w-9 h-9 rounded-full object-cover object-top border border-teal-500/40">
                 <div>
                   <p class="text-xs font-bold text-slate-900 dark:text-white">${item.therapist.name}, <span class="text-teal-700 dark:text-teal-400">${item.therapist.credentials}</span></p>
                   <p class="text-[10px] text-slate-500 dark:text-slate-400">${item.therapist.role}</p>
