@@ -506,63 +506,117 @@
       </div>
     </section>
 
-    <!-- 4. Featured Services (Asymmetric Image Grid) -->
-    <section class="py-16 lg:py-24 bg-white dark:bg-slate-900">
+    <!-- 4. Featured Services (Editorial Treatment Showcase) -->
+    <section class="py-16 lg:py-20 bg-[#F7FBFA] dark:bg-[#0B131E] border-y border-slate-200/60 dark:border-slate-800/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
-          <span class="text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">SPECIALIZED PROGRAMS</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">
-            Targeted Rehabilitation Programs
+        <!-- Header -->
+        <div class="text-center max-w-2xl mx-auto space-y-3 mb-10 sm:mb-12">
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-widest">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400"></span>
+            SPECIALIZED PROGRAMS
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
+            Targeted Care. Meaningful Progress.
           </h2>
-          <p class="text-slate-600 dark:text-slate-400 text-sm">
-            Discover clinical specialties delivered with hospital-grade precision in an executive setting.
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            Specialized rehabilitation programs built around your movement goals.
           </p>
         </div>
 
-        <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+        <!-- 55% / 45% Editorial Layout Grid -->
+        <div class="grid lg:grid-cols-12 gap-6 lg:gap-7 items-stretch">
           
-          <!-- Big Feature Card (Spine) -->
-          <div class="lg:col-span-7 rounded-3xl overflow-hidden card-base flex flex-col justify-between group">
-            <div class="relative h-72 sm:h-80 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=1000&q=80" alt="Spine therapy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-              <div class="absolute bottom-6 left-6 right-6 text-white space-y-2">
-                <span class="px-2.5 py-1 rounded-full bg-teal-500 text-slate-950 font-bold text-[10px] uppercase tracking-wider">Flagship Program</span>
-                <h3 class="text-2xl font-black font-heading">Spine &amp; Intervertebral Disc Care</h3>
-                <p class="text-xs text-slate-200">Decompression, core stabilization, and posture retraining.</p>
-              </div>
-            </div>
-            <div class="p-6 flex items-center justify-between">
-              <span class="text-xs font-bold text-slate-700 dark:text-slate-300">40–50 mins &bull; Doctor-Guided</span>
-              <a href="service-details.html?id=spine-posture" class="btn-primary btn-sm">
-                <span>View Program &rarr;</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- 2 Stacked Feature Cards -->
-          <div class="lg:col-span-5 flex flex-col gap-8 justify-between">
+          <!-- Big Feature Card: Spine & Disc Care (Left 55% -> lg:col-span-7) -->
+          <a href="service-details.html?id=spine-posture" class="lg:col-span-7 program-featured group card-base border border-slate-200/90 dark:border-slate-800 shadow-md hover:shadow-2xl transition-all duration-300 min-h-[380px] lg:min-h-[420px] focus:outline-none focus:ring-2 focus:ring-teal-500">
+            <img src="assets/images/programs/program-spine-care.jpg" alt="Spine and Disc Care Rehabilitation" class="featured-img w-full h-full object-cover">
             
-            <div class="rounded-3xl p-6 card-base flex items-center gap-5 card-hover">
-              <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=300&q=80" alt="Sports" class="w-24 h-24 rounded-2xl object-cover shrink-0">
-              <div class="space-y-1">
-                <span class="text-[10px] font-bold text-teal-700 dark:text-teal-400 uppercase">Performance</span>
-                <h4 class="text-base font-bold text-slate-900 dark:text-white font-heading">Sports Biomechanics</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400">ACL, rotator cuff, and return-to-sport testing.</p>
-                <a href="service-details.html?id=sports" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline block pt-1">Explore &rarr;</a>
-              </div>
+            <!-- Top badge overlay -->
+            <div class="relative z-10 p-5 sm:p-6 flex items-center justify-between">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 dark:bg-slate-900/95 text-teal-800 dark:text-teal-300 font-bold text-[11px] uppercase tracking-wider shadow-sm backdrop-blur-md border border-teal-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse"></span>
+                FEATURED PROGRAM
+              </span>
+              <span class="px-2.5 py-1 rounded-full bg-slate-900/60 text-slate-200 text-xs font-medium backdrop-blur-md border border-white/10 hidden sm:inline-block">
+                Doctor-Guided 1:1
+              </span>
             </div>
 
-            <div class="rounded-3xl p-6 card-base flex items-center gap-5 card-hover">
-              <img src="https://images.unsplash.com/photo-1571019613576-2b22c76fd955?auto=format&fit=crop&w=300&q=80" alt="Post surgery" class="w-24 h-24 rounded-2xl object-cover shrink-0">
-              <div class="space-y-1">
-                <span class="text-[10px] font-bold text-teal-700 dark:text-teal-400 uppercase">Recovery</span>
-                <h4 class="text-base font-bold text-slate-900 dark:text-white font-heading">Post-Op Accelerated Protocol</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400">Careful phase-based recovery after joint surgery.</p>
-                <a href="service-details.html?id=post-surgical" class="text-xs font-bold text-teal-700 dark:text-teal-400 hover:underline block pt-1">Explore &rarr;</a>
+            <!-- Bottom content over gradient -->
+            <div class="relative z-10 p-6 sm:p-8 space-y-2 text-white">
+              <span class="text-xs font-semibold text-teal-300 uppercase tracking-wider block">Spine &amp; Postural Health</span>
+              <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight">
+                Spine &amp; Disc Care
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-200 max-w-lg leading-relaxed">
+                Posture, core stability and guided spinal rehabilitation.
+              </p>
+              <div class="pt-2 flex items-center justify-between">
+                <span class="inline-flex items-center gap-2 text-sm font-bold text-teal-300 group-hover:text-teal-200 transition-colors">
+                  <span>Explore Program</span>
+                  <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </span>
+                <span class="text-xs text-slate-300 hidden sm:inline-block">40–50 mins &bull; Doctor-Guided</span>
               </div>
             </div>
+          </a>
+
+          <!-- Stacked Cards: Right Column (lg:col-span-5 = 45%) -->
+          <div class="lg:col-span-5 flex flex-col gap-4 sm:gap-5 justify-between">
+            
+            <!-- Card 1: Sports Biomechanics -->
+            <a href="service-details.html?id=sports" class="program-subcard group p-5 sm:p-6 card-base flex items-center gap-5 border border-slate-200/90 dark:border-slate-800 hover:border-teal-500/60 dark:hover:border-teal-400/60 shadow-sm hover:shadow-xl transition-all duration-300 flex-1 min-h-[160px] sm:min-h-[175px]">
+              <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shrink-0 shadow-inner bg-slate-100 dark:bg-slate-800">
+                <img src="assets/images/programs/program-sports-biomechanics.jpg" alt="Sports Biomechanics Movement Assessment" class="subcard-img w-full h-full object-cover">
+              </div>
+              <div class="flex-1 min-w-0 space-y-1 sm:space-y-1.5">
+                <span class="text-[10px] sm:text-[11px] font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider block">
+                  PERFORMANCE
+                </span>
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white font-heading group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors line-clamp-1">
+                  Sports Biomechanics
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2">
+                  Movement and return-to-sport assessment.
+                </p>
+                <div class="pt-1">
+                  <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-teal-700 dark:text-teal-400 group-hover:underline">
+                    <span>Explore</span>
+                    <svg class="w-3.5 h-3.5 arrow-icon transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Card 2: Post-Op Rehabilitation -->
+            <a href="service-details.html?id=post-surgical" class="program-subcard group p-5 sm:p-6 card-base flex items-center gap-5 border border-slate-200/90 dark:border-slate-800 hover:border-teal-500/60 dark:hover:border-teal-400/60 shadow-sm hover:shadow-xl transition-all duration-300 flex-1 min-h-[160px] sm:min-h-[175px]">
+              <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shrink-0 shadow-inner bg-slate-100 dark:bg-slate-800">
+                <img src="assets/images/programs/program-postop-rehab.jpg" alt="Post-Op Guided Recovery" class="subcard-img w-full h-full object-cover">
+              </div>
+              <div class="flex-1 min-w-0 space-y-1 sm:space-y-1.5">
+                <span class="text-[10px] sm:text-[11px] font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider block">
+                  RECOVERY
+                </span>
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white font-heading group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors line-clamp-1">
+                  Post-Op Rehabilitation
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2">
+                  Guided recovery following surgery.
+                </p>
+                <div class="pt-1">
+                  <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-teal-700 dark:text-teal-400 group-hover:underline">
+                    <span>Explore</span>
+                    <svg class="w-3.5 h-3.5 arrow-icon transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
 
           </div>
 
