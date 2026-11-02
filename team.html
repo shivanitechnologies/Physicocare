@@ -1055,69 +1055,74 @@
          SECTION 07: FINAL CTA — CONNECT WITH OUR TEAM
          Luminous dual-theme executive closing section
          ======================================================== -->
-    <section id="clinical-cta" class="py-16 lg:py-24 bg-[#F8FAFC] dark:bg-[#060D12] border-t border-slate-100 dark:border-slate-800 transition-colors">
+    <section id="clinical-cta" class="py-16 lg:py-24 bg-[#F8FAFC] dark:bg-[#060D12] transition-colors border-0">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="relative rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br from-[#F0FDF9] via-white to-[#E6F7F4] dark:from-[#081820] dark:via-[#0a1f29] dark:to-[#051117] p-8 sm:p-12 lg:p-16 border border-teal-100/90 dark:border-teal-900/40 text-center transition-all">
+        <!-- Borderless Container with 80% Opacity Background Photo fitted to Top Therapists -->
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl min-h-[520px] lg:min-h-[560px] flex items-center justify-center p-6 sm:p-12 lg:p-16 border-0">
           
-          <!-- Background Ambient Photography with Dual-Theme Blending -->
-          <div class="absolute inset-0 opacity-10 dark:opacity-15 bg-center bg-cover mix-blend-multiply dark:mix-blend-luminosity pointer-events-none" style="background-image: url('assets/images/team/team-group-hero.jpg');"></div>
+          <!-- Background Team Image: 80% Opacity, Object-Top so All Top Therapists Show Fully -->
+          <img src="assets/images/team/team-group-hero.jpg" 
+               alt="PhysioCare Clinical Team" 
+               class="absolute inset-0 w-full h-full object-cover object-top opacity-80 pointer-events-none select-none">
           
-          <!-- Soft Gradient Lighting Effects -->
-          <div class="absolute inset-0 bg-gradient-to-r from-white/70 via-transparent to-white/70 dark:from-[#081820]/90 dark:via-transparent dark:to-[#081820]/90 pointer-events-none"></div>
-          <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[34rem] h-[34rem] bg-teal-400/15 dark:bg-teal-500/15 rounded-full blur-3xl pointer-events-none"></div>
-          
-          <!-- Content Container -->
-          <div class="relative z-10 max-w-3xl mx-auto space-y-6">
+          <!-- Cinematic Atmospheric Gradient Scrim: Provides crisp high-contrast text backing without covering therapists -->
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/70 to-slate-950/45 pointer-events-none"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-slate-950/40 via-transparent to-slate-950/40 pointer-events-none"></div>
+          <div class="absolute inset-0 bg-teal-950/20 pointer-events-none"></div>
+
+          <!-- Seamless High-Contrast Content: Changed Text Colors for 100% Crystal-Clear Readability -->
+          <div class="relative z-10 max-w-3xl mx-auto text-center space-y-6 sm:space-y-7">
             
-            <!-- Eyebrow Badge -->
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 dark:bg-teal-950/80 border border-teal-200/90 dark:border-teal-800 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider shadow-2xs backdrop-blur-md">
-              <span class="w-2 h-2 rounded-full bg-teal-600 dark:bg-teal-400 animate-pulse"></span>
+            <!-- Category Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/20 border border-teal-400/40 text-teal-300 text-xs font-bold uppercase tracking-wider shadow-sm backdrop-blur-md">
+              <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
               <span>YOUR RECOVERY PARTNERS</span>
             </div>
             
-            <!-- Main Heading with Brand Dual-Tone -->
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white font-heading tracking-tight leading-tight">
-              Meet the Team. <span class="text-teal-700 dark:text-teal-400">Start Your Journey.</span>
+            <!-- Main Headline: Pure White & Luminous Teal -->
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black !text-white font-heading tracking-tight leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              Meet the Team. <span class="text-teal-400 drop-shadow-[0_2px_12px_rgba(20,184,166,0.5)]">Start Your Journey.</span>
             </h2>
             
-            <!-- Lead Copy -->
-            <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto">
+            <!-- Body Description: High-Contrast Crisp Silver-White -->
+            <p class="text-slate-100 sm:text-slate-200 text-base sm:text-lg leading-relaxed font-medium max-w-2xl mx-auto drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
               Have questions about your treatment or looking for the right specialist for your specific diagnosis? Our clinical team and intake coordinators are ready to help.
             </p>
 
-            <!-- Reassurance Trust Badges -->
-            <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 pt-1 text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-medium">
-              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 shadow-2xs backdrop-blur-sm">
-                <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            <!-- Reassurance Trust Badges: Frosted Dark Glass Pills with Crisp White Text -->
+            <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 pt-1 text-xs sm:text-sm text-white font-semibold">
+              <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/75 border border-white/20 backdrop-blur-md shadow-md">
+                <svg class="w-4 h-4 text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                 <span>Doctoral Specialists</span>
               </span>
-              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 shadow-2xs backdrop-blur-sm">
-                <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/75 border border-white/20 backdrop-blur-md shadow-md">
+                <svg class="w-4 h-4 text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                 <span>Same-Week Assessment</span>
               </span>
-              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 shadow-2xs backdrop-blur-sm">
-                <svg class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/75 border border-white/20 backdrop-blur-md shadow-md">
+                <svg class="w-4 h-4 text-teal-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                 <span>Direct Insurance Billing</span>
               </span>
             </div>
 
-            <!-- Action CTA Buttons -->
-            <div class="flex flex-wrap items-center justify-center gap-4 pt-3">
-              <a href="appointment.html" class="btn-primary px-8 py-3.5 rounded-xl font-bold flex items-center gap-2 shadow-lg shadow-teal-700/25">
+            <!-- Action CTAs -->
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2 sm:pt-3">
+              <a href="appointment.html" class="btn-primary px-8 py-3.5 rounded-xl font-bold flex items-center gap-2 shadow-xl shadow-teal-500/30 hover:scale-[1.02] transition-transform">
                 <span>Book an Appointment</span>
                 <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
               </a>
-              <a href="contact.html" class="btn-secondary px-6 py-3.5 rounded-xl font-bold text-xs bg-white dark:bg-slate-800 text-slate-800 dark:text-white border-slate-200 dark:border-slate-700 hover:border-teal-600 dark:hover:border-teal-400 shadow-sm">
+              <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-xs sm:text-sm bg-white/15 hover:bg-white/25 text-white border border-white/25 backdrop-blur-md transition-all shadow-md">
                 <span>Contact Clinic Desk &rarr;</span>
               </a>
             </div>
 
-            <p class="text-xs text-slate-500 dark:text-slate-400 pt-1">
-              Prefer speaking with a coordinator? Call us directly: <a href="tel:4158903321" class="font-bold text-teal-700 dark:text-teal-400 hover:underline">(415) 890-3321</a>
+            <!-- Direct Contact Note -->
+            <p class="text-xs sm:text-sm text-slate-200 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pt-1">
+              Prefer speaking with a coordinator? Call us directly: <a href="tel:4158903321" class="font-bold text-teal-300 hover:text-teal-200 underline decoration-teal-400/50 underline-offset-4">(415) 890-3321</a>
             </p>
-          </div>
 
+          </div>
         </div>
 
       </div>
