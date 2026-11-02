@@ -290,6 +290,8 @@
 
       // Individual cards not inside .grid
       container.querySelectorAll('.card-base, .flip-card-container, .journey-card, article').forEach(card => {
+        // Never tag inner components of flip cards
+        if (card.closest('.flip-card-container') && card !== card.closest('.flip-card-container')) return;
         if (!hasRevealClass(card) && (!card.parentElement || !card.parentElement.classList.contains('grid'))) {
           card.classList.add('reveal-up');
         }
