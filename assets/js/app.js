@@ -304,7 +304,7 @@
 
       // Content images
       container.querySelectorAll('img').forEach(img => {
-        if (img.src.includes('logo') || img.src.includes('icon') || img.classList.contains('avatar') || img.closest('nav') || img.closest('header')) {
+        if (img.src.includes('logo') || img.src.includes('icon') || img.classList.contains('avatar') || img.classList.contains('team-layer') || img.closest('.team-choreography-stage') || img.closest('nav') || img.closest('header')) {
           return;
         }
         if (!img.closest('.reveal, .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-zoom, .reveal-fade')) {

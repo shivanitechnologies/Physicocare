@@ -704,3 +704,117 @@ html.no-js .reveal-fade {
     animation: none !important;
   }
 }
+
+
+/* ==========================================================================
+   STAGED FACULTY THERAPIST CHOREOGRAPHY
+   1. Center therapist enters first
+   2. Inner side therapists enter second
+   3. Outer side therapists enter third
+   ========================================================================== */
+
+.team-choreography-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1024 / 583;
+  max-width: 680px;
+}
+
+.team-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.team-layer-center {
+  z-index: 30;
+  animation: enterCenterTherapist 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.team-layer-inner-left {
+  z-index: 20;
+  animation: enterInnerLeftTherapist 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+.team-layer-inner-right {
+  z-index: 20;
+  animation: enterInnerRightTherapist 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+.team-layer-outer-left {
+  z-index: 10;
+  animation: enterOuterLeftTherapist 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
+}
+
+.team-layer-outer-right {
+  z-index: 10;
+  animation: enterOuterRightTherapist 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
+}
+
+@keyframes enterCenterTherapist {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.94);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes enterInnerLeftTherapist {
+  0% {
+    opacity: 0;
+    transform: translateX(30px) translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes enterInnerRightTherapist {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px) translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes enterOuterLeftTherapist {
+  0% {
+    opacity: 0;
+    transform: translateX(-45px) translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes enterOuterRightTherapist {
+  0% {
+    opacity: 0;
+    transform: translateX(45px) translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-layer {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
