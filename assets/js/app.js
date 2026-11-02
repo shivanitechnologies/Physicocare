@@ -156,12 +156,186 @@
     });
   }
 
+  
+  /**
+   * Universal Scroll & Fade-In Animation Engine
+   * High-performance IntersectionObserver animation driver that automatically
+   * animates headings, text paragraphs, cards, grids, and imagery across all sections.
+   */
+  function initScrollAnimations() {
+    // 1. Reduced motion or unsupported fallback
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('.reveal, .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-zoom, .reveal-fade').forEach(el => {
+        el.classList.add('is-revealed');
+      });
+      return;
+    }
+
+    // 2. Automatically enrich sections and cards that lack explicit classes
+    autoTagAnimatableElements();
+
+    // 3. Fast IntersectionObserver instance
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          el.classList.add('is-revealed');
+          obs.unobserve(el);
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px 0px -20px 0px',
+      threshold: 0.05
+    });
+
+    // 4. Observe all elements with animation classes
+    const elements = document.querySelectorAll(
+      '.reveal, .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-zoom, .reveal-fade'
+    );
+
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      // If already within or above the viewport on initial load, reveal promptly
+      if (rect.top <= vh - 20 && rect.bottom >= 0) {
+        setTimeout(() => {
+          el.classList.add('is-revealed');
+        }, 40);
+      } else {
+        observer.observe(el);
+      }
+    });
+
+    // 5. Global helper for tab switches, dynamically revealed elements, or scroll fallback
+    window.triggerRevealCheck = function() {
+      const currentVh = window.innerHeight || document.documentElement.clientHeight;
+      const unrevealed = document.querySelectorAll('.reveal:not(.is-revealed), .reveal-up:not(.is-revealed), .reveal-down:not(.is-revealed), .reveal-left:not(.is-revealed), .reveal-right:not(.is-revealed), .reveal-zoom:not(.is-revealed), .reveal-fade:not(.is-revealed)');
+      unrevealed.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top <= currentVh - 10 && r.bottom >= 0 && (r.width > 0 || r.height > 0)) {
+          el.classList.add('is-revealed');
+          try { observer.unobserve(el); } catch (e) {}
+        }
+      });
+    };
+
+    // 6. Passive scroll listener as complementary backup
+    let scrollTicker = false;
+    window.addEventListener('scroll', () => {
+      if (!scrollTicker) {
+        requestAnimationFrame(() => {
+          window.triggerRevealCheck();
+          scrollTicker = false;
+        });
+        scrollTicker = true;
+      }
+    }, { passive: true });
+
+    // 7. Safety timeout fallback: ensures zero elements ever remain stuck hidden
+    setTimeout(() => {
+      window.triggerRevealCheck();
+    }, 1200);
+  }
+
+  function autoTagAnimatableElements() {
+    // 1. Identify all content containers across standard, article, dashboard, and auth pages
+    const containers = document.querySelectorAll(
+      'main section, main article, main > div, #portal-content > div, .auth-container, body > div.max-w-5xl, body > div.card-base, body > .w-full.max-w-md'
+    );
+
+    containers.forEach((container, sIdx) => {
+      if (container.hasAttribute('data-no-anim')) return;
+
+      // Section titles, badges, and lead text
+      const titles = container.querySelectorAll(
+        ':scope > div > .text-center, :scope > .text-center, :scope > div > h2, :scope h1, :scope h2, :scope h3'
+      );
+      titles.forEach(t => {
+        if (!hasRevealClass(t) && !t.closest('.card-base, .flip-card-container, table, nav, header')) {
+          t.classList.add('reveal-up');
+        }
+      });
+
+      // Hero section elements: give them staggered micro-animations
+      if (sIdx === 0 || container.querySelector('h1')) {
+        const h1 = container.querySelector('h1');
+        if (h1 && !hasRevealClass(h1)) h1.classList.add('reveal-up', 'delay-75');
+
+        const heroBadge = container.querySelector('.inline-flex.items-center.gap-2');
+        if (heroBadge && !hasRevealClass(heroBadge)) heroBadge.classList.add('reveal-up');
+
+        const heroLead = container.querySelector('p.text-base, p.text-lg, p.lead');
+        if (heroLead && !hasRevealClass(heroLead)) heroLead.classList.add('reveal-up', 'delay-150');
+
+        const heroCtas = container.querySelector('.flex.flex-wrap.items-center');
+        if (heroCtas && !hasRevealClass(heroCtas)) heroCtas.classList.add('reveal-up', 'delay-200');
+
+        const heroMedia = container.querySelector('.lg\\:col-span-5, .relative.h-56');
+        if (heroMedia && !hasRevealClass(heroMedia)) heroMedia.classList.add('reveal-zoom', 'delay-200');
+      }
+
+      // Grids of cards (services, team, pricing, features, testimonials)
+      const grids = container.querySelectorAll('.grid');
+      grids.forEach(grid => {
+        if (grid.hasAttribute('data-no-anim') || grid.closest('.no-anim')) return;
+        const children = grid.children;
+        const delays = ['delay-75', 'delay-150', 'delay-200', 'delay-300', 'delay-400', 'delay-500'];
+        Array.from(children).forEach((child, i) => {
+          if (!hasRevealClass(child)) {
+            child.classList.add('reveal-up', delays[i % delays.length]);
+          }
+        });
+      });
+
+      // Individual cards not inside .grid
+      container.querySelectorAll('.card-base, .flip-card-container, .journey-card, article').forEach(card => {
+        if (!hasRevealClass(card) && (!card.parentElement || !card.parentElement.classList.contains('grid'))) {
+          card.classList.add('reveal-up');
+        }
+      });
+
+      // Tables, KPI cards, and forms
+      container.querySelectorAll('form, .overflow-x-auto, .kpi-card').forEach(block => {
+        if (!hasRevealClass(block) && !block.closest('.reveal-up, .reveal, .card-base, nav, header')) {
+          block.classList.add('reveal-up');
+        }
+      });
+
+      // Content images
+      container.querySelectorAll('img').forEach(img => {
+        if (img.src.includes('logo') || img.src.includes('icon') || img.classList.contains('avatar') || img.closest('nav') || img.closest('header')) {
+          return;
+        }
+        if (!img.closest('.reveal, .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-zoom, .reveal-fade')) {
+          if (!hasRevealClass(img)) {
+            img.classList.add('reveal-zoom');
+          }
+        }
+      });
+    });
+
+    // Dedicated Auth template cards (split-panel login & register)
+    document.querySelectorAll('.w-full.max-w-5xl.rounded-\\[32px\\], .card-base.max-w-md, .auth-card').forEach(c => {
+      if (!hasRevealClass(c)) c.classList.add('reveal-up');
+      const leftCol = c.querySelector('.lg\\:col-span-5');
+      const rightCol = c.querySelector('.lg\\:col-span-7');
+      if (leftCol && !hasRevealClass(leftCol)) leftCol.classList.add('reveal-left');
+      if (rightCol && !hasRevealClass(rightCol)) rightCol.classList.add('reveal-right');
+    });
+  }
+
+  function hasRevealClass(el) {
+    return el.matches('.reveal, .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-zoom, .reveal-fade, .is-revealed');
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initHeaderScroll();
     initAppointmentModal();
     initFlipCards();
     initRecoveryJourney();
+    initScrollAnimations();
 
     // Auto-update copyright year
     document.querySelectorAll('.current-year').forEach(el => {

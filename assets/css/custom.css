@@ -581,3 +581,126 @@ h1, h2, h3, h4, h5, h6 {
     margin: 1rem auto;
   }
 }
+
+
+/* ==========================================================================
+   INTERACTIVE SCROLL & FADE-IN ANIMATION SYSTEM
+   Zero-dependency, hardware-accelerated animations for text, cards, and images
+   ========================================================================== */
+
+/* Base initial hidden state with smooth physics curve */
+.reveal,
+.reveal-up,
+.reveal-down,
+.reveal-left,
+.reveal-right,
+.reveal-zoom,
+.reveal-fade {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition-property: opacity, transform;
+  transition-duration: 0.75s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Slide Up + Fade In (Default for headings, copy, cards) */
+.reveal,
+.reveal-up {
+  transform: translateY(28px);
+}
+
+/* Slide Down + Fade In */
+.reveal-down {
+  transform: translateY(-28px);
+}
+
+/* Slide from Left + Fade In */
+.reveal-left {
+  transform: translateX(-36px);
+}
+
+/* Slide from Right + Fade In */
+.reveal-right {
+  transform: translateX(36px);
+}
+
+/* Zoom / Scale In (Ideal for images, media showcases, and stats) */
+.reveal-zoom {
+  transform: scale(0.93);
+}
+
+/* Pure Smooth Fade In (Ideal for background glow, subtle text badges, tabs) */
+.reveal-fade {
+  transform: none;
+  transition-duration: 0.85s;
+}
+
+/* In-View Revealed State (Hardware-accelerated completion) */
+.reveal.is-revealed,
+.reveal-up.is-revealed,
+.reveal-down.is-revealed,
+.reveal-left.is-revealed,
+.reveal-right.is-revealed,
+.reveal-zoom.is-revealed,
+.reveal-fade.is-revealed {
+  opacity: 1 !important;
+  transform: translate(0, 0) scale(1) !important;
+  will-change: auto;
+}
+
+/* Cascade Stagger Timing Delays */
+.delay-50  { transition-delay: 50ms; }
+.delay-75  { transition-delay: 75ms; }
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-225 { transition-delay: 225ms; }
+.delay-250 { transition-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-350 { transition-delay: 350ms; }
+.delay-375 { transition-delay: 375ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-450 { transition-delay: 450ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-525 { transition-delay: 525ms; }
+.delay-600 { transition-delay: 600ms; }
+.delay-700 { transition-delay: 700ms; }
+.delay-800 { transition-delay: 800ms; }
+
+/* Subtle floating pulse animation for badges & floating cards */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+/* Fallback for noscript / no-js or reduced-motion */
+html.no-js .reveal,
+html.no-js .reveal-up,
+html.no-js .reveal-down,
+html.no-js .reveal-left,
+html.no-js .reveal-right,
+html.no-js .reveal-zoom,
+html.no-js .reveal-fade {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-up,
+  .reveal-down,
+  .reveal-left,
+  .reveal-right,
+  .reveal-zoom,
+  .reveal-fade,
+  .animate-float-gentle {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
