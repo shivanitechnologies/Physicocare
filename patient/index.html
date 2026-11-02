@@ -155,11 +155,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
           </button>
-          <div class="flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60 shadow-xs">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span class="hidden sm:inline">PhysioCare Recovery Portal &bull;</span>
-            <span>Suite Care Active</span>
-          </div>
+
         </div>
 
         <!-- Right: Actions & Profile (RTL, Theme, Circular Avatar Icon) -->
@@ -242,8 +238,8 @@
         <!-- Main Section Header: Dynamic Page Heading & Subtitle -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-slate-800/80">
           <div>
-            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight" id="portal-tab-title"><bdi>Patient Portal Overview</bdi></h1>
-            <p class="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1" id="portal-tab-subtitle"><bdi>Your PhysioCare recovery space &amp; rehabilitation overview</bdi></p>
+            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight" id="portal-tab-title"><bdi>Patient Dashboard</bdi></h1>
+            <p class="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1" id="portal-tab-subtitle"><bdi>Your PhysioCare recovery space</bdi></p>
           </div>
           <div class="flex items-center gap-2.5">
             <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-teal-50 dark:bg-teal-950/60 border border-teal-200/80 dark:border-teal-800/60 text-teal-800 dark:text-teal-300 text-xs font-bold shadow-xs">
@@ -498,12 +494,7 @@
         <!-- TAB 2: MY APPOINTMENTS -->
         <!-- ========================================== -->
         <section id="ptab-appointments" class="portal-tab-content hidden space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">My Appointments</h2>
-              <p class="text-xs text-slate-500">Manage your private suite rehabilitation sessions</p>
-            </div>
-            <div class="flex items-center gap-3">
+          <div class="flex items-center justify-end gap-3">
               <button onclick="openBookingModal()" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm transition flex items-center gap-2">
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
                 <span>Book New Session</span>
@@ -847,11 +838,7 @@
         <!-- TAB 4: RECOVERY PROGRESS -->
         <!-- ========================================== -->
         <section id="ptab-recovery" class="portal-tab-content hidden space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Objective Recovery Progress</h2>
-              <p class="text-xs text-slate-500">Clinician-measured range of motion & pain reduction telemetry</p>
-            </div>
+          <div class="flex items-center justify-end">
             <div class="p-2 rounded-xl bg-teal-50 dark:bg-teal-950 text-teal-800 dark:text-teal-300 text-[11px] font-semibold border border-teal-200 dark:border-teal-800 flex items-center gap-2">
               <svg class="w-4 h-4 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
               <span>Clinician Certified Medical Evaluation</span>
@@ -966,11 +953,7 @@
         <!-- ========================================== -->
         <section id="ptab-records" class="portal-tab-content hidden space-y-6">
           <div class="p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
-            <div class="flex items-center justify-between">
-              <div>
-                <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Confidential Medical Records</h2>
-                <p class="text-xs text-slate-500">Authorized clinical diagnostic assessments and SOAP progress documentation</p>
-              </div>
+            <div class="flex items-center justify-end">
               <div class="px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-xs font-bold border border-emerald-200 dark:border-emerald-800 flex items-center gap-1.5">
                 <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                 <span>HIPAA Encrypted Patient Record</span>
@@ -1051,12 +1034,7 @@
         <!-- TAB 7: EXERCISE PROGRAMS -->
         <!-- ========================================== -->
         <section id="ptab-exercises" class="portal-tab-content hidden space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Prescribed Home Exercise Program (HEP)</h2>
-              <p class="text-xs text-slate-500">Custom exercises prescribed by Dr. Elena Vance to maintain spinal alignment</p>
-            </div>
-            <div class="flex items-center gap-2">
+          <div class="flex items-center justify-end gap-2">
               <span class="text-xs font-semibold text-slate-500">Today's Adherence:</span>
               <span id="hep-adherence-badge" class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">100% Completed</span>
             </div>
@@ -1074,11 +1052,7 @@
         <!-- ========================================== -->
         <section id="ptab-payments" class="portal-tab-content hidden space-y-6">
           <div class="p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Payments & Invoices</h2>
-                <p class="text-xs text-slate-500">CMS-1500 compliant superbills for reimbursement and direct billing receipts</p>
-              </div>
+            <div class="flex items-center justify-end gap-4">
               <div class="text-right">
                 <span class="text-xs text-slate-400">Outstanding Balance</span>
                 <h3 class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400">₹0.00</h3>
@@ -1212,12 +1186,8 @@
         <!-- ========================================== -->
         <section id="ptab-profile" class="portal-tab-content hidden space-y-6">
           
-          <!-- Top Row: Page Title + Book Session Action Button -->
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <h2 class="text-2xl font-black text-slate-900 dark:text-white font-heading tracking-tight">Profile</h2>
-              <p class="text-xs text-slate-500 mt-0.5">Welcome back, Pravin! Here's what's happening.</p>
-            </div>
+          <!-- Action Bar (Single header maintained at top) -->
+          <div class="flex items-center justify-end gap-4">
             <button onclick="openBookingModal()" class="px-5 py-2.5 rounded-full bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md shadow-teal-700/20 flex items-center gap-2 transition self-start sm:self-auto">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
@@ -1275,10 +1245,7 @@
         <!-- ========================================== -->
         <section id="ptab-help" class="portal-tab-content hidden space-y-6">
           <div class="p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
-            <div>
-              <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Clinic Support & Patient Care</h2>
-              <p class="text-xs text-slate-500">Immediate access to our clinical reception and care coordinators</p>
-            </div>
+
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
               <div class="p-5 rounded-2xl bg-teal-50/70 dark:bg-slate-900/60 border border-teal-100 dark:border-slate-800 space-y-2">
@@ -1467,8 +1434,8 @@
     ];
 
     const TAB_TITLES = {
-      overview: 'Patient Portal Overview',
-      appointments: 'My Appointments & Sessions',
+      overview: 'Patient Dashboard',
+      appointments: 'My Appointments',
       plans: 'Active Treatment Plan',
       recovery: 'Objective Recovery Progress',
       therapist: 'My Assigned Therapist',
@@ -1496,7 +1463,7 @@
       });
 
       const TAB_SUBTITLES = {
-        overview: 'Your PhysioCare recovery space & rehabilitation overview',
+        overview: 'Your PhysioCare recovery space',
         appointments: 'Manage and review your 1-on-1 doctoral clinical rehabilitation sessions',
         plans: 'Tailored rehabilitation protocols, target mobility goals, and timeline',
         recovery: 'Clinician-verified flexion benchmarks, mobility index, and pain trajectory',

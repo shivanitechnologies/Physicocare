@@ -124,11 +124,7 @@
             </svg>
           </button>
           
-          <div class="flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60 shadow-xs">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span class="hidden sm:inline">PhysioCare Clinical Operations Desk &bull;</span>
-            <span id="live-today-date">Operating Hours Active</span>
-          </div>
+
         </div>
         
         <div class="flex items-center gap-2.5">
@@ -180,14 +176,7 @@
         <!-- ========================================== -->
         <div id="atab-overview" class="space-y-8">
           
-          <!-- Welcome Section Banner -->
-          <div class="p-5 rounded-2xl bg-gradient-to-r from-teal-500/10 via-teal-500/5 to-transparent border border-teal-100 dark:border-teal-900/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div>
-              <h3 class="text-lg lg:text-xl font-bold text-slate-900 dark:text-white font-heading"><bdi>Good morning, Clinic Admin!</bdi></h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5"><bdi>Here is your clinic's performance overview and real-time operations monitor.</bdi></p>
-            </div>
-            <span class="text-xs font-semibold text-teal-700 dark:text-teal-400">All 4 Clinical Suites Running</span>
-          </div>
+
 
           <!-- 4 Core Summary Metric Cards -->
           <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -411,10 +400,9 @@
         <!-- ========================================== -->
         <div id="atab-appointments" class="hidden space-y-6">
           <div class="bg-white dark:bg-[#151F2E] rounded-2xl border border-slate-200/80 dark:border-slate-800 p-6 space-y-4 shadow-sm">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-slate-800">
-              <div>
-                <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Clinic Master Booking Ledger</h3>
-                <p class="text-xs text-slate-400">Filter, search, or reschedule patient bookings across all 4 suites.</p>
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-slate-800">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Roster Filter &amp; Search:</span>
               </div>
               <button onclick="openNewAppointmentModal()" class="px-3.5 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
                 <span>+ Create Appointment</span>
@@ -468,10 +456,9 @@
         <!-- ========================================== -->
         <div id="atab-patients" class="hidden space-y-6">
           <div class="bg-white dark:bg-[#151F2E] rounded-2xl border border-slate-200/80 dark:border-slate-800 p-6 space-y-4 shadow-sm">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-slate-800">
-              <div>
-                <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Registered Patient Medical Directory</h3>
-                <p class="text-xs text-slate-400">Manage patient records, condition history, and authorized documentation.</p>
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-slate-800">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Patient Directory Search:</span>
               </div>
               <button onclick="openNewPatientModal()" class="px-3.5 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
                 <span>+ Add New Patient</span>
@@ -507,11 +494,7 @@
         <!-- TAB 4: THERAPIST MANAGEMENT -->
         <!-- ========================================== -->
         <div id="atab-therapists" class="hidden space-y-6">
-          <div class="flex items-center justify-between">
-            <div>
-              <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Clinical Specialist Faculty</h3>
-              <p class="text-xs text-slate-400">Manage staff qualifications, clinical workload, availability, and suite assignments.</p>
-            </div>
+          <div class="flex items-center justify-end">
             <button onclick="alert('Staff intake form: New therapist onboarding is open.')" class="px-3.5 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition">
               + Add Therapist
             </button>
@@ -604,11 +587,7 @@
         <!-- ========================================== -->
         <div id="atab-services" class="hidden space-y-6">
           <div class="bg-white dark:bg-[#151F2E] rounded-2xl border border-slate-200/80 dark:border-slate-800 p-6 space-y-4 shadow-sm">
-            <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-              <div>
-                <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading">Clinical Service Catalog &amp; CPT Fee Schedule</h3>
-                <p class="text-xs text-slate-400">10 standard evidence-based treatments with billable CPT billing codes.</p>
-              </div>
+            <div class="flex items-center justify-end pb-3 border-b border-slate-100 dark:border-slate-800">
               <span class="text-xs font-bold text-teal-600 dark:text-teal-400">10 Active Services</span>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6" id="admin-services-list">
@@ -920,12 +899,8 @@
         <!-- ========================================== -->
         <div id="atab-settings" class="hidden space-y-8">
           
-          <!-- Header / Action Bar -->
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <h2 class="text-xl font-extrabold text-slate-900 dark:text-white font-heading">Clinic Configuration & Operational Settings</h2>
-              <p class="text-xs text-slate-500">Real-time parameters, automated patient notifications, scheduling constraints & EMR compliance</p>
-            </div>
+          <!-- Header / Action Bar (Single header maintained at top) -->
+          <div class="flex items-center justify-end gap-2">
             <div class="flex items-center gap-2">
               <button onclick="resetClinicSettingsDefaults()" class="px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition">
                 Reset Defaults
@@ -1391,7 +1366,6 @@
           if (btn) btn.classList.remove('active');
         }
       });
-
       const tabMeta = {
         overview: {
           title: 'Clinic Operations Dashboard',
@@ -1412,6 +1386,46 @@
         services: {
           title: 'Clinical Services & Pricing',
           subtitle: 'Evidence-based treatment catalog & official CPT billing fee schedule'
+        },
+        'treatment-plans': {
+          title: 'Clinical Treatment Plans',
+          subtitle: 'Treatment goals, session progression, and clinical milestones'
+        },
+        'medical-records': {
+          title: 'Electronic Medical Records (EMR)',
+          subtitle: 'Authorized clinician notes, diagnostic assessments, and compliance vault'
+        },
+        availability: {
+          title: 'Clinic Availability & Room Management',
+          subtitle: 'Suite operating hours, turnover rules, and room reservations'
+        },
+        payments: {
+          title: 'Financial Transactions & Receipts',
+          subtitle: 'Offline payments, online settlements, and revenue records'
+        },
+        invoices: {
+          title: 'Clinical Superbills & Invoices',
+          subtitle: 'Itemized insurance invoices with standard CPT and ICD-10 diagnostic codes'
+        },
+        reports: {
+          title: 'Clinical Outcome Metrics & Analytics',
+          subtitle: 'Aggregated patient progress metrics based on standardized functional indices'
+        },
+        notifications: {
+          title: 'Clinic Broadcasts & Alerts',
+          subtitle: 'Automated SMS, WhatsApp, and email alerts sent to patients and staff'
+        },
+        messages: {
+          title: 'Patient-Clinic Messaging Center',
+          subtitle: 'Direct HIPAA-compliant messaging with active rehabilitation patients'
+        },
+        roles: {
+          title: 'Role-Based Access Control (RBAC)',
+          subtitle: 'Clinical permission tiers ensuring patient HIPAA privacy and audit logging'
+        },
+        settings: {
+          title: 'Clinic Configuration & Settings',
+          subtitle: 'Real-time parameters, automated patient notifications, scheduling constraints'
         }
       };
 
