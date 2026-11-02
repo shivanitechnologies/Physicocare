@@ -918,36 +918,36 @@ html.no-js .reveal-fade {
 
 .hero-bg-slide.is-prev {
   opacity: 0;
-  transform: translateY(-90px) scale(1.03);
+  transform: translateY(-55px) scale(1.03);
   z-index: 1;
 }
 
 .hero-bg-slide.is-next {
   opacity: 0;
-  transform: translateY(90px) scale(1.03);
+  transform: translateY(55px) scale(1.03);
   z-index: 1;
 }
 
 .hero-bg-slide.is-hidden-top {
   opacity: 0;
-  transform: translateY(-180px) scale(1.03);
+  transform: translateY(-110px) scale(1.03);
   z-index: 0;
 }
 
 .hero-bg-slide.is-hidden-bottom {
   opacity: 0;
-  transform: translateY(180px) scale(1.03);
+  transform: translateY(110px) scale(1.03);
   z-index: 0;
 }
 
 /* ==========================================================================
-   Vertical 3D Stacked Image Slider (Enlarged & Borderless Design)
+   Vertical 3D Stacked Image Slider (Compact, Proportional & Borderless)
    ========================================================================== */
 
 .stacked-slider-viewport {
   position: relative;
   width: 100%;
-  height: 520px;
+  height: 380px;
   perspective: 1200px;
   transform-style: preserve-3d;
   user-select: none;
@@ -955,19 +955,19 @@ html.no-js .reveal-fade {
 
 @media (min-width: 640px) {
   .stacked-slider-viewport {
-    height: 580px;
+    height: 420px;
   }
 }
 
 @media (min-width: 1024px) {
   .stacked-slider-viewport {
-    height: 620px;
+    height: 460px;
   }
 }
 
 @media (min-width: 1280px) {
   .stacked-slider-viewport {
-    height: 640px;
+    height: 480px;
   }
 }
 
@@ -975,7 +975,7 @@ html.no-js .reveal-fade {
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 32px;
+  border-radius: 28px;
   overflow: hidden;
   background: transparent !important;
   border: none !important;
@@ -996,8 +996,8 @@ html.no-js .reveal-fade {
   top: 50%;
   left: 50%;
   width: 95%;
-  max-width: 480px;
-  height: 320px;
+  max-width: 420px;
+  height: 220px;
   cursor: pointer;
   transform-origin: center center;
   transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -1010,22 +1010,22 @@ html.no-js .reveal-fade {
 
 @media (min-width: 640px) {
   .stacked-slide {
-    max-width: 530px;
-    height: 360px;
+    max-width: 480px;
+    height: 250px;
   }
 }
 
 @media (min-width: 1024px) {
   .stacked-slide {
-    max-width: 560px;
-    height: 390px;
+    max-width: 530px;
+    height: 280px;
   }
 }
 
 @media (min-width: 1280px) {
   .stacked-slide {
-    max-width: 580px;
-    height: 410px;
+    max-width: 550px;
+    height: 290px;
   }
 }
 
@@ -1034,7 +1034,7 @@ html.no-js .reveal-fade {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 26px;
+  border-radius: 22px;
   border: none !important;
   background-color: transparent;
   transition: border-radius 800ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -1055,12 +1055,12 @@ html.no-js .reveal-fade {
   z-index: 30;
   pointer-events: auto;
   cursor: default;
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.32),
-              0 18px 36px -10px rgba(15, 118, 110, 0.28);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3),
+              0 12px 24px -8px rgba(15, 118, 110, 0.25);
 }
 
 .stacked-slide.is-active .stacked-slide-card {
-  border-radius: 30px;
+  border-radius: 26px;
   border: none !important;
 }
 
@@ -1070,12 +1070,12 @@ html.no-js .reveal-fade {
 
 /* State: Previous (Top) */
 .stacked-slide.is-prev {
-  transform: translate(-50%, -50%) translateY(-125px) scale(0.83) rotateX(4deg);
+  transform: translate(-50%, -50%) translateY(-75px) scale(0.85) rotateX(4deg);
   opacity: 0.48;
   filter: blur(0.6px);
   z-index: 10;
   pointer-events: auto;
-  box-shadow: 0 12px 30px -6px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 10px 22px -5px rgba(0, 0, 0, 0.2);
 }
 
 .stacked-slide.is-prev:hover {
@@ -1084,18 +1084,18 @@ html.no-js .reveal-fade {
 }
 
 .stacked-slide.is-prev .stacked-slide-card {
-  border-radius: 24px;
+  border-radius: 20px;
   border: none !important;
 }
 
 /* State: Next (Bottom) */
 .stacked-slide.is-next {
-  transform: translate(-50%, -50%) translateY(125px) scale(0.83) rotateX(-4deg);
+  transform: translate(-50%, -50%) translateY(75px) scale(0.85) rotateX(-4deg);
   opacity: 0.48;
   filter: blur(0.6px);
   z-index: 10;
   pointer-events: auto;
-  box-shadow: 0 12px 30px -6px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 10px 22px -5px rgba(0, 0, 0, 0.2);
 }
 
 .stacked-slide.is-next:hover {
@@ -1104,13 +1104,13 @@ html.no-js .reveal-fade {
 }
 
 .stacked-slide.is-next .stacked-slide-card {
-  border-radius: 24px;
+  border-radius: 20px;
   border: none !important;
 }
 
 /* State: Hidden Top */
 .stacked-slide.is-hidden-top {
-  transform: translate(-50%, -50%) translateY(-270px) scale(0.68) rotateX(8deg);
+  transform: translate(-50%, -50%) translateY(-170px) scale(0.70) rotateX(8deg);
   opacity: 0;
   filter: blur(2px);
   z-index: 1;
@@ -1119,7 +1119,7 @@ html.no-js .reveal-fade {
 
 /* State: Hidden Bottom */
 .stacked-slide.is-hidden-bottom {
-  transform: translate(-50%, -50%) translateY(270px) scale(0.68) rotateX(-8deg);
+  transform: translate(-50%, -50%) translateY(170px) scale(0.70) rotateX(-8deg);
   opacity: 0;
   filter: blur(2px);
   z-index: 1;
@@ -1129,7 +1129,7 @@ html.no-js .reveal-fade {
 /* Slide Caption Overlay */
 .stacked-slide .stacked-caption {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(8px);
   transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
               transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
@@ -1145,22 +1145,22 @@ html.no-js .reveal-fade {
 @media (max-width: 639px) {
   .stacked-slide {
     width: 95%;
-    max-width: 440px;
-    height: 290px;
+    max-width: 380px;
+    height: 200px;
   }
   .stacked-slide.is-prev {
-    transform: translate(-50%, -50%) translateY(-95px) scale(0.85) rotateX(3deg);
+    transform: translate(-50%, -50%) translateY(-55px) scale(0.87) rotateX(3deg);
     opacity: 0.42;
   }
   .stacked-slide.is-next {
-    transform: translate(-50%, -50%) translateY(95px) scale(0.85) rotateX(-3deg);
+    transform: translate(-50%, -50%) translateY(55px) scale(0.87) rotateX(-3deg);
     opacity: 0.42;
   }
   .stacked-slide.is-hidden-top {
-    transform: translate(-50%, -50%) translateY(-210px) scale(0.70);
+    transform: translate(-50%, -50%) translateY(-130px) scale(0.72);
   }
   .stacked-slide.is-hidden-bottom {
-    transform: translate(-50%, -50%) translateY(210px) scale(0.70);
+    transform: translate(-50%, -50%) translateY(130px) scale(0.72);
   }
 }
 
