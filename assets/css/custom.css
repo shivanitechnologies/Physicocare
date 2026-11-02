@@ -887,7 +887,61 @@ html.no-js .reveal-fade {
 
 
 /* ==========================================================================
-   Vertical 3D Stacked Image Slider (About Hero Section)
+   Hero Atmospheric Dynamic Background (Syncs with Slider at 20% Opacity)
+   ========================================================================== */
+
+.hero-bg-slide {
+  position: absolute;
+  inset: -6%;
+  width: 112%;
+  height: 112%;
+  opacity: 0;
+  transform: translateY(0) scale(1.03);
+  transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.hero-bg-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-bg-slide.is-active {
+  opacity: 0.20;
+  transform: translateY(0) scale(1.03);
+  z-index: 2;
+}
+
+.hero-bg-slide.is-prev {
+  opacity: 0;
+  transform: translateY(-70px) scale(1.03);
+  z-index: 1;
+}
+
+.hero-bg-slide.is-next {
+  opacity: 0;
+  transform: translateY(70px) scale(1.03);
+  z-index: 1;
+}
+
+.hero-bg-slide.is-hidden-top {
+  opacity: 0;
+  transform: translateY(-140px) scale(1.03);
+  z-index: 0;
+}
+
+.hero-bg-slide.is-hidden-bottom {
+  opacity: 0;
+  transform: translateY(140px) scale(1.03);
+  z-index: 0;
+}
+
+/* ==========================================================================
+   Vertical 3D Stacked Image Slider (Borderless Floating Design)
    ========================================================================== */
 
 .stacked-slider-viewport {
@@ -917,15 +971,17 @@ html.no-js .reveal-fade {
   height: 100%;
   border-radius: 32px;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 50%, rgba(15, 118, 110, 0.08) 0%, rgba(15, 23, 42, 0.45) 100%);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 
 .dark .stacked-slider-stage {
-  background: radial-gradient(circle at 50% 50%, rgba(15, 118, 110, 0.14) 0%, rgba(9, 13, 18, 0.9) 100%);
-  border-color: rgba(39, 52, 68, 0.7);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* Slide item */
@@ -958,10 +1014,9 @@ html.no-js .reveal-fade {
   height: 100%;
   overflow: hidden;
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background-color: #0f172a;
-  transition: border-radius 800ms cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 400ms ease;
+  border: none !important;
+  background-color: transparent;
+  transition: border-radius 800ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .stacked-slide-card img {
@@ -979,13 +1034,13 @@ html.no-js .reveal-fade {
   z-index: 30;
   pointer-events: auto;
   cursor: default;
-  box-shadow: 0 25px 50px -12px rgba(15, 118, 110, 0.28),
-              0 12px 24px -8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.28),
+              0 15px 30px -10px rgba(15, 118, 110, 0.25);
 }
 
 .stacked-slide.is-active .stacked-slide-card {
   border-radius: 28px;
-  border-color: rgba(45, 212, 191, 0.5);
+  border: none !important;
 }
 
 .stacked-slide.is-active .stacked-slide-card img {
@@ -999,7 +1054,7 @@ html.no-js .reveal-fade {
   filter: blur(0.6px);
   z-index: 10;
   pointer-events: auto;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
 }
 
 .stacked-slide.is-prev:hover {
@@ -1009,6 +1064,7 @@ html.no-js .reveal-fade {
 
 .stacked-slide.is-prev .stacked-slide-card {
   border-radius: 22px;
+  border: none !important;
 }
 
 /* State: Next (Bottom) */
@@ -1018,7 +1074,7 @@ html.no-js .reveal-fade {
   filter: blur(0.6px);
   z-index: 10;
   pointer-events: auto;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
 }
 
 .stacked-slide.is-next:hover {
@@ -1028,6 +1084,7 @@ html.no-js .reveal-fade {
 
 .stacked-slide.is-next .stacked-slide-card {
   border-radius: 22px;
+  border: none !important;
 }
 
 /* State: Hidden Top */
@@ -1086,10 +1143,12 @@ html.no-js .reveal-fade {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .stacked-slide {
+  .stacked-slide,
+  .hero-bg-slide {
     transition-duration: 0.01ms !important;
   }
-  .stacked-slide.is-active .stacked-slide-card img {
+  .stacked-slide.is-active .stacked-slide-card img,
+  .hero-bg-slide img {
     transform: none !important;
   }
 }

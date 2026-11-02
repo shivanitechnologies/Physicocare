@@ -230,8 +230,32 @@
     <!-- ===================================================================
          SECTION 1: About Hero – Who We Are
          =================================================================== -->
-    <section id="who-we-are" class="py-16 lg:py-24 bg-gradient-to-b from-teal-50/60 via-white to-slate-50 dark:from-[#0d1620] dark:via-[#090D12] dark:to-[#090D12]">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="who-we-are" class="relative py-16 lg:py-24 overflow-hidden bg-slate-50/50 dark:bg-[#090D12]">
+      <!-- Synchronized 20% Opacity Background Slider (Translates with Active Slide) -->
+      <div id="hero-bg-viewport" class="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
+        <!-- 5 Background Layers (1 per slide) -->
+        <div class="hero-bg-slide is-active" data-bg-index="0">
+          <img src="assets/images/about/hero-slider/slide-1.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="hero-bg-slide is-next" data-bg-index="1">
+          <img src="assets/images/about/hero-slider/slide-2.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="hero-bg-slide is-hidden-bottom" data-bg-index="2">
+          <img src="assets/images/about/hero-slider/slide-3.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="hero-bg-slide is-hidden-top" data-bg-index="3">
+          <img src="assets/images/about/hero-slider/slide-4.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="hero-bg-slide is-prev" data-bg-index="4">
+          <img src="assets/images/about/hero-slider/slide-5.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Light & Dark Wash Overlays for High Legibility -->
+        <div class="absolute inset-0 bg-gradient-to-r from-teal-50/85 via-white/80 to-white/60 dark:from-[#090D12]/92 dark:via-[#090D12]/85 dark:to-[#090D12]/70"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-teal-50/20 via-transparent to-slate-50 dark:from-transparent dark:to-[#090D12]"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           <!-- Left Content (Centered on Mobile, Left on Desktop) -->
@@ -260,39 +284,31 @@
             </div>
           </div>
           
-          <!-- Right: Vertical 3D Stacked Image Slider (5 Story Slides) -->
+          <!-- Right: Vertical 3D Stacked Image Slider (5 Story Slides - Borderless & Clean) -->
           <div class="lg:col-span-5 relative">
             <div class="relative mx-auto max-w-md lg:max-w-none">
               <!-- Background Ambient Glow -->
-              <div class="absolute -inset-4 bg-gradient-to-tr from-teal-500/20 via-teal-400/10 to-teal-200/20 dark:from-teal-900/35 dark:via-teal-800/15 dark:to-teal-500/10 rounded-[40px] blur-2xl -z-10 pointer-events-none"></div>
+              <div class="absolute -inset-4 bg-gradient-to-tr from-teal-500/15 via-teal-400/10 to-teal-200/15 dark:from-teal-900/30 dark:via-teal-800/10 dark:to-teal-500/10 rounded-[40px] blur-2xl -z-10 pointer-events-none"></div>
               
-              <!-- 3D Stack Viewport & Stage -->
-              <div id="hero-stacked-carousel" class="stacked-slider-viewport group relative rounded-[32px] focus:outline-none focus:ring-2 focus:ring-teal-500/40" tabindex="0" role="region" aria-label="PhysioCare Clinic Visual Story Carousel">
+              <!-- 3D Stack Viewport & Stage (No Outer Border) -->
+              <div id="hero-stacked-carousel" class="stacked-slider-viewport group relative rounded-[32px] focus:outline-none" tabindex="0" role="region" aria-label="PhysioCare Clinic Visual Story Carousel">
                 
-                <div class="stacked-slider-stage shadow-2xl">
+                <div class="stacked-slider-stage">
                   
                   <!-- Progress Countdown Bar (Top Line) -->
                   <div class="absolute top-0 left-0 right-0 h-1 bg-white/10 z-30 overflow-hidden">
                     <div id="hero-slide-progress" class="h-full bg-teal-400 transition-all duration-100 ease-linear" style="width: 0%;"></div>
                   </div>
 
-                  <!-- Top Header Badges: Dynamic Slide Tag & Counter -->
-                  <div class="absolute top-4 left-4 right-4 z-40 flex items-center justify-between pointer-events-none">
-                    <!-- Current Slide Pill -->
-                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md border border-white/20 text-white text-xs font-semibold shadow-md pointer-events-auto">
+                  <!-- Top Header Badge: Dynamic Slide Tag (No Border, Slider Count Number Removed) -->
+                  <div class="absolute top-4 left-4 z-40 pointer-events-none">
+                    <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-950/80 backdrop-blur-md text-white text-xs font-semibold shadow-lg pointer-events-auto">
                       <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
                       <span id="hero-slide-tag" class="text-teal-300 font-bold">01 · Clinical Evaluation</span>
                     </div>
-
-                    <!-- Slide Counter -->
-                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md border border-white/20 text-white text-xs font-semibold shadow-md pointer-events-auto">
-                      <span id="hero-slide-num" class="text-teal-300 font-bold">01</span>
-                      <span class="text-white/50">/</span>
-                      <span class="text-white/80 font-medium">05</span>
-                    </div>
                   </div>
 
-                  <!-- 5 Slides in Vertical 3D Stack -->
+                  <!-- 5 Slides in Vertical 3D Stack (Borderless Cards) -->
                   
                   <!-- Slide 1: 01 · Clinical Evaluation -->
                   <div class="stacked-slide is-active" data-slide-index="0" data-tag="01 · Clinical Evaluation" role="group" aria-roledescription="slide" aria-label="1 of 5">
@@ -360,18 +376,18 @@
                     </div>
                   </div>
 
-                  <!-- Vertical Navigation Arrow Controls (Right Edge) -->
+                  <!-- Vertical Navigation Arrow Controls (Right Edge - Borderless) -->
                   <div class="absolute right-3.5 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-2.5 rtl:right-auto rtl:left-3.5">
-                    <button type="button" id="hero-slider-prev" class="w-9 h-9 rounded-full bg-slate-950/75 hover:bg-teal-600 text-white flex items-center justify-center transition-all duration-200 border border-white/20 shadow-lg backdrop-blur-md group hover:scale-110 active:scale-95" aria-label="Previous slide (Up)">
+                    <button type="button" id="hero-slider-prev" class="w-9 h-9 rounded-full bg-slate-950/80 hover:bg-teal-600 text-white flex items-center justify-center transition-all duration-200 shadow-xl backdrop-blur-md group hover:scale-110 active:scale-95" aria-label="Previous slide (Up)">
                       <svg class="w-4 h-4 transition-transform group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"/></svg>
                     </button>
-                    <button type="button" id="hero-slider-next" class="w-9 h-9 rounded-full bg-slate-950/75 hover:bg-teal-600 text-white flex items-center justify-center transition-all duration-200 border border-white/20 shadow-lg backdrop-blur-md group hover:scale-110 active:scale-95" aria-label="Next slide (Down)">
+                    <button type="button" id="hero-slider-next" class="w-9 h-9 rounded-full bg-slate-950/80 hover:bg-teal-600 text-white flex items-center justify-center transition-all duration-200 shadow-xl backdrop-blur-md group hover:scale-110 active:scale-95" aria-label="Next slide (Down)">
                       <svg class="w-4 h-4 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                   </div>
 
-                  <!-- 5 Pagination Progress Indicator Dots (Bottom Right) -->
-                  <div class="absolute bottom-4 right-4 z-40 flex items-center gap-1.5 bg-slate-950/75 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15 shadow-lg rtl:right-auto rtl:left-4">
+                  <!-- 5 Pagination Progress Indicator Dots (Bottom Right - Borderless) -->
+                  <div class="absolute bottom-4 right-4 z-40 flex items-center gap-1.5 bg-slate-950/80 backdrop-blur-md px-3 py-1.5 rounded-full shadow-xl rtl:right-auto rtl:left-4">
                     <button type="button" class="hero-dot w-6 h-2 rounded-full bg-teal-400 transition-all duration-300" aria-label="Slide 1" data-slide="0"></button>
                     <button type="button" class="hero-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all duration-300" aria-label="Slide 2" data-slide="1"></button>
                     <button type="button" class="hero-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all duration-300" aria-label="Slide 3" data-slide="2"></button>
@@ -380,21 +396,11 @@
                   </div>
 
                 </div>
-                
-                <!-- Floating Trust Card: Doctor-Led Care (Positioned bottom-left) -->
-                <div class="absolute -bottom-5 sm:-bottom-6 -left-3 sm:-left-5 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-xl border border-slate-200/90 dark:border-slate-700/80 flex items-center gap-3.5 max-w-[270px] z-40 pointer-events-auto rtl:left-auto rtl:-right-3 sm:rtl:-right-5">
-                  <div class="w-11 h-11 rounded-xl bg-teal-50 dark:bg-teal-950/80 text-teal-700 dark:text-teal-400 flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <svg class="w-5 h-5 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                  </div>
-                  <div>
-                    <h4 class="text-sm font-bold text-slate-900 dark:text-white">Doctor-Led Care</h4>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">1-on-1 Patient Dedication</p>
-                  </div>
-                </div>
 
               </div>
             </div>
-          </div></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -939,15 +945,15 @@
   <script src="assets/js/demo-data.js"></script>
   <script src="assets/js/storage.js"></script>
   <script src="assets/js/app.js"></script>
-  <!-- Hero Vertical 3D Stacked Image Slider Engine -->
+  <!-- Hero Vertical 3D Stacked Image Slider Engine & Background Sync -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const container = document.getElementById('hero-stacked-carousel');
       if (!container) return;
 
       const slides = Array.from(container.querySelectorAll('.stacked-slide'));
+      const bgSlides = Array.from(document.querySelectorAll('.hero-bg-slide'));
       const dots = Array.from(container.querySelectorAll('.hero-dot'));
-      const counter = document.getElementById('hero-slide-num');
       const tagBadge = document.getElementById('hero-slide-tag');
       const progress = document.getElementById('hero-slide-progress');
       const prevBtn = document.getElementById('hero-slider-prev');
@@ -964,6 +970,7 @@
       let isPaused = false;
 
       function renderSlides() {
+        // 1. Update 3D Stacked Cards
         slides.forEach((slide, idx) => {
           slide.classList.remove('is-active', 'is-prev', 'is-next', 'is-hidden-top', 'is-hidden-bottom');
           
@@ -990,12 +997,26 @@
           }
         });
 
-        // Update slide number
-        if (counter) {
-          counter.textContent = String(currentIndex + 1).padStart(2, '0');
-        }
+        // 2. Synchronize Hero Section Atmospheric Background (20% Opacity Translation)
+        bgSlides.forEach((bgSlide, idx) => {
+          bgSlide.classList.remove('is-active', 'is-prev', 'is-next', 'is-hidden-top', 'is-hidden-bottom');
+          
+          const diff = (idx - currentIndex + total) % total;
 
-        // Update pagination dots
+          if (diff === 0) {
+            bgSlide.classList.add('is-active');
+          } else if (diff === total - 1) {
+            bgSlide.classList.add('is-prev');
+          } else if (diff === 1) {
+            bgSlide.classList.add('is-next');
+          } else if (diff < total / 2) {
+            bgSlide.classList.add('is-hidden-bottom');
+          } else {
+            bgSlide.classList.add('is-hidden-top');
+          }
+        });
+
+        // 3. Update pagination dots
         dots.forEach((dot, i) => {
           if (i === currentIndex) {
             dot.classList.remove('w-2', 'bg-white/50');
