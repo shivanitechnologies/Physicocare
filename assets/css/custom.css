@@ -485,15 +485,31 @@ html.dark .flip-card-back,
   background-color: #151C25;
 }
 
-/* Z-Index swap on flip */
+/* Z-Index & Visibility swap on flip (Guarantees zero blanking or GPU compositing glitch) */
+.flip-card-front {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.25s 0.15s ease;
+}
+
+.flip-card-back {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s 0.15s ease;
+}
+
 .flip-card-container:hover .flip-card-front,
 .flip-card-container.is-flipped .flip-card-front {
   z-index: 1 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .flip-card-container:hover .flip-card-back,
 .flip-card-container.is-flipped .flip-card-back {
   z-index: 2 !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 /* RTL layout support */
