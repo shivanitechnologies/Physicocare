@@ -5,6 +5,7 @@
 
 (function () {
   const THEME_KEY = 'physiocare_theme';
+  let lastThemeToggle = 0;
 
   function getPreferredTheme() {
     try {
@@ -44,13 +45,29 @@
           sun.classList.add('hidden');
         }
       }
+      btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to Light mode' : 'Switch to Dark mode');
+      btn.setAttribute('title', theme === 'dark' ? 'Switch to Light mode' : 'Switch to Dark mode');
     });
   }
 
   window.toggleTheme = function () {
+    const now = Date.now();
+    if (now - lastThemeToggle < 250) return; // Prevent double firing
+    lastThemeToggle = now;
+
     const current = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
     const next = current === 'dark' ? 'light' : 'dark';
     localStorage.setItem(THEME_KEY, next);
+
+    // Clean up URL ?theme= parameter so reload does not override user preference
+    try {
+      const url = new URL(window.location.href);
+      if (url.searchParams.has('theme')) {
+        url.searchParams.delete('theme');
+        window.history.replaceState({}, '', url.toString());
+      }
+    } catch (e) {}
+
     applyTheme(next);
   };
 
@@ -60,6 +77,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     applyTheme(getPreferredTheme());
     document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+      btn.removeEventListener('click', window.toggleTheme);
       btn.addEventListener('click', window.toggleTheme);
     });
   });

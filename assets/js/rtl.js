@@ -5,6 +5,7 @@
 
 (function () {
   const RTL_KEY = 'physiocare_direction';
+  let lastToggleTime = 0;
 
   function getPreferredDirection() {
     try {
@@ -35,22 +36,36 @@
   }
 
   function updateRtlButtons(dir) {
+    const isRtl = dir === 'rtl';
     document.querySelectorAll('.rtl-toggle-btn').forEach(btn => {
-      const isRtl = dir === 'rtl';
-      btn.setAttribute('aria-label', isRtl ? 'Switch to LTR (Left to Right)' : 'Switch to RTL (Right to Left)');
-      btn.setAttribute('title', isRtl ? 'Switch to LTR' : 'Switch to RTL');
+      btn.setAttribute('aria-label', isRtl ? 'Switch to LTR' : 'Switch to RTL');
+      btn.setAttribute('title', isRtl ? 'Switch to LTR (Left to Right)' : 'Switch to RTL (Right to Left)');
       if (isRtl) {
-        btn.classList.add('border-teal-500', 'text-teal-600', 'dark:text-teal-400', 'bg-teal-50', 'dark:bg-teal-950/40');
+        btn.classList.add('border-teal-500', 'text-teal-600', 'dark:text-teal-400', 'bg-teal-50', 'dark:bg-teal-950/40', 'ring-2', 'ring-teal-500/20');
       } else {
-        btn.classList.remove('border-teal-500', 'text-teal-600', 'dark:text-teal-400', 'bg-teal-50', 'dark:bg-teal-950/40');
+        btn.classList.remove('border-teal-500', 'text-teal-600', 'dark:text-teal-400', 'bg-teal-50', 'dark:bg-teal-950/40', 'ring-2', 'ring-teal-500/20');
       }
     });
   }
 
   window.toggleDirection = function () {
+    const now = Date.now();
+    if (now - lastToggleTime < 250) return; // Prevent double firing
+    lastToggleTime = now;
+
     const current = document.documentElement.getAttribute('dir') || 'ltr';
     const next = current === 'rtl' ? 'ltr' : 'rtl';
     localStorage.setItem(RTL_KEY, next);
+
+    // Clean up URL ?dir= parameter so subsequent reloads don't override preference
+    try {
+      const url = new URL(window.location.href);
+      if (url.searchParams.has('dir')) {
+        url.searchParams.delete('dir');
+        window.history.replaceState({}, '', url.toString());
+      }
+    } catch (e) {}
+
     applyDirection(next);
     if (window.showToast) {
       window.showToast(`Layout switched to ${next.toUpperCase()}`);
