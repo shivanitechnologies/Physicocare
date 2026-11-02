@@ -710,25 +710,99 @@ html.no-js .reveal-fade {
    ========================================================================== */
 
 /* ==========================================================================
-   Team Hero — Grand Unified Faculty Showcase (Zero Cracks, Seamless Depth)
+   Grand Faculty 3-Stage Entrance Choreography (Zero Cracks, Pure Vertical)
    ========================================================================== */
 
-.team-faculty-stage {
+.team-choreography-stage {
   position: relative;
   width: 100%;
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 82%, rgba(0, 0, 0, 0.3) 94%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 82%, rgba(0, 0, 0, 0.3) 94%, transparent 100%);
-}
-
-.team-unified-faculty {
-  width: 100%;
-  height: auto;
-  display: block;
-  animation: floatTeamFaculty 5.5s ease-in-out infinite alternate;
+  aspect-ratio: 1024 / 583;
+  max-width: 900px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 80%, rgba(0, 0, 0, 0.4) 93%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 80%, rgba(0, 0, 0, 0.4) 93%, transparent 100%);
+  animation: floatUnifiedStage 5.5s ease-in-out 1.9s infinite alternate;
   will-change: transform;
 }
 
-@keyframes floatTeamFaculty {
+.team-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* Stage 1: Center Lead Therapist Enters FIRST (0.15s) */
+.team-layer-center {
+  z-index: 30;
+  animation: enterCenterTherapist 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+/* Stage 2: Inside-Side Therapists Enter SECOND (0.45s) */
+.team-layer-inner-left {
+  z-index: 20;
+  animation: enterInnerTherapist 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+}
+
+.team-layer-inner-right {
+  z-index: 20;
+  animation: enterInnerTherapist 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+}
+
+/* Stage 3: Outer-Side Therapists Enter LAST (0.75s) */
+.team-layer-outer-left {
+  z-index: 10;
+  animation: enterOuterTherapist 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.75s both;
+}
+
+.team-layer-outer-right {
+  z-index: 10;
+  animation: enterOuterTherapist 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.75s both;
+}
+
+/* Strictly Vertical Entrance Transitions:
+   Enters from gentle translateY up to exactly translateY(0).
+   NO HORIZONTAL TRANSLATIONS = ZERO CRACKS, SEAMS REMAIN 100% PERFECT */
+@keyframes enterCenterTherapist {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes enterInnerTherapist {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes enterOuterTherapist {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Unified Organic Floating Loop:
+   Floats the ENTIRE stage container together as ONE unit after all 5 have entered.
+   All therapists move together with ZERO relative displacement between them! */
+@keyframes floatUnifiedStage {
   0% {
     transform: translateY(0);
   }
@@ -738,8 +812,12 @@ html.no-js .reveal-fade {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .team-unified-faculty {
+  .team-layer {
+    opacity: 1 !important;
     transform: none !important;
+    animation: none !important;
+  }
+  .team-choreography-stage {
     animation: none !important;
   }
 }
