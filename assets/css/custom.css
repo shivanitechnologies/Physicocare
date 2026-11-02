@@ -918,36 +918,36 @@ html.no-js .reveal-fade {
 
 .hero-bg-slide.is-prev {
   opacity: 0;
-  transform: translateY(-70px) scale(1.03);
+  transform: translateY(-90px) scale(1.03);
   z-index: 1;
 }
 
 .hero-bg-slide.is-next {
   opacity: 0;
-  transform: translateY(70px) scale(1.03);
+  transform: translateY(90px) scale(1.03);
   z-index: 1;
 }
 
 .hero-bg-slide.is-hidden-top {
   opacity: 0;
-  transform: translateY(-140px) scale(1.03);
+  transform: translateY(-180px) scale(1.03);
   z-index: 0;
 }
 
 .hero-bg-slide.is-hidden-bottom {
   opacity: 0;
-  transform: translateY(140px) scale(1.03);
+  transform: translateY(180px) scale(1.03);
   z-index: 0;
 }
 
 /* ==========================================================================
-   Vertical 3D Stacked Image Slider (Borderless Floating Design)
+   Vertical 3D Stacked Image Slider (Enlarged & Borderless Design)
    ========================================================================== */
 
 .stacked-slider-viewport {
   position: relative;
   width: 100%;
-  height: 480px;
+  height: 520px;
   perspective: 1200px;
   transform-style: preserve-3d;
   user-select: none;
@@ -955,13 +955,19 @@ html.no-js .reveal-fade {
 
 @media (min-width: 640px) {
   .stacked-slider-viewport {
-    height: 520px;
+    height: 580px;
   }
 }
 
 @media (min-width: 1024px) {
   .stacked-slider-viewport {
-    height: 540px;
+    height: 620px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .stacked-slider-viewport {
+    height: 640px;
   }
 }
 
@@ -989,9 +995,9 @@ html.no-js .reveal-fade {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 90%;
-  max-width: 440px;
-  height: 280px;
+  width: 95%;
+  max-width: 480px;
+  height: 320px;
   cursor: pointer;
   transform-origin: center center;
   transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -1004,7 +1010,22 @@ html.no-js .reveal-fade {
 
 @media (min-width: 640px) {
   .stacked-slide {
-    height: 305px;
+    max-width: 530px;
+    height: 360px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stacked-slide {
+    max-width: 560px;
+    height: 390px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .stacked-slide {
+    max-width: 580px;
+    height: 410px;
   }
 }
 
@@ -1013,7 +1034,7 @@ html.no-js .reveal-fade {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: 26px;
   border: none !important;
   background-color: transparent;
   transition: border-radius 800ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -1034,12 +1055,12 @@ html.no-js .reveal-fade {
   z-index: 30;
   pointer-events: auto;
   cursor: default;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.28),
-              0 15px 30px -10px rgba(15, 118, 110, 0.25);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.32),
+              0 18px 36px -10px rgba(15, 118, 110, 0.28);
 }
 
 .stacked-slide.is-active .stacked-slide-card {
-  border-radius: 28px;
+  border-radius: 30px;
   border: none !important;
 }
 
@@ -1049,12 +1070,12 @@ html.no-js .reveal-fade {
 
 /* State: Previous (Top) */
 .stacked-slide.is-prev {
-  transform: translate(-50%, -50%) translateY(-105px) scale(0.82) rotateX(4deg);
+  transform: translate(-50%, -50%) translateY(-125px) scale(0.83) rotateX(4deg);
   opacity: 0.48;
   filter: blur(0.6px);
   z-index: 10;
   pointer-events: auto;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 30px -6px rgba(0, 0, 0, 0.22);
 }
 
 .stacked-slide.is-prev:hover {
@@ -1063,18 +1084,18 @@ html.no-js .reveal-fade {
 }
 
 .stacked-slide.is-prev .stacked-slide-card {
-  border-radius: 22px;
+  border-radius: 24px;
   border: none !important;
 }
 
 /* State: Next (Bottom) */
 .stacked-slide.is-next {
-  transform: translate(-50%, -50%) translateY(105px) scale(0.82) rotateX(-4deg);
+  transform: translate(-50%, -50%) translateY(125px) scale(0.83) rotateX(-4deg);
   opacity: 0.48;
   filter: blur(0.6px);
   z-index: 10;
   pointer-events: auto;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 30px -6px rgba(0, 0, 0, 0.22);
 }
 
 .stacked-slide.is-next:hover {
@@ -1083,13 +1104,13 @@ html.no-js .reveal-fade {
 }
 
 .stacked-slide.is-next .stacked-slide-card {
-  border-radius: 22px;
+  border-radius: 24px;
   border: none !important;
 }
 
 /* State: Hidden Top */
 .stacked-slide.is-hidden-top {
-  transform: translate(-50%, -50%) translateY(-230px) scale(0.68) rotateX(8deg);
+  transform: translate(-50%, -50%) translateY(-270px) scale(0.68) rotateX(8deg);
   opacity: 0;
   filter: blur(2px);
   z-index: 1;
@@ -1098,7 +1119,7 @@ html.no-js .reveal-fade {
 
 /* State: Hidden Bottom */
 .stacked-slide.is-hidden-bottom {
-  transform: translate(-50%, -50%) translateY(230px) scale(0.68) rotateX(-8deg);
+  transform: translate(-50%, -50%) translateY(270px) scale(0.68) rotateX(-8deg);
   opacity: 0;
   filter: blur(2px);
   z-index: 1;
@@ -1108,7 +1129,7 @@ html.no-js .reveal-fade {
 /* Slide Caption Overlay */
 .stacked-slide .stacked-caption {
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(10px);
   transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
               transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
@@ -1123,22 +1144,23 @@ html.no-js .reveal-fade {
 /* Mobile responsive adjustments */
 @media (max-width: 639px) {
   .stacked-slide {
-    width: 92%;
-    height: 260px;
+    width: 95%;
+    max-width: 440px;
+    height: 290px;
   }
   .stacked-slide.is-prev {
-    transform: translate(-50%, -50%) translateY(-80px) scale(0.84) rotateX(3deg);
+    transform: translate(-50%, -50%) translateY(-95px) scale(0.85) rotateX(3deg);
     opacity: 0.42;
   }
   .stacked-slide.is-next {
-    transform: translate(-50%, -50%) translateY(80px) scale(0.84) rotateX(-3deg);
+    transform: translate(-50%, -50%) translateY(95px) scale(0.85) rotateX(-3deg);
     opacity: 0.42;
   }
   .stacked-slide.is-hidden-top {
-    transform: translate(-50%, -50%) translateY(-180px) scale(0.70);
+    transform: translate(-50%, -50%) translateY(-210px) scale(0.70);
   }
   .stacked-slide.is-hidden-bottom {
-    transform: translate(-50%, -50%) translateY(180px) scale(0.70);
+    transform: translate(-50%, -50%) translateY(210px) scale(0.70);
   }
 }
 

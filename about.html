@@ -259,7 +259,7 @@
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           <!-- Left Content (Centered on Mobile, Left on Desktop) -->
-          <div class="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
+          <div class="lg:col-span-6 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200/80 dark:border-teal-800/60 text-teal-700 dark:text-teal-300 text-xs font-bold uppercase tracking-wider mx-auto lg:mx-0">
               <span class="w-2 h-2 rounded-full bg-teal-600 dark:bg-teal-400"></span>
               <span>GET TO KNOW PHYSIOCARE</span>
@@ -285,7 +285,7 @@
           </div>
           
           <!-- Right: Vertical 3D Stacked Image Slider (5 Story Slides - Borderless & Clean) -->
-          <div class="lg:col-span-5 relative">
+          <div class="lg:col-span-6 relative">
             <div class="relative mx-auto max-w-md lg:max-w-none">
               <!-- Background Ambient Glow -->
               <div class="absolute -inset-4 bg-gradient-to-tr from-teal-500/15 via-teal-400/10 to-teal-200/15 dark:from-teal-900/30 dark:via-teal-800/10 dark:to-teal-500/10 rounded-[40px] blur-2xl -z-10 pointer-events-none"></div>
@@ -294,20 +294,6 @@
               <div id="hero-stacked-carousel" class="stacked-slider-viewport group relative rounded-[32px] focus:outline-none" tabindex="0" role="region" aria-label="PhysioCare Clinic Visual Story Carousel">
                 
                 <div class="stacked-slider-stage">
-                  
-                  <!-- Progress Countdown Bar (Top Line) -->
-                  <div class="absolute top-0 left-0 right-0 h-1 bg-white/10 z-30 overflow-hidden">
-                    <div id="hero-slide-progress" class="h-full bg-teal-400 transition-all duration-100 ease-linear" style="width: 0%;"></div>
-                  </div>
-
-                  <!-- Top Header Badge: Dynamic Slide Tag (No Border, Slider Count Number Removed) -->
-                  <div class="absolute top-4 left-4 z-40 pointer-events-none">
-                    <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-950/80 backdrop-blur-md text-white text-xs font-semibold shadow-lg pointer-events-auto">
-                      <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-                      <span id="hero-slide-tag" class="text-teal-300 font-bold">01 · Clinical Evaluation</span>
-                    </div>
-                  </div>
-
                   <!-- 5 Slides in Vertical 3D Stack (Borderless Cards) -->
                   
                   <!-- Slide 1: 01 · Clinical Evaluation -->
@@ -412,7 +398,7 @@
         
         <!-- Story Intro: Two-Column Narrative -->
         <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-16 lg:mb-20">
-          <div class="lg:col-span-5 relative">
+          <div class="lg:col-span-6 relative">
             <div class="rounded-3xl overflow-hidden shadow-lg border border-slate-200/90 dark:border-slate-800 bg-slate-100 dark:bg-slate-800">
               <img src="assets/images/about/story-beginning.jpg" alt="Physiotherapist discussing patient care history" class="w-full h-[360px] object-cover">
             </div>
@@ -421,7 +407,7 @@
             </div>
           </div>
           
-          <div class="lg:col-span-7 space-y-6">
+          <div class="lg:col-span-6 space-y-6">
             <span class="text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">OUR STORY &amp; ORIGINS</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading leading-tight">
               A Purpose Built Around Better Movement.
@@ -528,7 +514,7 @@
         <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           <!-- Left Large Editorial Photograph -->
-          <div class="lg:col-span-5 relative">
+          <div class="lg:col-span-6 relative">
             <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-800">
               <img src="assets/images/about/philosophy-person.jpg" alt="Physiotherapist discussing recovery care with patient" class="w-full h-[460px] sm:h-[520px] object-cover">
             </div>
@@ -765,7 +751,7 @@
             <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
               
               <!-- Left Content -->
-              <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+              <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
                 
                 <!-- Eyebrow Pill -->
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/80 border border-teal-200/90 dark:border-teal-800/80 text-teal-700 dark:text-teal-300 text-xs font-bold uppercase tracking-wider shadow-sm">
@@ -954,8 +940,6 @@
       const slides = Array.from(container.querySelectorAll('.stacked-slide'));
       const bgSlides = Array.from(document.querySelectorAll('.hero-bg-slide'));
       const dots = Array.from(container.querySelectorAll('.hero-dot'));
-      const tagBadge = document.getElementById('hero-slide-tag');
-      const progress = document.getElementById('hero-slide-progress');
       const prevBtn = document.getElementById('hero-slider-prev');
       const nextBtn = document.getElementById('hero-slider-next');
 
@@ -965,8 +949,6 @@
       let currentIndex = 0;
       const intervalTime = 4500;
       let timer = null;
-      let progressTimer = null;
-      let progressStartTime = Date.now();
       let isPaused = false;
 
       function renderSlides() {
@@ -979,9 +961,6 @@
           if (diff === 0) {
             slide.classList.add('is-active');
             slide.setAttribute('aria-hidden', 'false');
-            if (tagBadge) {
-              tagBadge.textContent = slide.getAttribute('data-tag') || `0${idx + 1} · Story`;
-            }
           } else if (diff === total - 1) {
             slide.classList.add('is-prev');
             slide.setAttribute('aria-hidden', 'true');
@@ -1028,8 +1007,6 @@
             dot.removeAttribute('aria-current');
           }
         });
-
-        resetProgress();
       }
 
       function goToSlide(newIndex) {
@@ -1045,23 +1022,8 @@
         goToSlide(currentIndex - 1);
       }
 
-      function resetProgress() {
-        if (progress) progress.style.width = '0%';
-        progressStartTime = Date.now();
-      }
-
-      function stepProgress() {
-        if (!isPaused && progress) {
-          const elapsed = Date.now() - progressStartTime;
-          const pct = Math.min(100, (elapsed / intervalTime) * 100);
-          progress.style.width = pct + '%';
-        }
-        progressTimer = requestAnimationFrame(stepProgress);
-      }
-
       function startAutoSlide() {
         clearInterval(timer);
-        resetProgress();
         timer = setInterval(() => {
           if (!isPaused) {
             nextSlide();
@@ -1114,8 +1076,6 @@
 
       container.addEventListener('mouseleave', () => {
         isPaused = false;
-        const currentPct = parseFloat(progress?.style.width || '0');
-        progressStartTime = Date.now() - ((currentPct / 100) * intervalTime);
       });
 
       // Keyboard navigation (Up/Down & Left/Right)
@@ -1160,7 +1120,6 @@
       // Initialize
       renderSlides();
       startAutoSlide();
-      stepProgress();
     });
   </script>
 </body>
