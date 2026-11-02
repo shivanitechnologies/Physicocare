@@ -228,71 +228,156 @@
 
   <main class="flex-grow pt-20">
 
-    <!-- 1. Hero Section (Classic Split: Left Text + Right Treatment Photo) -->
-    <section class="relative overflow-hidden pt-12 pb-16 lg:py-24 bg-gradient-to-b from-teal-50/40 via-white to-slate-50 dark:from-[#0d1620] dark:via-[#090D12] dark:to-[#090D12]">
+        <!-- 1. Hero Section (Premium Asymmetrical Split: Left Copy & Metrics + Right Cinematic Slider) -->
+    <section class="relative overflow-hidden pt-12 pb-16 lg:py-24 bg-gradient-to-b from-teal-50/40 via-white to-slate-50 dark:from-[#080D12] dark:via-[#0E1722] dark:to-[#101D24] transition-colors border-b border-slate-100 dark:border-slate-800/80">
+      
+      <!-- Ambient Lighting & Decorative Concentric Outlines (Subtle in Dark Mode) -->
+      <div class="absolute -top-32 -right-24 w-[650px] h-[550px] bg-teal-500/15 dark:bg-teal-400/10 blur-3xl rounded-full -z-10 pointer-events-none"></div>
+      <div class="absolute top-1/2 -left-28 -translate-y-1/2 w-[500px] h-[450px] bg-emerald-500/10 dark:bg-teal-600/5 blur-3xl rounded-full -z-10 pointer-events-none"></div>
+      <div class="absolute top-1/2 right-12 -translate-y-1/2 w-[550px] h-[550px] rounded-full border border-teal-500/10 dark:border-teal-400/10 pointer-events-none -z-10 hidden lg:block"></div>
+      <div class="absolute top-1/2 right-28 -translate-y-1/2 w-[420px] h-[420px] rounded-full border border-teal-500/5 dark:border-teal-400/5 pointer-events-none -z-10 hidden lg:block"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(#0f766e_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] dark:opacity-[0.05] pointer-events-none -z-10"></div>
+
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           
           <!-- Left Column: Copy & Actions (Centered on Mobile, Left on Desktop) -->
-          <div class="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/80 border border-teal-200 dark:border-teal-800 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider mx-auto lg:mx-0">
+          <div class="lg:col-span-6 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
+            
+            <!-- Category Badge -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/80 border border-teal-200 dark:border-teal-800 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider mx-auto lg:mx-0 shadow-2xs">
               <span class="w-2 h-2 rounded-full bg-teal-600 dark:bg-teal-400 animate-pulse"></span>
-              Doctor-Led Rehabilitation Clinic
+              DOCTOR-LED REHABILITATION CLINIC
             </div>
 
+            <!-- Main Heading with Natural Linebreak & Color Accent -->
             <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.14] font-heading">
               Move Better. <br class="hidden sm:inline">
-              <span class="text-teal-700 dark:text-teal-400">Live Better</span> Without Limits.
+              <span class="text-teal-600 dark:text-teal-400">Live Better.</span> Without Limits.
             </h1>
 
+            <!-- Lead Description (Natural phrasing as requested) -->
             <p class="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Personalized physiotherapy and structured rehabilitation programs designed to eliminate chronic pain, accelerate surgical recovery, and restore lifelong functional mobility.
+              Personalized physiotherapy and rehabilitation designed to improve mobility, build strength and help you return to the activities you enjoy.
             </p>
 
             <!-- Dual CTAs -->
             <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
-              <a href="appointment.html" class="btn-primary btn-lg w-full sm:w-auto">
+              <a href="appointment.html" class="btn-primary btn-lg w-full sm:w-auto shadow-md shadow-teal-700/20 group">
                 <span>Book an Appointment</span>
-                <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                <svg class="w-4 h-4 rtl-flip group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
               </a>
-              <a href="services.html" class="btn-secondary btn-lg w-full sm:w-auto">
-                <span>Explore Our Services</span>
+              <a href="services.html" class="btn-secondary btn-lg w-full sm:w-auto group">
+                <span>Explore Services</span>
+                <svg class="w-4 h-4 rtl-flip group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
               </a>
             </div>
 
-            <!-- Trust Highlights -->
+            <!-- Trust Metrics Highlights (15+ Yrs, 1:1, 4.9★) -->
             <div class="pt-6 border-t border-slate-200/80 dark:border-slate-800/80 grid grid-cols-3 gap-3 sm:gap-4 max-w-lg w-full mx-auto lg:mx-0 text-center">
               <div>
-                <p class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-heading">15+ <span class="text-teal-600 text-xs sm:text-sm">Yrs</span></p>
-                <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium">Clinical Excellence</p>
+                <p class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-heading">15+ <span class="text-teal-600 dark:text-teal-400 text-xs sm:text-sm">Yrs</span></p>
+                <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium">Clinical Experience</p>
               </div>
               <div>
-                <p class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-heading">14,000+</p>
-                <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium">Recoveries Guided</p>
+                <p class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-heading">1:1</p>
+                <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium">Personalized Care</p>
               </div>
               <div>
-                <p class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-heading">98.4%</p>
-                <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium">Patient Satisfaction</p>
+                <p class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-heading">4.9 <span class="text-amber-400 text-sm">★</span></p>
+                <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium">Patient Rating</p>
               </div>
             </div>
 
           </div>
 
-          <!-- Right Column: High Quality Treatment Image & Floating Cards -->
-          <div class="lg:col-span-5 relative">
-            <div class="relative mx-auto max-w-md lg:max-w-none">
-              <div class="overflow-hidden rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-2xl bg-white dark:bg-slate-800">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Physiotherapist treating patient spine and shoulder" class="w-full h-[420px] sm:h-[480px] object-cover">
-              </div>
-
-              <!-- Floating Stat Card 1 -->
-              <div class="absolute -bottom-4 sm:-bottom-6 left-3 sm:-left-6 right-3 sm:right-auto p-3.5 sm:p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-xl flex items-center gap-3 sm:gap-3.5 max-w-xs mx-auto sm:mx-0">
-                <div class="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center shrink-0">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <!-- Right Column: Premium Asymmetric Image Slider Stage (~50%) -->
+          <div class="lg:col-span-6 relative pt-4 pb-12 sm:pb-8 lg:py-6">
+            <div class="home1-hero-stage relative w-full select-none">
+              
+              <!-- Floating Trust Badge: Personalized Treatment with Shield/Check Icon -->
+              <div class="home1-trust-badge absolute -top-4 right-1 sm:-top-5 sm:-right-4 z-30 flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border border-teal-200/80 dark:border-teal-700/60 shadow-xl">
+                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                 </div>
                 <div>
-                  <p class="text-xs font-bold text-slate-900 dark:text-white leading-tight">Same-Week Evaluation</p>
-                  <p class="text-[11px] text-slate-500 dark:text-slate-400">Direct booking, no referral needed</p>
+                  <p class="text-[11px] sm:text-xs font-bold text-slate-900 dark:text-white font-heading leading-tight">Personalized Treatment</p>
+                  <p class="text-[9px] sm:text-[11px] text-teal-700 dark:text-teal-400 font-semibold">1-on-1 Dedicated Specialist</p>
+                </div>
+              </div>
+
+              <!-- Main Automatic Slider -->
+              <div id="home1-hero-slider" class="home1-main-slider relative w-full h-[370px] sm:h-[440px] lg:h-[480px] rounded-[26px] overflow-hidden shadow-2xl border border-white/80 dark:border-teal-500/30 bg-slate-100 dark:bg-slate-800">
+                
+                <!-- Slide 1: Assisted Stretching (Option 1 selected by user) -->
+                <div class="home1-slide active" data-index="0" data-label="01 · Assisted Stretching" data-desc="Therapist-Assisted Leg Mobility & Stretching">
+                  <img src="assets/images/home1/hero1_opt1_stretch.jpg" alt="Assisted stretching and gentle joint mobilization" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                </div>
+
+                <!-- Slide 2: Hands-on Personalized Treatment -->
+                <div class="home1-slide" data-index="1" data-label="02 · Personalized Treatment" data-desc="Hands-on Physical Therapy & Joint Alignment">
+                  <img src="assets/images/home1/hero1_slide2.jpg" alt="Hands-on physical therapy session" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                </div>
+
+                <!-- Slide 3: Supervised Guided Rehabilitation -->
+                <div class="home1-slide" data-index="2" data-label="03 · Guided Rehabilitation" data-desc="Supervised Therapeutic Exercise & Gait Training">
+                  <img src="assets/images/home1/hero1_opt2_rehab.jpg" alt="Supervised therapeutic exercise" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                </div>
+
+                <!-- Slide 4: Functional Movement & Strength -->
+                <div class="home1-slide" data-index="3" data-label="04 · Movement & Strength" data-desc="Active Balance, Mobility & Functional Strength">
+                  <img src="assets/images/home1/hero1_slide4.jpg" alt="Functional movement training and fall prevention" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                </div>
+
+                <!-- Active Slide Pill Badge (Top-Left) -->
+                <div class="absolute top-4 left-3 sm:left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md text-white border border-white/15 shadow-md max-w-[210px] sm:max-w-none">
+                  <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse shrink-0"></span>
+                  <span id="home1-active-badge" class="text-[10px] sm:text-xs font-bold font-heading tracking-wide truncate">01 · Assisted Stretching</span>
+                  <span class="text-white/30 text-xs hidden sm:inline">|</span>
+                  <span id="home1-counter-current" class="text-[10px] sm:text-[11px] font-bold text-teal-300 shrink-0">01 / 04</span>
+                </div>
+
+                <!-- Slide Indicators & Controls Bar (Bottom-Right) -->
+                <div class="absolute bottom-5 right-4 sm:right-5 z-20 flex items-center gap-2 sm:gap-3 bg-slate-900/75 backdrop-blur-md px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-2xl border border-white/15 shadow-lg">
+                  <!-- Numbered Slide Buttons (01, 02, 03, 04) -->
+                  <div class="flex items-center gap-1 sm:gap-1.5">
+                    <button type="button" class="home1-nav-btn active px-2 sm:px-2.5 py-0.5 rounded-lg text-[10px] sm:text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition" data-slide="0">01</button>
+                    <button type="button" class="home1-nav-btn px-2 sm:px-2.5 py-0.5 rounded-lg text-[10px] sm:text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition" data-slide="1">02</button>
+                    <button type="button" class="home1-nav-btn px-2 sm:px-2.5 py-0.5 rounded-lg text-[10px] sm:text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition" data-slide="2">03</button>
+                    <button type="button" class="home1-nav-btn px-2 sm:px-2.5 py-0.5 rounded-lg text-[10px] sm:text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition" data-slide="3">04</button>
+                  </div>
+                  <!-- Arrow Navigation -->
+                  <div class="flex items-center gap-1 border-l border-white/20 pl-2">
+                    <button type="button" class="home1-prev-btn w-6 h-6 rounded-full bg-white/20 hover:bg-white text-white hover:text-slate-900 flex items-center justify-center transition" aria-label="Previous slide">
+                      <svg class="w-3.5 h-3.5 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <button type="button" class="home1-next-btn w-6 h-6 rounded-full bg-white/20 hover:bg-white text-white hover:text-slate-900 flex items-center justify-center transition" aria-label="Next slide">
+                      <svg class="w-3.5 h-3.5 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Secondary Floating Treatment Card (Overlapping Bottom-Left) -->
+              <div class="home1-floating-card absolute -bottom-4 sm:-bottom-7 left-2 sm:-left-6 z-30 w-48 sm:w-56 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md rounded-2xl p-2 sm:p-2.5 shadow-2xl border border-slate-200/80 dark:border-slate-700/80">
+                <div class="relative h-20 sm:h-24 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-700">
+                  <img src="assets/images/home1/hero1_secondary.jpg" alt="Clinical assessment and hands-on therapy" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-1.5 left-2 px-2 py-0.5 rounded-md bg-teal-600/90 text-white text-[9px] font-bold uppercase tracking-wider shadow-2xs">
+                    Active Recovery
+                  </span>
+                </div>
+                <div class="pt-2 px-1 flex items-center justify-between">
+                  <div>
+                    <p class="text-[11px] sm:text-xs font-bold text-slate-900 dark:text-white font-heading leading-tight">Clinical Assessment</p>
+                    <p class="text-[9px] sm:text-[10px] text-teal-700 dark:text-teal-400 font-semibold">Guided 1:1 Care</p>
+                  </div>
+                  <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-teal-50 dark:bg-teal-950/80 text-teal-600 dark:text-teal-400 flex items-center justify-center text-[10px] sm:text-xs font-bold border border-teal-200/60 dark:border-teal-800/60">✓</span>
                 </div>
               </div>
 
@@ -1750,5 +1835,101 @@
   <script src="assets/js/demo-data.js"></script>
   <script src="assets/js/storage.js"></script>
   <script src="assets/js/app.js"></script>
+  <!-- Home 1 Hero Image Slider Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const slider = document.getElementById('home1-hero-slider');
+      if (!slider) return;
+
+      const slides = slider.querySelectorAll('.home1-slide');
+      const navBtns = slider.querySelectorAll('.home1-nav-btn');
+      const prevBtn = slider.querySelector('.home1-prev-btn');
+      const nextBtn = slider.querySelector('.home1-next-btn');
+      const activeBadge = document.getElementById('home1-active-badge');
+      const counterCurrent = document.getElementById('home1-counter-current');
+
+      if (slides.length === 0) return;
+
+      let currentIndex = 0;
+      let intervalId = null;
+      const slideDuration = 5000;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+
+        navBtns.forEach((btn, i) => {
+          btn.classList.toggle('active', i === index);
+        });
+
+        const activeSlide = slides[index];
+        if (activeSlide) {
+          const label = activeSlide.getAttribute('data-label');
+          if (activeBadge && label) {
+            activeBadge.textContent = label;
+          }
+        }
+
+        if (counterCurrent) {
+          counterCurrent.textContent = String(index + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+        }
+
+        currentIndex = index;
+      }
+
+      function nextSlide() {
+        const next = (currentIndex + 1) % slides.length;
+        showSlide(next);
+      }
+
+      function prevSlide() {
+        const prev = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(prev);
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        intervalId = setInterval(nextSlide, slideDuration);
+      }
+
+      function stopAutoplay() {
+        if (intervalId) {
+          clearInterval(intervalId);
+          intervalId = null;
+        }
+      }
+
+      navBtns.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+          showSlide(idx);
+          startAutoplay();
+        });
+      });
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          nextSlide();
+          startAutoplay();
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          prevSlide();
+          startAutoplay();
+        });
+      }
+
+      slider.addEventListener('mouseenter', stopAutoplay);
+      slider.addEventListener('mouseleave', startAutoplay);
+
+      // Initialize
+      showSlide(0);
+      startAutoplay();
+    });
+  </script>
 </body>
 </html>
