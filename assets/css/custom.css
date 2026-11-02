@@ -884,3 +884,212 @@ html.no-js .reveal-fade {
     animation: none !important;
   }
 }
+
+
+/* ==========================================================================
+   Vertical 3D Stacked Image Slider (About Hero Section)
+   ========================================================================== */
+
+.stacked-slider-viewport {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  user-select: none;
+}
+
+@media (min-width: 640px) {
+  .stacked-slider-viewport {
+    height: 520px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stacked-slider-viewport {
+    height: 540px;
+  }
+}
+
+.stacked-slider-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 50%, rgba(15, 118, 110, 0.08) 0%, rgba(15, 23, 42, 0.45) 100%);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.dark .stacked-slider-stage {
+  background: radial-gradient(circle at 50% 50%, rgba(15, 118, 110, 0.14) 0%, rgba(9, 13, 18, 0.9) 100%);
+  border-color: rgba(39, 52, 68, 0.7);
+}
+
+/* Slide item */
+.stacked-slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 440px;
+  height: 280px;
+  cursor: pointer;
+  transform-origin: center center;
+  transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+              filter 800ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity, filter;
+  touch-action: pan-y;
+}
+
+@media (min-width: 640px) {
+  .stacked-slide {
+    height: 305px;
+  }
+}
+
+.stacked-slide-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: #0f172a;
+  transition: border-radius 800ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 400ms ease;
+}
+
+.stacked-slide-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* State: Active (Center) */
+.stacked-slide.is-active {
+  transform: translate(-50%, -50%) translateY(0) scale(1) rotateX(0deg);
+  opacity: 1;
+  filter: blur(0px);
+  z-index: 30;
+  pointer-events: auto;
+  cursor: default;
+  box-shadow: 0 25px 50px -12px rgba(15, 118, 110, 0.28),
+              0 12px 24px -8px rgba(0, 0, 0, 0.4);
+}
+
+.stacked-slide.is-active .stacked-slide-card {
+  border-radius: 28px;
+  border-color: rgba(45, 212, 191, 0.5);
+}
+
+.stacked-slide.is-active .stacked-slide-card img {
+  transform: scale(1.04);
+}
+
+/* State: Previous (Top) */
+.stacked-slide.is-prev {
+  transform: translate(-50%, -50%) translateY(-105px) scale(0.82) rotateX(4deg);
+  opacity: 0.48;
+  filter: blur(0.6px);
+  z-index: 10;
+  pointer-events: auto;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+}
+
+.stacked-slide.is-prev:hover {
+  opacity: 0.75;
+  filter: blur(0px);
+}
+
+.stacked-slide.is-prev .stacked-slide-card {
+  border-radius: 22px;
+}
+
+/* State: Next (Bottom) */
+.stacked-slide.is-next {
+  transform: translate(-50%, -50%) translateY(105px) scale(0.82) rotateX(-4deg);
+  opacity: 0.48;
+  filter: blur(0.6px);
+  z-index: 10;
+  pointer-events: auto;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+}
+
+.stacked-slide.is-next:hover {
+  opacity: 0.75;
+  filter: blur(0px);
+}
+
+.stacked-slide.is-next .stacked-slide-card {
+  border-radius: 22px;
+}
+
+/* State: Hidden Top */
+.stacked-slide.is-hidden-top {
+  transform: translate(-50%, -50%) translateY(-230px) scale(0.68) rotateX(8deg);
+  opacity: 0;
+  filter: blur(2px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* State: Hidden Bottom */
+.stacked-slide.is-hidden-bottom {
+  transform: translate(-50%, -50%) translateY(230px) scale(0.68) rotateX(-8deg);
+  opacity: 0;
+  filter: blur(2px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Slide Caption Overlay */
+.stacked-slide .stacked-caption {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.stacked-slide.is-active .stacked-caption {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 639px) {
+  .stacked-slide {
+    width: 92%;
+    height: 260px;
+  }
+  .stacked-slide.is-prev {
+    transform: translate(-50%, -50%) translateY(-80px) scale(0.84) rotateX(3deg);
+    opacity: 0.42;
+  }
+  .stacked-slide.is-next {
+    transform: translate(-50%, -50%) translateY(80px) scale(0.84) rotateX(-3deg);
+    opacity: 0.42;
+  }
+  .stacked-slide.is-hidden-top {
+    transform: translate(-50%, -50%) translateY(-180px) scale(0.70);
+  }
+  .stacked-slide.is-hidden-bottom {
+    transform: translate(-50%, -50%) translateY(180px) scale(0.70);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stacked-slide {
+    transition-duration: 0.01ms !important;
+  }
+  .stacked-slide.is-active .stacked-slide-card img {
+    transform: none !important;
+  }
+}
