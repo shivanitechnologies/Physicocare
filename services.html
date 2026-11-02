@@ -228,10 +228,10 @@
   <main class="flex-grow pt-20">
     
     <!-- Services Hero Section with Looping Background Video & Left-Aligned Text -->
-    <section class="relative min-h-[500px] sm:min-h-[540px] lg:min-h-[580px] flex items-center py-14 sm:py-16 lg:py-20 overflow-hidden">
+    <section class="relative min-h-[540px] sm:min-h-[580px] lg:min-h-[640px] flex items-center py-16 sm:py-20 lg:py-24 overflow-hidden">
       <!-- Looping Background Video Layer with Crisp Opacity & Precise Framing -->
       <div class="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none">
-        <video autoplay loop muted playsinline preload="auto" poster="assets/images/services/services-video-poster.jpg" class="w-full h-full object-cover object-[75%_12%] sm:object-[80%_15%] lg:object-[82%_18%] scale-100">
+        <video autoplay loop muted playsinline preload="auto" poster="assets/images/services/services-video-poster.jpg" id="services-hero-video" class="w-full h-full object-cover object-[82%_50%] sm:object-[84%_50%] lg:object-[85%_50%] scale-105 transition-all duration-700">
           <source src="assets/videos/services-hero.mp4" type="video/mp4">
         </video>
         
@@ -239,7 +239,7 @@
         <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent dark:from-[#090D12]/95 dark:via-[#090D12]/80 dark:to-transparent w-full lg:w-3/5 rtl:right-0 rtl:left-auto rtl:from-transparent rtl:via-white/80 rtl:to-white/95 rtl:dark:from-transparent rtl:dark:via-[#090D12]/80 rtl:dark:to-[#090D12]/95"></div>
         
         <!-- Minimal Slim Bottom Vignette (h-12 only) so the patient and therapy action are not obscured -->
-        <div class="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-[#F5F7FA] to-transparent dark:from-[#090D12] dark:to-transparent"></div>
+        <div class="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#F5F7FA] via-[#F5F7FA]/40 to-transparent dark:from-[#090D12] dark:via-[#090D12]/40 dark:to-transparent pointer-events-none"></div>
       </div>
 
       <!-- Hero Content Container (Maintained on Left Side) -->
@@ -262,14 +262,20 @@
             Every session takes place in private clinical suites equipped with advanced diagnostic assessment and specialized rehabilitation tools &mdash; guided one-on-one by licensed physical therapists.
           </p>
 
-          <!-- Action CTA Buttons -->
+          <!-- Action CTA Buttons & Video Control -->
           <div class="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
-            <a href="#services-catalog" class="btn-primary shadow-md">
+            <a href="#services-catalog" class="btn-primary shadow-lg shadow-teal-700/20">
               <span>Explore All 10 Services &darr;</span>
             </a>
-            <a href="appointment.html" class="btn-secondary">
+            <a href="appointment.html" class="btn-secondary bg-white/95 dark:bg-slate-800/90 text-slate-800 dark:text-white border-slate-200 dark:border-slate-700 hover:border-teal-600 dark:hover:border-teal-400 shadow-sm backdrop-blur-md">
               <span>Book Doctoral Assessment &rarr;</span>
             </a>
+            <!-- Video Play / Pause Toggle Button -->
+            <button id="hero-video-toggle" type="button" aria-label="Toggle background video playback" class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-slate-900/60 hover:bg-slate-900/80 dark:bg-white/10 dark:hover:bg-white/20 text-white border border-white/20 text-xs font-bold backdrop-blur-md transition-all shadow-sm group">
+              <svg id="hero-video-icon-pause" class="w-3.5 h-3.5 text-teal-300" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              <svg id="hero-video-icon-play" class="w-3.5 h-3.5 text-teal-300 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <span id="hero-video-text">Pause Video</span>
+            </button>
           </div>
 
         </div>
@@ -724,5 +730,31 @@
   <script src="assets/js/demo-data.js"></script>
   <script src="assets/js/storage.js"></script>
   <script src="assets/js/app.js"></script>
+  <script>
+    // Hero Video Toggle Controller
+    document.addEventListener('DOMContentLoaded', () => {
+      const vid = document.getElementById('services-hero-video');
+      const btn = document.getElementById('hero-video-toggle');
+      const iconPause = document.getElementById('hero-video-icon-pause');
+      const iconPlay = document.getElementById('hero-video-icon-play');
+      const txt = document.getElementById('hero-video-text');
+      
+      if (vid && btn) {
+        btn.addEventListener('click', () => {
+          if (vid.paused) {
+            vid.play();
+            if (iconPause) iconPause.classList.remove('hidden');
+            if (iconPlay) iconPlay.classList.add('hidden');
+            if (txt) txt.textContent = 'Pause Video';
+          } else {
+            vid.pause();
+            if (iconPause) iconPause.classList.add('hidden');
+            if (iconPlay) iconPlay.classList.remove('hidden');
+            if (txt) txt.textContent = 'Play Video';
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
