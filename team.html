@@ -222,26 +222,35 @@
   <main class="flex-grow pt-20">
 
     <!-- ========================================================
-         SECTION 01: HERO  THE PEOPLE BEHIND YOUR RECOVERY
-         Elevated Medical Hero with Light Effects & Transparent Faculty Showcase
+         SECTION 01: HERO — THE PEOPLE BEHIND YOUR RECOVERY
+         Elevated Medical Hero with Architectural Background & Unified Faculty Showcase
          ======================================================== -->
-    <section class="relative py-16 lg:py-24 overflow-hidden bg-gradient-to-b from-[#F0FDF9] via-white to-[#F8FAFC] dark:from-[#070D14] dark:via-[#0E1726] dark:to-[#090D12] border-b border-slate-100 dark:border-slate-800 transition-colors">
+    <section class="relative py-16 lg:py-24 overflow-hidden bg-gradient-to-b from-[#F0FDF9] via-white to-[#F8FAFC] dark:from-[#061217] dark:via-[#091820] dark:to-[#070F14] border-b border-slate-100 dark:border-slate-800/80 transition-colors">
       
-      <!-- Radiant Light Effects: Layered Ambient Glow Orbs & Light Pillars -->
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-teal-400/20 dark:bg-teal-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-      <div class="absolute top-1/4 -left-32 w-96 h-96 bg-emerald-400/15 dark:bg-emerald-500/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
-      <div class="absolute bottom-10 right-0 w-80 h-80 bg-teal-500/15 dark:bg-teal-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-      <div class="absolute top-1/2 right-1/4 w-64 h-64 bg-cyan-300/20 dark:bg-cyan-500/5 rounded-full blur-2xl pointer-events-none -z-10"></div>
+      <!-- Ambient Architectural Clinic Background with Luxury Depth Vignette -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden -z-20">
+        <img src="assets/images/team/team-hero-bg.jpg" 
+             alt="" 
+             class="w-full h-full object-cover object-center opacity-15 dark:opacity-22 filter blur-[1px] scale-105">
+        <div class="absolute inset-0 bg-gradient-to-r from-[#F0FDF9] via-[#F0FDF9]/85 to-transparent dark:from-[#061217] dark:via-[#061217]/90 dark:to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC] via-transparent to-transparent dark:from-[#070F14] dark:via-transparent to-transparent"></div>
+      </div>
+
+      <!-- Radiant Light Effects: Layered Ambient Glow Orbs -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-teal-400/20 dark:bg-teal-500/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      <div class="absolute top-1/4 -left-32 w-96 h-96 bg-emerald-400/15 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      <div class="absolute bottom-10 right-0 w-80 h-80 bg-teal-500/20 dark:bg-teal-600/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      <div class="absolute top-1/2 right-1/4 w-72 h-72 bg-cyan-300/20 dark:bg-teal-400/10 rounded-full blur-2xl pointer-events-none -z-10"></div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          <!-- Left Column: Editorial Content (5 cols for broader visual balance) -->
+          <!-- Left Column: Editorial Content (5 cols) -->
           <div class="lg:col-span-5 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
             
             <!-- Category Badge -->
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 dark:bg-teal-950/80 border border-teal-200/90 dark:border-teal-800 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider mx-auto lg:mx-0 shadow-2xs">
-              <span class="w-2 h-2 rounded-full bg-teal-600 animate-pulse"></span>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 dark:bg-teal-950/80 backdrop-blur-md border border-teal-200/90 dark:border-teal-800 text-teal-800 dark:text-teal-300 text-xs font-bold uppercase tracking-wider mx-auto lg:mx-0 shadow-xs">
+              <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
               <span>MEET OUR SPECIALISTS</span>
             </div>
 
@@ -257,7 +266,7 @@
 
             <!-- CTA Row -->
             <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
-              <a href="#specialist-directory" class="btn-primary px-6 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 group shadow-sm w-full sm:w-auto">
+              <a href="#specialist-directory" class="btn-primary px-6 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 group shadow-lg shadow-teal-700/20 w-full sm:w-auto">
                 <span>Explore Our Specialists</span>
                 <svg class="w-4 h-4 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
               </a>
@@ -284,43 +293,28 @@
 
           </div>
 
-          <!-- Right Column: Grand Faculty Showcase (7 cols - Enhanced Size & Light Effects) -->
+          <!-- Right Column: Grand Faculty Showcase (7 cols - Unified, Seamless, Zero Cracks) -->
           <div class="lg:col-span-7 relative flex items-center justify-center">
             
-            <!-- Radiant Ambient Light Effects: Deepened Mint & Emerald Aura -->
-            <div class="absolute w-[600px] sm:w-[750px] lg:w-[850px] h-[450px] sm:h-[520px] -top-10 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-tr from-teal-400/35 via-emerald-300/25 to-teal-100/40 dark:from-teal-600/30 dark:via-emerald-500/20 dark:to-transparent blur-3xl pointer-events-none -z-10"></div>
-            <div class="absolute w-80 h-80 bottom-0 left-1/4 rounded-full bg-emerald-400/20 dark:bg-emerald-500/10 blur-2xl pointer-events-none -z-10"></div>
+            <!-- Radiant Ambient Aura behind doctors -->
+            <div class="absolute w-[600px] sm:w-[750px] lg:w-[850px] h-[450px] sm:h-[520px] -top-10 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-tr from-teal-400/30 via-emerald-300/20 to-teal-100/30 dark:from-teal-600/30 dark:via-emerald-500/20 dark:to-transparent blur-3xl pointer-events-none -z-10"></div>
             
-            <!-- Soft Floor Diffusion Light Effect (Blends bottom edge seamlessly into background) -->
-            <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-4/5 h-16 bg-gradient-to-r from-transparent via-teal-300/35 dark:via-teal-500/15 to-transparent blur-xl pointer-events-none -z-10"></div>
+            <!-- Soft Floor Diffusion Light Effect -->
+            <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-4/5 h-20 bg-gradient-to-r from-transparent via-teal-400/30 dark:via-teal-500/25 to-transparent blur-xl pointer-events-none -z-10"></div>
 
-            <!-- Staged Assembly Stage (Aspect Ratio 1024 / 583 - Max-w-3xl, Zero Border, Smooth Bottom Mask) -->
-            <div class="team-choreography-stage w-full max-w-xl sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto drop-shadow-[0_25px_45px_rgba(15,118,110,0.18)] dark:drop-shadow-[0_30px_50px_rgba(0,0,0,0.7)]">
+            <!-- Unified 5-Clinician Faculty Showcase (Seamless Single File - Zero Cracks or Cutout Splits) -->
+            <div class="team-faculty-stage relative w-full max-w-xl sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto flex items-center justify-center drop-shadow-[0_20px_45px_rgba(15,118,110,0.18)] dark:drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)]">
               
-              <!-- Layer 1: Outer Left Therapist (Enters from Left side) -->
-              <img src="assets/images/team/therapist-1-outer-left.png" 
-                   alt="PhysioCare Orthopedic Specialist" 
-                   class="team-layer team-layer-outer-left">
+              <!-- Floating Trust Badge -->
+              <div class="absolute -top-3 right-4 sm:right-8 z-20 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border border-teal-200/80 dark:border-teal-700/80 shadow-lg text-[11px] font-bold text-slate-800 dark:text-slate-100">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Doctoral Faculty &bull; 1-on-1 Sessions</span>
+              </div>
 
-              <!-- Layer 5: Outer Right Therapist (Enters from Right side) -->
-              <img src="assets/images/team/therapist-5-outer-right.png" 
-                   alt="PhysioCare Sports Medicine Specialist" 
-                   class="team-layer team-layer-outer-right">
-
-              <!-- Layer 2: Inner Left Therapist (Enters from Left side) -->
-              <img src="assets/images/team/therapist-2-inner-left.png" 
-                   alt="PhysioCare Senior Physical Therapist" 
-                   class="team-layer team-layer-inner-left">
-
-              <!-- Layer 4: Inner Right Therapist (Enters from Right side) -->
-              <img src="assets/images/team/therapist-4-inner-right.png" 
-                   alt="PhysioCare Neurological Rehabilitation Specialist" 
-                   class="team-layer team-layer-inner-right">
-
-              <!-- Layer 3: Center Lead Therapist (Enters Center First) -->
-              <img src="assets/images/team/therapist-3-center.png" 
-                   alt="PhysioCare Clinical Director" 
-                   class="team-layer team-layer-center">
+              <!-- High-Resolution Single Unified Cutout (1024x583) -->
+              <img src="assets/images/team/team-hero-faculty.png" 
+                   alt="PhysioCare Clinical Faculty Specialists" 
+                   class="team-unified-faculty w-full h-auto object-contain">
 
             </div>
 
