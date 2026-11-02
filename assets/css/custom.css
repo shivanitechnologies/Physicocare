@@ -616,10 +616,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ==========================================================================
    INTERACTIVE SCROLL & FADE-IN ANIMATION SYSTEM
-   Zero-dependency, hardware-accelerated animations for text, cards, and images
+   Zero-glitch, hardware-accelerated rendering without layout shifts or jumps
    ========================================================================== */
 
-/* Base initial hidden state with smooth physics curve */
+/* Eliminate jarring positional displacement / translation glitches on refresh */
 .reveal,
 .reveal-up,
 .reveal-down,
@@ -627,46 +627,12 @@ h1, h2, h3, h4, h5, h6 {
 .reveal-right,
 .reveal-zoom,
 .reveal-fade {
-  opacity: 0;
-  will-change: opacity, transform;
-  transition-property: opacity, transform;
-  transition-duration: 0.75s;
-  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
-/* Slide Up + Fade In (Default for headings, copy, cards) */
-.reveal,
-.reveal-up {
-  transform: translateY(28px);
-}
-
-/* Slide Down + Fade In */
-.reveal-down {
-  transform: translateY(-28px);
-}
-
-/* Slide from Left + Fade In */
-.reveal-left {
-  transform: translateX(-36px);
-}
-
-/* Slide from Right + Fade In */
-.reveal-right {
-  transform: translateX(36px);
-}
-
-/* Zoom / Scale In (Ideal for images, media showcases, and stats) */
-.reveal-zoom {
-  transform: scale(0.93);
-}
-
-/* Pure Smooth Fade In (Ideal for background glow, subtle text badges, tabs) */
-.reveal-fade {
-  transform: none;
-  transition-duration: 0.85s;
-}
-
-/* In-View Revealed State (Hardware-accelerated completion) */
+/* In-View Revealed State */
 .reveal.is-revealed,
 .reveal-up.is-revealed,
 .reveal-down.is-revealed,
@@ -675,28 +641,9 @@ h1, h2, h3, h4, h5, h6 {
 .reveal-zoom.is-revealed,
 .reveal-fade.is-revealed {
   opacity: 1 !important;
-  transform: translate(0, 0) scale(1) !important;
+  transform: none !important;
   will-change: auto;
 }
-
-/* Cascade Stagger Timing Delays */
-.delay-50  { transition-delay: 50ms; }
-.delay-75  { transition-delay: 75ms; }
-.delay-100 { transition-delay: 100ms; }
-.delay-150 { transition-delay: 150ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-225 { transition-delay: 225ms; }
-.delay-250 { transition-delay: 250ms; }
-.delay-300 { transition-delay: 300ms; }
-.delay-350 { transition-delay: 350ms; }
-.delay-375 { transition-delay: 375ms; }
-.delay-400 { transition-delay: 400ms; }
-.delay-450 { transition-delay: 450ms; }
-.delay-500 { transition-delay: 500ms; }
-.delay-525 { transition-delay: 525ms; }
-.delay-600 { transition-delay: 600ms; }
-.delay-700 { transition-delay: 700ms; }
-.delay-800 { transition-delay: 800ms; }
 
 /* Subtle floating pulse animation for badges & floating cards */
 @keyframes floatGentle {
@@ -806,59 +753,59 @@ html.no-js .reveal-fade {
     floatLoopOuterRight 5.4s ease-in-out 1.8s infinite alternate;
 }
 
-/* Entrance Keyframes: Center, Left Sides, and Right Sides */
+/* Entrance Keyframes: Center, Left Sides, and Right Sides (Zero-Glitch Soft Fade) */
 @keyframes enterCenterTherapist {
   0% {
     opacity: 0;
-    transform: translateY(65px) scale(0.9);
+    transform: translateY(8px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
 @keyframes enterInnerLeftTherapist {
   0% {
     opacity: 0;
-    transform: translateX(-150px) translateY(25px) scale(0.92);
+    transform: translateY(8px);
   }
   100% {
     opacity: 1;
-    transform: translate(0, 0) scale(1);
+    transform: translateY(0);
   }
 }
 
 @keyframes enterInnerRightTherapist {
   0% {
     opacity: 0;
-    transform: translateX(150px) translateY(25px) scale(0.92);
+    transform: translateY(8px);
   }
   100% {
     opacity: 1;
-    transform: translate(0, 0) scale(1);
+    transform: translateY(0);
   }
 }
 
 @keyframes enterOuterLeftTherapist {
   0% {
     opacity: 0;
-    transform: translateX(-260px) translateY(35px) scale(0.88);
+    transform: translateY(8px);
   }
   100% {
     opacity: 1;
-    transform: translate(0, 0) scale(1);
+    transform: translateY(0);
   }
 }
 
 @keyframes enterOuterRightTherapist {
   0% {
     opacity: 0;
-    transform: translateX(260px) translateY(35px) scale(0.88);
+    transform: translateY(8px);
   }
   100% {
     opacity: 1;
-    transform: translate(0, 0) scale(1);
+    transform: translateY(0);
   }
 }
 
