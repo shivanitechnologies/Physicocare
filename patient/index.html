@@ -148,16 +148,17 @@
       <!-- Top Header Navigation Bar (72px height, matching Admin Dashboard) -->
       <header class="h-[72px] sticky top-0 z-30 bg-white/90 dark:bg-[#151F2E]/90 backdrop-blur border-b border-slate-200 dark:border-slate-800 px-6 flex items-center justify-between">
         
-        <!-- Left: Mobile Menu Toggle & Title -->
-        <div class="flex items-center gap-4">
-          <button onclick="toggleMobileSidebar()" class="md:hidden p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
+        <!-- Left: Mobile Menu Toggle & Portal Status Badge -->
+        <div class="flex items-center gap-3">
+          <button onclick="toggleMobileSidebar()" class="md:hidden p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition" aria-label="Toggle navigation menu">
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
           </button>
-          <div>
-            <h1 class="text-base md:text-lg font-bold text-slate-900 dark:text-white font-heading" id="portal-tab-title">Patient Dashboard</h1>
-            <p class="text-[11px] text-slate-400 hidden sm:block">Your PhysioCare recovery space</p>
+          <div class="flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="hidden sm:inline">PhysioCare Recovery Portal &bull;</span>
+            <span>Suite Care Active</span>
           </div>
         </div>
 
@@ -237,6 +238,20 @@
 
       <!-- Dashboard Tab Views Container -->
       <div class="p-6 md:p-8 space-y-8 max-w-7xl mx-auto w-full">
+
+        <!-- Main Section Header: Dynamic Page Heading & Subtitle -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-slate-800/80">
+          <div>
+            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight" id="portal-tab-title"><bdi>Patient Portal Overview</bdi></h1>
+            <p class="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1" id="portal-tab-subtitle"><bdi>Your PhysioCare recovery space &amp; rehabilitation overview</bdi></p>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-teal-50 dark:bg-teal-950/60 border border-teal-200/80 dark:border-teal-800/60 text-teal-800 dark:text-teal-300 text-xs font-bold shadow-xs">
+              <span class="w-2 h-2 rounded-full bg-teal-600 animate-pulse"></span>
+              <span>MRN #PAT-101 &bull; Active Protocol</span>
+            </span>
+          </div>
+        </div>
 
         <!-- ========================================== -->
         <!-- TAB 1: OVERVIEW -->
@@ -1480,8 +1495,24 @@
         }
       });
 
+      const TAB_SUBTITLES = {
+        overview: 'Your PhysioCare recovery space & rehabilitation overview',
+        appointments: 'Manage and review your 1-on-1 doctoral clinical rehabilitation sessions',
+        plans: 'Tailored rehabilitation protocols, target mobility goals, and timeline',
+        recovery: 'Clinician-verified flexion benchmarks, mobility index, and pain trajectory',
+        therapist: 'Doctor of Physical Therapy and clinical rehabilitation team',
+        records: 'HIPAA-compliant treatment notes, intake records, and physician summaries',
+        exercises: 'Doctor-guided daily home rehabilitation exercises and video instructions',
+        payments: 'Itemized superbills, CMS-1500 claims, and HSA/FSA statements',
+        messages: 'Secure, direct communication channel with your physical therapy team',
+        profile: 'Personal contact details, insurance policy, and emergency intake info',
+        help: 'Frequently asked clinical questions, hotline, and suite hours'
+      };
+
       const titleEl = document.getElementById('portal-tab-title');
-      if (titleEl) titleEl.textContent = TAB_TITLES[tabId] || 'Patient Portal';
+      if (titleEl) titleEl.innerHTML = `<bdi>${TAB_TITLES[tabId] || 'Patient Dashboard'}</bdi>`;
+      const subEl = document.getElementById('portal-tab-subtitle');
+      if (subEl) subEl.innerHTML = `<bdi>${TAB_SUBTITLES[tabId] || 'Your PhysioCare recovery space'}</bdi>`;
       if (window.triggerRevealCheck) setTimeout(window.triggerRevealCheck, 60);
 
       // Re-trigger chart render on tab view
