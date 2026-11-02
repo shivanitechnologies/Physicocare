@@ -46,6 +46,8 @@
   <link rel="stylesheet" href="../assets/css/custom.css">
   <link rel="stylesheet" href="../assets/css/dashboard.css">
   <link rel="icon" type="image/svg+xml" href="../assets/images/logo-mark.svg">
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     /* Premium scrollbars */
@@ -131,7 +133,7 @@
 
       <!-- Bottom Logout (Clean, Prominent & Sized for Ease of Access) -->
       <div class="p-4 border-t border-slate-100 dark:border-slate-800">
-        <button onclick="handleLogout()" class="w-full h-[50px] flex items-center gap-3 px-4 rounded-2xl text-[15.5px] font-bold text-rose-600 hover:text-rose-700 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-all duration-150 text-left group">
+        <button onclick="handleLogout()" class="w-full h-[50px] flex items-center gap-3 px-4 rounded-2xl text-[15.5px] font-bold text-rose-600 hover:text-rose-700 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-all duration-150 text-start group">
           <svg class="w-5 h-5 flex-shrink-0 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
           </svg>
@@ -168,6 +170,9 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
             </svg>
           </a>
+
+                    <!-- RTL Switcher -->
+          <button type="button" onclick="toggleDirection()" class="rtl-toggle-btn p-2.5 rounded-full border border-slate-200 dark:border-slate-700/80 bg-white dark:bg-slate-800/80 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition shadow-sm font-bold text-xs" title="Toggle RTL">⇄</button>
 
           <!-- Dark / Light Theme Toggle -->
           <button onclick="togglePortalTheme()" class="p-2.5 rounded-full border border-slate-200 dark:border-slate-700/80 bg-white dark:bg-slate-800/80 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition shadow-sm" title="Toggle Dark/Light Mode">
@@ -265,8 +270,8 @@
                   <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
               </div>
-              <h3 class="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">8 <span class="text-base font-bold text-slate-400">/ 12 planned</span></h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 font-semibold">4 sessions to maintenance phase</p>
+              <h3 class="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight"><bdi>8 <span class="text-base font-bold text-slate-400">/ 12 planned</span></bdi></h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 font-semibold"><bdi>4 sessions to maintenance phase</bdi></p>
             </div>
 
             <!-- Card 3: Recovery Progress -->
@@ -279,7 +284,7 @@
               </div>
               <h3 class="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">67%</h3>
               <p class="text-sm text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1.5">
-                <span>↑ +14%</span>
+                <span><bdi>↑ +14%</bdi></span>
                 <span class="text-slate-500 dark:text-slate-400 font-medium">Clinician verified flexion gain</span>
               </p>
             </div>
@@ -309,22 +314,22 @@
                       <h4 class="text-lg font-extrabold text-slate-900 dark:text-white">Spine & Posture Care</h4>
                       <p class="text-sm font-semibold text-slate-600 dark:text-slate-300">Dr. Elena Vance, DPT, OCS • Senior Spine Specialist</p>
                       <div class="flex items-center gap-3 mt-1 text-[11px] text-teal-700 dark:text-teal-400 font-semibold">
-                        <span>Suite 02 (Private Doctoral Suite)</span>
+                        <span><bdi>Suite 02 (Private Doctoral Suite)</bdi></span>
                         <span>•</span>
-                        <span>45 Mins Care</span>
+                        <span><bdi>45 Mins Care</bdi></span>
                       </div>
                     </div>
                   </div>
                   <div class="text-left sm:text-right space-y-1">
                     <p class="text-base font-extrabold text-slate-900 dark:text-white">Tomorrow, Nov 02</p>
-                    <p class="text-sm font-bold text-teal-600 dark:text-teal-400">10:30 AM – 11:15 AM</p>
+                    <p class="text-sm font-bold text-teal-600 dark:text-teal-400"><bdi class="time-text">10:30 AM – 11:15 AM</bdi></p>
                   </div>
                 </div>
 
                 <div class="flex items-center justify-between pt-2">
                   <button onclick="switchTab('appointments')" class="text-sm font-extrabold text-teal-700 dark:text-teal-400 hover:underline flex items-center gap-1.5">
                     <span>Manage all appointments</span>
-                    <span>→</span>
+                    <span class="rtl-flip">→</span>
                   </button>
                   <div class="flex items-center gap-2">
                     <button onclick="switchTab('messages')" class="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition">
@@ -425,16 +430,16 @@
                   <div>
                     <h4 class="text-xl font-extrabold text-slate-900 dark:text-white">Dr. Elena Vance</h4>
                     <p class="text-sm font-bold text-teal-700 dark:text-teal-400">DPT, OCS • Senior Spine Specialist</p>
-                    <p class="text-[11px] text-slate-400 mt-1">12+ Yrs Clinical Experience • Suite 02</p>
+                    <p class="text-[11px] text-slate-400 mt-1"><bdi>12+ Yrs Clinical Experience • Suite 02</bdi></p>
                   </div>
                 </div>
 
                 <div class="p-4 rounded-2xl bg-teal-50/60 dark:bg-slate-800/60 border border-teal-100 dark:border-slate-700 space-y-2">
                   <span class="text-[10px] font-bold text-teal-800 dark:text-teal-300 uppercase tracking-wider">Clinician Progress Note</span>
                   <p class="text-xs text-slate-700 dark:text-slate-300 italic leading-relaxed">
-                    "Pravin exhibits notable reduction in radiating leg discomfort. Lumbar flexion has improved from baseline 42° to 80°. Continue daily prescribed core stability exercises prior to Tuesday's progressive loading session."
+                    <bdi>"Pravin exhibits notable reduction in radiating leg discomfort. Lumbar flexion has improved from baseline 42° to 80°. Continue daily prescribed core stability exercises prior to Tuesday's progressive loading session."</bdi>
                   </p>
-                  <p class="text-[10px] text-slate-400 text-right">— Dr. Vance (Signed Oct 30, 2026)</p>
+                  <p class="text-[10px] text-slate-400 text-right"><bdi>— Dr. Vance (Signed Oct 30, 2026)</bdi></p>
                 </div>
 
                 <button onclick="switchTab('messages')" class="w-full py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs transition flex items-center justify-center gap-2">
@@ -447,7 +452,7 @@
               <div class="p-6 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
                 <div class="flex items-center justify-between">
                   <h3 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Recommended Exercises</h3>
-                  <button onclick="switchTab('exercises')" class="text-[11px] text-teal-700 dark:text-teal-400 font-bold hover:underline">View All →</button>
+                  <button onclick="switchTab('exercises')" class="text-[11px] text-teal-700 dark:text-teal-400 font-bold hover:underline">View All <span class="rtl-flip">→</span></button>
                 </div>
                 
                 <div class="space-y-2.5">
@@ -455,7 +460,7 @@
                     <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=200&q=80" alt="Bird-Dog" class="w-12 h-12 rounded-xl object-cover flex-shrink-0">
                     <div class="min-w-0 flex-1">
                       <h4 class="text-xs font-bold text-slate-900 dark:text-white truncate">Bird-Dog Core Stabilization</h4>
-                      <p class="text-[10px] text-slate-400">3 sets × 10 reps per side</p>
+                      <p class="text-[10px] text-slate-400"><bdi>3 sets × 10 reps per side</bdi></p>
                     </div>
                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">Daily</span>
                   </div>

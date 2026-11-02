@@ -139,7 +139,7 @@
           </a>
 
           <!-- RTL Switcher -->
-          <button type="button" class="rtl-toggle-btn w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-xs transition" title="Toggle RTL">⇄</button>
+          <button type="button" onclick="toggleDirection()" class="rtl-toggle-btn w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-xs transition" title="Toggle RTL">⇄</button>
           
           <!-- Theme Switcher -->
           <button type="button" class="theme-toggle-btn w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-xs transition" aria-label="Toggle theme">
@@ -169,7 +169,7 @@
           <!-- Welcome Section -->
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <h3 class="text-xl lg:text-2xl font-black text-slate-900 dark:text-white font-heading">Good morning, Clinic Admin!</h3>
+              <h3 class="text-xl lg:text-2xl font-black text-slate-900 dark:text-white font-heading"><bdi>Good morning, Clinic Admin!</bdi></h3>
               <p class="text-xs text-slate-500 dark:text-slate-400">Here is your clinic's performance overview and real-time operations monitor.</p>
             </div>
             <div class="flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">
@@ -186,7 +186,7 @@
                 <span class="text-xs px-2 py-0.5 rounded-full font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">Active</span>
               </div>
               <h4 class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2">1,250</h4>
-              <p class="text-[11px] text-slate-500 mt-1">98.4% retention rate</p>
+              <p class="text-[11px] text-slate-500 mt-1"><bdi>98.4% retention rate</bdi></p>
             </div>
 
             <div class="stat-card p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200/80 dark:border-slate-800 shadow-sm">
@@ -194,8 +194,8 @@
                 <p class="text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Today's Appointments</p>
                 <span class="w-2 h-2 rounded-full bg-teal-500"></span>
               </div>
-              <h4 class="text-2xl lg:text-3xl font-black text-teal-700 dark:text-teal-400 font-heading mt-2" id="admin-today-count">10 Sessions</h4>
-              <p class="text-[11px] text-teal-600 font-semibold mt-1">100% room occupancy</p>
+              <h4 class="text-2xl lg:text-3xl font-black text-teal-700 dark:text-teal-400 font-heading mt-2" id="admin-today-count"><bdi>10 Sessions</bdi></h4>
+              <p class="text-[11px] text-teal-600 font-semibold mt-1"><bdi>100% room occupancy</bdi></p>
             </div>
 
             <div class="stat-card p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200/80 dark:border-slate-800 shadow-sm">
@@ -203,16 +203,16 @@
                 <p class="text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Active Therapists</p>
                 <span class="text-xs text-slate-400 font-semibold">Faculty</span>
               </div>
-              <h4 class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2">12 On-Duty</h4>
-              <p class="text-[11px] text-slate-500 mt-1">4 Lead Doctoral PTs</p>
+              <h4 class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2"><bdi>12 On-Duty</bdi></h4>
+              <p class="text-[11px] text-slate-500 mt-1"><bdi>4 Lead Doctoral PTs</bdi></p>
             </div>
 
             <div class="stat-card p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200/80 dark:border-slate-800 shadow-sm">
               <div class="flex items-center justify-between">
                 <p class="text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Monthly Revenue</p>
-                <span class="text-xs px-2 py-0.5 rounded-full font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">↑ 12%</span>
+                <span class="text-xs px-2 py-0.5 rounded-full font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400"><bdi>↑ 12%</bdi></span>
               </div>
-              <h4 class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2">₹2,45,000</h4>
+              <h4 class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2"><bdi>₹2,45,000</bdi></h4>
               <p class="text-[11px] text-slate-500 mt-1">HSA &amp; Direct settlements</p>
             </div>
           </div>
@@ -227,7 +227,7 @@
                   <h4 class="text-sm font-bold text-slate-900 dark:text-white font-heading">Weekly Appointments Volume</h4>
                   <p class="text-xs text-slate-400">Mon – Sun patient session load across suites</p>
                 </div>
-                <span class="text-xs px-2.5 py-1 rounded-full bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 font-bold">148 Visits / Week</span>
+                <span class="text-xs px-2.5 py-1 rounded-full bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 font-bold"><bdi>148 Visits / Week</bdi></span>
               </div>
               <div class="h-60 relative">
                 <canvas id="weeklyAppointmentsChart"></canvas>
@@ -372,7 +372,7 @@
               </div>
               <button onclick="switchAdminTab('appointments')" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200/70 dark:border-teal-800/60 transition shadow-xs group flex-shrink-0">
                 <span>View Full Booking Ledger</span>
-                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform rtl-chevron-flip" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
               </button>
             </div>
             
@@ -1760,7 +1760,7 @@
             <td class="py-3.5 px-4 text-right">
               <button onclick="openPatientChartModal('${p.name}', '${p.diagnosis}', '${p.sessionsCompleted}', '${p.sessionsTotal}', '${p.recoveryScore}', '${p.assignedDoctor || 'Dr. Elena Vance, DPT'}')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 text-teal-700 dark:text-teal-300 font-bold text-xs border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs group">
                 <span>View Chart</span>
-                <svg class="w-3 h-3 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <svg class="w-3 h-3 transform group-hover:translate-x-0.5 transition-transform rtl-chevron-flip" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
               </button>
             </td>
           </tr>`;
@@ -1825,7 +1825,7 @@
             <td class="py-3.5 px-4 text-right">
               <button onclick="openPatientChartModal('${p.name}', '${p.diagnosis}', '${p.sessionsCompleted}', '${p.sessionsTotal}', '${p.recoveryScore}', '${p.assignedDoctor || 'Dr. Elena Vance, DPT'}')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 text-teal-700 dark:text-teal-300 font-bold text-xs border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs group">
                 <span>View Chart</span>
-                <svg class="w-3 h-3 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <svg class="w-3 h-3 transform group-hover:translate-x-0.5 transition-transform rtl-chevron-flip" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
               </button>
             </td>
           </tr>`;

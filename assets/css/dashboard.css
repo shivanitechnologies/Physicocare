@@ -180,3 +180,173 @@
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+
+/* ==========================================================================
+   PhysioCare - Clinical Portal & Dashboard RTL Mirroring Engine
+   Comprehensive bidirectional layout rules for Patient & Admin Dashboards
+   ========================================================================== */
+
+/* 1. Sidebar Positioning & Borders */
+[dir="rtl"] .portal-sidebar {
+  border-left: 1px solid #E2E8F0 !important;
+  border-right: none !important;
+}
+
+.dark[dir="rtl"] .portal-sidebar,
+[dir="rtl"] .dark .portal-sidebar {
+  border-left: 1px solid #1E293B !important;
+  border-right: none !important;
+}
+
+[dir="rtl"] #portal-sidebar {
+  left: auto !important;
+  right: 0 !important;
+  border-left: 1px solid #E2E8F0 !important;
+  border-right: none !important;
+}
+
+.dark[dir="rtl"] #portal-sidebar,
+[dir="rtl"] .dark #portal-sidebar {
+  border-left: 1px solid #1E293B !important;
+  border-right: none !important;
+}
+
+/* Mobile Offcanvas Sidebar Drawer in RTL */
+@media (max-width: 767px) {
+  [dir="rtl"] #portal-sidebar.-translate-x-full {
+    transform: translateX(100%) !important;
+  }
+  [dir="rtl"] #portal-sidebar:not(.-translate-x-full) {
+    transform: translateX(0) !important;
+  }
+}
+
+@media (min-width: 768px) {
+  [dir="rtl"] #portal-sidebar {
+    transform: none !important;
+  }
+}
+
+/* 2. Sidebar Navigation Items Alignment */
+[dir="rtl"] .portal-nav-item {
+  text-align: right;
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .portal-sidebar button,
+[dir="rtl"] .portal-sidebar a {
+  text-align: right;
+}
+
+[dir="rtl"] .portal-sidebar .group-hover\:-translate-x-0\.5:hover,
+[dir="rtl"] .portal-sidebar .group:hover .group-hover\:-translate-x-0\.5 {
+  transform: translateX(2px) !important;
+}
+
+/* 3. Topbar and Dropdown Positioning */
+[dir="rtl"] .portal-topbar {
+  text-align: right;
+}
+
+[dir="rtl"] #profile-dropdown-menu,
+[dir="rtl"] #notifications-dropdown,
+[dir="rtl"] .portal-dropdown-menu {
+  right: auto !important;
+  left: 0 !important;
+  transform-origin: top left;
+}
+
+/* 4. Directional Arrows and Indicators */
+[dir="rtl"] .rtl-flip,
+[dir="rtl"] .portal-arrow-flip,
+[dir="rtl"] .rtl-chevron-flip {
+  transform: scaleX(-1);
+  display: inline-block;
+}
+
+[dir="rtl"] .group:hover .rtl-flip,
+[dir="rtl"] .group:hover .portal-arrow-flip,
+[dir="rtl"] .group:hover .rtl-chevron-flip {
+  transform: scaleX(-1) translateX(-2px);
+}
+
+/* 5. Bidirectional Text Isolation */
+[dir="rtl"] .dir-ltr,
+[dir="rtl"] .bidi-isolate,
+[dir="rtl"] .time-text,
+[dir="rtl"] .metric-number,
+[dir="rtl"] bdi {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  display: inline-block;
+}
+
+[dir="rtl"] .portal-main p,
+[dir="rtl"] .portal-main h1,
+[dir="rtl"] .portal-main h2,
+[dir="rtl"] .portal-main h3,
+[dir="rtl"] .portal-main h4,
+[dir="rtl"] .portal-topbar h1,
+[dir="rtl"] .portal-topbar h2,
+[dir="rtl"] .portal-topbar p {
+  unicode-bidi: plaintext;
+  text-align: start;
+}
+
+[dir="rtl"] .bidi-sentence {
+  unicode-bidi: plaintext;
+  text-align: right;
+}
+
+/* 6. Stat Cards RTL Alignment */
+[dir="rtl"] .stat-card {
+  text-align: right;
+}
+
+[dir="rtl"] .stat-card .font-heading,
+[dir="rtl"] .stat-card h3,
+[dir="rtl"] .stat-card h4 {
+  text-align: right;
+}
+
+/* 7. Tables in RTL */
+[dir="rtl"] table {
+  text-align: right;
+}
+
+[dir="rtl"] table th,
+[dir="rtl"] table td {
+  text-align: right;
+}
+
+[dir="rtl"] table th.text-right,
+[dir="rtl"] table td.text-right,
+[dir="rtl"] table th.text-end,
+[dir="rtl"] table td.text-end {
+  text-align: left !important;
+}
+
+[dir="rtl"] table th.text-left,
+[dir="rtl"] table td.text-left,
+[dir="rtl"] table th.text-start,
+[dir="rtl"] table td.text-start {
+  text-align: right !important;
+}
+
+/* 8. Form Inputs in RTL */
+[dir="rtl"] input:not([type="checkbox"]):not([type="radio"]):not([type="tel"]):not([type="email"]):not([type="time"]):not([type="date"]):not([type="number"]),
+[dir="rtl"] select,
+[dir="rtl"] textarea {
+  text-align: right;
+}
+
+[dir="rtl"] input[type="tel"],
+[dir="rtl"] input[type="email"],
+[dir="rtl"] input[type="time"],
+[dir="rtl"] input[type="date"],
+[dir="rtl"] input[type="number"] {
+  direction: ltr;
+  text-align: right;
+  unicode-bidi: isolate;
+}
