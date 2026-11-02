@@ -228,17 +228,37 @@
 
   <main class="flex-grow pt-20">
 
-        <!-- 1. Hero Section (Premium Asymmetrical Split: Left Copy & Metrics + Right Cinematic Slider) -->
-    <section class="relative overflow-hidden pt-12 pb-16 lg:py-24 bg-gradient-to-b from-teal-50/40 via-white to-slate-50 dark:from-[#080D12] dark:via-[#0E1722] dark:to-[#101D24] transition-colors border-b border-slate-100 dark:border-slate-800/80">
+            <!-- 1. Hero Section (Clean Borderless Image Slider + Synchronized 30% Opacity Background) -->
+    <section class="relative overflow-hidden pt-12 pb-16 lg:py-24 bg-[#F8FAFC] dark:bg-[#080D12] transition-colors border-b border-slate-100 dark:border-slate-800/80">
       
-      <!-- Ambient Lighting & Decorative Concentric Outlines (Subtle in Dark Mode) -->
-      <div class="absolute -top-32 -right-24 w-[650px] h-[550px] bg-teal-500/15 dark:bg-teal-400/10 blur-3xl rounded-full -z-10 pointer-events-none"></div>
-      <div class="absolute top-1/2 -left-28 -translate-y-1/2 w-[500px] h-[450px] bg-emerald-500/10 dark:bg-teal-600/5 blur-3xl rounded-full -z-10 pointer-events-none"></div>
-      <div class="absolute top-1/2 right-12 -translate-y-1/2 w-[550px] h-[550px] rounded-full border border-teal-500/10 dark:border-teal-400/10 pointer-events-none -z-10 hidden lg:block"></div>
-      <div class="absolute top-1/2 right-28 -translate-y-1/2 w-[420px] h-[420px] rounded-full border border-teal-500/5 dark:border-teal-400/5 pointer-events-none -z-10 hidden lg:block"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(#0f766e_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] dark:opacity-[0.05] pointer-events-none -z-10"></div>
+      <!-- Synchronized 30% Opacity Dynamic Background Slider -->
+      <div id="home1-bg-viewport" class="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
+        <div class="home1-bg-slide active" data-bg-index="0">
+          <img src="assets/images/home1/hero1_opt1_stretch.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="home1-bg-slide" data-bg-index="1">
+          <img src="assets/images/home1/hero1_slide2.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="home1-bg-slide" data-bg-index="2">
+          <img src="assets/images/home1/hero1_opt2_rehab.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+        <div class="home1-bg-slide" data-bg-index="3">
+          <img src="assets/images/home1/hero1_slide4.jpg" alt="" class="w-full h-full object-cover">
+        </div>
 
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Ambient Wash Overlays for High Text Contrast & Soft Integration -->
+        <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/70 dark:from-[#080D12]/95 dark:via-[#080D12]/85 dark:to-[#080D12]/75"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-teal-50/20 via-transparent to-slate-100 dark:from-transparent dark:to-[#080D12]"></div>
+      </div>
+
+      <!-- Ambient Lighting & Decorative Accents -->
+      <div class="absolute -top-32 -right-24 w-[650px] h-[550px] bg-teal-500/15 dark:bg-teal-400/10 blur-3xl rounded-full z-[1] pointer-events-none"></div>
+      <div class="absolute top-1/2 -left-28 -translate-y-1/2 w-[500px] h-[450px] bg-emerald-500/10 dark:bg-teal-600/5 blur-3xl rounded-full z-[1] pointer-events-none"></div>
+      <div class="absolute top-1/2 right-12 -translate-y-1/2 w-[550px] h-[550px] rounded-full border border-teal-500/10 dark:border-teal-400/10 pointer-events-none z-[1] hidden lg:block"></div>
+      <div class="absolute top-1/2 right-28 -translate-y-1/2 w-[420px] h-[420px] rounded-full border border-teal-500/5 dark:border-teal-400/5 pointer-events-none z-[1] hidden lg:block"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(#0f766e_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] dark:opacity-[0.05] pointer-events-none z-[1]"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           
           <!-- Left Column: Copy & Actions (Centered on Mobile, Left on Desktop) -->
@@ -291,64 +311,41 @@
 
           </div>
 
-          <!-- Right Column: Premium Asymmetric Image Slider Stage (~50%) -->
-          <div class="lg:col-span-6 relative pt-4 pb-12 sm:pb-8 lg:py-6">
+          <!-- Right Column: Pure Borderless Image Slider Stage (~50%) -->
+          <div class="lg:col-span-6 relative pt-4 pb-6 lg:py-6">
             <div class="home1-hero-stage relative w-full select-none">
               
-              <!-- Floating Trust Badge: Personalized Treatment with Shield/Check Icon -->
-              <div class="home1-trust-badge absolute -top-4 right-1 sm:-top-5 sm:-right-4 z-30 flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border border-teal-200/80 dark:border-teal-700/60 shadow-xl">
-                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                </div>
-                <div>
-                  <p class="text-[11px] sm:text-xs font-bold text-slate-900 dark:text-white font-heading leading-tight">Personalized Treatment</p>
-                  <p class="text-[9px] sm:text-[11px] text-teal-700 dark:text-teal-400 font-semibold">1-on-1 Dedicated Specialist</p>
-                </div>
-              </div>
-
-              <!-- Main Automatic Slider -->
-              <div id="home1-hero-slider" class="home1-main-slider relative w-full h-[370px] sm:h-[440px] lg:h-[480px] rounded-[26px] overflow-hidden shadow-2xl border border-white/80 dark:border-teal-500/30 bg-slate-100 dark:bg-slate-800">
+              <!-- Main Borderless Slider Container (No Borders, Clean Shadow) -->
+              <div id="home1-hero-slider" class="home1-main-slider relative w-full h-[380px] sm:h-[450px] lg:h-[490px] rounded-[28px] overflow-hidden shadow-2xl bg-slate-900 border-0">
                 
-                <!-- Slide 1: Assisted Stretching (Option 1 selected by user) -->
-                <div class="home1-slide active" data-index="0" data-label="01 · Assisted Stretching" data-desc="Therapist-Assisted Leg Mobility & Stretching">
-                  <img src="assets/images/home1/hero1_opt1_stretch.jpg" alt="Assisted stretching and gentle joint mobilization" class="w-full h-full object-cover">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                <!-- Slide 1: Assisted Stretching (Option 1 selected) -->
+                <div class="home1-slide active" data-index="0">
+                  <img src="assets/images/home1/hero1_opt1_stretch.jpg" alt="Assisted stretching and physiotherapy" class="w-full h-full object-cover">
                 </div>
 
-                <!-- Slide 2: Hands-on Personalized Treatment -->
-                <div class="home1-slide" data-index="1" data-label="02 · Personalized Treatment" data-desc="Hands-on Physical Therapy & Joint Alignment">
+                <!-- Slide 2: Hands-on Treatment -->
+                <div class="home1-slide" data-index="1">
                   <img src="assets/images/home1/hero1_slide2.jpg" alt="Hands-on physical therapy session" class="w-full h-full object-cover">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
                 </div>
 
-                <!-- Slide 3: Supervised Guided Rehabilitation -->
-                <div class="home1-slide" data-index="2" data-label="03 · Guided Rehabilitation" data-desc="Supervised Therapeutic Exercise & Gait Training">
+                <!-- Slide 3: Supervised Rehabilitation -->
+                <div class="home1-slide" data-index="2">
                   <img src="assets/images/home1/hero1_opt2_rehab.jpg" alt="Supervised therapeutic exercise" class="w-full h-full object-cover">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
                 </div>
 
                 <!-- Slide 4: Functional Movement & Strength -->
-                <div class="home1-slide" data-index="3" data-label="04 · Movement & Strength" data-desc="Active Balance, Mobility & Functional Strength">
-                  <img src="assets/images/home1/hero1_slide4.jpg" alt="Functional movement training and fall prevention" class="w-full h-full object-cover">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                <div class="home1-slide" data-index="3">
+                  <img src="assets/images/home1/hero1_slide4.jpg" alt="Functional movement training" class="w-full h-full object-cover">
                 </div>
 
-                <!-- Active Slide Pill Badge (Top-Left) -->
-                <div class="absolute top-4 left-3 sm:left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md text-white border border-white/15 shadow-md max-w-[210px] sm:max-w-none">
-                  <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse shrink-0"></span>
-                  <span id="home1-active-badge" class="text-[10px] sm:text-xs font-bold font-heading tracking-wide truncate">01 · Assisted Stretching</span>
-                  <span class="text-white/30 text-xs hidden sm:inline">|</span>
-                  <span id="home1-counter-current" class="text-[10px] sm:text-[11px] font-bold text-teal-300 shrink-0">01 / 04</span>
-                </div>
-
-                <!-- Slide Indicators & Controls Bar (Bottom-Right) -->
-                <div class="absolute bottom-5 right-4 sm:right-5 z-20 flex items-center gap-2 sm:gap-3 bg-slate-900/75 backdrop-blur-md px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-2xl border border-white/15 shadow-lg">
-                  <!-- Numbered Slide Buttons (01, 02, 03, 04) -->
-                  <div class="flex items-center gap-1 sm:gap-1.5">
-                    <button type="button" class="home1-nav-btn active px-2 sm:px-2.5 py-0.5 rounded-lg text-[10px] sm:text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition" data-slide="0">01</button>
-                    <button type="button" class="home1-nav-btn px-2 sm:px-2.5 py-0.5 rounded-lg text-[10px] sm:text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition" data-slide="1">02</button>
-                    <button type="button" class="home1-nav-btn px-2 sm:px-2.5 py-0.5 rounded-lg text-[10px] sm:text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition" data-slide="2">03</button>
-                    <button type="button" class="home1-nav-btn px-2 sm:px-2.5 py-0.5 rounded-lg text-[10px] sm:text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition" data-slide="3">04</button>
+                <!-- Minimal Clean Indicators & Navigation (No Text Content) -->
+                <div class="absolute bottom-5 right-5 z-20 flex items-center gap-2.5 bg-slate-900/60 backdrop-blur-md px-3.5 py-2 rounded-full border border-white/10 shadow-lg">
+                  <!-- Dash Indicators -->
+                  <div class="flex items-center gap-1.5">
+                    <button type="button" class="home1-indicator h-1.5 rounded-full bg-teal-400 w-6 active transition-all" data-slide="0" aria-label="Slide 1"></button>
+                    <button type="button" class="home1-indicator h-1.5 rounded-full bg-white/40 w-2 transition-all" data-slide="1" aria-label="Slide 2"></button>
+                    <button type="button" class="home1-indicator h-1.5 rounded-full bg-white/40 w-2 transition-all" data-slide="2" aria-label="Slide 3"></button>
+                    <button type="button" class="home1-indicator h-1.5 rounded-full bg-white/40 w-2 transition-all" data-slide="3" aria-label="Slide 4"></button>
                   </div>
                   <!-- Arrow Navigation -->
                   <div class="flex items-center gap-1 border-l border-white/20 pl-2">
@@ -361,24 +358,6 @@
                   </div>
                 </div>
 
-              </div>
-
-              <!-- Secondary Floating Treatment Card (Overlapping Bottom-Left) -->
-              <div class="home1-floating-card absolute -bottom-4 sm:-bottom-7 left-2 sm:-left-6 z-30 w-48 sm:w-56 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md rounded-2xl p-2 sm:p-2.5 shadow-2xl border border-slate-200/80 dark:border-slate-700/80">
-                <div class="relative h-20 sm:h-24 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-700">
-                  <img src="assets/images/home1/hero1_secondary.jpg" alt="Clinical assessment and hands-on therapy" class="w-full h-full object-cover">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
-                  <span class="absolute bottom-1.5 left-2 px-2 py-0.5 rounded-md bg-teal-600/90 text-white text-[9px] font-bold uppercase tracking-wider shadow-2xs">
-                    Active Recovery
-                  </span>
-                </div>
-                <div class="pt-2 px-1 flex items-center justify-between">
-                  <div>
-                    <p class="text-[11px] sm:text-xs font-bold text-slate-900 dark:text-white font-heading leading-tight">Clinical Assessment</p>
-                    <p class="text-[9px] sm:text-[10px] text-teal-700 dark:text-teal-400 font-semibold">Guided 1:1 Care</p>
-                  </div>
-                  <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-teal-50 dark:bg-teal-950/80 text-teal-600 dark:text-teal-400 flex items-center justify-center text-[10px] sm:text-xs font-bold border border-teal-200/60 dark:border-teal-800/60">✓</span>
-                </div>
               </div>
 
             </div>
@@ -1835,18 +1814,17 @@
   <script src="assets/js/demo-data.js"></script>
   <script src="assets/js/storage.js"></script>
   <script src="assets/js/app.js"></script>
-  <!-- Home 1 Hero Image Slider Script -->
+    <!-- Home 1 Hero Image Slider Script (Syncs Main Slider & 30% Opacity Background) -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const slider = document.getElementById('home1-hero-slider');
       if (!slider) return;
 
       const slides = slider.querySelectorAll('.home1-slide');
-      const navBtns = slider.querySelectorAll('.home1-nav-btn');
+      const bgSlides = document.querySelectorAll('#home1-bg-viewport .home1-bg-slide');
+      const indicators = slider.querySelectorAll('.home1-indicator');
       const prevBtn = slider.querySelector('.home1-prev-btn');
       const nextBtn = slider.querySelector('.home1-next-btn');
-      const activeBadge = document.getElementById('home1-active-badge');
-      const counterCurrent = document.getElementById('home1-counter-current');
 
       if (slides.length === 0) return;
 
@@ -1855,25 +1833,27 @@
       const slideDuration = 5000;
 
       function showSlide(index) {
+        // Main slider slides
         slides.forEach((slide, i) => {
           slide.classList.toggle('active', i === index);
         });
 
-        navBtns.forEach((btn, i) => {
-          btn.classList.toggle('active', i === index);
+        // 30% Opacity background slides (synchronized)
+        bgSlides.forEach((bg, i) => {
+          bg.classList.toggle('active', i === index);
         });
 
-        const activeSlide = slides[index];
-        if (activeSlide) {
-          const label = activeSlide.getAttribute('data-label');
-          if (activeBadge && label) {
-            activeBadge.textContent = label;
+        // Dash Indicators
+        indicators.forEach((ind, i) => {
+          ind.classList.toggle('active', i === index);
+          if (i === index) {
+            ind.classList.add('bg-teal-400', 'w-6');
+            ind.classList.remove('bg-white/40', 'w-2');
+          } else {
+            ind.classList.remove('bg-teal-400', 'w-6');
+            ind.classList.add('bg-white/40', 'w-2');
           }
-        }
-
-        if (counterCurrent) {
-          counterCurrent.textContent = String(index + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
-        }
+        });
 
         currentIndex = index;
       }
@@ -1900,8 +1880,8 @@
         }
       }
 
-      navBtns.forEach((btn, idx) => {
-        btn.addEventListener('click', () => {
+      indicators.forEach((indicator, idx) => {
+        indicator.addEventListener('click', () => {
           showSlide(idx);
           startAutoplay();
         });

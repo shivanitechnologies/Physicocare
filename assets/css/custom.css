@@ -1411,24 +1411,57 @@ html.dark .home2-main-slider,
 
 
 /* ==========================================================================
-   Home 1 - Premium Asymmetric Image Slider & Glowing Stage
+   Home 1 - Clean Borderless Image Slider & Synchronized 30% Opacity Background
    ========================================================================== */
 
 .home1-hero-stage {
   perspective: 1000px;
 }
 
+/* Synchronized 30% Opacity Dynamic Background Slider */
+.home1-bg-slide {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 850ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.home1-bg-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: blur(1.5px);
+}
+
+.home1-bg-slide.active {
+  opacity: 0.30;
+  transform: scale(1);
+  z-index: 1;
+}
+
+/* Main Slider: Borderless with Clean Elevation Shadow */
 .home1-main-slider {
   position: relative;
   width: 100%;
-  border-radius: 26px;
+  border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
 }
 
 html.dark .home1-main-slider,
 [data-theme="dark"] .home1-main-slider {
-  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(20, 184, 166, 0.3), 0 0 40px rgba(20, 184, 166, 0.15);
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85);
 }
 
 .home1-slide {
@@ -1460,61 +1493,14 @@ html.dark .home1-main-slider,
   transform: scale(1);
 }
 
-/* Floating Elements */
-@keyframes floatHome1Card {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(-0.5deg);
-  }
-}
-
-.home1-floating-card {
-  animation: floatHome1Card 4.6s ease-in-out infinite;
-  will-change: transform;
-}
-
-.home1-floating-card:hover {
-  animation-play-state: paused;
-}
-
-@keyframes floatHome1Badge {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(6px);
-  }
-}
-
-.home1-trust-badge {
-  animation: floatHome1Badge 5s ease-in-out infinite;
-  will-change: transform;
-}
-
-.home1-trust-badge:hover {
-  animation-play-state: paused;
-}
-
-/* Slide Indicator Buttons */
-.home1-nav-btn {
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.home1-nav-btn.active {
-  background-color: #14B8A6 !important;
-  color: #FFFFFF !important;
-  border-color: #14B8A6 !important;
-  font-weight: 700;
+/* Indicators */
+.home1-indicator {
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home1-floating-card,
-  .home1-trust-badge {
-    animation: none !important;
-  }
-  .home1-slide img {
+  .home1-slide img,
+  .home1-bg-slide img {
     transition: none !important;
     transform: none !important;
   }
