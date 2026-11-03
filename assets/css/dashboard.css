@@ -16,29 +16,25 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-shrink: 0;
-  position: sticky;
-  top: 0;
   height: 100vh;
   overflow-y: auto;
-  transition: all 0.25s ease;
-  z-index: 30;
+  transition: transform 0.25s ease;
+  z-index: 50;
+}
+
+@media (min-width: 768px) {
+  .portal-sidebar {
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+    z-index: 30;
+    transform: none !important;
+  }
 }
 
 .dark .portal-sidebar {
-  width: 280px;
   background-color: #151F2E;
   border-right: 1px solid #1E293B;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-shrink: 0;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
-  transition: all 0.25s ease;
-  z-index: 30;
 }
 
 .portal-nav-item {
@@ -349,4 +345,40 @@
   direction: ltr;
   text-align: right;
   unicode-bidi: isolate;
+}
+
+/* ==========================================================================
+   Smooth Custom Scrollbars for Responsive Mobile and Desktop Data Tables
+   ========================================================================== */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgba(148, 163, 184, 0.08);
+  border-radius: 9999px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.45);
+  border-radius: 9999px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(13, 148, 136, 0.7);
+}
+.dark .scrollbar-thin::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.4);
+}
+.dark .scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 116, 139, 0.45);
+}
+.dark .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(20, 184, 166, 0.7);
+}
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.45) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+.dark .scrollbar-thin {
+  scrollbar-color: rgba(100, 116, 139, 0.45) transparent;
 }

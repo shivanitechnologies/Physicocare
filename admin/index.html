@@ -128,7 +128,7 @@
     <div class="portal-main flex-1 flex flex-col min-w-0">
       
       <!-- Topbar (72px height, Search, Notifications, Theme, CTAs) -->
-      <header class="portal-topbar h-[72px] bg-white dark:bg-[#151F2E] border-b border-slate-200 dark:border-slate-800 px-6 flex items-center justify-between sticky top-0 z-30">
+      <header class="portal-topbar h-[72px] bg-white dark:bg-[#151F2E] border-b border-slate-200 dark:border-slate-800 px-4 sm:px-6 flex items-center justify-between sticky top-0 z-30">
         <div class="flex items-center gap-3">
           <!-- Mobile Menu Hamburger -->
           <button onclick="toggleMobileSidebar()" class="md:hidden p-2 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition" aria-label="Toggle navigation menu">
@@ -170,7 +170,7 @@
       </header>
 
       <!-- Content Area -->
-      <main class="p-6 lg:p-8 space-y-8 flex-grow">
+      <main class="p-4 sm:p-6 lg:p-8 space-y-6 sm:space-y-8 flex-grow">
         
         <!-- Main Section Header: Dynamic Page Heading & Subtitle -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-slate-800/80">
@@ -192,43 +192,45 @@
 
 
           <!-- 4 Core Summary Metric Cards -->
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="stat-card p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200/80 dark:border-slate-800 shadow-sm">
-              <div class="flex items-center justify-between">
-                <p class="text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Patients</p>
-                <span class="text-xs px-2 py-0.5 rounded-full font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">Active</span>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            <div class="stat-card p-3.5 sm:p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200/80 dark:border-slate-800 shadow-sm">
+              <div class="flex items-center justify-between gap-1">
+                <p class="text-[10px] sm:text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wide truncate">Total Patients</p>
+                <span class="text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex-shrink-0">Active</span>
               </div>
-              <h4 class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2">1,250</h4>
-              <p class="text-[11px] text-slate-500 mt-1"><bdi>98.4% retention rate</bdi></p>
+              <h4 class="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2">1,250</h4>
+              <p class="text-[10px] sm:text-[11px] text-slate-500 mt-1 truncate"><bdi>98.4% retention rate</bdi></p>
             </div>
 
-            <div class="stat-card p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200/80 dark:border-slate-800 shadow-sm">
-              <div class="flex items-center justify-between">
-                <p class="text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Today's Appointments</p>
-                <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+            <div class="stat-card p-3.5 sm:p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200/80 dark:border-slate-800 shadow-sm">
+              <div class="flex items-center justify-between gap-1">
+                <p class="text-[10px] sm:text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wide truncate">Today's Visits</p>
+                <span class="w-2 h-2 rounded-full bg-teal-500 flex-shrink-0"></span>
               </div>
-              <h4 class="text-2xl lg:text-3xl font-black text-teal-700 dark:text-teal-400 font-heading mt-2" id="admin-today-count"><bdi>10 Sessions</bdi></h4>
-              <p class="text-[11px] text-teal-600 font-semibold mt-1"><bdi>100% room occupancy</bdi></p>
+              <h4 class="text-xl sm:text-2xl lg:text-3xl font-black text-teal-700 dark:text-teal-400 font-heading mt-2" id="admin-today-count"><bdi>10 Sessions</bdi></h4>
+              <p class="text-[10px] sm:text-[11px] text-teal-600 font-semibold mt-1 truncate"><bdi>100% room occupancy</bdi></p>
             </div>
 
-            <div class="stat-card p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200/80 dark:border-slate-800 shadow-sm">
-              <div class="flex items-center justify-between">
-                <p class="text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Active Therapists</p>
-                <span class="text-xs text-slate-400 font-semibold">Faculty</span>
+            <div class="stat-card p-3.5 sm:p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200/80 dark:border-slate-800 shadow-sm">
+              <div class="flex items-center justify-between gap-1">
+                <p class="text-[10px] sm:text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wide truncate">Active Clinicians</p>
+                <span class="text-[10px] sm:text-xs text-slate-400 font-semibold flex-shrink-0">Faculty</span>
               </div>
-              <h4 class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2"><bdi>12 On-Duty</bdi></h4>
-              <p class="text-[11px] text-slate-500 mt-1"><bdi>4 Lead Doctoral PTs</bdi></p>
+              <h4 class="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2"><bdi>12 On-Duty</bdi></h4>
+              <p class="text-[10px] sm:text-[11px] text-slate-500 mt-1 truncate"><bdi>4 Lead Doctoral PTs</bdi></p>
             </div>
 
-            <div class="stat-card p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200/80 dark:border-slate-800 shadow-sm">
-              <div class="flex items-center justify-between">
-                <p class="text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Monthly Revenue</p>
-                <span class="text-xs px-2 py-0.5 rounded-full font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400"><bdi>↑ 12%</bdi></span>
+            <div class="stat-card p-3.5 sm:p-5 rounded-2xl bg-white dark:bg-[#151F2E] border border-slate-200/80 dark:border-slate-800 shadow-sm">
+              <div class="flex items-center justify-between gap-1">
+                <p class="text-[10px] sm:text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wide truncate">Monthly Revenue</p>
+                <span class="text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex-shrink-0"><bdi>↑ 12%</bdi></span>
               </div>
-              <h4 class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2"><bdi>₹2,45,000</bdi></h4>
-              <p class="text-[11px] text-slate-500 mt-1">HSA &amp; Direct settlements</p>
+              <h4 class="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading mt-2"><bdi>$48,500</bdi></h4>
+              <p class="text-[10px] sm:text-[11px] text-slate-500 mt-1 truncate"><bdi>HSA &amp; Direct settlements</bdi></p>
             </div>
           </div>
+
+          
 
           <!-- Analytics Charts Grid (Chart.js Visualization) -->
           <div class="grid lg:grid-cols-12 gap-6">
@@ -389,8 +391,16 @@
               </button>
             </div>
             
-            <div class="overflow-x-auto rounded-2xl border border-slate-200/80 dark:border-slate-800">
-              <table class="w-full text-left border-collapse">
+            <!-- Mobile Horizontal Swipe Cue -->
+            <div class="sm:hidden flex items-center justify-between text-[11px] font-semibold text-slate-400 dark:text-slate-500 mb-2 px-1">
+              <span>Master Bookings</span>
+              <span class="flex items-center gap-1 text-teal-600 dark:text-teal-400">
+                <span>Swipe table</span>
+                <svg class="w-3.5 h-3.5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </span>
+            </div>
+            <div class="overflow-x-auto scrollbar-thin rounded-2xl border border-slate-200/80 dark:border-slate-800">
+              <table class="w-full min-w-[880px] text-left border-collapse">
                 <thead>
                   <tr class="bg-slate-50/90 dark:bg-slate-900/80 text-slate-500 dark:text-slate-400 text-[11px] font-extrabold uppercase tracking-wider border-b border-slate-200/80 dark:border-slate-800">
                     <th class="py-3.5 px-4 font-bold">Patient Details</th>
@@ -417,34 +427,44 @@
               <div class="flex items-center gap-2">
                 <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Roster Filter &amp; Search:</span>
               </div>
-              <button onclick="openNewAppointmentModal()" class="px-3.5 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+              <button onclick="openNewAppointmentModal()" class="w-full sm:w-auto px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm">
                 <span>+ Create Appointment</span>
               </button>
             </div>
 
             <!-- Filter Controls -->
-            <div class="flex flex-wrap items-center gap-3">
-              <input type="text" id="apt-search-input" onkeyup="filterAdminAppointments()" placeholder="Search patient or service..." class="px-3.5 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500 w-64 shadow-xs">
+            <div class="grid grid-cols-1 sm:flex sm:flex-wrap items-center gap-2.5 w-full">
+              <input type="text" id="apt-search-input" onkeyup="filterAdminAppointments()" placeholder="Search patient or service..." class="w-full sm:w-64 px-3.5 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500 shadow-xs">
               
-              <select id="apt-status-filter" onchange="filterAdminAppointments()" class="px-3 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white shadow-xs">
-                <option value="ALL">All Statuses</option>
-                <option value="Confirmed">Confirmed</option>
-                <option value="Scheduled">Scheduled</option>
-                <option value="Completed">Completed</option>
-                <option value="Cancelled">Cancelled</option>
-              </select>
+              <div class="grid grid-cols-2 sm:flex sm:items-center gap-2 w-full sm:w-auto">
+                <select id="apt-status-filter" onchange="filterAdminAppointments()" class="w-full sm:w-auto px-3 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white shadow-xs">
+                  <option value="ALL">All Statuses</option>
+                  <option value="Confirmed">Confirmed</option>
+                  <option value="Scheduled">Scheduled</option>
+                  <option value="Completed">Completed</option>
+                  <option value="Cancelled">Cancelled</option>
+                </select>
 
-              <select id="apt-doctor-filter" onchange="filterAdminAppointments()" class="px-3 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white shadow-xs">
-                <option value="ALL">All Doctors</option>
-                <option value="Dr. Marcus Chen">Dr. Marcus Chen</option>
-                <option value="Dr. Elena Vance">Dr. Elena Vance</option>
-                <option value="Dr. Priya Patel">Dr. Priya Patel</option>
-                <option value="Dr. Kimberly Adams">Dr. Kimberly Adams</option>
-              </select>
+                <select id="apt-doctor-filter" onchange="filterAdminAppointments()" class="w-full sm:w-auto px-3 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white shadow-xs">
+                  <option value="ALL">All Doctors</option>
+                  <option value="Dr. Marcus Chen">Dr. Marcus Chen</option>
+                  <option value="Dr. Elena Vance">Dr. Elena Vance</option>
+                  <option value="Dr. Priya Patel">Dr. Priya Patel</option>
+                  <option value="Dr. Kimberly Adams">Dr. Kimberly Adams</option>
+                </select>
+              </div>
             </div>
 
-            <div class="overflow-x-auto rounded-2xl border border-slate-200/80 dark:border-slate-800">
-              <table class="w-full text-left border-collapse">
+            <!-- Mobile Horizontal Swipe Cue -->
+            <div class="sm:hidden flex items-center justify-between text-[11px] font-semibold text-slate-400 dark:text-slate-500 mb-2 px-1">
+              <span>Patient Directory</span>
+              <span class="flex items-center gap-1 text-teal-600 dark:text-teal-400">
+                <span>Swipe table</span>
+                <svg class="w-3.5 h-3.5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </span>
+            </div>
+            <div class="overflow-x-auto scrollbar-thin rounded-2xl border border-slate-200/80 dark:border-slate-800">
+              <table class="w-full min-w-[860px] text-left border-collapse">
                 <thead>
                   <tr class="bg-slate-50/90 dark:bg-slate-900/80 text-slate-500 dark:text-slate-400 text-[11px] font-extrabold uppercase tracking-wider border-b border-slate-200/80 dark:border-slate-800">
                     <th class="py-3.5 px-4 font-bold">Patient Details</th>
@@ -483,8 +503,16 @@
               <input type="text" id="patient-search-input" onkeyup="filterAdminPatients()" placeholder="Search patient by name or diagnosis..." class="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500 shadow-xs">
             </div>
 
-            <div class="overflow-x-auto rounded-2xl border border-slate-200/80 dark:border-slate-800">
-              <table class="w-full text-left border-collapse">
+            <!-- Mobile Horizontal Swipe Cue -->
+            <div class="sm:hidden flex items-center justify-between text-[11px] font-semibold text-slate-400 dark:text-slate-500 mb-2 px-1">
+              <span>Services & Fee Schedule</span>
+              <span class="flex items-center gap-1 text-teal-600 dark:text-teal-400">
+                <span>Swipe table</span>
+                <svg class="w-3.5 h-3.5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </span>
+            </div>
+            <div class="overflow-x-auto scrollbar-thin rounded-2xl border border-slate-200/80 dark:border-slate-800">
+              <table class="w-full min-w-[800px] text-left border-collapse">
                 <thead>
                   <tr class="bg-slate-50/90 dark:bg-slate-900/80 text-slate-500 dark:text-slate-400 text-[11px] font-extrabold uppercase tracking-wider border-b border-slate-200/80 dark:border-slate-800">
                     <th class="py-3.5 px-4 font-bold">Patient &amp; ID</th>
@@ -531,63 +559,143 @@
               <button onclick="alert('New care plan builder launched.')" class="px-3.5 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition">+ Create Treatment Plan</button>
             </div>
 
-            <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs">
+            <!-- Mobile Horizontal Swipe Cue -->
+            <div class="sm:hidden flex items-center justify-between text-[11px] font-semibold text-slate-400 dark:text-slate-500 mb-2 px-1">
+              <span>Treatment Plans</span>
+              <span class="flex items-center gap-1 text-teal-600 dark:text-teal-400">
+                <span>Swipe table</span>
+                <svg class="w-3.5 h-3.5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </span>
+            </div>
+            <div class="overflow-x-auto scrollbar-thin rounded-2xl border border-slate-200/80 dark:border-slate-800">
+              <table class="w-full min-w-[760px] text-left border-collapse text-xs">
                 <thead>
-                  <tr class="text-[10px] uppercase text-slate-400 border-b border-slate-200 dark:border-slate-700">
-                    <th class="py-2.5 px-3">Plan &amp; ID</th>
-                    <th class="py-2.5 px-3">Patient</th>
-                    <th class="py-2.5 px-3">Primary Condition</th>
-                    <th class="py-2.5 px-3">Lead Clinician</th>
-                    <th class="py-2.5 px-3">Progress</th>
-                    <th class="py-2.5 px-3 text-right">Actions</th>
+                  <tr class="bg-slate-50/90 dark:bg-slate-900/80 text-slate-500 dark:text-slate-400 text-[11px] font-extrabold uppercase tracking-wider border-b border-slate-200/80 dark:border-slate-800">
+                    <th class="py-3 px-4">Plan &amp; ID</th>
+                    <th class="py-3 px-4">Patient</th>
+                    <th class="py-3 px-4">Primary Condition</th>
+                    <th class="py-3 px-4">Lead Clinician</th>
+                    <th class="py-3 px-4">Progress</th>
+                    <th class="py-3 px-4 text-right">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
-                    <td class="py-3 px-3 font-bold text-slate-900 dark:text-white">TP-101 • Lumbar Protocol</td>
-                    <td class="py-3 px-3">Pravin Kumar</td>
-                    <td class="py-3 px-3">Lumbar Disc Bulge (L4-L5)</td>
-                    <td class="py-3 px-3">Dr. Elena Vance, DPT</td>
-                    <td class="py-3 px-3">
+                  <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-slate-900 dark:text-white text-xs group-hover:text-teal-600 transition-colors">Lumbar Protocol</div>
+                      <div class="text-[11px] font-mono text-teal-600 dark:text-teal-400 font-bold mt-0.5">TP-101 &bull; Active Phase 2</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-slate-900 dark:text-white text-xs">Pravin Kumar</div>
+                      <div class="text-[11px] text-slate-400 font-mono">#PT-001</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-bold text-slate-800 dark:text-slate-200 text-xs flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                        <span>Lumbar Disc Bulge (L4-L5)</span>
+                      </div>
+                      <div class="text-[10px] text-slate-400 pl-3">McKenzie Protocol</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
                       <div class="flex items-center gap-2">
-                        <div class="w-16 bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
-                          <div class="bg-teal-600 h-full rounded-full" style="width: 78%;"></div>
-                        </div>
-                        <span class="font-bold text-teal-700 dark:text-teal-400">78%</span>
+                        <div class="w-6 h-6 rounded-full bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 flex items-center justify-center text-[10px] font-bold">PT</div>
+                        <div class="font-bold text-slate-800 dark:text-slate-200 text-xs">Dr. Elena Vance, DPT</div>
                       </div>
                     </td>
-                    <td class="py-3 px-3 text-right"><button onclick="openPatientChartModal('Pravin Kumar', 'Lumbar Disc Bulge (L4-L5)', 6, 10, 78)" class="text-teal-600 hover:underline font-bold">Edit Plan</button></td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="space-y-1">
+                        <div class="flex items-center justify-between text-[11px] font-bold text-slate-700 dark:text-slate-300">
+                          <span>6 / 10 Visits</span>
+                          <span class="text-teal-600 dark:text-teal-400">78%</span>
+                        </div>
+                        <div class="w-24 bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                          <div class="bg-teal-500 h-full rounded-full" style="width: 78%"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-4 text-right whitespace-nowrap">
+                      <button onclick="openPatientChartModal('Pravin Kumar', 'Lumbar Disc Bulge (L4-L5)', 6, 10, 78)" class="px-2.5 py-1 rounded-xl text-xs font-bold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs">
+                        Review Chart
+                      </button>
+                    </td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
-                    <td class="py-3 px-3 font-bold text-slate-900 dark:text-white">TP-102 • Knee Reconditioning</td>
-                    <td class="py-3 px-3">Rajesh Sharma</td>
-                    <td class="py-3 px-3">Post-Op ACL Reconstruction</td>
-                    <td class="py-3 px-3">Dr. Marcus Chen, DPT</td>
-                    <td class="py-3 px-3">
+                  <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-slate-900 dark:text-white text-xs group-hover:text-teal-600 transition-colors">Knee Reconditioning</div>
+                      <div class="text-[11px] font-mono text-teal-600 dark:text-teal-400 font-bold mt-0.5">TP-102 &bull; Active Phase 3</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-slate-900 dark:text-white text-xs">Michael Roberts</div>
+                      <div class="text-[11px] text-slate-400 font-mono">#PT-002</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-bold text-slate-800 dark:text-slate-200 text-xs flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                        <span>Post-Op ACL Reconstruction</span>
+                      </div>
+                      <div class="text-[10px] text-slate-400 pl-3">Strength &amp; Plyometric</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
                       <div class="flex items-center gap-2">
-                        <div class="w-16 bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
-                          <div class="bg-teal-600 h-full rounded-full" style="width: 72%;"></div>
-                        </div>
-                        <span class="font-bold text-teal-700 dark:text-teal-400">72%</span>
+                        <div class="w-6 h-6 rounded-full bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 flex items-center justify-center text-[10px] font-bold">PT</div>
+                        <div class="font-bold text-slate-800 dark:text-slate-200 text-xs">Dr. Marcus Chen, DPT</div>
                       </div>
                     </td>
-                    <td class="py-3 px-3 text-right"><button onclick="openPatientChartModal('Rajesh Sharma', 'Post-Op ACL Reconstruction', 8, 12, 72)" class="text-teal-600 hover:underline font-bold">Edit Plan</button></td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="space-y-1">
+                        <div class="flex items-center justify-between text-[11px] font-bold text-slate-700 dark:text-slate-300">
+                          <span>8 / 12 Visits</span>
+                          <span class="text-teal-600 dark:text-teal-400">72%</span>
+                        </div>
+                        <div class="w-24 bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                          <div class="bg-teal-500 h-full rounded-full" style="width: 72%"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-4 text-right whitespace-nowrap">
+                      <button onclick="openPatientChartModal('Michael Roberts', 'Post-Op ACL Reconstruction', 8, 12, 72)" class="px-2.5 py-1 rounded-xl text-xs font-bold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs">
+                        Review Chart
+                      </button>
+                    </td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
-                    <td class="py-3 px-3 font-bold text-slate-900 dark:text-white">TP-103 • Vestibular Balance</td>
-                    <td class="py-3 px-3">Meera Kapoor</td>
-                    <td class="py-3 px-3">Cervicogenic Dizziness</td>
-                    <td class="py-3 px-3">Dr. Priya Patel, MPT</td>
-                    <td class="py-3 px-3">
+                  <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-slate-900 dark:text-white text-xs group-hover:text-teal-600 transition-colors">Vestibular Balance</div>
+                      <div class="text-[11px] font-mono text-teal-600 dark:text-teal-400 font-bold mt-0.5">TP-103 &bull; Phase 1 Adaptation</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-slate-900 dark:text-white text-xs">Sarah Jenkins</div>
+                      <div class="text-[11px] text-slate-400 font-mono">#PT-003</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-bold text-slate-800 dark:text-slate-200 text-xs flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                        <span>Cervicogenic Dizziness</span>
+                      </div>
+                      <div class="text-[10px] text-slate-400 pl-3">Oculomotor Rehabilitation</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
                       <div class="flex items-center gap-2">
-                        <div class="w-16 bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
-                          <div class="bg-teal-600 h-full rounded-full" style="width: 65%;"></div>
-                        </div>
-                        <span class="font-bold text-teal-700 dark:text-teal-400">65%</span>
+                        <div class="w-6 h-6 rounded-full bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 flex items-center justify-center text-[10px] font-bold">PT</div>
+                        <div class="font-bold text-slate-800 dark:text-slate-200 text-xs">Dr. Priya Patel, MPT</div>
                       </div>
                     </td>
-                    <td class="py-3 px-3 text-right"><button onclick="openPatientChartModal('Meera Kapoor', 'Cervicogenic Dizziness', 4, 8, 65)" class="text-teal-600 hover:underline font-bold">Edit Plan</button></td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="space-y-1">
+                        <div class="flex items-center justify-between text-[11px] font-bold text-slate-700 dark:text-slate-300">
+                          <span>4 / 8 Visits</span>
+                          <span class="text-teal-600 dark:text-teal-400">50%</span>
+                        </div>
+                        <div class="w-24 bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                          <div class="bg-teal-500 h-full rounded-full" style="width: 50%"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-4 text-right whitespace-nowrap">
+                      <button onclick="openPatientChartModal('Sarah Jenkins', 'Cervicogenic Dizziness', 4, 8, 50)" class="px-2.5 py-1 rounded-xl text-xs font-bold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs">
+                        Review Chart
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -689,42 +797,80 @@
               </div>
               <span class="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-950 px-2.5 py-1 rounded-full">All Accounts Balanced</span>
             </div>
-            <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs">
+            <!-- Mobile Horizontal Swipe Cue -->
+            <div class="sm:hidden flex items-center justify-between text-[11px] font-semibold text-slate-400 dark:text-slate-500 mb-2 px-1">
+              <span>Financial Ledger</span>
+              <span class="flex items-center gap-1 text-teal-600 dark:text-teal-400">
+                <span>Swipe table</span>
+                <svg class="w-3.5 h-3.5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </span>
+            </div>
+            <div class="overflow-x-auto scrollbar-thin rounded-2xl border border-slate-200/80 dark:border-slate-800">
+              <table class="w-full min-w-[760px] text-left border-collapse text-xs">
                 <thead>
-                  <tr class="text-[10px] uppercase text-slate-400 border-b border-slate-200 dark:border-slate-700">
-                    <th class="py-2.5 px-3">Transaction ID</th>
-                    <th class="py-2.5 px-3">Patient</th>
-                    <th class="py-2.5 px-3">Service</th>
-                    <th class="py-2.5 px-3">Method</th>
-                    <th class="py-2.5 px-3">Amount</th>
-                    <th class="py-2.5 px-3">Status</th>
+                  <tr class="bg-slate-50/90 dark:bg-slate-900/80 text-slate-500 dark:text-slate-400 text-[11px] font-extrabold uppercase tracking-wider border-b border-slate-200/80 dark:border-slate-800">
+                    <th class="py-3 px-4">Transaction ID</th>
+                    <th class="py-3 px-4">Patient</th>
+                    <th class="py-3 px-4">Service</th>
+                    <th class="py-3 px-4">Method</th>
+                    <th class="py-3 px-4">Amount</th>
+                    <th class="py-3 px-4">Status</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
-                    <td class="py-3 px-3 font-mono font-bold text-teal-600">TXN-8801</td>
-                    <td class="py-3 px-3 font-bold text-slate-900 dark:text-white">Rajesh Sharma</td>
-                    <td class="py-3 px-3">Orthopedic Physiotherapy</td>
-                    <td class="py-3 px-3">UPI / GPay</td>
-                    <td class="py-3 px-3 font-bold">₹1,499</td>
-                    <td class="py-3 px-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">Settled</span></td>
+                  <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
+                    <td class="py-3.5 px-4 whitespace-nowrap font-mono font-extrabold text-teal-700 dark:text-teal-400 text-xs">TXN-8801</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap font-extrabold text-slate-900 dark:text-white text-xs">Michael Roberts</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap text-xs text-slate-700 dark:text-slate-300 font-medium">Orthopedic Rehabilitation</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap text-xs">
+                      <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium text-[11px]">
+                        <svg class="w-3 h-3 text-teal-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/><path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/></svg>
+                        <span>Aetna PPO Co-pay</span>
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap font-extrabold text-slate-900 dark:text-white text-xs">$140.00</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 shadow-xs">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Settled</span>
+                      </span>
+                    </td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
-                    <td class="py-3 px-3 font-mono font-bold text-teal-600">TXN-8802</td>
-                    <td class="py-3 px-3 font-bold text-slate-900 dark:text-white">Pravin Kumar</td>
-                    <td class="py-3 px-3">Spine &amp; Posture Care</td>
-                    <td class="py-3 px-3">HSA / Insurance Card</td>
-                    <td class="py-3 px-3 font-bold">₹1,499</td>
-                    <td class="py-3 px-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">Settled</span></td>
+                  <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
+                    <td class="py-3.5 px-4 whitespace-nowrap font-mono font-extrabold text-teal-700 dark:text-teal-400 text-xs">TXN-8802</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap font-extrabold text-slate-900 dark:text-white text-xs">Pravin Kumar</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap text-xs text-slate-700 dark:text-slate-300 font-medium">Spine &amp; Posture Care</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap text-xs">
+                      <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium text-[11px]">
+                        <svg class="w-3 h-3 text-teal-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/><path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/></svg>
+                        <span>HSA Debit Card</span>
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap font-extrabold text-slate-900 dark:text-white text-xs">$140.00</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 shadow-xs">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Settled</span>
+                      </span>
+                    </td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
-                    <td class="py-3 px-3 font-mono font-bold text-teal-600">TXN-8803</td>
-                    <td class="py-3 px-3 font-bold text-slate-900 dark:text-white">Meera Kapoor</td>
-                    <td class="py-3 px-3">Neurological Rehab</td>
-                    <td class="py-3 px-3">Credit Card</td>
-                    <td class="py-3 px-3 font-bold">₹1,799</td>
-                    <td class="py-3 px-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">Settled</span></td>
+                  <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
+                    <td class="py-3.5 px-4 whitespace-nowrap font-mono font-extrabold text-teal-700 dark:text-teal-400 text-xs">TXN-8803</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap font-extrabold text-slate-900 dark:text-white text-xs">Sarah Jenkins</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap text-xs text-slate-700 dark:text-slate-300 font-medium">Neurological Rehabilitation</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap text-xs">
+                      <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium text-[11px]">
+                        <svg class="w-3 h-3 text-teal-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/><path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/></svg>
+                        <span>Blue Shield Direct</span>
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap font-extrabold text-slate-900 dark:text-white text-xs">$180.00</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 shadow-xs">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Settled</span>
+                      </span>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -751,7 +897,7 @@
                   <p class="text-slate-400 text-[11px]">Spine &amp; Posture Care (CPT 97110/97140) • Oct 24, 2026</p>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="font-bold text-slate-900 dark:text-white">₹1,499</span>
+                  <span class="font-bold text-slate-900 dark:text-white">$140.00</span>
                   <button onclick="window.print()" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition">Print PDF</button>
                 </div>
               </div>
@@ -761,7 +907,7 @@
                   <p class="text-slate-400 text-[11px]">Orthopedic Physiotherapy (CPT 97110/97140) • Oct 25, 2026</p>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="font-bold text-slate-900 dark:text-white">₹1,499</span>
+                  <span class="font-bold text-slate-900 dark:text-white">$140.00</span>
                   <button onclick="window.print()" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition">Print PDF</button>
                 </div>
               </div>
@@ -860,46 +1006,84 @@
               <span class="text-xs font-bold text-teal-600 bg-teal-50 dark:bg-teal-950 px-2.5 py-1 rounded-full">5 Tiers Active</span>
             </div>
 
-            <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs">
+            <!-- Mobile Horizontal Swipe Cue -->
+            <div class="sm:hidden flex items-center justify-between text-[11px] font-semibold text-slate-400 dark:text-slate-500 mb-2 px-1">
+              <span>Security &amp; Permissions</span>
+              <span class="flex items-center gap-1 text-teal-600 dark:text-teal-400">
+                <span>Swipe table</span>
+                <svg class="w-3.5 h-3.5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </span>
+            </div>
+            <div class="overflow-x-auto scrollbar-thin rounded-2xl border border-slate-200/80 dark:border-slate-800">
+              <table class="w-full min-w-[700px] text-left border-collapse text-xs">
                 <thead>
-                  <tr class="text-[10px] uppercase text-slate-400 border-b border-slate-200 dark:border-slate-700">
-                    <th class="py-2.5 px-3">Role Tier</th>
-                    <th class="py-2.5 px-3">System Permissions</th>
-                    <th class="py-2.5 px-3">Active Users</th>
-                    <th class="py-2.5 px-3">Data Scope</th>
+                  <tr class="bg-slate-50/90 dark:bg-slate-900/80 text-slate-500 dark:text-slate-400 text-[11px] font-extrabold uppercase tracking-wider border-b border-slate-200/80 dark:border-slate-800">
+                    <th class="py-3 px-4">Role Tier</th>
+                    <th class="py-3 px-4">System Permissions</th>
+                    <th class="py-3 px-4">Active Users</th>
+                    <th class="py-3 px-4">Data Scope</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
-                    <td class="py-3 px-3 font-bold text-teal-700 dark:text-teal-400">Super Admin</td>
-                    <td class="py-3 px-3">Full Master Access &amp; Audit Logs</td>
-                    <td class="py-3 px-3 font-bold">2 Directors</td>
-                    <td class="py-3 px-3">All Clinic Data</td>
+                  <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-teal-700 dark:text-teal-400 text-xs">Super Admin</div>
+                      <div class="text-[10px] text-slate-400 font-mono">Tier 0 &bull; Master Control</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200/80 dark:border-teal-800/60 shadow-xs">
+                        <span>Full Master Access &amp; Audit Logs</span>
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap font-extrabold text-slate-900 dark:text-white text-xs">2 Directors</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <span class="text-xs font-bold text-slate-700 dark:text-slate-300">All Clinic Data (Global)</span>
+                    </td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
-                    <td class="py-3 px-3 font-bold text-slate-900 dark:text-white">Receptionist</td>
-                    <td class="py-3 px-3">Appointments &amp; Patient Intake</td>
-                    <td class="py-3 px-3 font-bold">4 Staff</td>
-                    <td class="py-3 px-3">Front Desk Ledger</td>
+                  <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-slate-900 dark:text-white text-xs">Front Desk Intake</div>
+                      <div class="text-[10px] text-slate-400 font-mono">Tier 1 &bull; Operational</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200/80 dark:border-sky-800/60 shadow-xs">
+                        <span>Bookings &amp; Patient Check-In</span>
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap font-extrabold text-slate-900 dark:text-white text-xs">4 Staff</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Front Desk &amp; Daily Ledger</span>
+                    </td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
-                    <td class="py-3 px-3 font-bold text-slate-900 dark:text-white">Therapist Faculty</td>
-                    <td class="py-3 px-3">Assigned Patients &amp; Clinical EMR Notes</td>
-                    <td class="py-3 px-3 font-bold">12 Clinicians</td>
-                    <td class="py-3 px-3">Assigned Patient Cohort</td>
+                  <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-slate-900 dark:text-white text-xs">Doctoral Faculty (DPT)</div>
+                      <div class="text-[10px] text-slate-400 font-mono">Tier 2 &bull; Clinical Care</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 shadow-xs">
+                        <span>Assigned Patients &amp; EMR Notes</span>
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap font-extrabold text-slate-900 dark:text-white text-xs">12 Clinicians</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Assigned Patient Cohort</span>
+                    </td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
-                    <td class="py-3 px-3 font-bold text-slate-900 dark:text-white">Accountant</td>
-                    <td class="py-3 px-3">Billing, Invoices &amp; Superbills</td>
-                    <td class="py-3 px-3 font-bold">2 Billing Specialists</td>
-                    <td class="py-3 px-3">Financial Transactions</td>
-                  </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
-                    <td class="py-3 px-3 font-bold text-slate-900 dark:text-white">Patient</td>
-                    <td class="py-3 px-3">Own Care Plan, HEP &amp; Bookings</td>
-                    <td class="py-3 px-3 font-bold">1,250 Patients</td>
-                    <td class="py-3 px-3">Own Isolated Records Only</td>
+                  <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-slate-900 dark:text-white text-xs">Billing &amp; Revenue</div>
+                      <div class="text-[10px] text-slate-400 font-mono">Tier 3 &bull; Financials</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200/80 dark:border-amber-800/60 shadow-xs">
+                        <span>Claims, Superbills &amp; Invoices</span>
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap font-extrabold text-slate-900 dark:text-white text-xs">3 Specialists</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Revenue &amp; Insurance Claims</span>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -942,9 +1126,16 @@
               </div>
             </div>
 
-            <!-- Table -->
-            <div class="overflow-x-auto">
-              <table class="w-full text-left border-collapse">
+            <!-- Mobile Horizontal Swipe Cue -->
+            <div class="sm:hidden flex items-center justify-between text-[11px] font-semibold text-slate-400 dark:text-slate-500 mb-2 px-1">
+              <span>Patient Enquiries</span>
+              <span class="flex items-center gap-1 text-[#db2777] dark:text-pink-400">
+                <span>Swipe table</span>
+                <svg class="w-3.5 h-3.5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </span>
+            </div>
+            <div class="overflow-x-auto scrollbar-thin rounded-2xl">
+              <table class="w-full min-w-[760px] text-left border-collapse">
                 <thead>
                   <tr class="border-b border-slate-100 dark:border-slate-800 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                     <th class="py-3.5 px-4 font-bold">FROM</th>
@@ -1088,7 +1279,7 @@
                   </div>
                   <div>
                     <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Timezone & Base Currency</label>
-                    <input type="text" value="Asia/Kolkata (IST) • INR (₹)" readonly class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-500">
+                    <input type="text" value="Asia/Kolkata (IST) • INR ($)" readonly class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-500">
                   </div>
                 </div>
               </div>
@@ -1270,8 +1461,6 @@
             </div>
 
           </div>
-
-        </div>
 
       </main>
 
@@ -1865,8 +2054,8 @@
           const avatarStyle = patientAvatarStyles[idx % patientAvatarStyles.length];
           const initials = getPatientInitials(p.name);
           return `
-          <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
-            <td class="py-3.5 px-4">
+          <tr class="hover:bg-teal-50/40 dark:hover:bg-teal-950/30 transition-colors group">
+            <td class="py-3.5 px-4 whitespace-nowrap">
               <div class="flex items-center gap-3">
                 <div class="w-9 h-9 rounded-full ${avatarStyle} border flex items-center justify-center font-extrabold text-[11px] shadow-xs flex-shrink-0">
                   ${initials}
@@ -1874,45 +2063,49 @@
                 <div>
                   <div class="font-extrabold text-slate-900 dark:text-white text-[13px] leading-tight group-hover:text-teal-600 transition-colors">${p.name}</div>
                   <div class="text-[11px] text-slate-400 dark:text-slate-400 mt-0.5 flex items-center gap-1.5 font-normal">
-                    <span class="font-mono text-teal-600 dark:text-teal-400 font-bold">PT00${idx + 1}</span>
+                    <span class="font-mono text-teal-600 dark:text-teal-400 font-bold">#PT-00${idx + 1}</span>
                     <span>&bull;</span>
                     <span class="truncate max-w-[130px]">${p.email}</span>
                   </div>
                 </div>
               </div>
             </td>
-            <td class="py-3.5 px-4">
+            <td class="py-3.5 px-4 whitespace-nowrap">
               <div class="font-bold text-slate-800 dark:text-slate-200 text-xs flex items-center gap-1.5">
                 <span class="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0"></span>
                 <span>${p.diagnosis}</span>
               </div>
-              <div class="text-[11px] text-slate-400 dark:text-slate-400 mt-0.5 pl-3">Clinical Care Plan</div>
+              <div class="text-[10px] text-slate-400 pl-3">Doctoral Rehabilitation Protocol</div>
             </td>
-            <td class="py-3.5 px-4">
+            <td class="py-3.5 px-4 whitespace-nowrap">
               <div class="flex items-center gap-2">
-                <div class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-teal-700 dark:text-teal-300 text-[10px] font-extrabold flex-shrink-0">
-                  PT
-                </div>
+                <div class="w-6 h-6 rounded-full bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 flex items-center justify-center text-[10px] font-bold">PT</div>
                 <div class="font-bold text-slate-800 dark:text-slate-200 text-xs">${p.assignedDoctor || 'Dr. Elena Vance, DPT'}</div>
               </div>
             </td>
-            <td class="py-3.5 px-4">
-              <div class="font-extrabold text-slate-900 dark:text-white text-xs">${p.sessionsCompleted} / ${p.sessionsTotal}</div>
-              <div class="text-[10px] text-slate-400 font-medium mt-0.5">${p.sessionsTotal - p.sessionsCompleted} sessions remaining</div>
-            </td>
-            <td class="py-3.5 px-4">
-              <div class="flex items-center gap-2.5">
-                <div class="w-20 bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden p-0.5">
-                  <div class="bg-gradient-to-r from-teal-500 to-emerald-500 h-full rounded-full transition-all duration-500" style="width: ${p.recoveryScore}%;"></div>
+            <td class="py-3.5 px-4 whitespace-nowrap">
+              <div class="space-y-1">
+                <div class="flex items-center justify-between text-[11px] font-bold text-slate-700 dark:text-slate-300">
+                  <span>${p.sessionsCompleted || 6} / ${p.sessionsTotal || 10} Sessions</span>
+                  <span class="text-teal-600 dark:text-teal-400 font-bold">${Math.round(((p.sessionsCompleted || 6) / (p.sessionsTotal || 10)) * 100)}%</span>
                 </div>
-                <span class="font-extrabold text-xs text-teal-700 dark:text-teal-400">${p.recoveryScore}%</span>
+                <div class="w-24 bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                  <div class="bg-teal-500 h-full rounded-full" style="width: ${Math.round(((p.sessionsCompleted || 6) / (p.sessionsTotal || 10)) * 100)}%"></div>
+                </div>
               </div>
             </td>
-            <td class="py-3.5 px-4 text-right">
-              <button onclick="openPatientChartModal('${p.name}', '${p.diagnosis}', '${p.sessionsCompleted}', '${p.sessionsTotal}', '${p.recoveryScore}', '${p.assignedDoctor || 'Dr. Elena Vance, DPT'}')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 text-teal-700 dark:text-teal-300 font-bold text-xs border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs group">
-                <span>View Chart</span>
-                <svg class="w-3 h-3 transform group-hover:translate-x-0.5 transition-transform rtl-chevron-flip" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-              </button>
+            <td class="py-3.5 px-4 whitespace-nowrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 shadow-xs">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Active Protocol</span>
+              </span>
+            </td>
+            <td class="py-3.5 px-4 text-right whitespace-nowrap">
+              <div class="flex items-center justify-end gap-1.5">
+                <button onclick="openPatientChartModal('${p.name}', '${p.diagnosis}', ${p.sessionsCompleted || 6}, ${p.sessionsTotal || 10}, ${p.recoveryScore || 78})" class="px-2.5 py-1 rounded-xl text-xs font-bold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs">
+                  Chart
+                </button>
+              </div>
             </td>
           </tr>`;
         }).join('');

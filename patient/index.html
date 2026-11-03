@@ -146,7 +146,7 @@
     <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
       
       <!-- Top Header Navigation Bar (72px height, matching Admin Dashboard) -->
-      <header class="h-[72px] sticky top-0 z-30 bg-white/90 dark:bg-[#151F2E]/90 backdrop-blur border-b border-slate-200 dark:border-slate-800 px-6 flex items-center justify-between">
+      <header class="h-[72px] sticky top-0 z-30 bg-white/90 dark:bg-[#151F2E]/90 backdrop-blur border-b border-slate-200 dark:border-slate-800 px-4 sm:px-6 flex items-center justify-between">
         
         <!-- Left: Mobile Menu Toggle & Portal Status Badge -->
         <div class="flex items-center gap-3">
@@ -159,7 +159,7 @@
         </div>
 
         <!-- Right: Actions & Profile (RTL, Theme, Circular Avatar Icon) -->
-        <div class="flex items-center gap-2.5">
+        <div class="flex items-center gap-2 sm:gap-2.5">
           <!-- RTL Switcher -->
           <button type="button" class="rtl-toggle-btn w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700/80 bg-white dark:bg-slate-800/80 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition shadow-sm flex items-center justify-center cursor-pointer" aria-label="Toggle RTL Layout" title="Toggle RTL (Right to Left)">
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -233,7 +233,7 @@
       </header>
 
       <!-- Dashboard Tab Views Container -->
-      <div class="p-6 md:p-8 space-y-8 max-w-7xl mx-auto w-full">
+      <div class="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 max-w-7xl mx-auto w-full">
 
         <!-- Main Section Header: Dynamic Page Heading & Subtitle -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-slate-800/80">
@@ -494,12 +494,12 @@
         <!-- TAB 2: MY APPOINTMENTS -->
         <!-- ========================================== -->
         <section id="ptab-appointments" class="portal-tab-content hidden space-y-6">
-          <div class="flex items-center justify-end gap-3">
-              <button onclick="openBookingModal()" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm transition flex items-center gap-2">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-                <span>Book New Session</span>
-              </button>
-            </div>
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+            <div class="text-xs text-slate-500 font-medium hidden sm:block">Doctoral physical therapy consultations &amp; follow-up rehabilitation care</div>
+            <button onclick="openBookingModal()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-sm transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              <span>+ Book New Session</span>
+            </button>
           </div>
 
           <!-- Filter Pills -->
@@ -511,8 +511,16 @@
 
           <!-- Appointments Table Card -->
           <div class="bg-white dark:bg-[#151F2E] rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
-            <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs">
+            <!-- Mobile Horizontal Swipe Cue -->
+            <div class="sm:hidden flex items-center justify-between text-[11px] font-semibold text-slate-400 dark:text-slate-500 mb-2 px-1">
+              <span>Appointment Schedule</span>
+              <span class="flex items-center gap-1 text-teal-600 dark:text-teal-400">
+                <span>Swipe table</span>
+                <svg class="w-3.5 h-3.5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </span>
+            </div>
+            <div class="overflow-x-auto scrollbar-thin rounded-2xl">
+              <table class="w-full min-w-[760px] text-left text-xs border-collapse">
                 <thead class="bg-slate-50 dark:bg-slate-900/60 text-slate-400 font-extrabold uppercase tracking-wider text-[10px] border-b border-slate-100 dark:border-slate-800">
                   <tr>
                     <th class="py-4 px-4">Service & Focus</th>
@@ -1035,9 +1043,8 @@
         <!-- ========================================== -->
         <section id="ptab-exercises" class="portal-tab-content hidden space-y-6">
           <div class="flex items-center justify-end gap-2">
-              <span class="text-xs font-semibold text-slate-500">Today's Adherence:</span>
-              <span id="hep-adherence-badge" class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">100% Completed</span>
-            </div>
+            <span class="text-xs font-semibold text-slate-500">Today's Adherence:</span>
+            <span id="hep-adherence-badge" class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">100% Completed</span>
           </div>
 
           <!-- Exercises Grid -->
@@ -1051,17 +1058,29 @@
         <!-- TAB 8: PAYMENTS & INVOICES -->
         <!-- ========================================== -->
         <section id="ptab-payments" class="portal-tab-content hidden space-y-6">
-          <div class="p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
-            <div class="flex items-center justify-end gap-4">
+          <div class="p-4 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-[#151F2E] border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+            <div class="flex items-center justify-between gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800">
+              <div>
+                <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Account Billing Status</span>
+                <p class="text-[11px] text-slate-400">Direct insurance &amp; patient responsibility</p>
+              </div>
               <div class="text-right">
-                <span class="text-xs text-slate-400">Outstanding Balance</span>
-                <h3 class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400">₹0.00</h3>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Outstanding Balance</span>
+                <h3 class="text-xl sm:text-2xl font-extrabold text-emerald-600 dark:text-emerald-400">$0.00</h3>
               </div>
             </div>
 
             <!-- Invoices Table -->
-            <div class="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden">
-              <table class="w-full text-left text-xs">
+            <!-- Mobile Horizontal Swipe Cue -->
+            <div class="sm:hidden flex items-center justify-between text-[11px] font-semibold text-slate-400 dark:text-slate-500 mb-2 px-1">
+              <span>Superbills &amp; Invoices</span>
+              <span class="flex items-center gap-1 text-teal-600 dark:text-teal-400">
+                <span>Swipe table</span>
+                <svg class="w-3.5 h-3.5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </span>
+            </div>
+            <div class="overflow-x-auto scrollbar-thin border border-slate-200 dark:border-slate-800 rounded-2xl">
+              <table class="w-full min-w-[720px] text-left text-xs border-collapse">
                 <thead class="bg-slate-50 dark:bg-slate-900/60 text-slate-400 font-extrabold uppercase tracking-wider text-[10px] border-b border-slate-100 dark:border-slate-800">
                   <tr>
                     <th class="py-3 px-4">Invoice #</th>
@@ -1073,34 +1092,94 @@
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
-                    <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">#INV-9028</td>
-                    <td class="py-3.5 px-4">Spine & Posture Care (CPT 97110/97140)</td>
-                    <td class="py-3.5 px-4 text-slate-500">Oct 30, 2026</td>
-                    <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">₹1,499</td>
-                    <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300">Paid</span></td>
-                    <td class="py-3.5 px-4 text-right">
-                      <button onclick="openSuperbillModal('INV-9028', 'Oct 30, 2026', 'Spine & Posture Care', 'Dr. Elena Vance, DPT', '₹1,499')" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">View Superbill</button>
+                  <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-mono font-extrabold text-teal-700 dark:text-teal-400 text-xs">#INV-9028</div>
+                      <div class="text-[10px] text-slate-400 font-medium">Claim #CLM-4481</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-slate-900 dark:text-white text-xs">Spine &amp; Posture Care</div>
+                      <div class="text-[11px] text-slate-400 flex items-center gap-1.5 mt-0.5">
+                        <span class="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-[10px] font-mono">CPT 97110/97140</span>
+                        <span>&bull;</span>
+                        <span>ICD-10 M54.5</span>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap text-slate-600 dark:text-slate-300 font-medium text-xs">Oct 30, 2026</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-slate-900 dark:text-white text-xs">$140.00</div>
+                      <div class="text-[10px] text-emerald-600 font-medium">Aetna PPO Paid</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 shadow-xs">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Paid in Full</span>
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-4 text-right whitespace-nowrap">
+                      <button onclick="openSuperbillModal('INV-9028', 'Oct 30, 2026', 'Spine &amp; Posture Care', 'Dr. Elena Vance, DPT', '$140.00')" class="px-3 py-1.5 rounded-xl text-xs font-bold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs">
+                        View Superbill
+                      </button>
                     </td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
-                    <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">#INV-9025</td>
-                    <td class="py-3.5 px-4">Guided Therapeutic Exercise (CPT 97110)</td>
-                    <td class="py-3.5 px-4 text-slate-500">Oct 28, 2026</td>
-                    <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">₹1,499</td>
-                    <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300">Paid</span></td>
-                    <td class="py-3.5 px-4 text-right">
-                      <button onclick="openSuperbillModal('INV-9025', 'Oct 28, 2026', 'Guided Therapeutic Exercise', 'Dr. Elena Vance, DPT', '₹1,499')" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">View Superbill</button>
+                  <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-mono font-extrabold text-teal-700 dark:text-teal-400 text-xs">#INV-9025</div>
+                      <div class="text-[10px] text-slate-400 font-medium">Claim #CLM-4412</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-slate-900 dark:text-white text-xs">Guided Therapeutic Exercise</div>
+                      <div class="text-[11px] text-slate-400 flex items-center gap-1.5 mt-0.5">
+                        <span class="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-[10px] font-mono">CPT 97110</span>
+                        <span>&bull;</span>
+                        <span>ICD-10 M54.5</span>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap text-slate-600 dark:text-slate-300 font-medium text-xs">Oct 28, 2026</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-slate-900 dark:text-white text-xs">$140.00</div>
+                      <div class="text-[10px] text-emerald-600 font-medium">HSA Debit Paid</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 shadow-xs">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Paid in Full</span>
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-4 text-right whitespace-nowrap">
+                      <button onclick="openSuperbillModal('INV-9025', 'Oct 28, 2026', 'Guided Therapeutic Exercise', 'Dr. Elena Vance, DPT', '$140.00')" class="px-3 py-1.5 rounded-xl text-xs font-bold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs">
+                        View Superbill
+                      </button>
                     </td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
-                    <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">#INV-9021</td>
-                    <td class="py-3.5 px-4">Orthopedic Initial Assessment (CPT 97161)</td>
-                    <td class="py-3.5 px-4 text-slate-500">Oct 24, 2026</td>
-                    <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-white">₹1,499</td>
-                    <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300">Paid</span></td>
-                    <td class="py-3.5 px-4 text-right">
-                      <button onclick="openSuperbillModal('INV-9021', 'Oct 24, 2026', 'Orthopedic Initial Assessment', 'Dr. Elena Vance, DPT', '₹1,499')" class="text-teal-700 dark:text-teal-400 font-bold hover:underline">View Superbill</button>
+                  <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-mono font-extrabold text-teal-700 dark:text-teal-400 text-xs">#INV-9019</div>
+                      <div class="text-[10px] text-slate-400 font-medium">Claim #CLM-4309</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-slate-900 dark:text-white text-xs">Doctoral Initial Assessment</div>
+                      <div class="text-[11px] text-slate-400 flex items-center gap-1.5 mt-0.5">
+                        <span class="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-[10px] font-mono">CPT 97161</span>
+                        <span>&bull;</span>
+                        <span>Evaluation 60m</span>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap text-slate-600 dark:text-slate-300 font-medium text-xs">Oct 24, 2026</td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <div class="font-extrabold text-slate-900 dark:text-white text-xs">$180.00</div>
+                      <div class="text-[10px] text-emerald-600 font-medium">Visa Direct Paid</div>
+                    </td>
+                    <td class="py-3.5 px-4 whitespace-nowrap">
+                      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 shadow-xs">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Paid in Full</span>
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-4 text-right whitespace-nowrap">
+                      <button onclick="openSuperbillModal('INV-9019', 'Oct 24, 2026', 'Initial Assessment', 'Dr. Elena Vance, DPT', '$180.00')" class="px-3 py-1.5 rounded-xl text-xs font-bold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs">
+                        View Superbill
+                      </button>
                     </td>
                   </tr>
                 </tbody>
@@ -1289,7 +1368,6 @@
                 <p class="text-slate-500 leading-relaxed">Yes! All invoices include CPT codes (97110, 97140) and our clinician's NPI number for seamless health insurance reimbursement.</p>
               </div>
             </div>
-          </div>
         </section>
 
       </div>
@@ -1322,10 +1400,10 @@
         <div>
           <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Select Treatment Service</label>
           <select id="bk-service" onchange="updateBookingDoctor()" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
-            <option value="Spine & Posture Care">Spine & Posture Care (Dr. Elena Vance) - ₹1,499</option>
-            <option value="Orthopedic Physiotherapy">Orthopedic Physiotherapy (Dr. Marcus Chen) - ₹1,499</option>
-            <option value="Neurological Rehabilitation">Neurological Rehabilitation (Dr. Priya Patel) - ₹1,499</option>
-            <option value="Sports Physiotherapy">Sports Physiotherapy (Dr. Sarah Jenkins) - ₹1,499</option>
+            <option value="Spine & Posture Care">Spine & Posture Care (Dr. Elena Vance) - $140.00</option>
+            <option value="Orthopedic Physiotherapy">Orthopedic Physiotherapy (Dr. Marcus Chen) - $140.00</option>
+            <option value="Neurological Rehabilitation">Neurological Rehabilitation (Dr. Priya Patel) - $140.00</option>
+            <option value="Sports Physiotherapy">Sports Physiotherapy (Dr. Sarah Jenkins) - $140.00</option>
           </select>
         </div>
 
@@ -1353,7 +1431,7 @@
 
         <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px]">
           <span class="text-slate-500">Private Suite 02 • Doctoral 1-on-1</span>
-          <span class="font-bold text-slate-900 dark:text-white">Fee: ₹1,499</span>
+          <span class="font-bold text-slate-900 dark:text-white">Fee: $140.00</span>
         </div>
 
         <button type="submit" class="w-full py-3 rounded-2xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-md transition">
@@ -1398,7 +1476,7 @@
               <p class="font-bold text-slate-900 dark:text-white" id="sb-service-name">Spine & Posture Care</p>
               <p class="text-[10px] text-slate-400">CPT 97110 (Therapeutic Exercise) + CPT 97140 (Manual Therapy)</p>
             </div>
-            <p class="font-extrabold text-slate-900 dark:text-white" id="sb-amount">₹1,499</p>
+            <p class="font-extrabold text-slate-900 dark:text-white" id="sb-amount">$140.00</p>
           </div>
         </div>
 
@@ -1603,7 +1681,7 @@
                       <span>Cancel</span>
                     </button>
                   ` : `
-                    <button onclick="openSuperbillModal('INV-9021', '${a.date}', '${a.service}', '${a.therapist}', '₹1,499')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs">
+                    <button onclick="openSuperbillModal('INV-9021', '${a.date}', '${a.service}', '${a.therapist}', '$140.00')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs">
                       <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                       <span>Superbill</span>
                     </button>
@@ -1653,38 +1731,51 @@
                 : `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-xs"><span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>Completed</span>`));
 
           return `
-          <tr class="hover:bg-teal-50/30 dark:hover:bg-teal-950/20 transition-colors group">
-            <td class="py-3.5 px-4">
-              <div class="font-extrabold text-slate-900 dark:text-white text-xs group-hover:text-teal-600 transition-colors flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+          <tr class="hover:bg-teal-50/40 dark:hover:bg-teal-950/30 transition-colors group">
+            <td class="py-3.5 px-4 whitespace-nowrap">
+              <div class="font-extrabold text-slate-900 dark:text-white text-xs group-hover:text-teal-600 transition-colors flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-teal-500"></span>
                 <span>${a.service}</span>
               </div>
-              <div class="text-[11px] text-slate-400 dark:text-slate-500 pl-3 mt-0.5 font-medium">CPT 97110/97140 &bull; 45 Mins Care</div>
-            </td>
-            <td class="py-3.5 px-4">
-              <div class="flex items-center gap-2">
-                <div class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-teal-700 dark:text-teal-300 text-[10px] font-extrabold">PT</div>
-                <div class="font-bold text-slate-800 dark:text-slate-200 text-xs">${a.therapist}</div>
+              <div class="text-[11px] text-slate-400 dark:text-slate-500 pl-4 mt-0.5 font-medium flex items-center gap-1.5">
+                <span class="font-mono text-teal-600 dark:text-teal-400 font-bold">CPT 97110/97140</span>
+                <span>&bull;</span>
+                <span>45 Mins Care</span>
               </div>
             </td>
-            <td class="py-3.5 px-4">
+            <td class="py-3.5 px-4 whitespace-nowrap">
+              <div class="flex items-center gap-2.5">
+                <div class="w-7 h-7 rounded-full bg-teal-50 dark:bg-teal-950/80 border border-teal-200 dark:border-teal-800/80 flex items-center justify-center text-teal-700 dark:text-teal-300 text-[10px] font-extrabold flex-shrink-0">
+                  PT
+                </div>
+                <div>
+                  <div class="font-bold text-slate-800 dark:text-slate-200 text-xs">${a.therapist}</div>
+                  <div class="text-[10px] text-slate-400 font-medium">Doctor of Physical Therapy</div>
+                </div>
+              </div>
+            </td>
+            <td class="py-3.5 px-4 whitespace-nowrap">
               <div class="font-bold text-slate-900 dark:text-white text-xs flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <svg class="w-3.5 h-3.5 text-teal-600 dark:text-teal-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 <span>${a.date}</span>
               </div>
+              <div class="text-[10px] text-slate-400 pl-5">Confirmed Clinical Slot</div>
             </td>
-            <td class="py-3.5 px-4">
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-                Suite 02 (${a.type || 'In-Person'})
+            <td class="py-3.5 px-4 whitespace-nowrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span>Suite 02 (Private Suite)</span>
               </span>
             </td>
-            <td class="py-3.5 px-4">
+            <td class="py-3.5 px-4 whitespace-nowrap">
               ${statusPill}
             </td>
-            <td class="py-3.5 px-4 text-right">
-              <button onclick="openBookingModal()" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs">
-                <span>Manage</span>
-              </button>
+            <td class="py-3.5 px-4 text-right whitespace-nowrap">
+              <div class="flex items-center justify-end gap-1.5">
+                <button onclick="openBookingModal()" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold text-teal-700 dark:text-teal-300 bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/60 dark:hover:bg-teal-900/60 border border-teal-200/80 dark:border-teal-800/60 transition shadow-xs">
+                  <span>Reschedule</span>
+                </button>
+              </div>
             </td>
           </tr>`;
         }).join('');
@@ -2003,7 +2094,7 @@ function togglePortalTheme() {
       if (initTab) switchTab(initTab);
 
       if (urlParams.get('modal') === 'superbill') {
-        openSuperbillModal('INV-9021', 'Oct 24, 2026', 'Spine & Posture Care', 'Dr. Elena Vance, DPT', '₹1,499');
+        openSuperbillModal('INV-9021', 'Oct 24, 2026', 'Spine & Posture Care', 'Dr. Elena Vance, DPT', '$140.00');
       }
     });
   
