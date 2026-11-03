@@ -164,15 +164,9 @@
       <main class="p-4 sm:p-6 lg:p-8 space-y-6 sm:space-y-8 flex-grow">
         
         <!-- Main Section Header: Dynamic Page Heading & Subtitle -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-slate-800/80">
-          <div>
-            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight" id="admin-tab-title"><bdi>Clinic Operations Dashboard</bdi></h1>
-            <p class="text-xs md:text-sm font-semibold text-slate-500 dark:text-slate-400 mt-1" id="admin-tab-subtitle"><bdi>Central Clinical Administration &bull; Multi-Suite Capacity</bdi></p>
-          </div>
-          <div class="flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span id="live-today-sub">Clinical Suites Online</span>
-          </div>
+        <div class="pb-6 border-b border-slate-200/80 dark:border-slate-800/80">
+          <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight" id="admin-tab-title"><bdi>Clinic Operations Dashboard</bdi></h1>
+          <p class="text-xs md:text-sm font-semibold text-slate-500 dark:text-slate-400 mt-1" id="admin-tab-subtitle"><bdi>Central Clinical Administration &bull; Multi-Suite Capacity</bdi></p>
         </div>
 
         <!-- ========================================== -->
@@ -414,14 +408,6 @@
         <!-- ========================================== -->
         <div id="atab-appointments" class="hidden space-y-6">
           <div class="bg-white dark:bg-[#151F2E] rounded-2xl border border-slate-200/80 dark:border-slate-800 p-6 space-y-4 shadow-sm">
-            <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-slate-800">
-              <div class="flex items-center gap-2">
-                <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Roster Filter &amp; Search:</span>
-              </div>
-              <button onclick="openNewAppointmentModal()" class="w-full sm:w-auto px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm">
-                <span>+ Create Appointment</span>
-              </button>
-            </div>
 
             <!-- Filter Controls -->
             <div class="grid grid-cols-1 sm:flex sm:flex-wrap items-center gap-2.5 w-full">
