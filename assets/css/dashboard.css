@@ -382,3 +382,41 @@
 .dark .scrollbar-thin {
   scrollbar-color: rgba(100, 116, 139, 0.45) transparent;
 }
+
+
+/* ==========================================================================
+   PORTAL DASHBOARD TABLES: Clean single-line layout on mobile & desktop
+   ========================================================================== */
+.overflow-x-auto table {
+  width: max-content !important;
+  min-width: 100% !important;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.overflow-x-auto table th,
+.overflow-x-auto table td {
+  white-space: nowrap !important;
+}
+
+.overflow-x-auto table td div,
+.overflow-x-auto table td p,
+.overflow-x-auto table td span {
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .overflow-x-auto table th {
+    padding-top: 0.625rem !important;
+    padding-bottom: 0.625rem !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    font-size: 10.5px !important;
+  }
+  .overflow-x-auto table td {
+    padding-top: 0.625rem !important;
+    padding-bottom: 0.625rem !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+}
